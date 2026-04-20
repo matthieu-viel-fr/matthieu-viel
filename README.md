@@ -48,10 +48,10 @@ Dans le repo → **Settings → Secrets and variables → Actions**, ajouter :
 
 | Secret         | Valeur                                             |
 |----------------|----------------------------------------------------|
-| `FTP_SERVER`   | Hôte FTP Gandi (ex: `ftpmastered.gandi.net`)       |
-| `FTP_USERNAME` | Identifiant FTP Gandi                              |
-| `FTP_PASSWORD` | Mot de passe FTP Gandi                             |
-| `FTP_PATH`     | Chemin cible sur le serveur (ex: `/`)              |
+| `FTP_SERVER`   | Hôte FTP       |
+| `FTP_USERNAME` | Identifiant FTP                              |
+| `FTP_PASSWORD` | Mot de passe FTP                             |
+| `FTP_PATH`     | Chemin cible sur le serveur (ex: `/www/matthieu-viel`)              |
 
 ## TODOs restants
 
