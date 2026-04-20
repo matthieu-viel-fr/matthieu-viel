@@ -525,6 +525,13 @@
 
 .contact__channel a:hover { color: var(--clr-white); }
 
+.contact__channel-label {
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.contact__channel-address { color: #a8c2d4; }
+
 /* Form */
 .form {
   background: rgba(255,255,255,.05);

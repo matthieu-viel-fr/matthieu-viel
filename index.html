@@ -124,7 +124,7 @@
 
             <hr class="hero__divider" aria-hidden="true">
 
-            <ul class="hero__stats" aria-label="Chiffres clés">
+            <ul class="hero__stats">
               <li class="hero__stat">
                 <span class="hero__stat-number">17</span>
                 <span class="hero__stat-label">ans d'expérience</span>
@@ -312,7 +312,7 @@
         <div class="testimonials__grid" role="group" aria-label="Témoignages">
 
           <article class="testimonial fade-up">
-            <p class="testimonial__stars" aria-label="5 étoiles">★★★★★</p>
+            <span class="testimonial__stars" role="img" aria-label="5 étoiles">★★★★★</span>
             <p class="testimonial__quote">
               A permis de sécuriser les mises en production et d'augmenter la vélocité de l'équipe.
             </p>
@@ -323,7 +323,7 @@
           </article>
 
           <article class="testimonial fade-up">
-            <p class="testimonial__stars" aria-label="5 étoiles">★★★★★</p>
+            <span class="testimonial__stars" role="img" aria-label="5 étoiles">★★★★★</span>
             <p class="testimonial__quote">
               Sérieux, fiable, fédérateur — n'a pas peur d'aborder de nouveaux challenges.
             </p>
@@ -334,7 +334,7 @@
           </article>
 
           <article class="testimonial fade-up">
-            <p class="testimonial__stars" aria-label="5 étoiles">★★★★★</p>
+            <span class="testimonial__stars" role="img" aria-label="5 étoiles">★★★★★</span>
             <p class="testimonial__quote">
               Tout ce qu'on attend d'un développeur expérimenté — précis, autonome, et pédagogue.
             </p>
@@ -507,7 +507,7 @@
               <div class="contact__channel">
                 <div class="contact__channel-icon" aria-hidden="true">📅</div>
                 <div>
-                  <strong style="color: #fff; font-size: 0.875rem;">Réserver un appel découverte</strong><br>
+                  <strong class="contact__channel-label">Réserver un appel découverte</strong><br>
                   <a href="https://calendly.com/matthieu-viel-fr/30min"
                      target="_blank"
                      rel="noopener noreferrer"
@@ -519,14 +519,14 @@
               <div class="contact__channel">
                 <div class="contact__channel-icon" aria-hidden="true">✉️</div>
                 <div>
-                  <strong style="color: #fff; font-size: 0.875rem;">Email</strong><br>
+                  <strong class="contact__channel-label">Email</strong><br>
                   <a href="mailto:matthieu.viel.fr@gmail.com">matthieu.viel.fr@gmail.com</a>
                 </div>
               </div>
               <div class="contact__channel">
                 <div class="contact__channel-icon" aria-hidden="true">🔗</div>
                 <div>
-                  <strong style="color: #fff; font-size: 0.875rem;">LinkedIn</strong><br>
+                  <strong class="contact__channel-label">LinkedIn</strong><br>
                   <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
                      target="_blank"
                      rel="noopener noreferrer">
@@ -536,7 +536,7 @@
               </div>
               <div class="contact__channel">
                 <div class="contact__channel-icon" aria-hidden="true">📍</div>
-                <div style="color: #a8c2d4;">
+                <div class="contact__channel-address">
                   Saint-Pierre · La Réunion 974<br>
                   Interventions sur site 974 &amp; remote France
                 </div>
@@ -551,7 +551,6 @@
                  Voir https://web3forms.com -->
             <form class="form"
                   id="contact-form"
-                  action=""
                   method="POST"
                   novalidate
                   aria-label="Formulaire de contact">
@@ -601,7 +600,7 @@
   <!-- ============================================================
        FOOTER
        ============================================================ -->
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="container footer__inner">
       <div>
         <p class="footer__brand">Matthieu Viel</p>
@@ -609,7 +608,7 @@
       </div>
 
       <nav aria-label="Liens du pied de page">
-        <ul class="footer__links" role="list">
+        <ul class="footer__links">
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#a-propos">À propos</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
@@ -630,19 +629,6 @@
       <p class="footer__copy">© 2025 Matthieu Viel</p>
     </div>
   </footer>
-
-  <!-- Fade-up animation styles (inline, minimal) -->
-  <style>
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .5s ease, transform .5s ease;
-    }
-    .fade-up.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-  </style>
 
   <script src="assets/js/main.js" defer></script>
 

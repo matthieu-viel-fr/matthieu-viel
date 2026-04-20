@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matthieu Viel — Portfolio & réalisations</title>
+  <title>Matthieu Viel — Portfolio &amp; réalisations</title>
   <meta name="description" content="Page en construction — portfolio de Matthieu Viel, consultant technique web à La Réunion.">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -12,13 +12,13 @@
 </head>
 <body>
 
-  <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+  <nav class="nav" id="nav" aria-label="Navigation principale">
     <div class="container nav__inner">
       <a href="/" class="nav__logo" aria-label="Matthieu Viel — Accueil">
         <span class="nav__logo-name">Matthieu Viel</span>
         <span class="nav__logo-tagline">Consultant technique web</span>
       </a>
-      <ul class="nav__links" id="nav-links" role="list">
+      <ul class="nav__links" id="nav-links">
         <li><a href="/#problemes">Mes interventions</a></li>
         <li><a href="/#a-propos">À propos</a></li>
         <li><a href="portfolio.html" class="is-active">Portfolio</a></li>
@@ -28,7 +28,7 @@
          class="btn btn--primary nav__cta"
          target="_blank" rel="noopener noreferrer"
          aria-label="Réserver un appel découverte">Réserver un appel</a>
-      <button class="nav__burger" id="nav-burger"
+      <button type="button" class="nav__burger" id="nav-burger"
               aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
@@ -36,11 +36,11 @@
   </nav>
 
   <main>
-    <section style="padding-block: calc(var(--nav-height) + 6rem) 6rem; text-align: center; background: var(--clr-bg-alt);">
+    <section class="placeholder-section">
       <div class="container">
         <p class="eyebrow">Portfolio</p>
-        <h1 class="section-title" style="font-size: var(--fs-4xl); margin-bottom: 1rem;">Mes réalisations</h1>
-        <p style="color: var(--clr-slate); font-size: var(--fs-lg); max-width: 480px; margin: 0 auto 2.5rem;">
+        <h1 class="section-title placeholder-section__title">Mes réalisations</h1>
+        <p class="placeholder-section__intro">
           Le portfolio détaillé est en cours de construction.
           En attendant, retrouvez mes principales missions sur la page d'accueil.
         </p>
@@ -49,7 +49,7 @@
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="container footer__inner">
       <div>
         <p class="footer__brand">Matthieu Viel</p>

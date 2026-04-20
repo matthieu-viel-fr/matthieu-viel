@@ -411,3 +411,31 @@ ul, ol { list-style: none; }
 .footer__links a:hover { color: var(--clr-white); }
 
 .footer__copy { color: #4a6a80; }
+
+/* Fade-up animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.fade-up.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Pages placeholder (portfolio, tech) */
+.placeholder-section {
+  padding-block: calc(var(--nav-height) + 6rem) 6rem;
+  text-align: center;
+  background: var(--clr-bg-alt);
+}
+.placeholder-section__title {
+  font-size: var(--fs-4xl);
+  margin-bottom: 1rem;
+}
+.placeholder-section__intro {
+  color: var(--clr-slate);
+  font-size: var(--fs-lg);
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+}
