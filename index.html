@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matthieu Viel — Consultant technique web · La Réunion</title>
+  <meta name="description" content="Consultant technique web senior à La Réunion. J'accompagne les dirigeants de PME réunionnaises dont l'outil digital montre ses limites. Audit honnête, recommandations concrètes, accompagnement équipe. 17 ans d'expérience.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://www.matthieu-viel.fr/">
+  <meta property="og:title"       content="Matthieu Viel — Consultant technique web · La Réunion">
+  <meta property="og:description" content="Votre outil digital montre ses limites ? J'accompagne les PME réunionnaises avec un regard technique senior — sans recruter un CTO à temps plein.">
+  <meta property="og:image"       content="https://www.matthieu-viel.fr/assets/images/portrait.jpg">
+  <meta name="twitter:card"       content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <!-- Schema.org Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "jobTitle": "Consultant technique web",
+    "url": "https://www.matthieu-viel.fr",
+    "image": "https://www.matthieu-viel.fr/assets/images/portrait.jpg",
+    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-Pierre",
+      "addressRegion": "La Réunion",
+      "addressCountry": "FR"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+    <div class="container nav__inner">
+      <a href="/" class="nav__logo" aria-label="Matthieu Viel — Accueil">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">Consultant technique web</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="#problemes">Mes interventions</a></li>
+        <li><a href="#a-propos">À propos</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="https://calendly.com/matthieu-viel-fr/30min"
+         class="btn btn--primary nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Réserver un appel découverte (ouvre Calendly)">
+        Réserver un appel
+      </a>
+
+      <button class="nav__burger"
+              id="nav-burger"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+              aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" id="accueil" aria-label="Introduction">
+      <div class="container">
+        <div class="hero__grid">
+
+          <div class="hero__content">
+            <p class="hero__tag">Consultant technique web · La Réunion</p>
+
+            <h1 class="hero__title">
+              Votre outil digital<br>
+              <em>montre ses limites.</em><br>
+              C'est là que j'interviens.
+            </h1>
+
+            <p class="hero__subtitle">
+              J'accompagne les dirigeants de PME réunionnaises qui ont besoin
+              d'un regard technique senior — sans recruter un CTO à temps plein.
+              Pas de jargon. Pas de refonte systématique.
+            </p>
+
+            <div class="hero__ctas">
+              <!-- TODO: remplacer # par le lien vers le test de performance -->
+              <a href="#"
+                 data-todo="lien-test-performance"
+                 class="btn btn--primary btn--lg"
+                 aria-label="Tester les performances de votre site">
+                Testez votre site →
+              </a>
+              <a href="https://calendly.com/matthieu-viel-fr/30min"
+                 class="btn btn--outline btn--lg"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Réserver un appel découverte (ouvre Calendly)">
+                Réserver un appel découverte
+              </a>
+            </div>
+
+            <hr class="hero__divider" aria-hidden="true">
+
+            <div class="hero__stats" role="list" aria-label="Chiffres clés">
+              <div class="hero__stat" role="listitem">
+                <span class="hero__stat-number">17</span>
+                <span class="hero__stat-label">ans d'expérience</span>
+              </div>
+              <div class="hero__stat" role="listitem">
+                <span class="hero__stat-number">500+</span>
+                <span class="hero__stat-label">scénarios de tests</span>
+              </div>
+              <div class="hero__stat" role="listitem">
+                <span class="hero__stat-number">974</span>
+                <span class="hero__stat-label">La Réunion</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero__photo-wrap">
+              <img src="assets/images/portrait.jpg"
+                   alt="Matthieu Viel, consultant technique web à La Réunion"
+                   class="hero__photo"
+                   width="400"
+                   height="400"
+                   loading="eager">
+            </div>
+            <div class="hero__badge" aria-hidden="true">
+              <span class="hero__badge-dot"></span>
+              Disponible · Saint-Pierre, La Réunion
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROBLÈMES — "Vous reconnaissez-vous ?"
+         ============================================================ -->
+    <section class="section" id="problemes" aria-labelledby="problemes-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Vous reconnaissez-vous ?</p>
+          <h2 class="section-title" id="problemes-title">
+            Deux situations dans lesquelles j'interviens
+          </h2>
+          <p class="section-subtitle">
+            Ces situations sont courantes. Elles ne sont pas une fatalité.
+          </p>
+        </header>
+
+        <div class="problems__grid">
+
+          <article class="problem-card fade-up">
+            <div class="problem-card__icon" aria-hidden="true">📈</div>
+            <h3 class="problem-card__title">
+              Votre produit croît trop vite pour votre équipe
+            </h3>
+            <p class="problem-card__text">
+              L'app ralentit sous la charge. Les bugs s'accumulent, les clients se plaignent.
+              Votre équipe junior fait ce qu'elle peut, mais hésite avant chaque déploiement.
+              Vous sentez que la situation va se dégrader — sans avoir le temps de recruter
+              un CTO à temps plein.
+            </p>
+          </article>
+
+          <article class="problem-card fade-up">
+            <div class="problem-card__icon" aria-hidden="true">⚠️</div>
+            <h3 class="problem-card__title">
+              Votre outil interne vieillissant est devenu un risque
+            </h3>
+            <p class="problem-card__text">
+              Votre système tient debout depuis 5 à 15 ans — critique mais fragile.
+              Le développeur qui le connaissait bien est parti. Chaque modification coûte cher
+              et prend du temps. Tout le monde a peur d'y toucher. Vous savez que ça finira
+              par bloquer votre activité.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SOLUTION — "Comment j'interviens"
+         ============================================================ -->
+    <section class="section section--alt" id="solution" aria-labelledby="solution-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Comment j'interviens</p>
+          <h2 class="section-title" id="solution-title">
+            Des résultats concrets, pas du jargon
+          </h2>
+          <p class="section-subtitle">
+            Pas de refonte systématique. Un regard honnête, un plan adapté à vos ressources,
+            et un accompagnement de votre équipe pour que les changements tiennent dans la durée.
+          </p>
+        </header>
+
+        <div class="steps">
+
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">1</div>
+            <h3 class="step__title">Audit honnête</h3>
+            <p class="step__text">
+              Je prends le temps de comprendre votre situation réelle — vos contraintes métier,
+              votre équipe, vos priorités. Aucun diagnostic expédié, aucun jargon inutile.
+            </p>
+          </div>
+
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">2</div>
+            <h3 class="step__title">Recommandations concrètes</h3>
+            <p class="step__text">
+              Un plan d'action clair, priorisé, adapté à vos ressources et à votre budget.
+              Vous savez exactement ce qui va changer, pourquoi, et dans quel ordre.
+            </p>
+          </div>
+
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">3</div>
+            <h3 class="step__title">Accompagnement de votre équipe</h3>
+            <p class="step__text">
+              Je travaille avec vos développeurs, pas à leur place. Ils montent en compétence,
+              acquièrent de bonnes pratiques, et peuvent continuer sans moi.
+            </p>
+          </div>
+
+        </div>
+
+        <p class="solution__note">
+          🎓 Formateur certifié ECP Formation — je transmets, je ne me rends pas indispensable.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PREUVES — Chiffres, stack, témoignages
+         ============================================================ -->
+    <section class="section" id="preuves" aria-labelledby="preuves-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">En chiffres</p>
+          <h2 class="section-title" id="preuves-title">Ce que mes clients disent de moi</h2>
+        </header>
+
+        <div class="proof__grid">
+          <div class="stat-card fade-up">
+            <p class="stat-card__number">17</p>
+            <p class="stat-card__label">ans d'expérience fullstack</p>
+          </div>
+          <div class="stat-card fade-up">
+            <p class="stat-card__number">500+</p>
+            <p class="stat-card__label">scénarios de tests automatisés</p>
+          </div>
+          <div class="stat-card fade-up">
+            <p class="stat-card__number">70%</p>
+            <p class="stat-card__label">de couverture de tests atteinte (Citeo)</p>
+          </div>
+          <div class="stat-card fade-up">
+            <p class="stat-card__number">8+</p>
+            <p class="stat-card__label">recommandations LinkedIn vérifiées</p>
+          </div>
+        </div>
+
+        <div class="stack__row" aria-label="Stack technique">
+          <span class="stack__badge">⚡ Symfony</span>
+          <span class="stack__badge">⚛️ React</span>
+          <span class="stack__badge">🐘 PHP 8</span>
+          <span class="stack__badge">🔗 API Platform</span>
+          <span class="stack__badge">🧪 Cypress</span>
+          <span class="stack__badge">🔄 CI/CD</span>
+          <span class="stack__badge">🐳 Docker</span>
+          <span class="stack__badge">📘 TypeScript</span>
+        </div>
+
+        <div class="proof__cert fade-up" aria-label="Certification formateur">
+          <span class="proof__cert-icon" aria-hidden="true">🏅</span>
+          <div>
+            <p class="proof__cert-title">Formateur certifié ECP Formation</p>
+            <p class="proof__cert-sub">
+              Formation professionnelle « Concevoir et animer une formation en présentiel et à distance »
+            </p>
+          </div>
+        </div>
+
+        <div class="testimonials__grid" aria-label="Témoignages">
+
+          <article class="testimonial fade-up">
+            <p class="testimonial__stars" aria-label="5 étoiles">★★★★★</p>
+            <p class="testimonial__quote">
+              A permis de sécuriser les mises en production et d'augmenter la vélocité de l'équipe.
+            </p>
+            <div class="testimonial__author">
+              <p class="testimonial__name">Stéphane Bourdon</p>
+              <p class="testimonial__role">Head of IT · Citeo</p>
+            </div>
+          </article>
+
+          <article class="testimonial fade-up">
+            <p class="testimonial__stars" aria-label="5 étoiles">★★★★★</p>
+            <p class="testimonial__quote">
+              Sérieux, fiable, fédérateur — n'a pas peur d'aborder de nouveaux challenges.
+            </p>
+            <div class="testimonial__author">
+              <p class="testimonial__name">Stéphane Jauffret</p>
+              <p class="testimonial__role">CEO · Sellermania</p>
+            </div>
+          </article>
+
+          <article class="testimonial fade-up">
+            <p class="testimonial__stars" aria-label="5 étoiles">★★★★★</p>
+            <p class="testimonial__quote">
+              Tout ce qu'on attend d'un développeur expérimenté — précis, autonome, et pédagogue.
+            </p>
+            <div class="testimonial__author">
+              <p class="testimonial__name">Pierre-Charles Bertineau</p>
+              <p class="testimonial__role">Lead Dev · Néosylva</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INTERVENTIONS TYPES — Cas concrets
+         ============================================================ -->
+    <section class="section section--alt" id="interventions" aria-labelledby="interventions-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Cas concrets</p>
+          <h2 class="section-title" id="interventions-title">Dans quelles situations ?</h2>
+          <p class="section-subtitle">
+            Des missions réelles, avec des résultats mesurables.
+          </p>
+        </header>
+
+        <div class="cases__grid">
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">Citeo · SaaS · 4 ans</p>
+            <h3 class="case-card__title">Automatisation des tests &amp; sécurisation des déploiements</h3>
+            <p class="case-card__text">
+              Conception et mise en place de 500+ scénarios de tests E2E automatisés (Cypress)
+              sur une plateforme critique à fort trafic. Formation de 2 ingénieurs QA.
+              Intégration dans le pipeline CI/CD Azure DevOps.
+            </p>
+            <p class="case-card__result">✓ 70% de couverture de tests atteinte</p>
+            <div class="case-card__tags">
+              <span class="tag">Cypress</span>
+              <span class="tag">API Platform</span>
+              <span class="tag">Azure DevOps</span>
+            </div>
+          </article>
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">Sellermania · SaaS e-commerce · 7 ans</p>
+            <h3 class="case-card__title">Migration progressive d'une app vieillissante</h3>
+            <p class="case-card__text">
+              Maintenance et évolution d'un SaaS de gestion de catalogue sur 7 ans.
+              Migration Symfony 2 → 3 → 4 sans interruption. Mise en place des tests
+              unitaires et fonctionnels (PHPUnit, Behat). CI/CD avec Jenkins.
+            </p>
+            <p class="case-card__result">✓ Zéro downtime sur la migration</p>
+            <div class="case-card__tags">
+              <span class="tag">Symfony</span>
+              <span class="tag">PHPUnit</span>
+              <span class="tag">Jenkins</span>
+            </div>
+          </article>
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">Néosylva · 2026</p>
+            <h3 class="case-card__title">Refonte frontend React sans tout casser</h3>
+            <p class="case-card__text">
+              Refonte progressive du frontend React TypeScript (Strangler Fig Pattern).
+              Adoption du toolkit Aurora. Transmission des bonnes pratiques à l'équipe
+              interne pour une continuité autonome.
+            </p>
+            <p class="case-card__result">✓ Continuité garantie sans refonte totale</p>
+            <div class="case-card__tags">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Strangler Fig</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         À PROPOS
+         ============================================================ -->
+    <section class="section" id="a-propos" aria-labelledby="apropos-title">
+      <div class="container">
+        <div class="about__grid">
+
+          <div class="about__photo-wrap" aria-hidden="true">
+            <img src="assets/images/portrait.jpg"
+                 alt="Matthieu Viel, consultant technique web basé à Saint-Pierre, La Réunion"
+                 class="about__photo"
+                 width="360"
+                 height="450"
+                 loading="lazy">
+          </div>
+
+          <div class="about__content">
+            <p class="eyebrow">À propos</p>
+            <h2 class="about__title" id="apropos-title">
+              Matthieu Viel,<br>consultant ancré à La Réunion
+            </h2>
+
+            <p class="about__text">
+              Basé à Saint-Pierre depuis 2018, je connais le tissu économique local — ses contraintes,
+              ses réalités, et ses opportunités. J'interviens sur site en 974 et en remote sur toute la France.
+            </p>
+
+            <p class="about__text">
+              Avec 17 ans d'expérience dans le développement web (Symfony, React, PHP, API Platform),
+              j'ai travaillé aussi bien sur des SaaS à fort trafic (Citeo, Sellermania) que sur des
+              applications métier et des projets en propre. Mon approche : comprendre d'abord,
+              proposer ensuite, sans chercher à me rendre indispensable.
+            </p>
+
+            <div class="about__highlights">
+              <div class="about__highlight">
+                <div class="about__highlight-icon" aria-hidden="true">📍</div>
+                <div class="about__highlight-text">
+                  <strong>Saint-Pierre, La Réunion (974)</strong>
+                  Disponible sur site en 974 · Remote France entière
+                </div>
+              </div>
+              <div class="about__highlight">
+                <div class="about__highlight-icon" aria-hidden="true">🎓</div>
+                <div class="about__highlight-text">
+                  <strong>Formateur certifié ECP Formation</strong>
+                  Je transmets les bonnes pratiques, je ne crée pas de dépendance
+                </div>
+              </div>
+              <div class="about__highlight">
+                <div class="about__highlight-icon" aria-hidden="true">🏔️</div>
+                <div class="about__highlight-text">
+                  <strong>Endurance &amp; fiabilité</strong>
+                  Finisher UTOI 117km — la même rigueur dans la durée s'applique aux projets
+                </div>
+              </div>
+            </div>
+
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               class="btn btn--outline"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Voir le profil LinkedIn de Matthieu Viel (nouvel onglet)">
+              Voir mon profil LinkedIn →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
+    <section class="section section--dark" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact__grid">
+
+          <div class="contact__intro">
+            <p class="eyebrow">Contact</p>
+            <h2 class="contact__intro-title" id="contact-title">
+              Un premier échange<br>sans engagement
+            </h2>
+            <p class="contact__intro-text">
+              Décrivez-moi votre situation en quelques lignes. Je lis tous les messages
+              et réponds sous 24h.
+            </p>
+
+            <div class="contact__channels">
+              <div class="contact__channel">
+                <div class="contact__channel-icon" aria-hidden="true">📅</div>
+                <div>
+                  <strong style="color: #fff; font-size: 0.875rem;">Réserver un appel découverte</strong><br>
+                  <a href="https://calendly.com/matthieu-viel-fr/30min"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label="Réserver un appel sur Calendly (nouvel onglet)">
+                    Calendly · 30 minutes, gratuit
+                  </a>
+                </div>
+              </div>
+              <div class="contact__channel">
+                <div class="contact__channel-icon" aria-hidden="true">✉️</div>
+                <div>
+                  <strong style="color: #fff; font-size: 0.875rem;">Email</strong><br>
+                  <a href="mailto:matthieu.viel.fr@gmail.com">matthieu.viel.fr@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact__channel">
+                <div class="contact__channel-icon" aria-hidden="true">🔗</div>
+                <div>
+                  <strong style="color: #fff; font-size: 0.875rem;">LinkedIn</strong><br>
+                  <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    linkedin.com/in/matthieu-viel-consultant-web-reunion
+                  </a>
+                </div>
+              </div>
+              <div class="contact__channel">
+                <div class="contact__channel-icon" aria-hidden="true">📍</div>
+                <div style="color: #a8c2d4;">
+                  Saint-Pierre · La Réunion 974<br>
+                  Interventions sur site 974 &amp; remote France
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__form-wrap">
+            <!-- TODO: web3forms — ajouter action="https://api.web3forms.com/submit"
+                 et <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+                 et <input type="hidden" name="subject" value="Contact matthieu-viel.fr">
+                 Voir https://web3forms.com -->
+            <form class="form"
+                  id="contact-form"
+                  action=""
+                  method="POST"
+                  novalidate
+                  aria-label="Formulaire de contact">
+              <div class="form__group">
+                <label class="form__label" for="name">Votre nom</label>
+                <input class="form__input"
+                       type="text"
+                       id="name"
+                       name="name"
+                       autocomplete="name"
+                       placeholder="Prénom Nom"
+                       required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="email">Votre email</label>
+                <input class="form__input"
+                       type="email"
+                       id="email"
+                       name="email"
+                       autocomplete="email"
+                       placeholder="vous@entreprise.re"
+                       required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="message">Décrivez votre situation</label>
+                <textarea class="form__textarea"
+                          id="message"
+                          name="message"
+                          placeholder="Votre outil ralentit ? Votre équipe hésite à toucher le code ? Décrivez-moi le problème en quelques lignes."
+                          required></textarea>
+              </div>
+              <div class="form__footer">
+                <p class="form__note">Réponse sous 24h · Aucun engagement</p>
+                <button class="btn btn--primary" type="submit">
+                  Envoyer le message →
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__brand">Matthieu Viel</p>
+        <p class="footer__tagline">Consultant technique web · Saint-Pierre, La Réunion</p>
+      </div>
+
+      <nav aria-label="Liens du pied de page">
+        <ul class="footer__links" role="list">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#a-propos">À propos</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="tech.html">Version tech</a></li>
+          <!-- TODO: ajouter page mentions légales -->
+          <li><a href="#" data-todo="mentions-legales">Mentions légales</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Profil LinkedIn de Matthieu Viel (nouvel onglet)">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <p class="footer__copy">© 2025 Matthieu Viel</p>
+    </div>
+  </footer>
+
+  <!-- Fade-up animation styles (inline, minimal) -->
+  <style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+
+  <script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
