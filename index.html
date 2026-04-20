@@ -46,14 +46,14 @@
   <!-- ============================================================
        NAVIGATION
        ============================================================ -->
-  <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+  <nav class="nav" id="nav" aria-label="Navigation principale">
     <div class="container nav__inner">
       <a href="/" class="nav__logo" aria-label="Matthieu Viel — Accueil">
         <span class="nav__logo-name">Matthieu Viel</span>
         <span class="nav__logo-tagline">Consultant technique web</span>
       </a>
 
-      <ul class="nav__links" id="nav-links" role="list">
+      <ul class="nav__links" id="nav-links">
         <li><a href="#problemes">Mes interventions</a></li>
         <li><a href="#a-propos">À propos</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
@@ -68,7 +68,8 @@
         Réserver un appel
       </a>
 
-      <button class="nav__burger"
+      <button type="button"
+              class="nav__burger"
               id="nav-burger"
               aria-label="Ouvrir le menu"
               aria-expanded="false"
@@ -123,20 +124,20 @@
 
             <hr class="hero__divider" aria-hidden="true">
 
-            <div class="hero__stats" role="list" aria-label="Chiffres clés">
-              <div class="hero__stat" role="listitem">
+            <ul class="hero__stats" aria-label="Chiffres clés">
+              <li class="hero__stat">
                 <span class="hero__stat-number">17</span>
                 <span class="hero__stat-label">ans d'expérience</span>
-              </div>
-              <div class="hero__stat" role="listitem">
+              </li>
+              <li class="hero__stat">
                 <span class="hero__stat-number">500+</span>
                 <span class="hero__stat-label">scénarios de tests</span>
-              </div>
-              <div class="hero__stat" role="listitem">
+              </li>
+              <li class="hero__stat">
                 <span class="hero__stat-number">974</span>
                 <span class="hero__stat-label">La Réunion</span>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
 
           <div class="hero__visual" aria-hidden="true">
@@ -287,7 +288,7 @@
           </div>
         </div>
 
-        <div class="stack__row" aria-label="Stack technique">
+        <div class="stack__row" role="group" aria-label="Stack technique">
           <span class="stack__badge">⚡ Symfony</span>
           <span class="stack__badge">⚛️ React</span>
           <span class="stack__badge">🐘 PHP 8</span>
@@ -298,7 +299,7 @@
           <span class="stack__badge">📘 TypeScript</span>
         </div>
 
-        <div class="proof__cert fade-up" aria-label="Certification formateur">
+        <div class="proof__cert fade-up" role="group" aria-label="Certification formateur">
           <span class="proof__cert-icon" aria-hidden="true">🏅</span>
           <div>
             <p class="proof__cert-title">Formateur certifié ECP Formation</p>
@@ -308,7 +309,7 @@
           </div>
         </div>
 
-        <div class="testimonials__grid" aria-label="Témoignages">
+        <div class="testimonials__grid" role="group" aria-label="Témoignages">
 
           <article class="testimonial fade-up">
             <p class="testimonial__stars" aria-label="5 étoiles">★★★★★</p>
