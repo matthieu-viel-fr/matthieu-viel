@@ -1,0 +1,10 @@
+{
+  "name": "matthieu-viel",
+  "private": true,
+  "scripts": {
+    "test": "html-validate *.html && node tests/links.test.js"
+  },
+  "devDependencies": {
+    "html-validate": "^9"
+  }
+}
