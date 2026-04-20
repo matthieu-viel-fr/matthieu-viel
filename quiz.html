@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1b3649">
+<title>Diagnostic — Matthieu Viel · Consultant Technique Web</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-d: #1b3649;
+  --bg-m: #274f6a;
+  --bg-l: #3d7291;
+  --q-bg: #12283a;
+  --q-c:  rgba(255,255,255,.045);
+  --q-b:  rgba(94,179,213,.22);
+  --blu:  #66b8d8;
+  --blu2: rgba(102,184,216,.18);
+  --blu3: rgba(102,184,216,.35);
+  --wh:   #ffffff;
+  --t1:   #e6f2f9;
+  --t2:   #8bbcce;
+  --t3:   #4a7a92;
+  --green:#3dba7c; --gdim:rgba(61,186,124,.12); --gb:rgba(61,186,124,.32);
+  --ora:  #e89a52; --odim:rgba(232,154,82,.12);  --ob:rgba(232,154,82,.32);
+  --red:  #e05252; --rdim:rgba(224,82,82,.12);   --rb:rgba(224,82,82,.32);
+  --yel:  #e8c652; --ydim:rgba(232,198,82,.12);  --yb:rgba(232,198,82,.32);
+  --safe: env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+/* position:fixed = seul moyen fiable de bloquer le scroll sur iOS Safari */
+html { position:fixed; inset:0; overflow:hidden; }
+body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-serif; background:var(--bg-d); color:var(--wh); -webkit-font-smoothing:antialiased; }
+
+/* ── SLIDE ENGINE ── */
+#app { position:relative; width:100%; height:100%; overflow:hidden; }
+.slide {
+  position:absolute; inset:0; z-index:1;
+  display:flex; flex-direction:column; width:100%; height:100%;
+  transition:transform .44s cubic-bezier(.6,0,.2,1), opacity .4s ease;
+  will-change:transform,opacity;
+  overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch;
+}
+.slide.is-active { transform:translateX(0);   opacity:1; z-index:3; }
+.slide.is-prev   { transform:translateX(-100%);opacity:0; z-index:2; pointer-events:none; }
+.slide.is-next   { transform:translateX(100%); opacity:0; z-index:2; pointer-events:none; }
+.slide.is-hidden { transform:translateX(100%); opacity:0; z-index:1; pointer-events:none; }
+
+/* ── PROGRESS ── */
+#pgWrap { position:fixed; top:0; left:0; right:0; z-index:100; height:3px; background:rgba(102,184,216,.14); opacity:0; transition:opacity .3s; }
+#pgBar  { height:100%; background:linear-gradient(90deg,#3d7291,var(--blu)); transition:width .5s cubic-bezier(.4,0,.2,1); width:0%; }
+#pgHead { position:fixed; top:10px; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:0 20px; opacity:0; transition:opacity .3s; }
+#pgHead.show { opacity:1; }
+.pg-back { font-size:12px; font-weight:700; color:rgba(255,255,255,.42); background:none; border:none; cursor:pointer; font-family:'Montserrat',sans-serif; padding:6px 0; transition:color .2s; }
+.pg-back:active { color:rgba(255,255,255,.7); }
+.pg-cnt  { font-size:11px; font-weight:600; color:rgba(255,255,255,.32); letter-spacing:.1em; }
+
+/* ════════════════════════════════════
+   LANDING
+════════════════════════════════════ */
+#p-landing {
+  background: linear-gradient(115deg, var(--bg-d) 0%, var(--bg-m) 55%, var(--bg-l) 100%);
+  overflow:hidden;
+}
+.lnd {
+  flex:1;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  padding: max(60px,calc(env(safe-area-inset-top,0px)+44px)) 28px 0;
+  text-align:center;
+}
+.lnd-label {
+  font-size:11px; font-weight:700; letter-spacing:.05em;
+  color:var(--blu); margin-bottom:18px;
+  display:flex; align-items:center; gap:8px; justify-content:center;
+}
+.lnd-label::before, .lnd-label::after {
+  content:''; width:20px; height:2px; background:var(--blu); border-radius:2px; opacity:.7;
+}
+.lnd-h1 {
+  font-size:clamp(24px,7vw,48px);
+  font-weight:900; line-height:1.07; letter-spacing:-.025em;
+  color:var(--wh); margin-bottom:16px; max-width:600px;
+}
+.lnd-h1 em { font-style:italic; font-weight:500; }
+.lnd-h1 strong { color:var(--blu); font-weight:900; }
+.lnd-sub {
+  font-size:clamp(12px,2.6vw,14px); color:rgba(255,255,255,.58);
+  line-height:1.8; max-width:480px; margin:0 auto 24px;
+}
+.lnd-pills {
+  display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:36px;
+}
+.lnd-pill {
+  font-size:10px; font-weight:600; color:rgba(255,255,255,.5);
+  border:1px solid rgba(255,255,255,.15); padding:5px 12px; border-radius:20px;
+  letter-spacing:.04em;
+}
+.lnd-cta {
+  position:sticky; bottom:0;
+  padding:16px 28px max(22px,calc(var(--safe)+16px));
+  background:linear-gradient(to top, rgba(27,54,73,.96) 55%, transparent);
+  margin:0 -28px; padding-left:28px; padding-right:28px;
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+}
+@media(min-width:640px){ .lnd-cta { position:static; background:transparent; padding:0; margin:0; } }
+
+.btn-start {
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  width:100%; max-width:380px;
+  background:rgba(102,184,216,.14); border:2px solid var(--blu);
+  color:var(--wh); font-family:'Montserrat',sans-serif;
+  font-size:13px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  padding:16px 28px; border-radius:6px; cursor:pointer;
+  transition:background .2s; -webkit-appearance:none;
+}
+.btn-start:hover { background:rgba(102,184,216,.28); }
+.btn-start:active { transform:scale(.98); }
+.btn-arr {
+  width:26px; height:26px; border-radius:50%; background:var(--blu);
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; flex-shrink:0;
+}
+.lnd-sig { display:flex; align-items:center; gap:10px; }
+.lnd-av {
+  width:34px; height:34px; border-radius:50%;
+  background:var(--blu2); border:1.5px solid var(--blu3);
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:900; color:var(--blu); flex-shrink:0;
+}
+.lnd-sig-name { font-size:11px; font-weight:700; color:rgba(255,255,255,.6); text-align:left; }
+.lnd-sig-role { font-size:10px; color:rgba(255,255,255,.32); text-align:left; }
+
+/* ════════════════════════════════════
+   QUESTIONS
+════════════════════════════════════ */
+.q-slide { background:var(--q-bg); padding-top:52px; }
+.q-in {
+  flex:1; display:flex; flex-direction:column;
+  padding:26px 24px 0; max-width:620px; margin:0 auto; width:100%; overflow-y:auto;
+}
+.q-step { font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--blu); margin-bottom:16px; }
+.q-tit  { font-size:clamp(17px,4.8vw,23px); font-weight:900; line-height:1.25; color:var(--wh); margin-bottom:10px; }
+.q-hint { font-size:12px; color:var(--t3); font-style:italic; line-height:1.6; margin-bottom:18px; }
+.q-ans  { display:flex; flex-direction:column; gap:9px; margin-bottom:16px; }
+
+.ans {
+  display:flex; align-items:flex-start; gap:13px;
+  background:var(--q-c); border:1.5px solid var(--q-b);
+  border-radius:10px; padding:14px 15px; cursor:pointer;
+  transition:background .16s,border-color .16s,transform .1s;
+  width:100%; text-align:left;
+  font-family:'Montserrat',sans-serif; color:var(--t1);
+  -webkit-appearance:none; min-height:50px;
+}
+.ans:active { transform:scale(.99); }
+.ans.sel    { background:rgba(102,184,216,.14); border-color:var(--blu); box-shadow:0 0 0 1px var(--blu); }
+.ans-l {
+  width:28px; height:28px; flex-shrink:0; border-radius:6px;
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15);
+  font-size:11px; font-weight:800; color:var(--blu);
+  display:flex; align-items:center; justify-content:center; transition:background .16s,color .16s;
+}
+.ans.sel .ans-l { background:var(--blu); border-color:var(--blu); color:#fff; }
+.ans-t { font-size:13px; font-weight:500; line-height:1.5; color:var(--t1); padding-top:4px; }
+
+.q-cta {
+  position:sticky; bottom:0;
+  background:linear-gradient(to top,var(--q-bg) 55%,transparent);
+  padding:14px 24px max(22px,calc(var(--safe)+16px));
+  margin:0 -24px; padding-left:24px; padding-right:24px;
+}
+.btn-next {
+  width:100%; max-width:572px;
+  background:rgba(102,184,216,.13); border:2px solid var(--blu);
+  color:var(--wh); font-family:'Montserrat',sans-serif;
+  font-size:13px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  padding:15px; border-radius:6px; cursor:pointer;
+  transition:background .2s; -webkit-appearance:none;
+  opacity:.32; pointer-events:none;
+}
+.btn-next.rdy { opacity:1; pointer-events:auto; }
+.btn-next.rdy:hover { background:rgba(102,184,216,.27); }
+.btn-next:active { transform:scale(.98); }
+
+/* ════════════════════════════════════
+   FORMULAIRE
+════════════════════════════════════ */
+#p-form { background:var(--q-bg); padding-top:52px; }
+.fm-in {
+  flex:1; display:flex; flex-direction:column;
+  padding:28px 24px 0; max-width:560px; margin:0 auto; width:100%; overflow-y:auto;
+}
+.fm-ey { font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--blu); margin-bottom:12px; }
+.fm-h  { font-size:clamp(22px,6vw,30px); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:1.1; color:var(--wh); margin-bottom:10px; }
+.fm-sb { font-size:13px; color:var(--t3); line-height:1.7; margin-bottom:24px; }
+.fg    { margin-bottom:12px; }
+.fg label { display:block; font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.34); margin-bottom:5px; }
+.fg input {
+  width:100%; background:var(--q-c); border:1.5px solid rgba(255,255,255,.12);
+  border-radius:8px; padding:14px 16px;
+  font-family:'Montserrat',sans-serif; font-size:14px; color:var(--wh);
+  outline:none; transition:border-color .2s; -webkit-appearance:none;
+}
+.fg input:focus { border-color:var(--blu); }
+.fg input::placeholder { color:rgba(255,255,255,.2); }
+.fm-prv { font-size:11px; color:var(--t3); line-height:1.7; margin-bottom:14px; }
+.fm-cta {
+  position:sticky; bottom:0;
+  background:linear-gradient(to top,var(--q-bg) 55%,transparent);
+  padding:14px 24px max(22px,calc(var(--safe)+16px));
+  margin:0 -24px; padding-left:24px; padding-right:24px;
+}
+.btn-sub {
+  width:100%;
+  background:rgba(102,184,216,.13); border:2px solid var(--blu);
+  color:var(--wh); font-family:'Montserrat',sans-serif;
+  font-size:13px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  padding:16px; border-radius:6px; cursor:pointer;
+  transition:background .2s; -webkit-appearance:none;
+}
+.btn-sub:hover { background:rgba(102,184,216,.27); }
+.btn-sub:active { transform:scale(.98); }
+
+/* ════════════════════════════════════
+   RÉSULTAT — plein écran, zéro scroll
+════════════════════════════════════ */
+#p-result {
+  background: linear-gradient(160deg, var(--bg-d) 0%, var(--q-bg) 100%);
+  overflow: hidden;
+}
+.rs-in {
+  flex: 1;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: max(36px,calc(env(safe-area-inset-top,0px)+20px)) 22px
+           max(16px,calc(var(--safe)+10px));
+  max-width: 520px; margin: 0 auto; width: 100%;
+  overflow: hidden; gap: 10px;
+}
+
+/* ── Haut : badge + titre compact ── */
+.rs-top { text-align: center; }
+.rs-badge {
+  display: inline-block;
+  font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px; margin-bottom: 8px;
+}
+.rs-h {
+  font-size: clamp(14px,3.8vw,18px); font-weight: 900;
+  text-transform: uppercase; letter-spacing: -.01em;
+  line-height: 1.2; color: var(--wh);
+}
+
+/* ── Insights nurturing ── */
+.rs-insights-lbl {
+  font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--blu); text-align: center; margin-bottom: 6px;
+}
+.rs-insights { display: flex; flex-direction: column; gap: 7px; }
+.ins-card {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(102,184,216,.18);
+  border-left: 3px solid var(--tc, var(--blu));
+  border-radius: 0 8px 8px 0;
+  padding: 10px 12px;
+}
+.ins-ic { font-size: 16px; flex-shrink: 0; line-height: 1.4; }
+.ins-title { font-size: 11px; font-weight: 800; color: var(--wh); margin-bottom: 2px; line-height: 1.3; }
+.ins-text  { font-size: 11px; color: var(--t3); line-height: 1.5; }
+
+/* ── Bas : CTA + signature ── */
+.rs-bot { display: flex; flex-direction: column; gap: 8px; }
+.rs-cta-lbl {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--blu); text-align: center;
+}
+.btn-cta {
+  display: block; width: 100%;
+  background: rgba(102,184,216,.13); border: 2px solid var(--blu);
+  color: var(--wh); font-family: 'Montserrat',sans-serif;
+  font-size: 12px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
+  padding: 14px; border-radius: 6px; text-align: center;
+  text-decoration: none; cursor: pointer; transition: background .2s;
+}
+.btn-cta:hover  { background: rgba(102,184,216,.27); }
+.btn-cta:active { transform: scale(.98); }
+.rs-mention { font-size: 10px; color: var(--t3); text-align: center; line-height: 1.5; }
+.rs-sig {
+  display: flex; align-items: center; gap: 10px;
+  padding-top: 8px; border-top: 1px solid rgba(255,255,255,.09);
+}
+.rs-sig-av {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--blu2); border: 1.5px solid var(--blu3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900; color: var(--blu); flex-shrink: 0;
+}
+.rs-sig-nm { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.5); }
+.rs-sig-rl { font-size: 9px; color: rgba(255,255,255,.26); margin-top: 1px; }
+
+/* Tier tokens */
+.ta { --tc:var(--ora); --tb:var(--odim); --tbr:var(--ob); }
+.tb { --tc:var(--red);  --tb:var(--rdim); --tbr:var(--rb); }
+.tc { --tc:var(--yel);  --tb:var(--ydim); --tbr:var(--yb); }
+.td { --tc:var(--blu);  --tb:var(--blu2); --tbr:var(--blu3); }
+.rs-badge { background:var(--tb); color:var(--tc); border:1px solid var(--tbr); }
+
+/* ════════════════════════════════════
+   LOADING TERMINAL
+════════════════════════════════════ */
+#p-loading {
+  background: #0b1a24;
+  align-items:center;
+  justify-content:center; /* .slide fournit déjà display:flex flex-direction:column */
+  overflow:hidden;
+}
+.term-wrap {
+  width:100%; max-width:560px;
+  padding:24px;
+}
+/* Barre de fenêtre terminal */
+.term-bar {
+  background:#1e3649;
+  border-radius:10px 10px 0 0;
+  padding:10px 16px;
+  display:flex; align-items:center; gap:7px;
+}
+.term-dot {
+  width:11px; height:11px; border-radius:50%;
+}
+.term-dot-r { background:#e05252; }
+.term-dot-y { background:#e8c652; }
+.term-dot-g { background:#3dba7c; }
+.term-title {
+  font-size:11px; font-weight:600; color:rgba(255,255,255,.35);
+  letter-spacing:.06em; margin-left:8px;
+}
+/* Corps terminal */
+.term-body {
+  background:#0d1e2b;
+  border:1px solid rgba(102,184,216,.18);
+  border-top:none;
+  border-radius:0 0 10px 10px;
+  padding:20px 20px 24px;
+  min-height:280px;
+  font-family:'Courier New',monospace;
+  font-size:13px;
+  line-height:1.8;
+  overflow:hidden;
+}
+.term-line {
+  display:flex; align-items:baseline; gap:0;
+  opacity:0;
+  animation:tl-fade .15s ease forwards;
+}
+@keyframes tl-fade { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+
+/* Prompt $ */
+.tl-prompt { color:#3dba7c; margin-right:6px; font-weight:700; }
+/* Commande principale */
+.tl-cmd    { color:#deeaf4; }
+/* Ligne de process */
+.tl-proc   { color:rgba(102,184,216,.65); padding-left:18px; }
+/* Check vert */
+.tl-ok     { color:#3dba7c; margin-left:6px; }
+/* Ligne finale "Rapport prêt" */
+.tl-done   { color:#3dba7c; font-weight:700; }
+/* Curseur clignotant */
+.tl-cursor {
+  display:inline-block;
+  width:8px; height:14px;
+  background:var(--blu);
+  margin-left:3px;
+  vertical-align:middle;
+  animation:blink .7s step-end infinite;
+}
+@keyframes blink { 50%{opacity:0} }
+
+/* Label sous terminal */
+.term-label {
+  text-align:center;
+  margin-top:18px;
+  font-size:11px;
+  color:rgba(255,255,255,.28);
+  letter-spacing:.08em;
+  font-family:'Montserrat',sans-serif;
+}
+
+/* ── DESKTOP : garde le moteur de slides, adapte les tailles ── */
+@media(min-width:640px){
+  .btn-start,.btn-next,.btn-sub,.btn-cta { max-width:460px; }
+  .lnd { padding:0 48px 40px; }
+  .lnd-cta { position:static; background:transparent; padding:0; margin:0; }
+  .q-cta,.fm-cta { position:static; background:transparent; padding:0 0 40px; margin:0; padding-left:0; padding-right:0; }
+  #p-landing { height:100vh; }
+}
+</style>
+</head>
+<body>
+
+<div id="pgWrap"><div id="pgBar"></div></div>
+<div id="pgHead">
+  <button class="pg-back" id="pgBack" onclick="goBack()">← Retour</button>
+  <span class="pg-cnt" id="pgCnt"></span>
+</div>
+
+<div id="app">
+
+<!-- ══════════════ LANDING ══════════════ -->
+<div class="slide is-active" id="p-landing">
+  <div class="lnd">
+    <div class="lnd-label">Consultant technique web</div>
+    <h1 class="lnd-h1">
+      Votre application<br>
+      <em>est-elle un atout</em><br>
+      <strong>ou un risque ?</strong>
+    </h1>
+    <p class="lnd-sub">
+      8 questions pour identifier les fragilités techniques de votre outil digital — et savoir si vous avez besoin d'un regard extérieur senior.
+    </p>
+    <div class="lnd-pills">
+      <span class="lnd-pill">⏱ 4 minutes</span>
+      <span class="lnd-pill">❓ 8 questions</span>
+      <span class="lnd-pill">📊 Diagnostic personnalisé</span>
+      <span class="lnd-pill">🔒 Sans engagement</span>
+    </div>
+    <div class="lnd-cta">
+      <button class="btn-start" onclick="startDiag()">
+        Démarrez votre diagnostic
+        <span class="btn-arr">↓</span>
+      </button>
+      <div class="lnd-sig">
+        <div class="lnd-av">MV</div>
+        <div>
+          <div class="lnd-sig-name">Matthieu Viel · Consultant Technique Web</div>
+          <div class="lnd-sig-role">17 ans d'expérience · Symfony · React · La Réunion 974</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Q1 : Type d'outil ══ -->
+<div class="slide is-hidden q-slide" id="p-q1">
+  <div class="q-in">
+    <div class="q-step">Question 1 sur 8</div>
+    <div class="q-tit">Quel est votre principal outil digital ?</div>
+    <div class="q-ans">
+      <button class="ans" onclick="pick(1,'A',this)"><span class="ans-l">A</span><span class="ans-t">Un site vitrine ou une boutique en ligne</span></button>
+      <button class="ans" onclick="pick(1,'B',this)"><span class="ans-l">B</span><span class="ans-t">Une application utilisée en interne par vos équipes (gestion, ERP, outil métier)</span></button>
+      <button class="ans" onclick="pick(1,'C',this)"><span class="ans-l">C</span><span class="ans-t">Un produit ou service vendu à vos clients (SaaS, plateforme, application)</span></button>
+      <button class="ans" onclick="pick(1,'D',this)"><span class="ans-l">D</span><span class="ans-t">Plusieurs de ces éléments à la fois</span></button>
+    </div>
+    <div class="q-cta"><button class="btn-next" id="bn1" onclick="advance(1)">Continuer →</button></div>
+  </div>
+</div>
+
+<!-- ══ Q2 : Équipe technique ══ -->
+<div class="slide is-hidden q-slide" id="p-q2">
+  <div class="q-in">
+    <div class="q-step">Question 2 sur 8</div>
+    <div class="q-tit">Qui s'occupe du développement et de la maintenance de votre application ?</div>
+    <div class="q-ans">
+      <button class="ans" onclick="pick(2,'A',this)"><span class="ans-l">A</span><span class="ans-t">Personne — il n'y a pas de développeur chez nous</span></button>
+      <button class="ans" onclick="pick(2,'B',this)"><span class="ans-l">B</span><span class="ans-t">Un ou deux développeurs juniors en interne</span></button>
+      <button class="ans" onclick="pick(2,'C',this)"><span class="ans-l">C</span><span class="ans-t">Un prestataire externe (agence ou freelance)</span></button>
+      <button class="ans" onclick="pick(2,'D',this)"><span class="ans-l">D</span><span class="ans-t">Une équipe structurée avec un responsable technique senior</span></button>
+    </div>
+    <div class="q-cta"><button class="btn-next" id="bn2" onclick="advance(2)">Continuer →</button></div>
+  </div>
+</div>
+
+<!-- ══ Q3 : État technique ══ -->
+<div class="slide is-hidden q-slide" id="p-q3">
+  <div class="q-in">
+    <div class="q-step">Question 3 sur 8</div>
+    <div class="q-tit">Comment décririez-vous l'état technique de votre application aujourd'hui ?</div>
+    <div class="q-ans">
+      <button class="ans" onclick="pick(3,'A',this)"><span class="ans-l">A</span><span class="ans-t">Elle tourne — mais chaque évolution est lente et chaque modification coûte cher</span></button>
+      <button class="ans" onclick="pick(3,'B',this)"><span class="ans-l">B</span><span class="ans-t">Des bugs apparaissent régulièrement et affectent les utilisateurs ou les équipes</span></button>
+      <button class="ans" onclick="pick(3,'C',this)"><span class="ans-l">C</span><span class="ans-t">L'application fonctionne, mais tout le monde hésite à y toucher</span></button>
+      <button class="ans" onclick="pick(3,'D',this)"><span class="ans-l">D</span><span class="ans-t">On a eu des incidents sérieux récemment qui ont impacté l'activité</span></button>
+    </div>
+    <div class="q-cta"><button class="btn-next" id="bn3" onclick="advance(3)">Continuer →</button></div>
+  </div>
+</div>
+
+<!-- ══ Q4 : Déclencheur (5 options) ══ -->
+<div class="slide is-hidden q-slide" id="p-q4">
+  <div class="q-in">
+    <div class="q-step">Question 4 sur 8</div>
+    <div class="q-tit">Qu'est-ce qui vous pousse à vous intéresser à ce sujet aujourd'hui ?</div>
+    <div class="q-ans">
+      <button class="ans" onclick="pick(4,'A',this)"><span class="ans-l">A</span><span class="ans-t">On vient de signer de nouveaux clients — l'application doit tenir la charge</span></button>
+      <button class="ans" onclick="pick(4,'B',this)"><span class="ans-l">B</span><span class="ans-t">Notre développeur principal est parti ou va partir</span></button>
+      <button class="ans" onclick="pick(4,'C',this)"><span class="ans-l">C</span><span class="ans-t">Un bug ou incident récent nous a coûté du temps et de l'argent</span></button>
+      <button class="ans" onclick="pick(4,'D',this)"><span class="ans-l">D</span><span class="ans-t">Un projet d'évolution est bloqué depuis plusieurs mois</span></button>
+      <button class="ans" onclick="pick(4,'E',this)"><span class="ans-l">E</span><span class="ans-t">Je fais un état des lieux — il n'y a pas d'urgence particulière</span></button>
+    </div>
+    <div class="q-cta"><button class="btn-next" id="bn4" onclick="advance(4)">Continuer →</button></div>
+  </div>
+</div>
+
+<!-- ══ Q5 : Ancienneté ══ -->
+<div class="slide is-hidden q-slide" id="p-q5">
+  <div class="q-in">
+    <div class="q-step">Question 5 sur 8</div>
+    <div class="q-tit">Depuis combien de temps votre application principale est-elle en production ?</div>
+    <div class="q-ans">
+      <button class="ans" onclick="pick(5,'A',this)"><span class="ans-l">A</span><span class="ans-t">Moins de 2 ans</span></button>
+      <button class="ans" onclick="pick(5,'B',this)"><span class="ans-l">B</span><span class="ans-t">Entre 2 et 5 ans</span></button>
+      <button class="ans" onclick="pick(5,'C',this)"><span class="ans-l">C</span><span class="ans-t">Entre 5 et 15 ans</span></button>
+      <button class="ans" onclick="pick(5,'D',this)"><span class="ans-l">D</span><span class="ans-t">Plus de 15 ans</span></button>
+    </div>
+    <div class="q-cta"><button class="btn-next" id="bn5" onclick="advance(5)">Continuer →</button></div>
+  </div>
+</div>
+
+<!-- ══ Q6 : Impact opérationnel ══ -->
+<div class="slide is-hidden q-slide" id="p-q6">
+  <div class="q-in">
+    <div class="q-step">Question 6 sur 8</div>
+    <div class="q-tit">Si votre application était indisponible pendant 24h, quel serait l'impact sur votre activité ?</div>
+    <div class="q-ans">
+      <button class="ans" onclick="pick(6,'A',this)"><span class="ans-l">A</span><span class="ans-t">Minimal — on peut fonctionner sans</span></button>
+      <button class="ans" onclick="pick(6,'B',this)"><span class="ans-l">B</span><span class="ans-t">Gênant, mais on s'en sortirait</span></button>
+      <button class="ans" onclick="pick(6,'C',this)"><span class="ans-l">C</span><span class="ans-t">Sérieux — des clients ou des équipes seraient bloqués</span></button>
+      <button class="ans" onclick="pick(6,'D',this)"><span class="ans-l">D</span><span class="ans-t">Catastrophique — l'activité s'arrête complètement</span></button>
+    </div>
+    <div class="q-cta"><button class="btn-next" id="bn6" onclick="advance(6)">Continuer →</button></div>
+  </div>
+</div>
+
+<!-- ══ Q7 : Gouvernance du code ══ -->
+<div class="slide is-hidden q-slide" id="p-q7">
+  <div class="q-in">
+    <div class="q-step">Question 7 sur 8</div>
+    <div class="q-tit">Votre code source est-il documenté, versionné et accessible si un nouveau développeur devait intervenir ?</div>
+    <div class="q-ans">
+      <button class="ans" onclick="pick(7,'A',this)"><span class="ans-l">A</span><span class="ans-t">Oui — Git, documentation à jour, procédures claires</span></button>
+      <button class="ans" onclick="pick(7,'B',this)"><span class="ans-l">B</span><span class="ans-t">Partiellement — certaines parties sont documentées, pas toutes</span></button>
+      <button class="ans" onclick="pick(7,'C',this)"><span class="ans-l">C</span><span class="ans-t">Peu ou pas — le savoir est dans la tête du ou des développeurs</span></button>
+      <button class="ans" onclick="pick(7,'D',this)"><span class="ans-l">D</span><span class="ans-t">Honnêtement, je ne sais pas</span></button>
+    </div>
+    <div class="q-cta"><button class="btn-next" id="bn7" onclick="advance(7)">Continuer →</button></div>
+  </div>
+</div>
+
+<!-- ══ Q8 : Historique tentatives ══ -->
+<div class="slide is-hidden q-slide" id="p-q8">
+  <div class="q-in">
+    <div class="q-step">Question 8 sur 8</div>
+    <div class="q-tit">Avez-vous déjà essayé de faire évoluer ou auditer votre application ?</div>
+    <div class="q-ans">
+      <button class="ans" onclick="pick(8,'A',this)"><span class="ans-l">A</span><span class="ans-t">Non — on n'a jamais formalisé ça</span></button>
+      <button class="ans" onclick="pick(8,'B',this)"><span class="ans-l">B</span><span class="ans-t">Oui, avec un prestataire externe — sans résultat probant</span></button>
+      <button class="ans" onclick="pick(8,'C',this)"><span class="ans-l">C</span><span class="ans-t">Oui, en interne — mais les changements ont créé de nouveaux problèmes</span></button>
+      <button class="ans" onclick="pick(8,'D',this)"><span class="ans-l">D</span><span class="ans-t">On avait un projet, mais il a été abandonné en cours de route</span></button>
+    </div>
+    <div class="q-cta"><button class="btn-next" id="bn8" onclick="goToForm()">Voir mon diagnostic →</button></div>
+  </div>
+</div>
+
+<!-- ══════════════ FORMULAIRE ══════════════ -->
+<div class="slide is-hidden" id="p-form">
+  <div class="fm-in">
+    <div class="fm-ey">Presque terminé</div>
+    <div class="fm-h">Où envoyer<br>votre rapport ?</div>
+    <p class="fm-sb">Recevez votre diagnostic personnalisé directement par email.</p>
+    <form id="leadForm">
+      <div class="fg"><label>Nom complet *</label><input type="text" id="fNom" placeholder="Prénom et nom" required autocomplete="name"></div>
+      <div class="fg"><label>Email *</label><input type="email" id="fEmail" placeholder="email@entreprise.com" required autocomplete="email"></div>
+      <div class="fg"><label>Entreprise</label><input type="text" id="fSoc" placeholder="Nom de l'entreprise" autocomplete="organization"></div>
+      <div class="fg"><label>En quelques mots, votre situation</label><input type="text" id="fSit" placeholder="Optionnel — nous aidera à personnaliser l'échange"></div>
+      <p class="fm-prv">🔒 Vos informations sont confidentielles et ne seront jamais partagées.</p>
+      <div class="fm-cta"><button type="button" class="btn-sub" onclick="submitForm()">Recevoir mon diagnostic →</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════════ LOADING TERMINAL ══════════════ -->
+<div class="slide is-hidden" id="p-loading">
+  <div class="term-wrap">
+    <div class="term-bar">
+      <span class="term-dot term-dot-r"></span>
+      <span class="term-dot term-dot-y"></span>
+      <span class="term-dot term-dot-g"></span>
+      <span class="term-title">diagnostic.sh — analyse en cours</span>
+    </div>
+    <div class="term-body" id="termBody">
+      <!-- lignes injectées par JS -->
+    </div>
+    <p class="term-label">Génération de votre rapport personnalisé…</p>
+  </div>
+</div>
+
+<!-- ══════════════ RÉSULTAT ══════════════ -->
+<div class="slide is-hidden" id="p-result">
+  <div class="rs-in">
+
+    <!-- Badge + titre -->
+    <div class="rs-top">
+      <div class="rs-badge" id="rsBadge">Votre diagnostic</div>
+      <div class="rs-h" id="rsH"></div>
+    </div>
+
+    <!-- Insights nurturing — 3 cartes expert dynamiques -->
+    <div>
+      <div class="rs-insights-lbl" id="rsInsLbl">Ce qui vous concerne directement</div>
+      <div class="rs-insights" id="rsInsights"></div>
+    </div>
+
+    <!-- CTA + signature -->
+    <div class="rs-bot">
+      <div class="rs-cta-lbl">Prochaine étape</div>
+      <a href="#" id="rsBtn" class="btn-cta" target="_blank"></a>
+      <p class="rs-mention" id="rsMention"></p>
+      <div class="rs-sig">
+        <div class="rs-sig-av">MV</div>
+        <div>
+          <div class="rs-sig-nm">Matthieu Viel · Consultant Technique Web</div>
+          <div class="rs-sig-rl">17 ans d'expérience · Symfony · La Réunion</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /app -->
+
+<script>
+// ── State ──
+var S = { l: {} }; // letters par question
+var TOTAL = 8;
+var CALENDLY = 'https://calendly.com/matthieu-viel/appel-decouverte';
+var current = 'p-landing';
+
+// ── Navigation ──
+function show(id, dir) {
+  var prev = document.getElementById(current);
+  var next = document.getElementById(id);
+  prev.classList.remove('is-active');
+  prev.classList.add(dir === 'prev' ? 'is-next' : 'is-prev');
+  next.classList.remove('is-hidden', 'is-prev', 'is-next');
+  next.classList.add('is-active');
+  next.scrollTop = 0;
+  current = id;
+}
+
+function startDiag() {
+  document.getElementById('pgWrap').style.opacity = '1';
+  document.getElementById('pgHead').classList.add('show');
+  setProg(0);
+  show('p-q1', 'next');
+}
+
+function advance(n) {
+  if (!S.l[n]) return;
+  setProg(Math.round(n / TOTAL * 100), n + 1);
+  show('p-q' + (n + 1), 'next');
+}
+
+function goToForm() {
+  if (!S.l[8]) return;
+  setProg(100, null, 'Dernière étape');
+  document.getElementById('pgBack').style.display = 'none';
+  show('p-form', 'next');
+}
+
+function goBack() {
+  if (current === 'p-form') {
+    show('p-q8', 'prev');
+    document.getElementById('pgBack').style.display = '';
+    setProg(Math.round(7 / TOTAL * 100), 8);
+    return;
+  }
+  var m = current.match(/p-q(\d+)/);
+  if (!m) return;
+  var n = parseInt(m[1]);
+  if (n === 1) {
+    document.getElementById('pgWrap').style.opacity = '0';
+    document.getElementById('pgHead').classList.remove('show');
+    show('p-landing', 'prev');
+    return;
+  }
+  setProg(Math.round((n - 1) / TOTAL * 100), n);
+  show('p-q' + (n - 1), 'prev');
+}
+
+function setProg(pct, qn, label) {
+  document.getElementById('pgBar').style.width = pct + '%';
+  var txt = label ? label : (qn ? qn + ' / ' + TOTAL : '');
+  document.getElementById('pgCnt').textContent = txt;
+}
+
+// ── Sélection réponse ──
+function pick(n, letter, btn) {
+  S.l[n] = letter;
+  var page = document.getElementById('p-q' + n);
+  var all = page.querySelectorAll('.ans');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('sel');
+  btn.classList.add('sel');
+  var bnEl = document.getElementById('bn' + n);
+  if (bnEl) bnEl.classList.add('rdy');
+}
+
+// ── Soumission formulaire ──
+function submitForm() {
+  var nom   = document.getElementById('fNom').value.trim();
+  var email = document.getElementById('fEmail').value.trim();
+  var soc   = document.getElementById('fSoc').value.trim();
+  var sit   = document.getElementById('fSit').value.trim();
+
+  if (!nom || !email) {
+    alert('Merci de renseigner votre nom et votre email.');
+    return;
+  }
+
+  var tier = determineResult();
+
+  // Envoi Web3Forms (silencieux)
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      access_key: '140252de-b9aa-4f67-b33b-39ab87c398a4',
+      subject: 'Diagnostic — ' + nom + ' · Profil ' + tier.toUpperCase(),
+      name: nom, email: email,
+      message: buildMsg(nom, email, soc, sit, tier)
+    })
+  }).catch(function() {});
+
+  // Masquer progress, aller sur loading
+  document.getElementById('pgHead').classList.remove('show');
+  document.getElementById('pgWrap').style.opacity = '0';
+  show('p-loading', 'next');
+
+  // Préparer le résultat en parallèle
+  renderResult(tier);
+
+  // Lancer l'animation terminal
+  runTerminal(nom, tier, function() {
+    show('p-result', 'next');
+  });
+}
+
+// ── Animation terminal ──
+function runTerminal(nom, tier, onDone) {
+  var body = document.getElementById('termBody');
+  body.innerHTML = '';
+
+  // Extraire prénom (1er mot)
+  var prenom = nom.split(' ')[0];
+
+  // Lignes à afficher : [délai ms, html]
+  var lines = [
+    [0,    '<span class="tl-prompt">$</span><span class="tl-cmd"> ./diagnostic --user="' + prenom + '" --mode=analyse</span>'],
+    [500,  '<span class="tl-proc">Initialisation du moteur d\'analyse...</span>'],
+    [950,  '<span class="tl-proc">Lecture des 8 réponses<span class="tl-ok">  ✓</span></span>'],
+    [1300, '<span class="tl-proc">Identification du type d\'application<span class="tl-ok">  ✓</span></span>'],
+    [1650, '<span class="tl-proc">Évaluation de la maturité technique<span class="tl-ok">  ✓</span></span>'],
+    [2000, '<span class="tl-proc">Calcul du niveau de risque structurel<span class="tl-ok">  ✓</span></span>'],
+    [2350, '<span class="tl-proc">Analyse de la gouvernance du code<span class="tl-ok">  ✓</span></span>'],
+    [2700, '<span class="tl-proc">Détection des points de friction<span class="tl-ok">  ✓</span></span>'],
+    [3050, '<span class="tl-proc">Génération du profil personnalisé<span class="tl-ok">  ✓</span></span>'],
+    [3400, '<span class="tl-done">Rapport prêt. Affichage en cours...</span>']
+  ];
+
+  var cursor = document.createElement('span');
+  cursor.className = 'tl-cursor';
+  body.appendChild(cursor);
+
+  lines.forEach(function(item, idx) {
+    var delay = item[0];
+    var html  = item[1];
+    setTimeout(function() {
+      // Retirer curseur, ajouter ligne, remettre curseur
+      if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+      var div = document.createElement('div');
+      div.className = 'term-line';
+      div.innerHTML = html;
+      body.appendChild(div);
+      body.appendChild(cursor);
+      body.scrollTop = body.scrollHeight;
+    }, delay);
+  });
+
+  // Aller au résultat après la dernière ligne + petit délai
+  setTimeout(function() {
+    if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+    onDone();
+  }, 3900);
+}
+
+// ── Logique de segmentation ──
+function determineResult() {
+  var q1 = S.l[1] || '';
+  var q2 = S.l[2] || '';
+  var q3 = S.l[3] || '';
+  var q4 = S.l[4] || '';
+  var q5 = S.l[5] || '';
+  var q6 = S.l[6] || '';
+  var q7 = S.l[7] || '';
+
+  // Hors cible : site vitrine uniquement
+  if (q1 === 'A') return 'D';
+
+  // Lead tiède : pas de déclencheur actif ET impact faible
+  if ((q4 === 'D' || q4 === 'E') && (q6 === 'A' || q6 === 'B')) return 'C';
+
+  // Score Profil 1 vs Profil 2
+  var p1 = 0, p2 = 0;
+  if (q1 === 'C') p1 += 2;
+  if (q1 === 'B') p2 += 2;
+  if (q1 === 'D') { p1 += 1; p2 += 1; }
+  if (q2 === 'A' || q2 === 'C') p2 += 1;
+  if (q2 === 'B') { p1 += 1; p2 += 1; }
+  if (q3 === 'A' || q3 === 'C') p2 += 1;
+  if (q3 === 'B' || q3 === 'D') p1 += 1;
+  if (q4 === 'A') p1 += 2;
+  if (q4 === 'B') p2 += 2;
+  if (q4 === 'C') { p1 += 1; p2 += 1; }
+  if (q5 === 'A' || q5 === 'B') p1 += 1;
+  if (q5 === 'C' || q5 === 'D') p2 += 2;
+  if (q7 === 'C' || q7 === 'D') p2 += 2;
+
+  return (p2 >= p1) ? 'B' : 'A';
+}
+
+// ── Message email ──
+function buildMsg(nom, email, soc, sit, tier) {
+  var labels = ['Type outil','Equipe tech','Etat technique','Declencheur','Anciennete','Impact','Gouvernance','Historique'];
+  var m = 'DIAGNOSTIC MATTHIEU VIEL\n\n';
+  m += 'Nom : ' + nom + '\n';
+  m += 'Email : ' + email + '\n';
+  m += 'Societe : ' + (soc || '—') + '\n';
+  m += 'Situation : ' + (sit || '—') + '\n';
+  m += 'Profil : ' + tier.toUpperCase() + '\n\n';
+  m += 'Reponses :\n';
+  for (var i = 1; i <= 8; i++) {
+    m += 'Q' + i + ' ' + labels[i - 1] + ' : ' + (S.l[i] || '—') + '\n';
+  }
+  return m;
+}
+
+// ── Données résultats ──
+var RESULTS = {
+  A: {
+    badge: '🟠 Application sous pression',
+    tier: 'ta',
+    h: 'Votre application est sous pression — et votre équipe aussi.',
+    btn: 'Réservez un appel de 30 minutes →',
+    mention: 'Sans engagement · Démarrage possible sous 10–15 jours'
+  },
+  B: {
+    badge: '🔴 Outil legacy à risque',
+    tier: 'tb',
+    h: 'Votre outil tient debout — mais il repose sur du sable.',
+    btn: 'Réservez un appel de 30 minutes →',
+    mention: 'Sans engagement · Démarrage possible sous 10–15 jours'
+  },
+  C: {
+    badge: '🟡 Situation stable',
+    tier: 'tc',
+    h: 'Votre situation est stable — pour l\'instant.',
+    btn: 'Réservez un échange de 20 minutes →',
+    mention: 'Sans engagement · Réponse personnalisée sous 48h'
+  },
+  D: {
+    badge: '🔵 Hors domaine',
+    tier: 'td',
+    h: 'Mon expertise ne correspond pas à votre situation.',
+    btn: '',
+    mention: ''
+  }
+};
+
+// ── Insights dynamiques selon profil + réponses ──
+function getInsights(tier) {
+  var q3 = S.l[3] || '';
+  var q4 = S.l[4] || '';
+  var q7 = S.l[7] || '';
+  var q8 = S.l[8] || '';
+  var ins = [];
+
+  if (tier === 'A') {
+    // Insight 1 : selon le déclencheur
+    if (q4 === 'A') {
+      ins.push({ ic:'⚡', title:'Croissance = pic de charge = risque maximal', text:'Les 30 premiers jours après un onboarding client sont les plus critiques. Une panne à ce moment coûte en moyenne 3× le churn d\'un client ordinaire.' });
+    } else if (q4 === 'C') {
+      ins.push({ ic:'🔁', title:'Un incident passé prédit le suivant', text:'Sans analyse post-mortem structurée, 78% des apps reproduisent le même incident dans les 6 mois. Le bug visible est rarement la cause racine.' });
+    } else {
+      ins.push({ ic:'📉', title:'Les goulots se créent avant de se voir', text:'Une architecture qui ralentit le présente rarement ses limites d\'un coup. Elle accumule une dette invisible qui éclate lors du prochain pic de charge.' });
+    }
+    // Insight 2 : état technique
+    if (q3 === 'B') {
+      ins.push({ ic:'🔍', title:'Bugs récurrents = symptôme, pas la cause', text:'Des bugs qui reviennent au même endroit signalent un problème d\'architecture sous-jacent. Corriger sans auditer revient à reboucher un mur fissuré.' });
+    } else if (q3 === 'D') {
+      ins.push({ ic:'🚨', title:'Après un incident sérieux, le temps compte', text:'La fenêtre pour agir efficacement après un incident critique est de 2 à 4 semaines. Passé ce délai, l\'organisation "s\'adapte" et le problème est normalisé.' });
+    } else {
+      ins.push({ ic:'💸', title:'Le coût réel d\'une panne SaaS', text:'48h d\'indisponibilité sur une app en croissance représente en moyenne 15 à 40% du churn mensuel, plus la réputation. Un audit coûte 50× moins.' });
+    }
+    // Insight 3 : gouvernance
+    if (q7 === 'C' || q7 === 'D') {
+      ins.push({ ic:'👤', title:'Votre app dépend d\'une seule personne', text:'Bus factor = 1, c\'est le risque technique le plus sous-estimé des startups. Si ce développeur part, votre roadmap s\'arrête avec lui.' });
+    } else {
+      ins.push({ ic:'🏗️', title:'Les 3 causes d\'une app qui ne scale pas', text:'Requêtes SQL non indexées, absence de cache applicatif, et couplage fort entre modules. Ces 3 points expliquent 90% des problèmes de montée en charge.' });
+    }
+  }
+
+  else if (tier === 'B') {
+    // Insight 1 : état technique + ancienneté
+    if (q3 === 'A' || q3 === 'C') {
+      ins.push({ ic:'🏚️', title:'Hésiter à toucher le code est un signal critique', text:'Quand les développeurs "font attention" à chaque modification, c\'est que la confiance dans l\'architecture est rompue. Ce n\'est pas de la prudence — c\'est de la dette.' });
+    } else {
+      ins.push({ ic:'⏱️', title:'Une évolution qui prend 3j devrait en prendre 1', text:'Sur une app de plus de 5 ans, si chaque modification mineure prend 3× le temps prévu, vous êtes en face de dette technique active — pas d\'un manque de devs.' });
+    }
+    // Insight 2 : gouvernance du code
+    if (q7 === 'C') {
+      ins.push({ ic:'🧠', title:'Le savoir dans la tête, c\'est une bombe à retardement', text:'Quand la documentation est absente, chaque modification repose sur la mémoire d\'une seule personne. Un départ ou un arrêt maladie peut paralyser l\'activité en 48h.' });
+    } else if (q7 === 'D') {
+      ins.push({ ic:'❓', title:'Ne pas savoir = risque non mesurable', text:'Le "je ne sais pas" sur la gouvernance est aussi dangereux que le "non". Un audit de 1 jour suffit à établir l\'état réel du code et les risques prioritaires.' });
+    } else {
+      ins.push({ ic:'🔗', title:'Le bus factor : combien de personnes peut-on perdre ?', text:'Sur les apps legacy, le bus factor est souvent de 1 à 2. C\'est le nombre de départs qui suffit à rendre l\'app incontrôlable. Savez-vous quel est le vôtre ?' });
+    }
+    // Insight 3 : historique des tentatives
+    if (q8 === 'B' || q8 === 'C') {
+      ins.push({ ic:'🔄', title:'Pourquoi les tentatives précédentes ont échoué', text:'85% des refactorisations ratées l\'ont été parce qu\'elles ont voulu tout changer d\'un coup. La bonne méthode : auditer d\'abord, prioriser ensuite, intervenir par zone critique.' });
+    } else if (q8 === 'D') {
+      ins.push({ ic:'🛑', title:'Un projet abandonné laisse des traces', text:'Un chantier arrêté à mi-chemin crée souvent une dette supplémentaire — code à moitié migré, deux systèmes en parallèle, documentation incohérente. C\'est récupérable, mais ça se diagnostique.' });
+    } else {
+      ins.push({ ic:'💡', title:'Pas d\'audit = pas de décision éclairée', text:'Sans cartographie technique préalable, toute décision d\'évolution repose sur des intuitions. Un audit de 2 jours transforme l\'incertitude en plan d\'action chiffré.' });
+    }
+  }
+
+  else if (tier === 'C') {
+    ins.push({ ic:'📊', title:'La dette technique s\'accumule en silence', text:'À chaque fonctionnalité ajoutée sans révision, la dette technique croît. Elle est invisible jusqu\'au jour où elle ralentit tout de 30 à 40% — souvent sans prévenir.' });
+    ins.push({ ic:'🪟', title:'La période stable est la meilleure pour auditer', text:'Un audit préventif coûte en moyenne 3× moins cher qu\'un audit en situation de crise. Profiter d\'une période calme, c\'est la décision la plus rentable à court terme.' });
+    if (q7 === 'B' || q7 === 'C' || q7 === 'D') {
+      ins.push({ ic:'📝', title:'3 indicateurs à surveiller dès maintenant', text:'Temps moyen de déploiement, nombre de bugs récurrents sur le même module, et niveau de documentation. Si l\'un se dégrade, la dette s\'active.' });
+    } else {
+      ins.push({ ic:'🔭', title:'Surveiller avant d\'intervenir', text:'Même une app en bonne santé bénéficie d\'un point technique annuel. Les équipes qui l\'anticipent évitent 90% des crises non planifiées.' });
+    }
+  }
+
+  else {
+    ins.push({ ic:'🎯', title:'Mon domaine : les apps métier complexes', text:'SaaS, ERP, outils sur mesure — j\'interviens quand l\'architecture devient un frein à la croissance ou quand la dette technique menace l\'activité.' });
+    ins.push({ ic:'🔎', title:'Pour votre site vitrine : les bons interlocuteurs', text:'Un consultant SEO/marketing ou un agence web spécialisée conversion sera plus pertinent qu\'un expert en architecture applicative.' });
+    ins.push({ ic:'💬', title:'Si votre situation évolue', text:'Si votre projet évolue vers une application métier ou un SaaS, je serai disponible pour un diagnostic gratuit.' });
+  }
+
+  return ins;
+}
+
+// ── Rendu résultat ──
+function renderResult(tier) {
+  var d = RESULTS[tier];
+  var page = document.getElementById('p-result');
+  page.classList.remove('ta', 'tb', 'tc', 'td');
+  page.classList.add(d.tier);
+
+  document.getElementById('rsBadge').textContent = d.badge;
+  document.getElementById('rsH').textContent = d.h;
+
+  // Insights dynamiques
+  var insights = getInsights(tier);
+  var container = document.getElementById('rsInsights');
+  container.innerHTML = '';
+  insights.forEach(function(ins) {
+    var card = document.createElement('div');
+    card.className = 'ins-card';
+    card.innerHTML = '<span class="ins-ic">' + ins.ic + '</span>'
+      + '<div><div class="ins-title">' + ins.title + '</div>'
+      + '<div class="ins-text">' + ins.text + '</div></div>';
+    container.appendChild(card);
+  });
+
+  // CTA
+  var btn = document.getElementById('rsBtn');
+  if (d.btn) {
+    btn.textContent = d.btn;
+    btn.href = CALENDLY;
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
+  document.getElementById('rsMention').textContent = d.mention;
+}
+</script>
+</body>
+</html>
