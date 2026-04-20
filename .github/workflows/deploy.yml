@@ -15,11 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validation HTML (html-validate)
-        uses: Cyb3r-Jak3/html5-validator-action@v1.2.0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          root: .
-          pattern: "*.html"
+          node-version: '20'
+
+      - name: Validation HTML (html-validate)
+        run: npx --yes html-validate *.html
 
       - name: Tests liens et balises critiques
         run: node tests/links.test.js
