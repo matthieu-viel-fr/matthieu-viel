@@ -340,7 +340,7 @@
             </p>
             <div class="testimonial__author">
               <p class="testimonial__name">Pierre-Charles Bertineau</p>
-              <p class="testimonial__role">Lead Dev · Néosylva</p>
+              <p class="testimonial__role">Lead Dev · Projet freelance</p>
             </div>
           </article>
 
@@ -396,7 +396,7 @@
           </article>
 
           <article class="case-card fade-up">
-            <p class="case-card__client">Néosylva · 2026</p>
+            <p class="case-card__client">Projet freelance · 2026</p>
             <h3 class="case-card__title">Refonte frontend React sans tout casser</h3>
             <p class="case-card__text">
               Refonte progressive du frontend React TypeScript (Strangler Fig Pattern).
@@ -544,52 +544,43 @@
             </div>
           </div>
 
+          <!-- TODO: formulaire de contact — brancher sur web3forms
+               1. Créer un compte sur https://web3forms.com et récupérer la clé d'accès
+               2. Décommenter le bloc ci-dessous
+               3. Remplacer VOTRE_CLE_WEB3FORMS par la vraie clé
+               4. Ajouter un feedback visuel après envoi (JS)
           <div class="contact__form-wrap">
-            <!-- TODO: web3forms — ajouter action="https://api.web3forms.com/submit"
-                 et <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
-                 et <input type="hidden" name="subject" value="Contact matthieu-viel.fr">
-                 Voir https://web3forms.com -->
             <form class="form"
                   id="contact-form"
+                  action="https://api.web3forms.com/submit"
                   method="POST"
                   novalidate
                   aria-label="Formulaire de contact">
+              <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+              <input type="hidden" name="subject" value="Contact matthieu-viel.fr">
               <div class="form__group">
                 <label class="form__label" for="name">Votre nom</label>
-                <input class="form__input"
-                       type="text"
-                       id="name"
-                       name="name"
-                       autocomplete="name"
-                       placeholder="Prénom Nom"
-                       required>
+                <input class="form__input" type="text" id="name" name="name"
+                       autocomplete="name" placeholder="Prénom Nom" required>
               </div>
               <div class="form__group">
                 <label class="form__label" for="email">Votre email</label>
-                <input class="form__input"
-                       type="email"
-                       id="email"
-                       name="email"
-                       autocomplete="email"
-                       placeholder="vous@entreprise.re"
-                       required>
+                <input class="form__input" type="email" id="email" name="email"
+                       autocomplete="email" placeholder="vous@entreprise.re" required>
               </div>
               <div class="form__group">
                 <label class="form__label" for="message">Décrivez votre situation</label>
-                <textarea class="form__textarea"
-                          id="message"
-                          name="message"
+                <textarea class="form__textarea" id="message" name="message"
                           placeholder="Votre outil ralentit ? Votre équipe hésite à toucher le code ? Décrivez-moi le problème en quelques lignes."
                           required></textarea>
               </div>
               <div class="form__footer">
                 <p class="form__note">Réponse sous 24h · Aucun engagement</p>
-                <button class="btn btn--primary" type="submit">
-                  Envoyer le message →
-                </button>
+                <button class="btn btn--primary" type="submit">Envoyer le message →</button>
               </div>
             </form>
           </div>
+          -->
 
         </div>
       </div>
