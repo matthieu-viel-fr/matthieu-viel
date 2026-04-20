@@ -400,7 +400,7 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
 
 <div id="pgWrap"><div id="pgBar"></div></div>
 <div id="pgHead">
-  <button class="pg-back" id="pgBack" onclick="goBack()">← Retour</button>
+  <button type="button" class="pg-back" id="pgBack" onclick="goBack()">← Retour</button>
   <span class="pg-cnt" id="pgCnt"></span>
 </div>
 
@@ -425,7 +425,7 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
       <span class="lnd-pill">🔒 Sans engagement</span>
     </div>
     <div class="lnd-cta">
-      <button class="btn-start" onclick="startDiag()">
+      <button type="button" class="btn-start" onclick="startDiag()">
         Démarrez votre diagnostic
         <span class="btn-arr">↓</span>
       </button>
@@ -446,12 +446,12 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <div class="q-step">Question 1 sur 8</div>
     <div class="q-tit">Quel est votre principal outil digital ?</div>
     <div class="q-ans">
-      <button class="ans" onclick="pick(1,'A',this)"><span class="ans-l">A</span><span class="ans-t">Un site vitrine ou une boutique en ligne</span></button>
-      <button class="ans" onclick="pick(1,'B',this)"><span class="ans-l">B</span><span class="ans-t">Une application utilisée en interne par vos équipes (gestion, ERP, outil métier)</span></button>
-      <button class="ans" onclick="pick(1,'C',this)"><span class="ans-l">C</span><span class="ans-t">Un produit ou service vendu à vos clients (SaaS, plateforme, application)</span></button>
-      <button class="ans" onclick="pick(1,'D',this)"><span class="ans-l">D</span><span class="ans-t">Plusieurs de ces éléments à la fois</span></button>
+      <button type="button" class="ans" onclick="pick(1,'A',this)"><span class="ans-l">A</span><span class="ans-t">Un site vitrine ou une boutique en ligne</span></button>
+      <button type="button" class="ans" onclick="pick(1,'B',this)"><span class="ans-l">B</span><span class="ans-t">Une application utilisée en interne par vos équipes (gestion, ERP, outil métier)</span></button>
+      <button type="button" class="ans" onclick="pick(1,'C',this)"><span class="ans-l">C</span><span class="ans-t">Un produit ou service vendu à vos clients (SaaS, plateforme, application)</span></button>
+      <button type="button" class="ans" onclick="pick(1,'D',this)"><span class="ans-l">D</span><span class="ans-t">Plusieurs de ces éléments à la fois</span></button>
     </div>
-    <div class="q-cta"><button class="btn-next" id="bn1" onclick="advance(1)">Continuer →</button></div>
+    <div class="q-cta"><button type="button" class="btn-next" id="bn1" onclick="advance(1)">Continuer →</button></div>
   </div>
 </div>
 
@@ -461,12 +461,12 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <div class="q-step">Question 2 sur 8</div>
     <div class="q-tit">Qui s'occupe du développement et de la maintenance de votre application ?</div>
     <div class="q-ans">
-      <button class="ans" onclick="pick(2,'A',this)"><span class="ans-l">A</span><span class="ans-t">Personne — il n'y a pas de développeur chez nous</span></button>
-      <button class="ans" onclick="pick(2,'B',this)"><span class="ans-l">B</span><span class="ans-t">Un ou deux développeurs juniors en interne</span></button>
-      <button class="ans" onclick="pick(2,'C',this)"><span class="ans-l">C</span><span class="ans-t">Un prestataire externe (agence ou freelance)</span></button>
-      <button class="ans" onclick="pick(2,'D',this)"><span class="ans-l">D</span><span class="ans-t">Une équipe structurée avec un responsable technique senior</span></button>
+      <button type="button" class="ans" onclick="pick(2,'A',this)"><span class="ans-l">A</span><span class="ans-t">Personne — il n'y a pas de développeur chez nous</span></button>
+      <button type="button" class="ans" onclick="pick(2,'B',this)"><span class="ans-l">B</span><span class="ans-t">Un ou deux développeurs juniors en interne</span></button>
+      <button type="button" class="ans" onclick="pick(2,'C',this)"><span class="ans-l">C</span><span class="ans-t">Un prestataire externe (agence ou freelance)</span></button>
+      <button type="button" class="ans" onclick="pick(2,'D',this)"><span class="ans-l">D</span><span class="ans-t">Une équipe structurée avec un responsable technique senior</span></button>
     </div>
-    <div class="q-cta"><button class="btn-next" id="bn2" onclick="advance(2)">Continuer →</button></div>
+    <div class="q-cta"><button type="button" class="btn-next" id="bn2" onclick="advance(2)">Continuer →</button></div>
   </div>
 </div>
 
@@ -476,12 +476,12 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <div class="q-step">Question 3 sur 8</div>
     <div class="q-tit">Comment décririez-vous l'état technique de votre application aujourd'hui ?</div>
     <div class="q-ans">
-      <button class="ans" onclick="pick(3,'A',this)"><span class="ans-l">A</span><span class="ans-t">Elle tourne — mais chaque évolution est lente et chaque modification coûte cher</span></button>
-      <button class="ans" onclick="pick(3,'B',this)"><span class="ans-l">B</span><span class="ans-t">Des bugs apparaissent régulièrement et affectent les utilisateurs ou les équipes</span></button>
-      <button class="ans" onclick="pick(3,'C',this)"><span class="ans-l">C</span><span class="ans-t">L'application fonctionne, mais tout le monde hésite à y toucher</span></button>
-      <button class="ans" onclick="pick(3,'D',this)"><span class="ans-l">D</span><span class="ans-t">On a eu des incidents sérieux récemment qui ont impacté l'activité</span></button>
+      <button type="button" class="ans" onclick="pick(3,'A',this)"><span class="ans-l">A</span><span class="ans-t">Elle tourne — mais chaque évolution est lente et chaque modification coûte cher</span></button>
+      <button type="button" class="ans" onclick="pick(3,'B',this)"><span class="ans-l">B</span><span class="ans-t">Des bugs apparaissent régulièrement et affectent les utilisateurs ou les équipes</span></button>
+      <button type="button" class="ans" onclick="pick(3,'C',this)"><span class="ans-l">C</span><span class="ans-t">L'application fonctionne, mais tout le monde hésite à y toucher</span></button>
+      <button type="button" class="ans" onclick="pick(3,'D',this)"><span class="ans-l">D</span><span class="ans-t">On a eu des incidents sérieux récemment qui ont impacté l'activité</span></button>
     </div>
-    <div class="q-cta"><button class="btn-next" id="bn3" onclick="advance(3)">Continuer →</button></div>
+    <div class="q-cta"><button type="button" class="btn-next" id="bn3" onclick="advance(3)">Continuer →</button></div>
   </div>
 </div>
 
@@ -491,13 +491,13 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <div class="q-step">Question 4 sur 8</div>
     <div class="q-tit">Qu'est-ce qui vous pousse à vous intéresser à ce sujet aujourd'hui ?</div>
     <div class="q-ans">
-      <button class="ans" onclick="pick(4,'A',this)"><span class="ans-l">A</span><span class="ans-t">On vient de signer de nouveaux clients — l'application doit tenir la charge</span></button>
-      <button class="ans" onclick="pick(4,'B',this)"><span class="ans-l">B</span><span class="ans-t">Notre développeur principal est parti ou va partir</span></button>
-      <button class="ans" onclick="pick(4,'C',this)"><span class="ans-l">C</span><span class="ans-t">Un bug ou incident récent nous a coûté du temps et de l'argent</span></button>
-      <button class="ans" onclick="pick(4,'D',this)"><span class="ans-l">D</span><span class="ans-t">Un projet d'évolution est bloqué depuis plusieurs mois</span></button>
-      <button class="ans" onclick="pick(4,'E',this)"><span class="ans-l">E</span><span class="ans-t">Je fais un état des lieux — il n'y a pas d'urgence particulière</span></button>
+      <button type="button" class="ans" onclick="pick(4,'A',this)"><span class="ans-l">A</span><span class="ans-t">On vient de signer de nouveaux clients — l'application doit tenir la charge</span></button>
+      <button type="button" class="ans" onclick="pick(4,'B',this)"><span class="ans-l">B</span><span class="ans-t">Notre développeur principal est parti ou va partir</span></button>
+      <button type="button" class="ans" onclick="pick(4,'C',this)"><span class="ans-l">C</span><span class="ans-t">Un bug ou incident récent nous a coûté du temps et de l'argent</span></button>
+      <button type="button" class="ans" onclick="pick(4,'D',this)"><span class="ans-l">D</span><span class="ans-t">Un projet d'évolution est bloqué depuis plusieurs mois</span></button>
+      <button type="button" class="ans" onclick="pick(4,'E',this)"><span class="ans-l">E</span><span class="ans-t">Je fais un état des lieux — il n'y a pas d'urgence particulière</span></button>
     </div>
-    <div class="q-cta"><button class="btn-next" id="bn4" onclick="advance(4)">Continuer →</button></div>
+    <div class="q-cta"><button type="button" class="btn-next" id="bn4" onclick="advance(4)">Continuer →</button></div>
   </div>
 </div>
 
@@ -507,12 +507,12 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <div class="q-step">Question 5 sur 8</div>
     <div class="q-tit">Depuis combien de temps votre application principale est-elle en production ?</div>
     <div class="q-ans">
-      <button class="ans" onclick="pick(5,'A',this)"><span class="ans-l">A</span><span class="ans-t">Moins de 2 ans</span></button>
-      <button class="ans" onclick="pick(5,'B',this)"><span class="ans-l">B</span><span class="ans-t">Entre 2 et 5 ans</span></button>
-      <button class="ans" onclick="pick(5,'C',this)"><span class="ans-l">C</span><span class="ans-t">Entre 5 et 15 ans</span></button>
-      <button class="ans" onclick="pick(5,'D',this)"><span class="ans-l">D</span><span class="ans-t">Plus de 15 ans</span></button>
+      <button type="button" class="ans" onclick="pick(5,'A',this)"><span class="ans-l">A</span><span class="ans-t">Moins de 2 ans</span></button>
+      <button type="button" class="ans" onclick="pick(5,'B',this)"><span class="ans-l">B</span><span class="ans-t">Entre 2 et 5 ans</span></button>
+      <button type="button" class="ans" onclick="pick(5,'C',this)"><span class="ans-l">C</span><span class="ans-t">Entre 5 et 15 ans</span></button>
+      <button type="button" class="ans" onclick="pick(5,'D',this)"><span class="ans-l">D</span><span class="ans-t">Plus de 15 ans</span></button>
     </div>
-    <div class="q-cta"><button class="btn-next" id="bn5" onclick="advance(5)">Continuer →</button></div>
+    <div class="q-cta"><button type="button" class="btn-next" id="bn5" onclick="advance(5)">Continuer →</button></div>
   </div>
 </div>
 
@@ -522,12 +522,12 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <div class="q-step">Question 6 sur 8</div>
     <div class="q-tit">Si votre application était indisponible pendant 24h, quel serait l'impact sur votre activité ?</div>
     <div class="q-ans">
-      <button class="ans" onclick="pick(6,'A',this)"><span class="ans-l">A</span><span class="ans-t">Minimal — on peut fonctionner sans</span></button>
-      <button class="ans" onclick="pick(6,'B',this)"><span class="ans-l">B</span><span class="ans-t">Gênant, mais on s'en sortirait</span></button>
-      <button class="ans" onclick="pick(6,'C',this)"><span class="ans-l">C</span><span class="ans-t">Sérieux — des clients ou des équipes seraient bloqués</span></button>
-      <button class="ans" onclick="pick(6,'D',this)"><span class="ans-l">D</span><span class="ans-t">Catastrophique — l'activité s'arrête complètement</span></button>
+      <button type="button" class="ans" onclick="pick(6,'A',this)"><span class="ans-l">A</span><span class="ans-t">Minimal — on peut fonctionner sans</span></button>
+      <button type="button" class="ans" onclick="pick(6,'B',this)"><span class="ans-l">B</span><span class="ans-t">Gênant, mais on s'en sortirait</span></button>
+      <button type="button" class="ans" onclick="pick(6,'C',this)"><span class="ans-l">C</span><span class="ans-t">Sérieux — des clients ou des équipes seraient bloqués</span></button>
+      <button type="button" class="ans" onclick="pick(6,'D',this)"><span class="ans-l">D</span><span class="ans-t">Catastrophique — l'activité s'arrête complètement</span></button>
     </div>
-    <div class="q-cta"><button class="btn-next" id="bn6" onclick="advance(6)">Continuer →</button></div>
+    <div class="q-cta"><button type="button" class="btn-next" id="bn6" onclick="advance(6)">Continuer →</button></div>
   </div>
 </div>
 
@@ -537,12 +537,12 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <div class="q-step">Question 7 sur 8</div>
     <div class="q-tit">Votre code source est-il documenté, versionné et accessible si un nouveau développeur devait intervenir ?</div>
     <div class="q-ans">
-      <button class="ans" onclick="pick(7,'A',this)"><span class="ans-l">A</span><span class="ans-t">Oui — Git, documentation à jour, procédures claires</span></button>
-      <button class="ans" onclick="pick(7,'B',this)"><span class="ans-l">B</span><span class="ans-t">Partiellement — certaines parties sont documentées, pas toutes</span></button>
-      <button class="ans" onclick="pick(7,'C',this)"><span class="ans-l">C</span><span class="ans-t">Peu ou pas — le savoir est dans la tête du ou des développeurs</span></button>
-      <button class="ans" onclick="pick(7,'D',this)"><span class="ans-l">D</span><span class="ans-t">Honnêtement, je ne sais pas</span></button>
+      <button type="button" class="ans" onclick="pick(7,'A',this)"><span class="ans-l">A</span><span class="ans-t">Oui — Git, documentation à jour, procédures claires</span></button>
+      <button type="button" class="ans" onclick="pick(7,'B',this)"><span class="ans-l">B</span><span class="ans-t">Partiellement — certaines parties sont documentées, pas toutes</span></button>
+      <button type="button" class="ans" onclick="pick(7,'C',this)"><span class="ans-l">C</span><span class="ans-t">Peu ou pas — le savoir est dans la tête du ou des développeurs</span></button>
+      <button type="button" class="ans" onclick="pick(7,'D',this)"><span class="ans-l">D</span><span class="ans-t">Honnêtement, je ne sais pas</span></button>
     </div>
-    <div class="q-cta"><button class="btn-next" id="bn7" onclick="advance(7)">Continuer →</button></div>
+    <div class="q-cta"><button type="button" class="btn-next" id="bn7" onclick="advance(7)">Continuer →</button></div>
   </div>
 </div>
 
@@ -552,12 +552,12 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <div class="q-step">Question 8 sur 8</div>
     <div class="q-tit">Avez-vous déjà essayé de faire évoluer ou auditer votre application ?</div>
     <div class="q-ans">
-      <button class="ans" onclick="pick(8,'A',this)"><span class="ans-l">A</span><span class="ans-t">Non — on n'a jamais formalisé ça</span></button>
-      <button class="ans" onclick="pick(8,'B',this)"><span class="ans-l">B</span><span class="ans-t">Oui, avec un prestataire externe — sans résultat probant</span></button>
-      <button class="ans" onclick="pick(8,'C',this)"><span class="ans-l">C</span><span class="ans-t">Oui, en interne — mais les changements ont créé de nouveaux problèmes</span></button>
-      <button class="ans" onclick="pick(8,'D',this)"><span class="ans-l">D</span><span class="ans-t">On avait un projet, mais il a été abandonné en cours de route</span></button>
+      <button type="button" class="ans" onclick="pick(8,'A',this)"><span class="ans-l">A</span><span class="ans-t">Non — on n'a jamais formalisé ça</span></button>
+      <button type="button" class="ans" onclick="pick(8,'B',this)"><span class="ans-l">B</span><span class="ans-t">Oui, avec un prestataire externe — sans résultat probant</span></button>
+      <button type="button" class="ans" onclick="pick(8,'C',this)"><span class="ans-l">C</span><span class="ans-t">Oui, en interne — mais les changements ont créé de nouveaux problèmes</span></button>
+      <button type="button" class="ans" onclick="pick(8,'D',this)"><span class="ans-l">D</span><span class="ans-t">On avait un projet, mais il a été abandonné en cours de route</span></button>
     </div>
-    <div class="q-cta"><button class="btn-next" id="bn8" onclick="goToForm()">Voir mon diagnostic →</button></div>
+    <div class="q-cta"><button type="button" class="btn-next" id="bn8" onclick="goToForm()">Voir mon diagnostic →</button></div>
   </div>
 </div>
 
@@ -573,7 +573,7 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
       <div class="fg"><label>Entreprise</label><input type="text" id="fSoc" placeholder="Nom de l'entreprise" autocomplete="organization"></div>
       <div class="fg"><label>En quelques mots, votre situation</label><input type="text" id="fSit" placeholder="Optionnel — nous aidera à personnaliser l'échange"></div>
       <p class="fm-prv">🔒 Vos informations sont confidentielles et ne seront jamais partagées.</p>
-      <div class="fm-cta"><button type="button" class="btn-sub" onclick="submitForm()">Recevoir mon diagnostic →</button></div>
+      <div class="fm-cta"><button type="submit" class="btn-sub" onclick="submitForm()">Recevoir mon diagnostic →</button></div>
     </form>
   </div>
 </div>
@@ -613,7 +613,7 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <!-- CTA + signature -->
     <div class="rs-bot">
       <div class="rs-cta-lbl">Prochaine étape</div>
-      <a href="#" id="rsBtn" class="btn-cta" target="_blank"></a>
+      <a href="#" id="rsBtn" class="btn-cta" target="_blank" aria-label="Prendre rendez-vous avec Matthieu Viel"></a>
       <p class="rs-mention" id="rsMention"></p>
       <div class="rs-sig">
         <div class="rs-sig-av">MV</div>
