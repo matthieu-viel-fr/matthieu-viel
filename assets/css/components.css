@@ -597,7 +597,7 @@
    PORTFOLIO — Hero
    ============================================================ */
 .portfolio-hero {
-  padding-block: calc(var(--nav-height) + 4rem) 4rem;
+  padding-block: calc(var(--nav-height) + 4.5rem) 4rem;
   background: linear-gradient(145deg, #f2f7fb 0%, #e4eef7 100%);
 }
 
@@ -754,6 +754,11 @@
 .portfolio-card__status--prod {
   background: #d1fae5;
   color: #065f46;
+}
+
+.portfolio-card__status--wip {
+  background: #fef3c7;
+  color: #92400e;
 }
 
 .portfolio-card__title {

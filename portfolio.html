@@ -140,11 +140,7 @@
     <section class="section" id="projets" aria-labelledby="projets-title">
       <div class="container">
         <header class="section-header">
-          <p class="eyebrow">Réalisations principales</p>
-          <h2 class="section-title" id="projets-title">Trois projets à fort impact business</h2>
-          <p class="section-subtitle">
-            Actifs en production, avec des résultats mesurables et des clients nommés.
-          </p>
+          <h2 class="section-title" id="projets-title">Réalisations principales</h2>
         </header>
 
         <div class="portfolio__featured">
@@ -153,69 +149,38 @@
             <div class="portfolio-card__header">
               <div class="portfolio-card__meta">
                 <span class="portfolio-card__sector">Sport · Communauté</span>
-                <span class="portfolio-card__status portfolio-card__status--prod">En prod depuis 2000+</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">En prod depuis 2008 · maintenu depuis 2014</span>
               </div>
               <h3 class="portfolio-card__title">Tennis-Contact — Plateforme communautaire tennis</h3>
             </div>
             <div class="portfolio-card__body">
               <p class="portfolio-card__context">
-                <strong>Le problème :</strong> Des joueurs locaux voulaient organiser des parties sans dépendre
-                d'apps génériques. L'outil existant tournait sur un legacy PHP vieillissant, difficile à maintenir.
+                <strong>Le problème :</strong> L'application en flat PHP 5.6 était devenue impossible à maintenir.
+                Les versions de PHP obsolètes n'étaient plus supportées, et les accès directs à la base
+                de données exposaient la plateforme à des failles d'injection SQL.
               </p>
               <p class="portfolio-card__solution">
-                <strong>Ce que j'ai fait :</strong> Migration complète du legacy vers Symfony + React moderne.
-                Refonte de la gestion clubs/coaches, de l'organisation des parties et du panel d'administration.
-                Docker pour le déploiement, MySQL pour la persistance.
+                <strong>Ce que j'ai fait :</strong> En deux temps.
+                D'abord la sécurisation : mise à jour vers PHP 8.3 et remplacement des requêtes directes
+                par du PDO avec requêtes préparées, éliminant les risques d'injection SQL.
+                Ensuite la refonte progressive via Strangler Fig Pattern — Symfony + React moderne.
+                Les pages fonctionnelles restent intactes ; chaque évolution fonctionnelle est réécrite
+                dans la nouvelle stack. La continuité de service est garantie à chaque étape.
               </p>
               <ul class="portfolio-card__results">
-                <li>✓ Migration PHP legacy → Symfony sans perte de données ni downtime</li>
-                <li>✓ Visibilité locale améliorée, pratique du sport facilitée</li>
-                <li>✓ Revenus via coaches et partenaires, actif depuis plus de 20 ans</li>
+                <li>✓ Failles d'injection SQL éliminées sans interruption de service</li>
+                <li>✓ PHP 5.6 → 8.3 sur une app active depuis 2008</li>
+                <li>✓ Refonte progressive en cours — zéro big bang, zéro régression</li>
               </ul>
             </div>
             <div class="portfolio-card__footer">
               <div class="case-card__tags">
-                <span class="tag">PHP / Symfony</span>
-                <span class="tag">React</span>
-                <span class="tag">MySQL</span>
-                <span class="tag">Docker</span>
-                <span class="tag">Migration legacy</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="portfolio-card portfolio-card--featured fade-up">
-            <div class="portfolio-card__header">
-              <div class="portfolio-card__meta">
-                <span class="portfolio-card__sector">Freelance · Outil métier</span>
-                <span class="portfolio-card__status portfolio-card__status--prod">En prod</span>
-              </div>
-              <h3 class="portfolio-card__title">FS-Web-Conseil — CRM et site vitrine sur-mesure</h3>
-            </div>
-            <div class="portfolio-card__body">
-              <p class="portfolio-card__context">
-                <strong>Le problème :</strong> Gérer une activité freelance avec Excel et des outils génériques
-                (facturation, suivi clients, temps) coûte plus en friction qu'en économies réalisées.
-              </p>
-              <p class="portfolio-card__solution">
-                <strong>Ce que j'ai fait :</strong> Monorepo avec site vitrine Next.js et CRM Symfony custom
-                conçu avec les patterns DDD/CQRS — gestion des clients, des devis, du temps et de la facturation.
-                Tout dans un seul outil, adapté au process réel.
-              </p>
-              <ul class="portfolio-card__results">
-                <li>✓ Excel remplacé par un outil adapté au vrai flux de travail</li>
-                <li>✓ Gain de productivité mesurable sur les tâches admin</li>
-                <li>✓ Démonstration concrète des patterns DDD/CQRS en production</li>
-              </ul>
-            </div>
-            <div class="portfolio-card__footer">
-              <div class="case-card__tags">
-                <span class="tag">Next.js</span>
+                <span class="tag">PHP 8.3</span>
+                <span class="tag">PDO</span>
                 <span class="tag">Symfony</span>
                 <span class="tag">React</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">DDD / CQRS</span>
-                <span class="tag">Docker</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Strangler Fig</span>
               </div>
             </div>
           </article>
@@ -224,25 +189,26 @@
             <div class="portfolio-card__header">
               <div class="portfolio-card__meta">
                 <span class="portfolio-card__sector">E-commerce · Automatisation</span>
-                <span class="portfolio-card__status portfolio-card__status--prod">En prod</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">Mission au forfait · 2026</span>
               </div>
-              <h3 class="portfolio-card__title">Sellermania/MVS — Connecteur e-commerce automatisé</h3>
+              <h3 class="portfolio-card__title">Sellermania — Connecteur marketplace / logistique</h3>
             </div>
             <div class="portfolio-card__body">
               <p class="portfolio-card__context">
-                <strong>Le problème :</strong> Un e-commerçant synchronisait manuellement commandes,
-                stocks et suivis entre sa marketplace (Sellermania) et son logisticien (MVS).
-                20h/semaine perdues, risque d'erreurs constant.
+                <strong>Le problème :</strong> Un e-commerçant gérait déjà son site de vente et
+                sa logistique via un SaaS spécialisé. En ouvrant Sellermania comme canal de vente
+                supplémentaire, chaque commande entrante nécessitait une saisie manuelle dans le SaaS
+                logistique — répétitif, source d'erreurs, et incompatible avec la montée en volume.
               </p>
               <p class="portfolio-card__solution">
-                <strong>Ce que j'ai fait :</strong> Connecteur API avec 3 flux cron automatisés :
-                synchronisation des commandes, mise à jour des stocks, suivi des expéditions.
-                Déduplication intégrée pour éviter les doublons entre systèmes.
+                <strong>Ce que j'ai fait :</strong> Connecteur API entre Sellermania et le SaaS logistique :
+                chaque commande passée sur Sellermania est automatiquement transmise sans intervention
+                manuelle. Déduplication intégrée pour garantir l'idempotence des flux cron.
               </p>
               <ul class="portfolio-card__results">
-                <li>✓ Élimination des tâches de synchronisation manuelle</li>
-                <li>✓ Réduction des erreurs de commandes</li>
-                <li>✓ Scaling des ventes sans surcharge administrative</li>
+                <li>✓ Zéro action manuelle sur les commandes Sellermania</li>
+                <li>✓ Nouveau canal de vente opérationnel sans surcharge opérationnelle</li>
+                <li>✓ Volume scalable sans coût de traitement supplémentaire</li>
               </ul>
             </div>
             <div class="portfolio-card__footer">
@@ -250,9 +216,83 @@
                 <span class="tag">PHP</span>
                 <span class="tag">MySQL</span>
                 <span class="tag">API Sellermania</span>
-                <span class="tag">API MVS</span>
                 <span class="tag">Docker</span>
                 <span class="tag">Cron</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card portfolio-card--featured fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">ERP métier · Refonte frontend</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">Mission au forfait · 2026</span>
+              </div>
+              <h3 class="portfolio-card__title">Mission freelance — Migration frontend React sans big bang</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>Le problème :</strong> L'ERP sur-mesure d'un client (gestion de contacts, contrats,
+                propriétaires) accumulait une dette technique critique : Create React App obsolète, zéro
+                TypeScript, zéro tests. Une réécriture complète aurait bloqué les évolutions métier pendant des mois.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>Ce que j'ai fait :</strong> Migration progressive via Strangler Fig Pattern — nouvelle
+                stack Vite/TypeScript/RTK Query cohabitant dans le même bundle que le code legacy, sans le toucher.
+                Trois défis techniques résolus par des plugins Vite custom : store Redux unifié entre les deux stacks,
+                JSX dans les fichiers <code>.js</code> legacy, feature flags par page pour bascule instantanée
+                en production. Infrastructure de tests Vitest et documentation d'architecture livrées
+                pour l'équipe interne.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>✓ CRA supprimé, TypeScript strict activé — sans toucher au code legacy</li>
+                <li>✓ Migration page par page reproductible par l'équipe interne</li>
+                <li>✓ Documentation d'architecture livrée pour la continuité sans dépendance</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Vite</span>
+                <span class="tag">RTK Query</span>
+                <span class="tag">Strangler Fig</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Vitest</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card portfolio-card--featured fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">Jardin Botanique · Migration CMS</span>
+              </div>
+              <h3 class="portfolio-card__title">Herbarius — Du Drupal lourd au site statique performant</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>Le problème :</strong> Un jardin historique avec un site Drupal lent et coûteux à
+                maintenir — aucune équipe technique interne, mises à jour bloquées, performances catastrophiques.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>Ce que j'ai fait :</strong> Migration vers un site statique Eleventy bilingue, SEO
+                optimisé, déployé automatiquement via GitHub Actions. Module de gestion de contenu sur-mesure
+                ajouté : le planning des animations est saisi dynamiquement et généré en pages statiques à
+                chaque déploiement.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>✓ Performance ×10 après migration Drupal → statique</li>
+                <li>✓ Contenu dynamique (animations) sans CMS ni dépendance serveur</li>
+                <li>✓ Déploiement automatisé — aucune maintenance technique pour le client</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">Eleventy</span>
+                <span class="tag">JS vanilla</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Drupal → statique</span>
               </div>
             </div>
           </article>
@@ -277,19 +317,21 @@
         <div class="cases__grid">
 
           <article class="case-card fade-up">
-            <p class="case-card__client">Jardin Botanique · Migration CMS</p>
-            <h3 class="case-card__title">Herbarius — Du Drupal lourd au site statique performant</h3>
+            <p class="case-card__client">Freelance · Outil métier · POC</p>
+            <h3 class="case-card__title">FS-Web-Conseil — CRM et site vitrine sur-mesure</h3>
             <p class="case-card__text">
-              Un jardin historique avec un site Drupal lent et coûteux à maintenir.
-              Migration vers un site statique Eleventy bilingue, SEO optimisé,
-              déployé automatiquement via GitHub Actions.
+              Remplacer Excel et les outils génériques (facturation, suivi clients, temps) par un monorepo :
+              site vitrine Next.js + CRM Symfony custom avec patterns DDD/CQRS. Gestion des clients, devis,
+              temps et facturation dans un seul outil adapté au process réel.
             </p>
-            <p class="case-card__result">✓ Performance ×10 · Hébergement ÷10</p>
+            <p class="case-card__result">✓ Architecture de référence DDD/CQRS · En développement</p>
             <div class="case-card__tags">
-              <span class="tag">Eleventy</span>
-              <span class="tag">JS vanilla</span>
-              <span class="tag">GitHub Actions</span>
-              <span class="tag">Drupal → statique</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Symfony</span>
+              <span class="tag">React</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">DDD / CQRS</span>
+              <span class="tag">Docker</span>
             </div>
           </article>
 
