@@ -395,6 +395,7 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
   .q-cta,.fm-cta { position:static; background:transparent; padding:0 0 40px; margin:0; padding-left:0; padding-right:0; }
   #p-landing { height:100vh; }
 }
+.fm-hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
 </style>
 </head>
 <body>
@@ -573,6 +574,11 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
       <div class="fg"><label>Email *</label><input type="email" id="fEmail" placeholder="email@entreprise.com" required autocomplete="email"></div>
       <div class="fg"><label>Entreprise</label><input type="text" id="fSoc" placeholder="Nom de l'entreprise" autocomplete="organization"></div>
       <div class="fg"><label>En quelques mots, votre situation</label><input type="text" id="fSit" placeholder="Optionnel — nous aidera à personnaliser l'échange"></div>
+      <!-- honeypot : invisible pour les humains, rempli par les bots -->
+      <div class="fm-hp" aria-hidden="true" tabindex="-1">
+        <label for="fWebsite">Ne pas remplir</label>
+        <input type="text" id="fWebsite" name="website" autocomplete="off" tabindex="-1">
+      </div>
       <p class="fm-prv">🔒 Vos informations sont confidentielles et ne seront jamais partagées.</p>
       <div class="fm-cta"><button type="submit" class="btn-sub" onclick="submitForm()">Recevoir mon diagnostic →</button></div>
     </form>
@@ -662,10 +668,13 @@ function advance(n) {
   show('p-q' + (n + 1), 'next');
 }
 
+var _formShownAt = 0;
+
 function goToForm() {
   if (!S.l[8]) return;
   setProg(100, null, 'Dernière étape');
   document.getElementById('pgBack').style.display = 'none';
+  _formShownAt = Date.now();
   show('p-form', 'next');
 }
 
@@ -712,11 +721,27 @@ function submitForm() {
   var email = document.getElementById('fEmail').value.trim();
   var soc   = document.getElementById('fSoc').value.trim();
   var sit   = document.getElementById('fSit').value.trim();
+  var hp    = document.getElementById('fWebsite').value;
+
+  // Honeypot : rempli = bot
+  if (hp) return;
+
+  // Time check : soumission < 2s après affichage = bot
+  if (_formShownAt && (Date.now() - _formShownAt) < 2000) return;
 
   if (!nom || !email) {
     alert('Merci de renseigner votre nom et votre email.');
     return;
   }
+
+  // Validation email basique
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+    alert('Merci de vérifier votre adresse email.');
+    return;
+  }
+
+  // Sanitisation : supprimer caractères de contrôle du nom (injection header mail)
+  var nomSafe = nom.replace(/[\r\n\t]/g, ' ').slice(0, 100);
 
   var tier = determineResult();
 
@@ -726,9 +751,9 @@ function submitForm() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       access_key: '140252de-b9aa-4f67-b33b-39ab87c398a4',
-      subject: 'Diagnostic — ' + nom + ' · Profil ' + tier.toUpperCase(),
-      name: nom, email: email,
-      message: buildMsg(nom, email, soc, sit, tier)
+      subject: 'Diagnostic — ' + nomSafe + ' · Profil ' + tier.toUpperCase(),
+      name: nomSafe, email: email,
+      message: buildMsg(nomSafe, email, soc, sit, tier)
     })
   }).catch(function() {});
 
