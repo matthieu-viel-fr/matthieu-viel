@@ -855,17 +855,96 @@ function determineResult() {
 }
 
 // ── Message email ──
+var QUIZ_DATA = [
+  {
+    q: 'Quel est votre principal outil digital ?',
+    r: {
+      A: 'Un site vitrine ou une boutique en ligne',
+      B: 'Une application utilisée en interne par vos équipes (gestion, ERP, outil métier)',
+      C: 'Un produit ou service vendu à vos clients (SaaS, plateforme, application)',
+      D: 'Plusieurs de ces éléments à la fois'
+    }
+  },
+  {
+    q: 'Qui s\'occupe du développement et de la maintenance de votre application ?',
+    r: {
+      A: 'Personne — il n\'y a pas de développeur chez nous',
+      B: 'Un ou deux développeurs juniors en interne',
+      C: 'Un prestataire externe (agence ou freelance)',
+      D: 'Une équipe structurée avec un responsable technique senior'
+    }
+  },
+  {
+    q: 'Comment décririez-vous l\'état technique de votre application aujourd\'hui ?',
+    r: {
+      A: 'Elle tourne — mais chaque évolution est lente et chaque modification coûte cher',
+      B: 'Des bugs apparaissent régulièrement et affectent les utilisateurs ou les équipes',
+      C: 'L\'application fonctionne, mais tout le monde hésite à y toucher',
+      D: 'On a eu des incidents sérieux récemment qui ont impacté l\'activité'
+    }
+  },
+  {
+    q: 'Qu\'est-ce qui vous pousse à vous intéresser à ce sujet aujourd\'hui ?',
+    r: {
+      A: 'On vient de signer de nouveaux clients — l\'application doit tenir la charge',
+      B: 'Notre développeur principal est parti ou va partir',
+      C: 'Un bug ou incident récent nous a coûté du temps et de l\'argent',
+      D: 'Un projet d\'évolution est bloqué depuis plusieurs mois',
+      E: 'Je fais un état des lieux — il n\'y a pas d\'urgence particulière'
+    }
+  },
+  {
+    q: 'Depuis combien de temps votre application principale est-elle en production ?',
+    r: {
+      A: 'Moins de 2 ans',
+      B: 'Entre 2 et 5 ans',
+      C: 'Entre 5 et 15 ans',
+      D: 'Plus de 15 ans'
+    }
+  },
+  {
+    q: 'Si votre application était indisponible pendant 24h, quel serait l\'impact sur votre activité ?',
+    r: {
+      A: 'Minimal — on peut fonctionner sans',
+      B: 'Gênant, mais on s\'en sortirait',
+      C: 'Sérieux — des clients ou des équipes seraient bloqués',
+      D: 'Catastrophique — l\'activité s\'arrête complètement'
+    }
+  },
+  {
+    q: 'Votre code source est-il documenté, versionné et accessible si un nouveau développeur devait intervenir ?',
+    r: {
+      A: 'Oui — Git, documentation à jour, procédures claires',
+      B: 'Partiellement — certaines parties sont documentées, pas toutes',
+      C: 'Peu ou pas — le savoir est dans la tête du ou des développeurs',
+      D: 'Honnêtement, je ne sais pas'
+    }
+  },
+  {
+    q: 'Avez-vous déjà essayé de faire évoluer ou auditer votre application ?',
+    r: {
+      A: 'Non — on n\'a jamais formalisé ça',
+      B: 'Oui, avec un prestataire externe — sans résultat probant',
+      C: 'Oui, en interne — mais les changements ont créé de nouveaux problèmes',
+      D: 'On avait un projet, mais il a été abandonné en cours de route'
+    }
+  }
+];
+
 function buildMsg(nom, email, soc, sit, tier) {
-  var labels = ['Type outil','Equipe tech','Etat technique','Declencheur','Anciennete','Impact','Gouvernance','Historique'];
   var m = 'DIAGNOSTIC MATTHIEU VIEL\n\n';
   m += 'Nom : ' + nom + '\n';
   m += 'Email : ' + email + '\n';
   m += 'Societe : ' + (soc || '—') + '\n';
   m += 'Situation : ' + (sit || '—') + '\n';
   m += 'Profil : ' + tier.toUpperCase() + '\n\n';
-  m += 'Reponses :\n';
+  m += 'Reponses :\n\n';
   for (var i = 1; i <= 8; i++) {
-    m += 'Q' + i + ' ' + labels[i - 1] + ' : ' + (S.l[i] || '—') + '\n';
+    var data = QUIZ_DATA[i - 1];
+    var choix = S.l[i] || '—';
+    var texte = (data.r[choix]) ? choix + ' — ' + data.r[choix] : choix;
+    m += 'Q' + i + '. ' + data.q + '\n';
+    m += '   > ' + texte + '\n\n';
   }
   return m;
 }
