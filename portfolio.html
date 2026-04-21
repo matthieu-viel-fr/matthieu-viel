@@ -3,11 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matthieu Viel — Portfolio &amp; réalisations</title>
-  <meta name="description" content="Page en construction — portfolio de Matthieu Viel, consultant technique web à La Réunion.">
-  <meta name="robots" content="noindex, follow">
+  <title>Portfolio réalisations · Matthieu Viel — Consultant web La Réunion</title>
+  <meta name="description" content="Réalisations de Matthieu Viel : migrations legacy, outils sur-mesure, automatisation. 17 ans d'expérience fullstack au service des PME réunionnaises.">
   <link rel="canonical" href="https://www.matthieu-viel.fr/portfolio.html">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://www.matthieu-viel.fr/portfolio.html">
+  <meta property="og:title"       content="Portfolio · Matthieu Viel — Consultant web La Réunion">
+  <meta property="og:description" content="Migrations legacy, outils sur-mesure, automatisation : 9 projets qui illustrent 17 ans d'expérience fullstack.">
+  <meta property="og:image"       content="https://www.matthieu-viel.fr/assets/images/portrait.jpg">
+  <meta name="twitter:card"       content="summary_large_image">
+
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
@@ -29,7 +37,7 @@
       <a href="https://calendly.com/matthieu-viel-fr/30min"
          class="btn btn--primary nav__cta"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Réserver un appel découverte">Réserver un appel</a>
+         aria-label="Réserver un appel découverte (ouvre Calendly)">Réserver un appel</a>
       <button type="button" class="nav__burger" id="nav-burger"
               aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
@@ -38,17 +46,304 @@
   </nav>
 
   <main>
-    <section class="placeholder-section">
+
+    <!-- ============================================================
+         HERO PORTFOLIO
+         ============================================================ -->
+    <section class="portfolio-hero" aria-label="Introduction portfolio">
       <div class="container">
         <p class="eyebrow">Portfolio</p>
-        <h1 class="section-title placeholder-section__title">Mes réalisations</h1>
-        <p class="placeholder-section__intro">
-          Le portfolio détaillé est en cours de construction.
-          En attendant, retrouvez mes principales missions sur la page d'accueil.
+        <h1 class="portfolio-hero__title">
+          Des projets qui résolvent<br>
+          <em>de vrais problèmes métier</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          17 ans d'expérience fullstack — PHP/Symfony, React, migrations legacy,
+          outils sur-mesure. Chaque projet ci-dessous part d'un problème concret
+          chez un dirigeant ou une équipe, et se termine par un résultat mesurable.
         </p>
-        <a href="/" class="btn btn--primary">← Retour à l'accueil</a>
+        <div class="portfolio-hero__stats">
+          <div class="portfolio-hero__stat">
+            <span class="portfolio-hero__stat-number">9</span>
+            <span class="portfolio-hero__stat-label">projets analysés</span>
+          </div>
+          <div class="portfolio-hero__stat">
+            <span class="portfolio-hero__stat-number">5</span>
+            <span class="portfolio-hero__stat-label">projets actifs en prod</span>
+          </div>
+          <div class="portfolio-hero__stat">
+            <span class="portfolio-hero__stat-number">17</span>
+            <span class="portfolio-hero__stat-label">ans d'expérience</span>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- ============================================================
+         PATTERNS DE VALEUR
+         ============================================================ -->
+    <section class="section section--alt" id="patterns" aria-labelledby="patterns-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Ce que je construis</p>
+          <h2 class="section-title" id="patterns-title">Quatre problèmes que je résous en récurrence</h2>
+          <p class="section-subtitle">
+            Ces situations reviennent chez les PME. Ce ne sont pas des fatalités.
+          </p>
+        </header>
+
+        <div class="patterns__grid">
+
+          <article class="pattern-card fade-up">
+            <div class="pattern-card__icon" aria-hidden="true">🔄</div>
+            <h3 class="pattern-card__title">Automatiser un process manuel qui freine la croissance</h3>
+            <p class="pattern-card__text">
+              Synchro entre outils, gestion des commandes, exports récurrents — chaque heure passée
+              sur une tâche répétitive est une heure perdue. Un connecteur bien conçu s'amortit en quelques mois.
+            </p>
+          </article>
+
+          <article class="pattern-card fade-up">
+            <div class="pattern-card__icon" aria-hidden="true">🛠️</div>
+            <h3 class="pattern-card__title">Sortir d'Excel ou d'un outil générique trop rigide</h3>
+            <p class="pattern-card__text">
+              Un outil sur-mesure s'adapte à votre process unique, là où le générique vous force
+              à vous adapter à lui. CRM, ERP, tableau de bord — conçus pour vous, pas pour tout le monde.
+            </p>
+          </article>
+
+          <article class="pattern-card fade-up">
+            <div class="pattern-card__icon" aria-hidden="true">📍</div>
+            <h3 class="pattern-card__title">Digitaliser une activité locale avec visibilité en ligne</h3>
+            <p class="pattern-card__text">
+              Site vitrine performant, plateforme communautaire, espace adhérent — les clients
+              locaux s'attendent à trouver votre activité en ligne, facilement, sans friction.
+            </p>
+          </article>
+
+          <article class="pattern-card fade-up">
+            <div class="pattern-card__icon" aria-hidden="true">⚡</div>
+            <h3 class="pattern-card__title">Migrer un legacy coûteux vers une stack moderne</h3>
+            <p class="pattern-card__text">
+              PHP 5.6 → 8.3, Drupal → statique, Symfony 2 → 7 : des migrations réussies sans
+              interruption de service ni refonte totale. La continuité de votre activité avant tout.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJETS PRIORITAIRES
+         ============================================================ -->
+    <section class="section" id="projets" aria-labelledby="projets-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Réalisations principales</p>
+          <h2 class="section-title" id="projets-title">Trois projets à fort impact business</h2>
+          <p class="section-subtitle">
+            Actifs en production, avec des résultats mesurables et des clients nommés.
+          </p>
+        </header>
+
+        <div class="portfolio__featured">
+
+          <article class="portfolio-card portfolio-card--featured fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">Sport · Communauté</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">En prod depuis 2000+</span>
+              </div>
+              <h3 class="portfolio-card__title">Tennis-Contact — Plateforme communautaire tennis</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>Le problème :</strong> Des joueurs locaux voulaient organiser des parties sans dépendre
+                d'apps génériques. L'outil existant tournait sur un legacy PHP vieillissant, difficile à maintenir.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>Ce que j'ai fait :</strong> Migration complète du legacy vers Symfony + React moderne.
+                Refonte de la gestion clubs/coaches, de l'organisation des parties et du panel d'administration.
+                Docker pour le déploiement, MySQL pour la persistance.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>✓ Migration PHP legacy → Symfony sans perte de données ni downtime</li>
+                <li>✓ Visibilité locale améliorée, pratique du sport facilitée</li>
+                <li>✓ Revenus via coaches et partenaires, actif depuis plus de 20 ans</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">PHP / Symfony</span>
+                <span class="tag">React</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Migration legacy</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card portfolio-card--featured fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">Freelance · Outil métier</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">En prod</span>
+              </div>
+              <h3 class="portfolio-card__title">FS-Web-Conseil — CRM et site vitrine sur-mesure</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>Le problème :</strong> Gérer une activité freelance avec Excel et des outils génériques
+                (facturation, suivi clients, temps) coûte plus en friction qu'en économies réalisées.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>Ce que j'ai fait :</strong> Monorepo avec site vitrine Next.js et CRM Symfony custom
+                conçu avec les patterns DDD/CQRS — gestion des clients, des devis, du temps et de la facturation.
+                Tout dans un seul outil, adapté au process réel.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>✓ Excel remplacé par un outil adapté au vrai flux de travail</li>
+                <li>✓ Gain de productivité mesurable sur les tâches admin</li>
+                <li>✓ Démonstration concrète des patterns DDD/CQRS en production</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">Symfony</span>
+                <span class="tag">React</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">DDD / CQRS</span>
+                <span class="tag">Docker</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card portfolio-card--featured fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">E-commerce · Automatisation</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">En prod</span>
+              </div>
+              <h3 class="portfolio-card__title">Sellermania/MVS — Connecteur e-commerce automatisé</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>Le problème :</strong> Un e-commerçant synchronisait manuellement commandes,
+                stocks et suivis entre sa marketplace (Sellermania) et son logisticien (MVS).
+                20h/semaine perdues, risque d'erreurs constant.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>Ce que j'ai fait :</strong> Connecteur API avec 3 flux cron automatisés :
+                synchronisation des commandes, mise à jour des stocks, suivi des expéditions.
+                Déduplication intégrée pour éviter les doublons entre systèmes.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>✓ Élimination des tâches de synchronisation manuelle</li>
+                <li>✓ Réduction des erreurs de commandes</li>
+                <li>✓ Scaling des ventes sans surcharge administrative</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">API Sellermania</span>
+                <span class="tag">API MVS</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Cron</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJETS SECONDAIRES
+         ============================================================ -->
+    <section class="section section--alt" id="autres-projets" aria-labelledby="autres-projets-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Autres réalisations</p>
+          <h2 class="section-title" id="autres-projets-title">Prototypes et migrations de niche</h2>
+          <p class="section-subtitle">
+            Des projets exploratoires ou sectoriels qui illustrent d'autres facettes de mon travail.
+          </p>
+        </header>
+
+        <div class="cases__grid">
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">Jardin Botanique · Migration CMS</p>
+            <h3 class="case-card__title">Herbarius — Du Drupal lourd au site statique performant</h3>
+            <p class="case-card__text">
+              Un jardin historique avec un site Drupal lent et coûteux à maintenir.
+              Migration vers un site statique Eleventy bilingue, SEO optimisé,
+              déployé automatiquement via GitHub Actions.
+            </p>
+            <p class="case-card__result">✓ Performance ×10 · Hébergement ÷10</p>
+            <div class="case-card__tags">
+              <span class="tag">Eleventy</span>
+              <span class="tag">JS vanilla</span>
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">Drupal → statique</span>
+            </div>
+          </article>
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">Sport · Prototype React</p>
+            <h3 class="case-card__title">SteepFinder — Outil de recherche de côtes pour cyclistes</h3>
+            <p class="case-card__text">
+              Les cyclistes utilisaient Google Maps pour trouver des côtes d'entraînement —
+              un outil générique inadapté. App React avec API Google Elevation pour rechercher
+              des climbs par gradient précis sur une carte interactive.
+            </p>
+            <p class="case-card__result">✓ Outil spécialisé vs générique, MVP fonctionnel</p>
+            <div class="case-card__tags">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Leaflet</span>
+              <span class="tag">Google Elevation API</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA FINAL
+         ============================================================ -->
+    <section class="section section--dark" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="portfolio-cta">
+          <p class="eyebrow">Votre projet</p>
+          <h2 class="portfolio-cta__title" id="cta-title">
+            Votre situation ressemble<br>à l'un de ces cas ?
+          </h2>
+          <p class="portfolio-cta__text">
+            Un legacy qui coûte cher, un process manuel à automatiser, un outil générique
+            qui ne vous convient plus — décrivez-moi votre problème en quelques lignes.
+            Je réponds sous 24h.
+          </p>
+          <div class="portfolio-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--primary btn--lg"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Réserver un appel découverte sur Calendly (nouvel onglet)">
+              Réserver un appel découverte
+            </a>
+            <a href="/#contact" class="btn btn--outline-light btn--lg">
+              Écrire un message →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -59,21 +354,19 @@
       </div>
       <nav aria-label="Liens du pied de page">
         <ul class="footer__links">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/#a-propos">À propos</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="tech.html">Version tech</a></li>
           <li>
             <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Profil LinkedIn de Matthieu Viel (nouvel onglet)">
-              LinkedIn
-            </a>
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Profil LinkedIn de Matthieu Viel (nouvel onglet)">LinkedIn</a>
           </li>
           <li>
             <a href="https://www.malt.com/profile/matthieuviel"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Profil Malt de Matthieu Viel (nouvel onglet)">
-              Malt
-            </a>
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Profil Malt de Matthieu Viel (nouvel onglet)">Malt</a>
           </li>
         </ul>
       </nav>
