@@ -1,0 +1,11 @@
+Options -Indexes
+
+RewriteEngine On
+
+# HTTP → HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# non-www → www
+RewriteCond %{HTTP_HOST} ^matthieu-viel\.fr$ [NC]
+RewriteRule ^(.*)$ https://www.matthieu-viel.fr/$1 [R=301,L]
