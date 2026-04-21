@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /quiz.html
 
 Sitemap: https://www.matthieu-viel.fr/sitemap.xml
