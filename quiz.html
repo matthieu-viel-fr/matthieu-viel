@@ -409,6 +409,30 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
   #p-landing { height:100vh; }
 }
 .fm-hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+
+/* ── Lang toggle (quiz overlay) ── */
+.lang-toggle--quiz {
+  display:flex; align-items:center; gap:2px;
+  position:absolute;
+  top:max(16px,calc(env(safe-area-inset-top,0px)+12px));
+  right:20px;
+  z-index:10;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:20px;
+  padding:2px;
+  background:rgba(255,255,255,.06);
+}
+.lang-toggle__btn {
+  font-size:12px; font-weight:600; line-height:1;
+  color:rgba(255,255,255,.45); text-decoration:none;
+  padding:.25rem .625rem; border-radius:20px;
+  white-space:nowrap; transition:color .2s;
+}
+.lang-toggle__btn:hover { color:rgba(255,255,255,.9); }
+.lang-toggle__btn--active {
+  background:rgba(255,255,255,.12);
+  color:rgba(255,255,255,.9);
+}
 </style>
 </head>
 <body>
@@ -423,7 +447,11 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
 
 <!-- ══════════════ LANDING ══════════════ -->
 <div class="slide is-active" id="p-landing">
-  <a href="/" class="lnd-back" aria-label="Retour au site de Matthieu Viel">← matthieu-viel.fr</a>
+  <div class="lang-toggle lang-toggle--quiz">
+    <a href="quiz.html" class="lang-toggle__btn lang-toggle__btn--active">🇫🇷 FR</a>
+    <a href="en/index.html" class="lang-toggle__btn">🇬🇧 EN</a>
+  </div>
+  <a href="index.html" class="lnd-back" aria-label="Retour au site de Matthieu Viel">← matthieu-viel.fr</a>
   <div class="lnd">
     <div class="lnd-label">Consultant technique web</div>
     <h1 class="lnd-h1">

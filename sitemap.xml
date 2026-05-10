@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://www.matthieu-viel.fr/</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-05-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/"/>
   </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/portfolio.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/portfolio.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/portfolio.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/portfolio.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/quiz.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

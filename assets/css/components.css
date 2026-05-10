@@ -1,4 +1,56 @@
 /* ============================================================
+   LANGUAGE TOGGLE
+   ============================================================ */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-full);
+  padding: 2px;
+  background: var(--clr-bg-alt);
+  flex-shrink: 0;
+}
+
+.lang-toggle__btn {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-slate);
+  text-decoration: none;
+  padding: .25rem .625rem;
+  border-radius: var(--radius-full);
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.lang-toggle__btn:hover { color: var(--clr-navy); }
+
+.lang-toggle__btn--active {
+  background: var(--clr-white);
+  color: var(--clr-navy);
+  box-shadow: 0 1px 3px rgba(12,28,44,.1);
+}
+
+/* Quiz variant — overlaid on dark slide background */
+.lang-toggle--quiz {
+  position: absolute;
+  top: max(16px, calc(env(safe-area-inset-top, 0px) + 12px));
+  right: 20px;
+  z-index: 10;
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+}
+
+.lang-toggle--quiz .lang-toggle__btn { color: rgba(255,255,255,.45); }
+.lang-toggle--quiz .lang-toggle__btn:hover { color: rgba(255,255,255,.9); }
+.lang-toggle--quiz .lang-toggle__btn--active {
+  background: rgba(255,255,255,.12);
+  color: rgba(255,255,255,.9);
+  box-shadow: none;
+}
+
+/* ============================================================
    BUTTONS
    ============================================================ */
 .btn {
