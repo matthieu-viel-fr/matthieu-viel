@@ -6,6 +6,9 @@
   <title>Portfolio réalisations · Matthieu Viel — Consultant web La Réunion</title>
   <meta name="description" content="Réalisations de Matthieu Viel : migrations legacy, outils sur-mesure, automatisation. 17 ans d'expérience fullstack au service des PME réunionnaises.">
   <link rel="canonical" href="https://www.matthieu-viel.fr/portfolio.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/portfolio.html">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/portfolio.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/portfolio.html">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
   <!-- Open Graph -->
@@ -24,16 +27,21 @@
 
   <nav class="nav" id="nav" aria-label="Navigation principale">
     <div class="container nav__inner">
-      <a href="/" class="nav__logo" aria-label="Matthieu Viel — Accueil">
+      <a href="index.html" class="nav__logo" aria-label="Matthieu Viel — Accueil">
         <span class="nav__logo-name">Matthieu Viel</span>
         <span class="nav__logo-tagline">Consultant technique web</span>
       </a>
       <ul class="nav__links" id="nav-links">
-        <li><a href="/#problemes">Mes interventions</a></li>
-        <li><a href="/#a-propos">À propos</a></li>
+        <li><a href="./#problemes">Mes interventions</a></li>
+        <li><a href="./#a-propos">À propos</a></li>
         <li><a href="portfolio.html" class="is-active">Portfolio</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a href="./#contact">Contact</a></li>
       </ul>
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <a href="portfolio.html" class="lang-toggle__btn lang-toggle__btn--active" hreflang="fr" aria-current="true">🇫🇷 FR</a>
+        <a href="en/portfolio.html" class="lang-toggle__btn" hreflang="en">🇬🇧 EN</a>
+      </div>
+
       <a href="https://calendly.com/matthieu-viel-fr/30min"
          class="btn btn--primary nav__cta"
          target="_blank" rel="noopener noreferrer"
@@ -378,7 +386,7 @@
                aria-label="Réserver un appel découverte sur Calendly (nouvel onglet)">
               Réserver un appel découverte
             </a>
-            <a href="/#contact" class="btn btn--outline-light btn--lg">
+            <a href="./#contact" class="btn btn--outline-light btn--lg">
               Écrire un message →
             </a>
           </div>
@@ -396,8 +404,8 @@
       </div>
       <nav aria-label="Liens du pied de page">
         <ul class="footer__links">
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/#a-propos">À propos</a></li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="./#a-propos">À propos</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="tech.html">Version tech</a></li>
           <li>

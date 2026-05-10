@@ -59,6 +59,8 @@
 
   .nav__cta { display: none; }
   .nav__burger { display: flex; }
+  .lang-toggle { gap: 1px; }
+  .lang-toggle__btn { padding: .2rem .5rem; }
 
   /* Section headers */
   .section-title { font-size: var(--fs-2xl); }
