@@ -1,78 +1,78 @@
 # CLAUDE.md — matthieu-viel.fr
 
-Site vitrine statique (HTML/CSS/JS). Pas de framework, pas de build system.
-Toute modification doit respecter les quatre règles permanentes ci-dessous.
+Static showcase site (HTML/CSS/JS). No framework, no build system.
+Every change must comply with the four permanent rules below.
 
 ---
 
-## 1. Ton éditorial & charte graphique
+## 1. Editorial tone & visual identity
 
-**Référence absolue : dossier `/seed/`**
-Avant toute modification de contenu ou de style, consulte les fichiers du dossier `seed/`.
-Ils font foi sur le ton, le vocabulaire, la palette, la typographie et l'identité visuelle.
+**Absolute reference: the `/seed/` folder**
+Before any content or style change, read the files in `seed/`.
+They are the authority on tone, vocabulary, color palette, typography, and visual identity.
 
-Principes extraits de ces sources :
-- Ton direct, sans jargon, honnête — jamais de formules creuses ou de superlatifs
-- Voix active, phrases courtes, bénéfice avant la technique
-- Persona : consultant senior ancré localement, pas une agence
-- Ne jamais introduire de nouveau terme marketing non présent dans `seed/`
-
----
-
-## 2. SEO & GEO — règles non négociables
-
-### Sur chaque page modifiée, vérifier systématiquement :
-- `<title>` : 55-60 caractères, mot-clé principal + localisation
-- `<meta description>` : 150-160 caractères, bénéfice clair
-- Une seule `<h1>`, hiérarchie `h1 > h2 > h3` stricte
-- Balise `canonical` présente
-- Tous les `<img>` ont un `alt` descriptif (sujet + contexte + lieu si pertinent)
-- JSON-LD `Person` + `LocalBusiness` présents sur la home, à jour
-
-### GEO (visibilité dans les réponses IA)
-- Toujours privilégier des **faits précis et chiffrés** : 17 ans d'expérience,
-  500+ scénarios Cypress, 70% couverture tests Citeo, Saint-Pierre 974, UTOI 117 km
-- Chaque cas client : client nommé + durée + résultat chiffré
-- Paragraphes courts et denses (≤ 4 lignes), sans remplissage
-- Les sections FAQ (si créées) doivent répondre directement en une phrase
+Principles derived from these sources:
+- Direct, jargon-free, honest tone — never hollow phrases or superlatives
+- Active voice, short sentences, benefit before technique
+- Persona: senior consultant with a local footprint, not an agency
+- Never introduce a marketing term not already present in `seed/`
 
 ---
 
-## 3. Performance — inconditionnelle
+## 2. SEO & GEO — non-negotiable rules
 
-- Images : format WebP uniquement, attributs `width` et `height` toujours présents
-- `loading="lazy"` sur toute image hors viewport initial
-- Pas de CSS ou JS render-blocking non justifié
-- Ressources critiques (above the fold) : inline ou préchargées via `<link rel="preload">`
-- Zéro dépendance externe non nécessaire ajoutée sans validation explicite
+### On every modified page, systematically verify:
+- `<title>`: 55–60 characters, primary keyword + location
+- `<meta description>`: 150–160 characters, clear benefit statement
+- A single `<h1>`, strict `h1 > h2 > h3` hierarchy
+- `canonical` tag present
+- All `<img>` have a descriptive `alt` (subject + context + location if relevant)
+- JSON-LD `Person` + `LocalBusiness` present and up to date on the home page
 
----
-
-## 4. Accessibilité & responsive mobile
-
-- Mobile-first : tester mentalement tout ajout sur 375px avant 1280px
-- Contraste WCAG AA minimum sur tout texte (ratio ≥ 4.5:1 sur fond)
-- Focus visible sur tous les éléments interactifs
-- `aria-label` sur tout lien dont l'intitulé seul est ambigu ("voir plus", "ici"...)
-- Structure sémantique : `<header>`, `<main>`, `<section>`, `<footer>` correctement utilisés
-
----
-
-## À ne jamais faire
-
-- Modifier le ton ou introduire du jargon non validé par `/seed/`
-- Ajouter un framework JS ou une dépendance npm sans demande explicite
-- Faire une refonte structurelle sans accord préalable
-- Générer du contenu keyword-stuffed ou artificiel
-- Supprimer ou altérer les scripts tiers (Calendly)
-- Toucher à la structure des URLs existantes
+### GEO (visibility in AI-generated answers)
+- Always favour **precise, quantified facts**: 17 years of experience,
+  500+ Cypress scenarios, 70% test coverage for Citeo, Saint-Pierre 974, UTOI 117 km
+- Each client case: named client + duration + quantified result
+- Short, dense paragraphs (≤ 4 lines), no padding
+- FAQ sections (if created) must answer directly in a single sentence
 
 ---
 
-## Workflow sur chaque tâche
+## 3. Performance — unconditional
 
-1. Lire les fichiers concernés avant toute modification
-2. Consulter `/seed/` si la tâche touche au contenu ou au style
-3. Appliquer les règles 1 à 4 silencieusement — pas besoin de le signaler à chaque fois
-4. En fin de tâche : lister les changements effectués + signaler tout écart potentiel
-   avec les règles ci-dessus
+- Images: WebP format only, `width` and `height` attributes always present
+- `loading="lazy"` on every image outside the initial viewport
+- No unjustified render-blocking CSS or JS
+- Critical above-the-fold resources: inline or preloaded via `<link rel="preload">`
+- Zero unnecessary external dependencies added without explicit approval
+
+---
+
+## 4. Accessibility & mobile responsiveness
+
+- Mobile-first: mentally test every addition at 375px before 1280px
+- Minimum WCAG AA contrast on all text (ratio ≥ 4.5:1 on background)
+- Visible focus on all interactive elements
+- `aria-label` on any link whose label alone is ambiguous ("see more", "here"…)
+- Semantic structure: `<header>`, `<main>`, `<section>`, `<footer>` used correctly
+
+---
+
+## Never do
+
+- Alter the tone or introduce jargon not validated by `/seed/`
+- Add a JS framework or npm dependency without an explicit request
+- Make structural redesigns without prior agreement
+- Generate keyword-stuffed or artificial content
+- Remove or alter third-party scripts (Calendly)
+- Touch existing URL structure
+
+---
+
+## Workflow for every task
+
+1. Read the relevant files before making any change
+2. Check `/seed/` if the task touches content or style
+3. Apply rules 1–4 silently — no need to announce it each time
+4. At the end of the task: list the changes made + flag any potential deviation
+   from the rules above
