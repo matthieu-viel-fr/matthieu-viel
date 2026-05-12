@@ -436,6 +436,15 @@
   gap: .4rem;
 }
 
+.case-card .btn {
+  margin-top: 1rem;
+}
+
+.case-cards__cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
 .tag {
   font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
@@ -892,4 +901,312 @@
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* ============================================================
+   AUDIT PAGES — Shared inner-page styles
+   ============================================================ */
+
+/* Back / breadcrumb link */
+.page-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: var(--fs-sm);
+  color: var(--clr-muted);
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+  transition: color var(--transition);
+}
+.page-back:hover { color: var(--clr-navy); }
+
+/* Audit use-case card grid (2-col) */
+.audit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.audit-card {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+  text-decoration: none;
+  color: inherit;
+}
+
+.audit-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  color: inherit;
+}
+
+.audit-card__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--clr-blue);
+}
+
+.audit-card__title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--clr-navy);
+  line-height: 1.3;
+}
+
+.audit-card__desc {
+  font-size: var(--fs-sm);
+  color: var(--clr-slate);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.audit-card__link {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-blue);
+}
+
+/* FAQ accordion (details/summary) */
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: .625rem;
+}
+
+.faq__item {
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  background: var(--clr-white);
+  overflow: hidden;
+}
+
+.faq__question {
+  padding: 1.125rem 1.5rem;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-navy);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+  transition: background var(--transition);
+}
+
+.faq__question::-webkit-details-marker { display: none; }
+.faq__question::marker { display: none; }
+
+.faq__question::after {
+  content: '+';
+  font-size: var(--fs-xl);
+  color: var(--clr-blue);
+  font-weight: var(--fw-regular);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+
+details[open] > .faq__question { background: var(--clr-bg-alt); }
+details[open] > .faq__question::after { content: '−'; }
+
+.faq__answer {
+  padding: 0 1.5rem 1.25rem;
+  font-size: var(--fs-base);
+  color: var(--clr-slate);
+  line-height: 1.75;
+  border-top: 1px solid var(--clr-border);
+}
+
+.faq__answer p + p { margin-top: .75rem; }
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 0;
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  font-size: var(--fs-base);
+  color: var(--clr-slate);
+  line-height: 1.55;
+}
+
+.checklist li::before {
+  content: '✓';
+  color: var(--clr-blue);
+  font-weight: var(--fw-bold);
+  flex-shrink: 0;
+  margin-top: .05rem;
+}
+
+/* Inner page CTA (centered, dark section) */
+.inner-cta {
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.inner-cta__title {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-extrabold);
+  color: var(--clr-white);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.inner-cta__text {
+  font-size: var(--fs-lg);
+  color: #a8c2d4;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.inner-cta__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   AUDIT — Layout & utility classes
+   ============================================================ */
+
+/* CTA button group */
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+.cta-group--center { justify-content: center; }
+
+/* Prose text */
+.prose {
+  font-size: var(--fs-base);
+  color: var(--clr-slate);
+  line-height: 1.75;
+}
+.prose--lead { font-size: var(--fs-lg); }
+.prose--mb { margin-bottom: 1rem; }
+.prose--mb-lg { margin-bottom: 1.25rem; }
+
+/* Prose containers */
+.prose-wide  { max-width: 760px; }
+.prose-xl    { max-width: 820px; }
+.prose-narrow {
+  max-width: 680px;
+  margin-inline: auto;
+}
+.prose-narrow--center {
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* 2-column layout */
+.layout-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.layout-2col--md { gap: 2.5rem; }
+
+/* Section title size override (audit sub-pages) */
+.section-title--2xl { font-size: var(--fs-2xl); }
+.section-title--mb  { margin-bottom: 1.25rem; }
+
+/* Eyebrow on dark background */
+.eyebrow--light { color: #7dc4e8; }
+
+/* Checklist modifiers */
+.checklist--loose { gap: 1rem; }
+.checklist-term {
+  color: var(--clr-navy);
+  display: block;
+  margin-bottom: .25rem;
+}
+
+/* Step spacer (aria-hidden placeholder in steps grid) */
+.step--hidden { visibility: hidden; }
+
+/* Related audits — centered layout */
+.related-audits--center { justify-content: center; }
+
+/* Proof grid — 3-column override */
+.proof__grid--3col {
+  margin-top: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Section subtitle — auto-centered */
+.section-subtitle--centered {
+  margin-inline: auto;
+  margin-bottom: 2rem;
+}
+
+/* Plain vertical list (no markers) */
+.plain-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .875rem;
+  margin-top: 1rem;
+}
+
+/* Margin-top utilities */
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 1.5rem; }
+.mt-3 { margin-top: 2rem; }
+.mt-4 { margin-top: 2.5rem; }
+
+/* Text-center utility */
+.u-text-center { text-align: center; }
+
+/* Related audit links (end of each use-case page) */
+.related-audits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.related-audits a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .5rem 1rem;
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--clr-navy);
+  text-decoration: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.related-audits a:hover {
+  border-color: var(--clr-blue);
+  box-shadow: var(--shadow-sm);
+  color: var(--clr-blue);
 }

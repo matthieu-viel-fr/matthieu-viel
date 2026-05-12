@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit an AI-built app before production · Matthieu Viel — Réunion</title>
+  <meta name="description" content="How to verify that an app built with Claude Code, Cursor or Bolt is ready for production? 5-point structured audit, deliverable in 5 days. Matthieu Viel, freelance consultant Réunion Island.">
+
+  <link rel="canonical" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/application-vibe-coding-production/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/">
+
+  <meta property="og:title" content="How to verify that an AI-built application is ready for production?">
+  <meta property="og:description" content="Five critical points to check before launching an app built with Claude Code, Cursor or Bolt. Structured audit, delivered in 5 days.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/en/audit/application-vibe-coding-production/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="../../../assets/images/favicon.svg">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to verify that an AI-built application is ready for production?",
+    "description": "Structured 5-step audit to validate an application built with AI tools (Claude Code, Cursor, Bolt) before production launch.",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "EUR",
+      "value": "From 1,500"
+    },
+    "totalTime": "P5D",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Code and architecture review",
+        "text": "Full read of the generated code: error handling, exposed secrets, vulnerable dependencies, data model structure."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Authentication and authorisation audit",
+        "text": "Verification of authentication mechanisms (JWT, sessions), role-based authorisation rules, and absence of unprotected routes."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Data exposure audit",
+        "text": "API endpoint review: sensitive data exposed, missing pagination, absent rate limiting, logs leaking information."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Basic load testing",
+        "text": "Simulating realistic load to identify bottlenecks before real users find them."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Prioritised audit report",
+        "text": "Written deliverable with each issue classified by criticality (blocking / important / minor), the reason for the risk, and recommended fix."
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "url": "https://www.matthieu-viel.fr",
+    "jobTitle": "Senior Fullstack Developer & Technical Auditor",
+    "knowsAbout": ["automated QA", "CI/CD", "technical audit", "SaaS stabilisation", "Cypress", "technical debt", "vibe coding audit"],
+    "areaServed": ["Réunion Island", "France", "Remote"],
+    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../../../en/index.html" class="nav__logo" aria-label="Matthieu Viel — Home">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">Senior web tech consultant</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../../../en/index.html#services">My Services</a></li>
+        <li><a href="../" class="is-active">Audit</a></li>
+        <li><a href="../../../en/portfolio.html">Portfolio</a></li>
+        <li><a href="../../../en/index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <a href="../../../audit/application-vibe-coding-production/" class="lang-toggle__btn" hreflang="fr">🇫🇷 FR</a>
+        <a href="./" class="lang-toggle__btn lang-toggle__btn--active" hreflang="en" aria-current="true">🇬🇧 EN</a>
+      </div>
+
+      <a href="https://calendly.com/matthieu-viel-fr/30min"
+         class="btn btn--primary nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Book a discovery call (opens Calendly)">
+        Book a call
+      </a>
+
+      <button type="button"
+              class="nav__burger"
+              id="nav-burger"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="portfolio-hero" aria-label="Vibe coding app audit">
+      <div class="container">
+        <a href="../" class="page-back" aria-label="Back to audit cases">← All audit cases</a>
+        <p class="eyebrow">AI-built app · Vibe coding audit</p>
+        <h1 class="portfolio-hero__title">
+          How to verify that an AI-built<br>
+          application is ready<br>
+          <em>for production?</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          Five critical points to check before exposing an app built with Claude Code,
+          Cursor or Bolt to real users. The audit takes 3 to 5 working days
+          and ends with a prioritised report — not a list of problems without solutions.
+        </p>
+        <div class="cta-group">
+          <a href="https://calendly.com/matthieu-viel-fr/30min"
+             class="btn btn--primary btn--lg"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Book a discovery call (opens Calendly)">
+            Discuss my project →
+          </a>
+          <a href="../faq/" class="btn btn--outline btn--lg">
+            Frequently asked questions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="why-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">The problem</p>
+          <h2 class="section-title" id="why-title">Why AI-built apps need an external review</h2>
+        </header>
+        <div class="prose-wide">
+          <p class="prose prose--lead prose--mb-lg">
+            Vibe coding tools (Claude Code, Cursor, Bolt, v0) generate code that <em>works</em>.
+            That's not the question. The question is: does it work correctly when 50 simultaneous
+            users interact with it using real personal data, and one of them deliberately
+            tries to break something?
+          </p>
+          <p class="prose prose--mb-lg">
+            AI-generated code reproduces the patterns it learned — including bad practices.
+            It has no business context, no global architecture vision,
+            and no concern for what happens when a function fails.
+          </p>
+          <p class="prose">
+            This isn't a criticism of these tools — I use Claude Code myself.
+            It's a reality: no code, human or AI, should go to production without
+            external validation. This audit is not a security pentest:
+            it focuses on the real risks for an app at your stage
+            (exposed data, leaky authentication, crash under load).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="five-points-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">What I examine</p>
+          <h2 class="section-title" id="five-points-title">The 5 critical points</h2>
+          <p class="section-subtitle">In this order — each step conditions the next.</p>
+        </header>
+
+        <div class="steps">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">1</div>
+            <h3 class="step__title">Code review</h3>
+            <p class="step__text">
+              Error handling (what happens when a function fails?),
+              secrets in source code, vulnerable dependencies,
+              data model structure.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">2</div>
+            <h3 class="step__title">Authentication</h3>
+            <p class="step__text">
+              Auth mechanisms (JWT, sessions), role-based authorisation rules,
+              unprotected routes, token expiry,
+              password policy.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">3</div>
+            <h3 class="step__title">Data exposure</h3>
+            <p class="step__text">
+              API endpoints returning more than necessary,
+              missing rate limiting, logs leaking sensitive information,
+              misconfigured CORS.
+            </p>
+          </div>
+        </div>
+
+        <div class="steps mt-3">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">4</div>
+            <h3 class="step__title">Basic load testing</h3>
+            <p class="step__text">
+              Simulating realistic load to identify bottlenecks
+              before real users find them for you.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">5</div>
+            <h3 class="step__title">Prioritised report</h3>
+            <p class="step__text">
+              Each issue classified: blocking / important / minor.
+              The reason for the risk, the recommended fix,
+              and effort estimate for each point.
+            </p>
+          </div>
+          <div class="step step--hidden" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="vs-pentest-title">
+      <div class="container">
+        <div class="layout-2col layout-2col--md">
+          <div>
+            <p class="eyebrow">What it is</p>
+            <h2 class="section-title" id="vs-pentest-title">Application audit vs security pentest</h2>
+            <p class="prose prose--mb">
+              A pentest is run by an offensive security expert looking to exploit known vulnerabilities
+              (injections, XSS, privilege escalation). It assumes a stable, documented application.
+            </p>
+            <p class="prose prose--mb">
+              An application audit like mine targets apps at the pre-launch or early post-launch stage.
+              I focus on what will <strong>concretely fail or leak</strong> with your first real users:
+              absent error handling, misconfigured auth, inadvertently exposed data.
+            </p>
+            <p class="prose">
+              Both approaches are complementary. For a vibe coding app at MVP stage,
+              starting with the application audit is the right sequence.
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow">What you receive</p>
+            <h2 class="section-title section-title--2xl">The deliverable</h2>
+            <ul class="checklist mt-1">
+              <li>Structured written report (PDF + Notion or Google Docs)</li>
+              <li>Each issue classified by criticality with concrete risk explanation</li>
+              <li>Concrete fix recommendations — not generic advice</li>
+              <li>Effort estimate for each correction</li>
+              <li>45-minute debrief session to answer your questions</li>
+              <li>Access to my questions for 2 weeks post-delivery</li>
+            </ul>
+            <div class="solution__note mt-2">
+              Average timeline: 3 to 5 working days depending on application size.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-label="Related pages">
+      <div class="container">
+        <p class="eyebrow">Go further</p>
+        <h2 class="section-title section-title--2xl section-title--mb">Other audit cases</h2>
+        <div class="related-audits">
+          <a href="../technical-debt-saas-application/">SaaS technical debt</a>
+          <a href="../automated-tests-application/">Automated tests</a>
+          <a href="../cicd-pipeline-application/">CI/CD pipeline</a>
+          <a href="../application-solo-founder-clients/">Solo app → first clients</a>
+          <a href="../faq/">Technical audit FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-label="Contact">
+      <div class="container">
+        <div class="inner-cta">
+          <p class="eyebrow eyebrow--light">First contact</p>
+          <h2 class="inner-cta__title">Is your app ready?</h2>
+          <p class="inner-cta__text">
+            30 minutes is enough to assess the scope and give you
+            a first read on the risks. No commitment.
+          </p>
+          <div class="inner-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline-light btn--lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Book a discovery call on Calendly (new tab)">
+              Book a discovery call →
+            </a>
+            <a href="mailto:matthieu.viel.fr@gmail.com" class="btn btn--outline-light">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__brand">Matthieu Viel</p>
+        <p class="footer__tagline">Senior web tech consultant · Saint-Pierre, Réunion Island</p>
+      </div>
+      <nav aria-label="Footer links">
+        <ul class="footer__links">
+          <li><a href="../../../en/index.html">Home</a></li>
+          <li><a href="../">Technical Audit</a></li>
+          <li><a href="../../../en/portfolio.html">Portfolio</a></li>
+          <li><a href="../../../en/index.html#contact">Contact</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Matthieu Viel's LinkedIn profile (new tab)">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <p class="footer__copy">© 2025 Matthieu Viel</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/main.js" defer></script>
+
+</body>
+</html>

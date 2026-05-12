@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Freelance technical audit · Matthieu Viel — Réunion Island</title>
+  <meta name="description" content="Frequently asked questions about freelance technical audits: cost, timelines, scope, difference with a pentest, vibe coding, supported technologies. Matthieu Viel, Réunion Island. Direct answers, no jargon.">
+
+  <link rel="canonical" href="https://www.matthieu-viel.fr/audit/faq/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/faq/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/faq/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/faq/">
+
+  <meta property="og:title" content="FAQ — Freelance technical audit · Matthieu Viel">
+  <meta property="og:description" content="Cost, timelines, scope, vibe coding, pentest, technologies. All direct answers to the most common questions about a freelance technical audit.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/en/audit/faq/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="../../../assets/images/favicon.svg">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a freelance technical audit cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A freelance technical audit with Matthieu Viel costs between €1,500 and €5,000 depending on scope. A targeted application audit (AI-built app, pre-launch check) starts at €1,500. A technical debt audit for an existing SaaS ranges from €2,500 to €4,000. Setting up automated tests (Cypress + CI/CD) starts at €3,000. The first 30-minute call is free and non-committal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a technical audit take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A pre-launch verification audit (AI-built app or solo founder) takes 2 to 3 days. A SaaS technical debt audit takes 3 to 5 days. Setting up automated tests (Cypress + CI/CD) takes 10 to 15 days. The deliverable is provided within 2 days of the audit completing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a technical audit include exactly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A technical audit includes: source code review, architecture evaluation, critical security point verification (authentication, data exposure), and depending on scope: basic load testing, dependency analysis, test coverage evaluation. The deliverable is a structured written report with each issue classified by criticality (blocking / important / minor), the reason for the risk, recommended fix, and effort estimate. A 45-minute debrief session is always included."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between an audit and a security pentest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A pentest is run by an offensive security expert who seeks to exploit known vulnerabilities (SQL injections, XSS, privilege escalation). It assumes a stable, documented application. An application audit like mine targets applications at the pre-launch or recent post-launch stage: absent error handling, misconfigured auth, inadvertently exposed data. Both approaches are complementary; for an MVP app, starting with the application audit is the right sequence."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you work remotely or on-site?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Primarily remote — auditing code doesn't require being on-site. I'm based in Saint-Pierre, Réunion Island (974) and can work on-site for clients in Réunion if needed. Exchanges happen via video call (scoping call, debrief). Code is shared via Git (read access to the repository, or archive if necessary)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My application has been in production for 2 years without issues — do I need an audit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Without issues often means without visible issues. Security vulnerabilities and technical debt accumulate silently. An audit is relevant if you plan to add major features, scale user numbers, or if your team hesitates to touch certain parts of the code. If the application is stable, non-critical, and no longer evolving, the audit is not a priority."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is vibe coding and why does it need external verification?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vibe coding refers to building applications using generative AI tools (Claude Code, Cursor, Bolt, v0) as the primary development engine. These tools generate functional code but without awareness of systemic implications, error handling, or security configurations. External verification is needed because the generated code has never had a human second look with a global architecture perspective."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What technologies do you work with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "My core expertise is fullstack web: Symfony, PHP 8, React, TypeScript, API Platform, Node.js. For automated testing: Cypress (E2E), PHPUnit, Behat, Jest. For CI/CD: GitHub Actions, GitLab CI, Azure DevOps, Jenkins. I audit PHP and JavaScript/TypeScript applications (front and back). For Python, Go, or Java stacks, I work on the architectural scope and generic patterns — line-by-line code review then requires a specialised co-auditor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens after the audit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After the audit, you receive the report and a 45-minute debrief session. If you want me to support the implementation of recommendations, I can engage as a consultant or developer. This is not systematic: many clients apply recommendations themselves with their team. I remain available for questions for 2 weeks after report delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does first contact work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Book a 30-minute call on Calendly or send me an email at matthieu.viel.fr@gmail.com describing your situation in a few lines. During the call, I ask questions about your application (stack, stage, team, perceived problem) and give you an honest first read. If an audit is relevant, I send you a detailed quote within 48 hours. No commitment after the call."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "url": "https://www.matthieu-viel.fr",
+    "jobTitle": "Senior Fullstack Developer & Technical Auditor",
+    "knowsAbout": ["automated QA", "CI/CD", "technical audit", "SaaS stabilisation", "Cypress", "technical debt", "vibe coding audit"],
+    "areaServed": ["Réunion Island", "France", "Remote"],
+    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../../index.html" class="nav__logo" aria-label="Matthieu Viel — Home">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">Senior web tech consultant</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../../index.html#services">My Services</a></li>
+        <li><a href="../" class="is-active">Audit</a></li>
+        <li><a href="../../portfolio.html">Portfolio</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <a href="../../../audit/faq/" class="lang-toggle__btn" hreflang="fr">🇫🇷 FR</a>
+        <a href="./" class="lang-toggle__btn lang-toggle__btn--active" hreflang="en" aria-current="true">🇬🇧 EN</a>
+      </div>
+
+      <a href="https://calendly.com/matthieu-viel-fr/30min"
+         class="btn btn--primary nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Book a discovery call (opens Calendly)">
+        Book a call
+      </a>
+
+      <button type="button"
+              class="nav__burger"
+              id="nav-burger"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="portfolio-hero" aria-label="Technical audit FAQ">
+      <div class="container">
+        <a href="../" class="page-back" aria-label="Back to audit index">← All audit cases</a>
+        <p class="eyebrow">FAQ · Frequently asked questions</p>
+        <h1 class="portfolio-hero__title">
+          Frequently asked questions<br>
+          about <em>freelance technical audits</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          Cost, timelines, exact scope, difference with a pentest,
+          vibe coding, supported technologies. Direct answers,
+          no jargon — because good decisions start with clear information.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-general-title">
+      <div class="container prose-xl">
+        <header class="section-header">
+          <p class="eyebrow">General</p>
+          <h2 class="section-title" id="faq-general-title">Cost, timelines and scope</h2>
+        </header>
+
+        <div class="faq__list">
+
+          <details class="faq__item">
+            <summary class="faq__question">How much does a freelance technical audit cost?</summary>
+            <div class="faq__answer">
+              <p>Between €1,500 and €5,000 depending on scope:</p>
+              <p>
+                — Pre-launch audit (AI-built app or solo founder check): from €1,500<br>
+                — SaaS technical debt audit: between €2,500 and €4,000<br>
+                — Setting up automated tests (Cypress + CI/CD): from €3,000
+              </p>
+              <p>The first 30-minute call is free and non-committal.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">How long does a technical audit take?</summary>
+            <div class="faq__answer">
+              <p>
+                — Pre-launch verification (AI-built app or solo founder): 2 to 3 days<br>
+                — SaaS technical debt audit: 3 to 5 days<br>
+                — Automated test bootstrap (Cypress + CI/CD): 10 to 15 days
+              </p>
+              <p>The report is delivered within 2 days of the audit completing, with a 45-minute debrief session.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">What does a technical audit include exactly?</summary>
+            <div class="faq__answer">
+              <p>Depending on the chosen scope: source code review, architecture evaluation, critical security point verification (authentication, data exposure), basic load testing, dependency analysis.</p>
+              <p>The systematic deliverable is a structured written report with each issue classified by criticality (blocking / important / minor), the reason for the risk, recommended fix, and effort estimate. A 45-minute debrief session is always included.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">What is the difference between an audit and a security pentest?</summary>
+            <div class="faq__answer">
+              <p>A pentest is run by an offensive security expert seeking to exploit known vulnerabilities (SQL injections, XSS, privilege escalation). It assumes a stable, documented application already in production for some time.</p>
+              <p>An application audit like mine targets the real risks of a pre-launch or recently launched application: absent error handling, misconfigured authentication, inadvertently exposed data, no monitoring. Both approaches are complementary. For an MVP app, starting with the application audit is the right sequence.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">My application has been in production for 2 years without issues — do I need an audit?</summary>
+            <div class="faq__answer">
+              <p>Without issues often means without visible issues. Security vulnerabilities and technical debt accumulate silently.</p>
+              <p>An audit is relevant if you plan to add major features, scale user numbers, or if your team hesitates to touch certain parts of the code. If the application is stable, non-critical and no longer evolving, the audit is not a priority.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="faq-vibe-title">
+      <div class="container prose-xl">
+        <header class="section-header">
+          <p class="eyebrow">Vibe coding &amp; AI</p>
+          <h2 class="section-title" id="faq-vibe-title">AI-built applications</h2>
+        </header>
+
+        <div class="faq__list">
+
+          <details class="faq__item">
+            <summary class="faq__question">What is vibe coding and why does it need external verification?</summary>
+            <div class="faq__answer">
+              <p>Vibe coding refers to building applications using generative AI tools (Claude Code, Cursor, Bolt, v0) as the primary development engine — often by people without deep technical training.</p>
+              <p>These tools generate functional code but without awareness of systemic implications, error handling, or security configurations. The code has never had a human second look with a global architecture perspective. That's exactly the role of an external application audit.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">I used Claude Code to build my app — is that risky?</summary>
+            <div class="faq__answer">
+              <p>Not more risky than an unsupervised junior developer — nor less. AI generates code that follows the patterns it learned, including bad practices. Without human review, the same blind spots appear: absent error handling, exposed data, misconfigured auth.</p>
+              <p>I use Claude Code myself in my work. The tool is powerful — but it doesn't replace the judgment of an experienced developer who knows the production pitfalls.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">Can you audit an app entirely generated by AI, with no human code?</summary>
+            <div class="faq__answer">
+              <p>Yes. The source of the code doesn't matter for the audit. What counts is what the code actually does — the authentication patterns, error handling, data exposure. These checks apply regardless of how the code was written.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-practical-title">
+      <div class="container prose-xl">
+        <header class="section-header">
+          <p class="eyebrow">Practical</p>
+          <h2 class="section-title" id="faq-practical-title">How it works in practice</h2>
+        </header>
+
+        <div class="faq__list">
+
+          <details class="faq__item">
+            <summary class="faq__question">Do you work remotely or on-site?</summary>
+            <div class="faq__answer">
+              <p>Primarily remote — auditing code doesn't require being on-site. I'm based in Saint-Pierre, Réunion Island (974) and can work on-site for clients in Réunion if needed.</p>
+              <p>Exchanges happen via video call (scoping call, debrief). Code is shared via Git (read access to the repository, or archive if necessary).</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">What technologies do you work with?</summary>
+            <div class="faq__answer">
+              <p>My core expertise is fullstack web:</p>
+              <p>
+                — Backend: Symfony, PHP 8, Laravel, Node.js, API Platform<br>
+                — Frontend: React, TypeScript, Vue.js<br>
+                — Testing: Cypress, PHPUnit, Behat, Jest<br>
+                — CI/CD: GitHub Actions, GitLab CI, Azure DevOps, Jenkins<br>
+                — Infrastructure: Docker, Linux VPS, common cloud providers
+              </p>
+              <p>For Python, Go, or Java stacks, I work on the architectural scope and generic patterns — line-by-line code review then requires a specialised co-auditor (whom I can recommend).</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">What happens after the audit?</summary>
+            <div class="faq__answer">
+              <p>You receive the report and a 45-minute debrief session. If you want me to support the implementation of the recommendations, I can engage as a consultant or developer — but this is not systematic.</p>
+              <p>Many clients apply the recommendations themselves with their team. I remain available for questions for 2 weeks after report delivery.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">How does first contact work?</summary>
+            <div class="faq__answer">
+              <p>Book a 30-minute call on Calendly or send me an email describing your situation in a few lines. During the call, I ask questions about your application (stack, stage, team, perceived problem) and give you an honest first read.</p>
+              <p>If an audit is relevant, I send you a detailed quote within 48 hours. No commitment after the call.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-label="Audit cases">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Use cases</p>
+          <h2 class="section-title">Your situation in detail</h2>
+          <p class="section-subtitle">
+            Each page answers a concrete case with a full breakdown
+            of what I examine and what you receive.
+          </p>
+        </header>
+        <div class="related-audits related-audits--center">
+          <a href="../application-vibe-coding-production/">AI-built application</a>
+          <a href="../technical-debt-saas-application/">SaaS technical debt</a>
+          <a href="../automated-tests-application/">Automated tests</a>
+          <a href="../cicd-pipeline-application/">CI/CD pipeline</a>
+          <a href="../freelance-technical-audit-startup/">Freelance vs firm</a>
+          <a href="../application-solo-founder-clients/">Solo app → first clients</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-label="Contact">
+      <div class="container">
+        <div class="inner-cta">
+          <p class="eyebrow eyebrow--light">First contact</p>
+          <h2 class="inner-cta__title">Your question isn't in the FAQ?</h2>
+          <p class="inner-cta__text">
+            Write to me. I read every message and reply within 24 hours.
+          </p>
+          <div class="inner-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline-light btn--lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Book a discovery call on Calendly (new tab)">
+              Book a discovery call →
+            </a>
+            <a href="mailto:matthieu.viel.fr@gmail.com" class="btn btn--outline-light">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__brand">Matthieu Viel</p>
+        <p class="footer__tagline">Senior web tech consultant · Saint-Pierre, Réunion Island</p>
+      </div>
+      <nav aria-label="Footer links">
+        <ul class="footer__links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../">Technical Audit</a></li>
+          <li><a href="../../portfolio.html">Portfolio</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Matthieu Viel's LinkedIn profile (new tab)">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <p class="footer__copy">© 2025 Matthieu Viel</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/main.js" defer></script>
+
+</body>
+</html>
