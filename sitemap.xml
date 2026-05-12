@@ -49,4 +49,166 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Audit pages — FR -->
+  <url>
+    <loc>https://www.matthieu-viel.fr/audit/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/audit/application-vibe-coding-production/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/application-vibe-coding-production/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/audit/dette-technique-application-saas/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/technical-debt-saas-application/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/audit/tests-automatises-application/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/tests-automatises-application/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/automated-tests-application/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/tests-automatises-application/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/audit/cicd-pipeline-application/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/cicd-pipeline-application/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/cicd-pipeline-application/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/cicd-pipeline-application/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/audit/freelance-audit-technique-startup/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/freelance-audit-technique-startup/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/freelance-technical-audit-startup/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/freelance-audit-technique-startup/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/audit/application-solo-founder-clients/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/application-solo-founder-clients/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/application-solo-founder-clients/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/application-solo-founder-clients/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/audit/faq/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/faq/"/>
+  </url>
+
+  <!-- Audit pages — EN -->
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/audit/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/audit/application-vibe-coding-production/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/application-vibe-coding-production/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/audit/technical-debt-saas-application/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/technical-debt-saas-application/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/audit/automated-tests-application/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/tests-automatises-application/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/automated-tests-application/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/tests-automatises-application/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/audit/cicd-pipeline-application/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/cicd-pipeline-application/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/cicd-pipeline-application/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/cicd-pipeline-application/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/audit/freelance-technical-audit-startup/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/freelance-audit-technique-startup/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/freelance-technical-audit-startup/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/freelance-audit-technique-startup/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/audit/application-solo-founder-clients/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/application-solo-founder-clients/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/application-solo-founder-clients/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/application-solo-founder-clients/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/audit/faq/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/faq/"/>
+  </url>
+
 </urlset>

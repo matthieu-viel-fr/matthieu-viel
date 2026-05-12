@@ -86,6 +86,7 @@
 
       <ul class="nav__links" id="nav-links">
         <li><a href="#problemes">Mes interventions</a></li>
+        <li><a href="audit/">Audit</a></li>
         <li><a href="#a-propos">À propos</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -450,9 +451,73 @@
     </section>
 
     <!-- ============================================================
+         AUDIT — Cas d'usage
+         ============================================================ -->
+    <section class="section" id="audit" aria-labelledby="audit-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Audit technique</p>
+          <h2 class="section-title" id="audit-title">Cas d'usage fréquents</h2>
+          <p class="section-subtitle">
+            Du diagnostic à la mise en œuvre — un regard senior, sans intermédiaire.
+          </p>
+        </header>
+
+        <div class="cases__grid">
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">App générée par IA</p>
+            <h3 class="case-card__title">Application vibe coding → production</h3>
+            <p class="case-card__text">
+              Votre app a été construite avec Claude Code, Cursor ou Bolt.
+              Je vérifie l'authentification, les données exposées et la tenue en charge
+              avant que vos premiers clients arrivent.
+            </p>
+            <a href="audit/application-vibe-coding-production/" class="btn btn--outline" aria-label="Audit app vibe coding — voir le cas complet">
+              Voir le cas →
+            </a>
+          </article>
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">Application sans tests</p>
+            <h3 class="case-card__title">Mettre en place des tests automatisés</h3>
+            <p class="case-card__text">
+              Pas de filet de sécurité ? Je mets en place une couverture minimale viable
+              avec Cypress en 10 à 15 jours. 500+ scénarios écrits pour Citeo,
+              70 % de couverture atteinte.
+            </p>
+            <a href="audit/tests-automatises-application/" class="btn btn--outline" aria-label="Audit tests automatisés — voir le cas complet">
+              Voir le cas →
+            </a>
+          </article>
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">SaaS vieillissant</p>
+            <h3 class="case-card__title">Réduire la dette technique d'un SaaS</h3>
+            <p class="case-card__text">
+              Votre codebase accumule les compromis depuis des années. J'identifie
+              ce qui freine l'équipe, je priorise les chantiers, et j'accompagne
+              la migration sans tout réécrire. Zéro downtime sur Sellermania (7 ans).
+            </p>
+            <a href="audit/dette-technique-application-saas/" class="btn btn--outline" aria-label="Audit dette technique SaaS — voir le cas complet">
+              Voir le cas →
+            </a>
+          </article>
+
+        </div>
+
+        <div class="case-cards__cta">
+          <a href="audit/" class="btn btn--primary btn--lg" aria-label="Tous les cas d'audit technique">
+            Tous les cas d'audit →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          À PROPOS
          ============================================================ -->
-    <section class="section" id="a-propos" aria-labelledby="apropos-title">
+    <section class="section section--alt" id="a-propos" aria-labelledby="apropos-title">
       <div class="container">
         <div class="about__grid">
 
