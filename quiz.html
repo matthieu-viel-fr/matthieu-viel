@@ -218,6 +218,22 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
 .fg input:focus { border-color:var(--blu); }
 .fg input::placeholder { color:rgba(255,255,255,.2); }
 .fm-prv { font-size:11px; color:var(--t3); line-height:1.7; margin-bottom:14px; }
+.fm-consent {
+  display:flex; align-items:flex-start; gap:10px;
+  margin:4px 0 14px;
+  font-size:11px; color:rgba(255,255,255,.58); line-height:1.6;
+}
+.fm-consent input {
+  width:16px; height:16px; margin-top:1px; flex-shrink:0;
+  accent-color:var(--blu);
+}
+.fm-consent a { color:var(--blu); }
+.fm-status {
+  min-height:34px; margin-bottom:12px;
+  font-size:12px; line-height:1.5; color:var(--t2);
+}
+.fm-status.err { color:#ffb0b0; }
+.btn-sub[disabled] { opacity:.5; cursor:wait; }
 .fm-cta {
   position:sticky; bottom:0;
   background:linear-gradient(to top,var(--q-bg) 55%,transparent);
@@ -611,7 +627,7 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <div class="fm-ey">Presque terminé</div>
     <div class="fm-h">Où envoyer<br>votre rapport ?</div>
     <p class="fm-sb">Recevez votre diagnostic personnalisé directement par email.</p>
-    <form id="leadForm">
+    <form id="leadForm" novalidate>
       <div class="fg"><label>Nom complet *</label><input type="text" id="fNom" placeholder="Prénom et nom" required autocomplete="name"></div>
       <div class="fg"><label>Email *</label><input type="email" id="fEmail" placeholder="email@entreprise.com" required autocomplete="email"></div>
       <div class="fg"><label>Entreprise</label><input type="text" id="fSoc" placeholder="Nom de l'entreprise" autocomplete="organization"></div>
@@ -621,8 +637,13 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
         <label for="fWebsite">Ne pas remplir</label>
         <input type="text" id="fWebsite" name="website" autocomplete="off" tabindex="-1">
       </div>
-      <p class="fm-prv">🔒 Vos informations sont confidentielles et ne seront jamais partagées.</p>
-      <div class="fm-cta"><button type="submit" class="btn-sub" onclick="submitForm()">Recevoir mon diagnostic →</button></div>
+      <p class="fm-prv">🔒 Vos informations servent uniquement à vous envoyer ce diagnostic et à préparer un éventuel échange. Elles sont transmises via Web3Forms, ne sont pas revendues et ne seront jamais partagées.</p>
+      <label class="fm-consent">
+        <input type="checkbox" id="fConsent" required>
+        <span>J'accepte que ces informations soient utilisées pour recevoir mon diagnostic et être recontacté au sujet de ma demande. <a href="mentions-legales.html">Mentions légales</a></span>
+      </label>
+      <p class="fm-status" id="formStatus" aria-live="polite"></p>
+      <div class="fm-cta"><button type="submit" class="btn-sub" id="leadSubmit">Recevoir mon diagnostic →</button></div>
     </form>
   </div>
 </div>
@@ -662,7 +683,7 @@ body { position:fixed; inset:0; overflow:hidden; font-family:'Montserrat',sans-s
     <!-- CTA + signature -->
     <div class="rs-bot">
       <div class="rs-cta-lbl">Prochaine étape</div>
-      <a href="#" id="rsBtn" class="btn-cta" target="_blank" aria-label="Prendre rendez-vous avec Matthieu Viel"></a>
+      <a href="https://calendly.com/matthieu-viel/appel-decouverte" id="rsBtn" class="btn-cta" target="_blank" rel="noopener noreferrer" aria-label="Prendre rendez-vous avec Matthieu Viel"></a>
       <p class="rs-mention" id="rsMention"></p>
       <div class="rs-sig">
         <div class="rs-sig-av">MV</div>
@@ -758,12 +779,22 @@ function pick(n, letter, btn) {
 }
 
 // ── Soumission formulaire ──
-function submitForm() {
+document.getElementById('leadForm').addEventListener('submit', submitForm);
+
+function submitForm(evt) {
+  if (evt) evt.preventDefault();
+
   var nom   = document.getElementById('fNom').value.trim();
   var email = document.getElementById('fEmail').value.trim();
   var soc   = document.getElementById('fSoc').value.trim();
   var sit   = document.getElementById('fSit').value.trim();
   var hp    = document.getElementById('fWebsite').value;
+  var consent = document.getElementById('fConsent').checked;
+  var status = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('leadSubmit');
+
+  status.className = 'fm-status';
+  status.textContent = '';
 
   // Honeypot : rempli = bot
   if (hp) return;
@@ -772,13 +803,21 @@ function submitForm() {
   if (_formShownAt && (Date.now() - _formShownAt) < 2000) return;
 
   if (!nom || !email) {
-    alert('Merci de renseigner votre nom et votre email.');
+    status.classList.add('err');
+    status.textContent = 'Merci de renseigner votre nom et votre email.';
     return;
   }
 
   // Validation email basique
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-    alert('Merci de vérifier votre adresse email.');
+    status.classList.add('err');
+    status.textContent = 'Merci de vérifier votre adresse email.';
+    return;
+  }
+
+  if (!consent) {
+    status.classList.add('err');
+    status.textContent = 'Merci de confirmer l’utilisation de vos informations pour recevoir le diagnostic.';
     return;
   }
 
@@ -787,7 +826,17 @@ function submitForm() {
 
   var tier = determineResult();
 
-  // Envoi Web3Forms (silencieux)
+  if (!window.fetch) {
+    status.classList.add('err');
+    status.textContent = 'Votre navigateur ne permet pas l’envoi du formulaire. Merci de me contacter directement via le site.';
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Envoi en cours...';
+  status.textContent = 'Envoi sécurisé de votre diagnostic...';
+
+  // Web3Forms documents access keys as public identifiers intended for browser-side forms.
   fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -795,22 +844,40 @@ function submitForm() {
       access_key: '140252de-b9aa-4f67-b33b-39ab87c398a4',
       subject: 'Diagnostic — ' + nomSafe + ' · Profil ' + tier.toUpperCase(),
       name: nomSafe, email: email,
+      botcheck: false,
+      consent: 'Oui — diagnostic et recontact au sujet de la demande',
       message: buildMsg(nomSafe, email, soc, sit, tier)
     })
-  }).catch(function() {});
+  })
+    .then(function(response) {
+      return response.json().catch(function() {
+        return { success: false, message: 'Réponse invalide du service.' };
+      }).then(function(payload) {
+        if (!response.ok || payload.success === false) {
+          throw new Error(payload.message || 'Le service a refusé la soumission.');
+        }
+      });
+    })
+    .then(function() {
+      // Masquer progress, aller sur loading
+      document.getElementById('pgHead').classList.remove('show');
+      document.getElementById('pgWrap').style.opacity = '0';
+      show('p-loading', 'next');
 
-  // Masquer progress, aller sur loading
-  document.getElementById('pgHead').classList.remove('show');
-  document.getElementById('pgWrap').style.opacity = '0';
-  show('p-loading', 'next');
+      // Préparer le résultat en parallèle
+      renderResult(tier);
 
-  // Préparer le résultat en parallèle
-  renderResult(tier);
-
-  // Lancer l'animation terminal
-  runTerminal(nom, tier, function() {
-    show('p-result', 'next');
-  });
+      // Lancer l'animation terminal
+      runTerminal(nom, tier, function() {
+        show('p-result', 'next');
+      });
+    })
+    .catch(function() {
+      status.classList.add('err');
+      status.textContent = 'L’envoi n’a pas abouti. Merci de réessayer dans un instant ou de me contacter directement via le site.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Recevoir mon diagnostic →';
+    });
 }
 
 // ── Animation terminal ──
@@ -819,7 +886,7 @@ function runTerminal(nom, tier, onDone) {
   body.innerHTML = '';
 
   // Extraire prénom (1er mot)
-  var prenom = nom.split(' ')[0];
+  var prenom = escapeHtml(nom.split(' ')[0]);
 
   // Lignes à afficher : [délai ms, html]
   var lines = [
@@ -859,6 +926,18 @@ function runTerminal(nom, tier, onDone) {
     if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
     onDone();
   }, 3900);
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, function(char) {
+    return ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[char];
+  });
 }
 
 // ── Logique de segmentation ──

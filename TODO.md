@@ -57,7 +57,7 @@ Completed on 2026-05-21:
 - Updated HTML footers to `© 2026 Matthieu Viel`.
 - Added a test failure for stale `© 2025 Matthieu Viel`.
 
-### 3. Review Web3Forms exposure in `quiz.html`
+### 3. Review Web3Forms exposure in `quiz.html` — done
 
 Current issue:
 - `quiz.html` embeds a Web3Forms access key directly in client-side JS.
@@ -71,6 +71,12 @@ Acceptance checks:
 - If not intended, replace with a safer endpoint or regenerate the key.
 - Add visible privacy/consent language near the quiz form.
 - Ensure failed network submission gives useful feedback instead of silently continuing.
+
+Completed on 2026-05-21:
+- Confirmed from Web3Forms documentation that access keys are intended to be public client-side identifiers, not secret API keys.
+- Kept the current key in `quiz.html` and documented that choice in code.
+- Added visible privacy and consent language before submission.
+- Reworked quiz submission so Web3Forms failures show an inline error and do not silently continue to the result screen.
 
 ### 4. Remove or justify all remaining `href="#"`
 
