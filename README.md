@@ -58,7 +58,6 @@ In the repo → **Settings → Secrets and variables → Actions**, add:
 - [ ] **Performance test link** — replace `href="#"` in the hero CTA (index.html:82)
 - [ ] **web3forms** — configure the contact form `action` and add `access_key`
       See: https://web3forms.com
-- [ ] **Legal notice** — create `mentions-legales.html` and wire up the footer link
 - [ ] **Logo** — replace the "MV" SVG favicon with a real logo if available
 - [ ] **tech.html** — develop the technical / CTO as a service page
 - [ ] **portfolio.html** — develop the detailed portfolio page

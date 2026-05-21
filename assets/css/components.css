@@ -1210,3 +1210,22 @@ details[open] > .faq__question::after { content: '−'; }
   box-shadow: var(--shadow-sm);
   color: var(--clr-blue);
 }
+
+/* ============================================================
+   LEGAL CONTENT
+   ============================================================ */
+.legal-content > h2 {
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  padding-left: .875rem;
+  border-left: 3px solid var(--clr-blue);
+}
+
+.legal-content > h2:first-child {
+  margin-top: 0;
+}
+
+.legal-content .prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
