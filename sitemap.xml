@@ -43,6 +43,26 @@
   </url>
 
   <url>
+    <loc>https://www.matthieu-viel.fr/mentions-legales.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/legal-notice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/mentions-legales.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/legal-notice.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/legal-notice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/mentions-legales.html"/>
+  </url>
+
+  <url>
     <loc>https://www.matthieu-viel.fr/quiz.html</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>monthly</changefreq>

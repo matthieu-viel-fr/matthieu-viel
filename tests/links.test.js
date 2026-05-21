@@ -10,11 +10,32 @@ let passes   = 0;
 function pass(msg) { console.log('  ✓', msg); passes++; }
 function fail(msg) { console.error('  ✗', msg); failures++; }
 function section(title) { console.log('\n' + title); }
+function rel(file) { return path.relative(ROOT, file).replace(/\\/g, '/'); }
+
+function walk(dir, files = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name === 'node_modules' || entry.name === '.git') continue;
+
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      walk(full, files);
+    } else if (entry.isFile()) {
+      files.push(full);
+    }
+  }
+  return files;
+}
+
+const htmlFiles = walk(ROOT).filter(file => file.endsWith('.html'));
+const htmlByFile = new Map(
+  htmlFiles.map(file => [rel(file), fs.readFileSync(file, 'utf8')])
+);
 
 /* ------------------------------------------------------------------ */
 section('1. Fichiers obligatoires');
 
 ['index.html', 'tech.html', 'portfolio.html',
+ 'mentions-legales.html', 'en/legal-notice.html',
  'assets/css/main.css', 'assets/css/components.css', 'assets/css/responsive.css',
  'assets/js/main.js', 'assets/images/favicon.svg'
 ].forEach(f => {
@@ -25,7 +46,7 @@ section('1. Fichiers obligatoires');
 /* ------------------------------------------------------------------ */
 section('2. Balises critiques dans index.html');
 
-const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const html = htmlByFile.get('index.html');
 
 const checks = [
   [/<title>[^<]{10,}<\/title>/i,       'title non vide (≥10 car.)'],
@@ -44,7 +65,50 @@ checks.forEach(([regex, label]) => {
 });
 
 /* ------------------------------------------------------------------ */
-section('3. Liens href="#" non intentionnels');
+section('3. Mentions légales et pied de page');
+
+const legalPages = [
+  ['mentions-legales.html', 'Mentions légales FR'],
+  ['en/legal-notice.html', 'Legal notice EN'],
+];
+
+legalPages.forEach(([file, label]) => {
+  if (!htmlByFile.has(file)) {
+    fail(`${label} manquante (${file})`);
+    return;
+  }
+
+  const content = htmlByFile.get(file);
+  /<h1[^>]*>[\s\S]*?<\/h1>/i.test(content)
+    ? pass(`${label} : h1 présent`)
+    : fail(`${label} : h1 manquant`);
+  /<link rel="canonical"/i.test(content)
+    ? pass(`${label} : canonical présent`)
+    : fail(`${label} : canonical manquant`);
+});
+
+htmlByFile.forEach((content, file) => {
+  const hasFooter = /<footer\b/i.test(content);
+  const isFrench = /^en\//.test(file) === false;
+  const legalHref = isFrench ? /href="(?:\.\.\/)*mentions-legales\.html"/ : /href="(?:\.\.\/)*legal-notice\.html"/;
+
+  if (hasFooter) {
+    legalHref.test(content)
+      ? pass(`[${file}] lien légal présent dans le footer`)
+      : fail(`[${file}] lien légal manquant dans le footer`);
+  }
+
+  if (/href="#"[^>]*data-todo="(?:mentions-legales|legal-notice)"/i.test(content)) {
+    fail(`[${file}] placeholder de mentions légales encore présent`);
+  }
+
+  if (/© 2025 Matthieu Viel/.test(content)) {
+    fail(`[${file}] année de copyright obsolète (2025)`);
+  }
+});
+
+/* ------------------------------------------------------------------ */
+section('4. Liens href="#" non intentionnels');
 
 /* Un lien href="#" est accepté s'il porte data-todo="..." (placeholder connu) */
 const bareHashes = [...html.matchAll(/href="#"(?![^>]*data-todo=")/g)];
@@ -55,12 +119,10 @@ if (bareHashes.length === 0) {
 }
 
 /* ------------------------------------------------------------------ */
-section('4. Images référencées dans les HTML → existent dans assets/images/');
+section('5. Images référencées dans les HTML → existent dans assets/images/');
 
-const htmlFiles = ['index.html', 'tech.html', 'portfolio.html'];
-
-htmlFiles.forEach(file => {
-  const content = fs.readFileSync(path.join(ROOT, file), 'utf8');
+['index.html', 'tech.html', 'portfolio.html', 'mentions-legales.html'].forEach(file => {
+  const content = htmlByFile.get(file);
   const srcRefs  = [...content.matchAll(/src="(assets\/images\/[^"]+)"/g)];
   const hrefRefs = [...content.matchAll(/href="(assets\/images\/[^"]+)"/g)];
 
@@ -73,10 +135,10 @@ htmlFiles.forEach(file => {
 });
 
 /* ------------------------------------------------------------------ */
-section('5. Attribut alt sur toutes les <img>');
+section('6. Attribut alt sur toutes les <img>');
 
-const allHtmlContent = htmlFiles
-  .map(f => fs.readFileSync(path.join(ROOT, f), 'utf8'))
+const allHtmlContent = ['index.html', 'tech.html', 'portfolio.html', 'mentions-legales.html']
+  .map(f => htmlByFile.get(f))
   .join('\n');
 
 const imgTags = [...allHtmlContent.matchAll(/<img[^>]+>/g)];
