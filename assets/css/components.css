@@ -1,4 +1,118 @@
 /* ============================================================
+   CLIENTS MARQUEE — Ils m'ont fait confiance
+   ============================================================ */
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.section--clients {
+  padding-block: 3rem;
+  background: var(--clr-bg);
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.clients__eyebrow {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.clients__marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 8rem,
+    black calc(100% - 8rem),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 8rem,
+    black calc(100% - 8rem),
+    transparent 100%
+  );
+}
+
+.clients__track {
+  display: flex;
+  width: max-content;
+  animation: clients-scroll 24s linear infinite;
+}
+
+.clients__set {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding-right: 4rem; /* matches gap for seamless loop */
+}
+
+.clients__set img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5);
+  transition: filter 0.3s ease;
+  flex-shrink: 0;
+}
+
+.clients__set img:hover {
+  filter: grayscale(0%) opacity(1);
+}
+
+.clients__set img.clients__logo--lg {
+  height: 64px;
+}
+
+.clients__set img.clients__logo--xl {
+  height: 80px;
+}
+
+.clients__set img.clients__logo--sm {
+  height: 40px;
+}
+
+@keyframes clients-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Pause on hover */
+.clients__marquee:hover .clients__track {
+  animation-play-state: paused;
+}
+
+/* Respect user motion preference — show as static centered row */
+@media (prefers-reduced-motion: reduce) {
+  .clients__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .clients__set + .clients__set {
+    display: none; /* hide duplicate set */
+  }
+  .clients__set {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    padding-right: 0;
+  }
+}
+
+/* ============================================================
    LANGUAGE TOGGLE
    ============================================================ */
 .lang-toggle {
