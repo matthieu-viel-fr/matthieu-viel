@@ -50,11 +50,14 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "name": "Matthieu Viel — Consultant technique web",
     "url": "https://www.matthieu-viel.fr",
     "image": "https://www.matthieu-viel.fr/assets/images/portrait.webp",
     "description": "Consultant technique web senior à La Réunion. Audit honnête, recommandations concrètes, accompagnement équipe. 17 ans d'expérience.",
+    "telephone": "+262693852812",
+    "email": "matthieu.viel.fr@gmail.com",
+    "priceRange": "€€",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Saint-Pierre",
@@ -67,8 +70,50 @@
       "latitude": -21.3393,
       "longitude": 55.4781
     },
-    "areaServed": "La Réunion",
-    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "La Réunion"
+      },
+      {
+        "@type": "Place",
+        "name": "France"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services de consulting technique",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Audit technique d'application web",
+            "description": "Audit complet : architecture, sécurité, dette technique, tests. Livrable sous 5 jours."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "CTO as a Service — La Réunion",
+            "description": "Regard technique senior sans recruter un CTO à temps plein."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Accompagnement solopreneurs IA",
+            "description": "Stabilisation et mise en production d'applications construites avec des outils IA."
+          }
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/",
+      "https://www.malt.com/profile/matthieuviel"
+    ]
   }
   </script>
 </head>
@@ -673,6 +718,13 @@
                 <div>
                   <strong class="contact__channel-label">Email</strong><br>
                   <a href="mailto:matthieu.viel.fr@gmail.com">matthieu.viel.fr@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact__channel">
+                <div class="contact__channel-icon" aria-hidden="true">📞</div>
+                <div>
+                  <strong class="contact__channel-label">Téléphone</strong><br>
+                  <a href="tel:+262693852812">+262&nbsp;693&nbsp;85&nbsp;28&nbsp;12</a>
                 </div>
               </div>
               <div class="contact__channel">
