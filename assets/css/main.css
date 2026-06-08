@@ -278,8 +278,7 @@ ul, ol { list-style: none; }
   margin-bottom: 1.25rem;
 }
 
-.hero__title em {
-  font-style: normal;
+.hero__title-highlight {
   color: var(--clr-blue);
 }
 
