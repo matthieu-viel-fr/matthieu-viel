@@ -4,13 +4,14 @@ const fs   = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
+const DIST = path.join(ROOT, 'dist');
 let failures = 0;
 let passes   = 0;
 
 function pass(msg) { console.log('  ✓', msg); passes++; }
 function fail(msg) { console.error('  ✗', msg); failures++; }
 function section(title) { console.log('\n' + title); }
-function rel(file) { return path.relative(ROOT, file).replace(/\\/g, '/'); }
+function rel(file) { return path.relative(DIST, file).replace(/\\/g, '/'); }
 
 function walk(dir, files = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -26,7 +27,7 @@ function walk(dir, files = []) {
   return files;
 }
 
-const htmlFiles = walk(ROOT).filter(file => file.endsWith('.html'));
+const htmlFiles = walk(DIST).filter(file => file.endsWith('.html'));
 const htmlByFile = new Map(
   htmlFiles.map(file => [rel(file), fs.readFileSync(file, 'utf8')])
 );
@@ -36,11 +37,16 @@ section('1. Fichiers obligatoires');
 
 ['index.html', 'tech.html', 'portfolio.html',
  'mentions-legales.html', 'en/legal-notice.html',
- 'assets/css/main.css', 'assets/css/components.css', 'assets/css/responsive.css',
- 'assets/js/main.js', 'assets/images/favicon.svg'
 ].forEach(f => {
-  const full = path.join(ROOT, f);
-  fs.existsSync(full) ? pass(`${f} existe`) : fail(`${f} MANQUANT`);
+  const full = path.join(DIST, f);
+  fs.existsSync(full) ? pass(`dist/${f} existe`) : fail(`dist/${f} MANQUANT`);
+});
+
+['assets/css/main.css', 'assets/css/components.css', 'assets/css/responsive.css',
+ 'assets/js/main.js', 'assets/images/favicon.svg',
+].forEach(f => {
+  const full = path.join(ROOT, 'src', f);
+  fs.existsSync(full) ? pass(`src/${f} existe`) : fail(`src/${f} MANQUANT`);
 });
 
 /* ------------------------------------------------------------------ */
@@ -127,7 +133,7 @@ section('5. Images référencées dans les HTML → existent dans assets/images/
   const hrefRefs = [...content.matchAll(/href="(assets\/images\/[^"]+)"/g)];
 
   [...srcRefs, ...hrefRefs].forEach(([, ref]) => {
-    const full = path.join(ROOT, ref);
+    const full = path.join(ROOT, 'src', ref);
     fs.existsSync(full)
       ? pass(`[${file}] ${ref}`)
       : fail(`[${file}] ${ref} INTROUVABLE`);

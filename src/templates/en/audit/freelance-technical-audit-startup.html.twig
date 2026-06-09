@@ -1,0 +1,308 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Senior freelance vs consulting firm for technical audit — Réunion{% endblock %}
+{% block meta_description %}Why hire a senior freelance developer for a technical audit instead of a consulting firm? Cost, availability, actionable recommendations. Matthieu Viel, freelance Réunion Island, 17 years fullstack experience.{% endblock %}
+
+{% block og %}
+  <meta property="og:title" content="Why hire a senior freelance developer for a technical audit instead of a consulting firm?">
+  <meta property="og:description" content="A firm bills coordination as much as expertise. A senior freelance works directly on your codebase and delivers actionable recommendations.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/en/audit/freelance-technical-audit-startup/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/en/audit/freelance-technical-audit-startup/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/freelance-audit-technique-startup/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/freelance-technical-audit-startup/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/freelance-audit-technique-startup/">
+{% endblock %}
+
+{% block schema_ld %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why hire a senior freelance developer for a technical audit instead of a consulting firm?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A consulting firm bills coordination, methodology, and meetings as much as actual expertise. A senior freelance developer works directly on your codebase, with no intermediary. Recommendations are concrete and calibrated for your team, not designed to impress a steering committee. For a startup or SME, a senior freelance is almost always the best quality-to-cost ratio for a technical audit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you evaluate a freelance developer's profile for a technical audit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three criteria matter: experience on problems similar to yours (not just seniority), verifiable LinkedIn recommendations on concrete missions, and the ability to explain clearly what they will examine before starting. A good technical auditor tells you upfront what they don't know how to do, not only what they master."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the red flags in a technical audit proposal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Be wary of proposals that use lots of jargon without concrete definitions, that don't clearly state what deliverable you will receive, or that make refactoring or rewriting a systematic entry point. A good audit starts by understanding your situation, not by selling a pre-packaged solution."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "url": "https://www.matthieu-viel.fr",
+    "jobTitle": "Senior Fullstack Developer & Technical Auditor",
+    "knowsAbout": ["automated QA", "CI/CD", "technical audit", "SaaS stabilisation", "Cypress", "technical debt", "vibe coding audit"],
+    "areaServed": ["Réunion Island", "France", "Remote"],
+    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
+  }
+  </script>
+{% endblock %}
+
+{% block nav %}
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../../index.html" class="nav__logo" aria-label="Matthieu Viel — Home">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">Senior web tech consultant</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../../index.html#services">My Services</a></li>
+        <li><a href="../" class="is-active" aria-current="page">Audit</a></li>
+        <li><a href="../../portfolio.html">Portfolio</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <a href="{{ lang_fr_url }}" class="lang-toggle__btn" hreflang="fr">🇫🇷 FR</a>
+        <a href="./" class="lang-toggle__btn lang-toggle__btn--active" hreflang="en" aria-current="true">🇬🇧 EN</a>
+      </div>
+
+      <a href="https://calendly.com/matthieu-viel-fr/30min"
+         class="btn btn--primary nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Book a discovery call (opens Calendly)">
+        Book a call
+      </a>
+
+      <button type="button"
+              class="nav__burger"
+              id="nav-burger"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block body %}
+  <main>
+
+    <section class="portfolio-hero" aria-label="Senior freelance vs consulting firm">
+      <div class="container">
+        <a href="../" class="page-back" aria-label="Back to audit cases">← All audit cases</a>
+        <p class="eyebrow">Senior freelance · Comparison</p>
+        <h1 class="portfolio-hero__title">
+          Why hire a senior freelance developer<br>
+          for a technical audit instead<br>
+          <em>of a consulting firm?</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          A consulting firm bills coordination and methodology as much as actual expertise.
+          A senior freelance works directly on your codebase, answers without filters,
+          and delivers recommendations your team can act on,
+          not an 80-page report for a steering committee.
+        </p>
+        <div class="cta-group">
+          <a href="https://calendly.com/matthieu-viel-fr/30min"
+             class="btn btn--primary btn--lg"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Book a discovery call (opens Calendly)">
+            Discuss my project →
+          </a>
+          <a href="../faq/" class="btn btn--outline btn--lg">
+            Frequently asked questions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="comparison-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Concrete comparison</p>
+          <h2 class="section-title" id="comparison-title">Freelance vs firm: what's different</h2>
+        </header>
+
+        <div class="problems__grid">
+          <article class="problem-card fade-up">
+            <div class="problem-card__icon" aria-hidden="true">🏢</div>
+            <h3 class="problem-card__title">Consulting firm</h3>
+            <p class="problem-card__text">
+              You pay a project manager, one or more junior consultants,
+              and sometimes a senior for final validation. Internal coordination is billed.
+              The report is standardised and written to justify the engagement,
+              not to be used directly. Average lead time: 4 to 8 weeks.
+            </p>
+          </article>
+
+          <article class="problem-card fade-up">
+            <div class="problem-card__icon" aria-hidden="true">👤</div>
+            <h3 class="problem-card__title">Senior freelance</h3>
+            <p class="problem-card__text">
+              One person reads your code, asks the questions, and writes the recommendations.
+              No intermediary, no coordination meetings.
+              The report is calibrated for your team and your budget.
+              Average lead time: 3 to 7 working days.
+            </p>
+          </article>
+        </div>
+
+        <div class="proof__grid proof__grid--3col">
+          <div class="stat-card fade-up">
+            <p class="stat-card__number">3–5×</p>
+            <p class="stat-card__label">cheaper than a firm for the same scope</p>
+          </div>
+          <div class="stat-card fade-up">
+            <p class="stat-card__number">5d</p>
+            <p class="stat-card__label">average delivery vs 4–8 weeks for a firm</p>
+          </div>
+          <div class="stat-card fade-up">
+            <p class="stat-card__number">8+</p>
+            <p class="stat-card__label">verified LinkedIn recommendations on real missions</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="profile-title">
+      <div class="container">
+        <div class="layout-2col">
+          <div>
+            <p class="eyebrow">What I bring</p>
+            <h2 class="section-title section-title--2xl" id="profile-title">My auditor profile</h2>
+            <p class="prose prose--mb">
+              17 years of fullstack experience (Symfony, React, PHP, API Platform).
+              I've worked on high-traffic SaaS platforms (Citeo, Sellermania),
+              critical business applications, and greenfield projects.
+            </p>
+            <p class="prose prose--mb">
+              I know what it means to maintain an ageing codebase over 7 years (Sellermania),
+              bootstrap test coverage on a critical application (500+ Cypress scenarios at Citeo),
+              and explain technical problems to a non-developer founder.
+            </p>
+            <p class="prose">
+              Certified trainer (ECP Formation): I deliver recommendations in a way
+              that your team can apply without depending on me.
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow">Red flags</p>
+            <h2 class="section-title section-title--2xl">What should concern you</h2>
+            <ul class="plain-list">
+              <li class="prose">
+                ⚠️ Proposal that doesn't detail the expected deliverable
+              </li>
+              <li class="prose">
+                ⚠️ "Full rewrite" as a systematic entry point
+              </li>
+              <li class="prose">
+                ⚠️ Report unreadable without prior technical training
+              </li>
+              <li class="prose">
+                ⚠️ No verifiable LinkedIn recommendations on similar missions
+              </li>
+              <li class="prose">
+                ⚠️ Inability to explain the exact audit scope before signing
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related pages">
+      <div class="container">
+        <p class="eyebrow">Go further</p>
+        <h2 class="section-title section-title--2xl section-title--mb">Other audit cases</h2>
+        <div class="related-audits">
+          <a href="../application-vibe-coding-production/">AI-built application</a>
+          <a href="../technical-debt-saas-application/">SaaS technical debt</a>
+          <a href="../automated-tests-application/">Automated tests</a>
+          <a href="../application-solo-founder-clients/">Solo app → first clients</a>
+          <a href="../faq/">Technical audit FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-label="Contact">
+      <div class="container">
+        <div class="inner-cta">
+          <p class="eyebrow eyebrow--light">First contact</p>
+          <h2 class="inner-cta__title">Comparing your options?</h2>
+          <p class="inner-cta__text">
+            Tell me about your situation. I'll give you an honest assessment
+            of whether a freelance or a firm is the better fit for your need.
+          </p>
+          <div class="inner-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline-light btn--lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Book a discovery call on Calendly (new tab)">
+              Book a discovery call →
+            </a>
+            <a href="mailto:matthieu.viel.fr@gmail.com" class="btn btn--outline-light">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+{% endblock %}
+
+{% block footer %}
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__brand">Matthieu Viel</p>
+        <p class="footer__tagline">Senior web tech consultant · Saint-Pierre, Réunion Island</p>
+      </div>
+      <nav aria-label="Footer links">
+        <ul class="footer__links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../">Technical Audit</a></li>
+          <li><a href="../../portfolio.html">Portfolio</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+          <li><a href="../../legal-notice.html">Legal notice</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Matthieu Viel's LinkedIn profile (new tab)">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <p class="footer__copy">© 2026 Matthieu Viel</p>
+    </div>
+  </footer>
+{% endblock %}

@@ -1,0 +1,1002 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matthieu Viel · Dev Senior Symfony/React · Missions longues{% endblock %}
+{% block meta_description %}Développeur fullstack senior Symfony/React, 17 ans d'expérience sur SaaS. Missions 3 à 12 mois pour ESN, grands comptes et SaaS. Remote depuis La Réunion.{% endblock %}
+
+{% block og %}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/senior-tech.html">
+  <meta property="og:title" content="Matthieu Viel · Dev Fullstack Senior Symfony/React · Missions longues">
+  <meta property="og:description" content="Développeur fullstack senior Symfony/React, 17 ans sur SaaS. Missions 3 à 12 mois, remote La Réunion.">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/senior-tech.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/senior-tech.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/senior-tech.html">
+{% endblock %}
+
+{% block schema_ld %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "jobTitle": "Développeur Fullstack Senior PHP/Symfony/React",
+    "url": "https://www.matthieu-viel.fr/senior-tech.html",
+    "image": "https://www.matthieu-viel.fr/assets/images/portrait.webp",
+    "description": "Développeur fullstack senior PHP/Symfony/React, 17 ans d'expérience sur SaaS à fort trafic (Citeo 4 ans, Sellermania 7 ans). 500+ scénarios Cypress E2E. Modernisation legacy, Strangler Fig Pattern, CI/CD. Missions longues 3 à 12 mois, remote depuis La Réunion.",
+    "knowsAbout": ["PHP 8", "Symfony", "API Platform", "React", "TypeScript", "Cypress", "CI/CD", "Docker", "Azure DevOps"],
+    "sameAs": [
+      "https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/",
+      "https://www.malt.com/profile/matthieuviel"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-Pierre",
+      "addressRegion": "La Réunion",
+      "postalCode": "97410",
+      "addressCountry": "FR"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Missions senior Fullstack PHP/Symfony/React",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Modernisation legacy PHP/Symfony",
+            "description": "Migration progressive Symfony 2/3/4 vers 6/7 avec Strangler Fig Pattern. Zéro downtime garanti."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "QA Cypress E2E et automatisation des tests",
+            "description": "500+ scénarios automatisés écrits pour Citeo, 70% de couverture de tests atteinte. Formation QA incluse."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Renfort senior React/TypeScript",
+            "description": "Refonte progressive frontend avec Strangler Fig Pattern et montée en compétence de l'équipe interne."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+{% endblock %}
+
+{% block extra_styles %}
+  <style>
+    /* ---- Page anchor nav ---- */
+    .page-nav {
+      background: var(--clr-white);
+      border-bottom: 1px solid var(--clr-border);
+      position: sticky;
+      top: var(--nav-height);
+      z-index: 100;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .page-nav::-webkit-scrollbar { display: none; }
+    .page-nav__inner {
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+      display: flex;
+    }
+    .page-nav__link {
+      display: inline-flex;
+      align-items: center;
+      padding: .75rem 1rem;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--clr-muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color var(--transition), border-color var(--transition);
+    }
+    .page-nav__link:hover {
+      color: var(--clr-navy);
+      border-bottom-color: var(--clr-blue);
+    }
+
+    /* ---- Stack categories ---- */
+    .stack-cats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .stack-cat {
+      background: var(--clr-white);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .stack-cat__label {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--clr-blue);
+      margin-bottom: 1rem;
+    }
+    .stack-cat__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+    .stack-cat__badge {
+      display: inline-flex;
+      align-items: center;
+      padding: .35rem .75rem;
+      background: var(--clr-bg-alt);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      color: var(--clr-navy);
+    }
+
+    /* ---- Mission cards ---- */
+    .missions__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .mission-card {
+      background: var(--clr-white);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .mission-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .mission-card__icon {
+      width: 48px;
+      height: 48px;
+      background: var(--clr-blue-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .mission-card__title {
+      font-size: var(--fs-base);
+      font-weight: var(--fw-bold);
+      color: var(--clr-navy);
+      line-height: 1.3;
+    }
+    .mission-card__text {
+      font-size: var(--fs-sm);
+      color: var(--clr-slate);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .mission-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-top: auto;
+      padding-top: .5rem;
+    }
+
+    /* ---- Links strip (CTA dark section) ---- */
+    .links-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .links-strip__item {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      color: #7dc4e8;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .links-strip__item:hover { color: var(--clr-white); }
+
+    /* ---- Responsive overrides ---- */
+    @media (max-width: 1024px) {
+      .stack-cats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .stack-cats    { grid-template-columns: 1fr; }
+      .missions__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .links-strip { gap: 1.25rem; }
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <main>
+
+    <section class="hero hero--centered" id="accueil" aria-label="Introduction">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content">
+            <p class="hero__tag">Développeur Fullstack Senior · Remote France entière</p>
+
+            <h1 class="hero__title">
+              Renfort senior Symfony/React<br>
+              <em>pour vos missions critiques.</em>
+            </h1>
+
+            <p class="hero__subtitle">
+              17 ans sur des SaaS à fort trafic. Je rejoins votre équipe, je sécurise votre prod
+              et je monte vos développeurs en compétence.
+              Basé à La Réunion, disponible partout en France.
+            </p>
+
+            <div class="hero__ctas">
+              <a href="https://calendly.com/matthieu-viel-fr/30min"
+                 class="btn btn--primary btn--lg"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Planifier un échange sur Calendly (ouvre dans un nouvel onglet)">
+                Planifier un échange →
+              </a>
+              <a href="https://www.malt.com/profile/matthieuviel"
+                 class="btn btn--outline btn--lg"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Voir mon profil Malt (ouvre dans un nouvel onglet)">
+                Voir mon profil Malt
+              </a>
+            </div>
+
+            <hr class="hero__divider" aria-hidden="true">
+
+            <ul class="hero__stats">
+              <li class="hero__stat">
+                <span class="hero__stat-number">17</span>
+                <span class="hero__stat-label">ans d'expérience</span>
+              </li>
+              <li class="hero__stat">
+                <span class="hero__stat-number">500+</span>
+                <span class="hero__stat-label">scénarios de tests</span>
+              </li>
+              <li class="hero__stat">
+                <span class="hero__stat-number">4 ans</span>
+                <span class="hero__stat-label">sur Citeo (SaaS)</span>
+              </li>
+              <li class="hero__stat">
+                <span class="hero__stat-number">7 ans</span>
+                <span class="hero__stat-label">sur Sellermania</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Navigation de la page">
+      <div class="page-nav__inner">
+        <a href="#positionnement" class="page-nav__link">Positionnement</a>
+        <a href="#stack" class="page-nav__link">Stack</a>
+        <a href="#experiences" class="page-nav__link">Expériences</a>
+        <a href="#missions" class="page-nav__link">Missions</a>
+        <a href="#pourquoi-moi" class="page-nav__link">Pourquoi moi</a>
+        <a href="#temoignages" class="page-nav__link">Témoignages</a>
+        <a href="#faq" class="page-nav__link">FAQ</a>
+        <a href="#contact" class="page-nav__link">Contact</a>
+      </div>
+    </nav>
+
+    <section class="section" id="positionnement" aria-labelledby="positionnement-title">
+      <div class="container">
+        <div class="about__grid">
+
+          <div class="about__photo-wrap" aria-hidden="true">
+            <img src="{{ asset_base }}assets/images/portrait.webp"
+                 alt="Matthieu Viel, développeur fullstack senior basé à Saint-Pierre, La Réunion"
+                 class="about__photo"
+                 width="360"
+                 height="450"
+                 loading="lazy">
+          </div>
+
+          <div class="about__content">
+            <p class="eyebrow">Positionnement</p>
+            <h2 class="about__title" id="positionnement-title">
+              Senior fullstack,<br>pas une ressource interchangeable.
+            </h2>
+
+            <p class="about__text">
+              Je ne suis pas une ESN avec un catalogue de CVs. Je suis un développeur
+              avec 17 ans de pratique concrète sur des SaaS à fort trafic : 4 ans sur Citeo,
+              7 ans sur Sellermania, et une obsession pour la qualité logicielle.
+            </p>
+
+            <p class="about__text">
+              Mon approche : rejoindre vos sprints, comprendre vos contraintes métier,
+              livrer du code solide, et rendre votre équipe autonome.
+              Pas de dépendance, pas de jargon.
+            </p>
+
+            <div class="about__highlights">
+              <div class="about__highlight">
+                <div class="about__highlight-icon" aria-hidden="true">📍</div>
+                <div class="about__highlight-text">
+                  <strong>Saint-Pierre, La Réunion (974)</strong>
+                  Full remote ou déplacements ponctuels, France entière
+                </div>
+              </div>
+              <div class="about__highlight">
+                <div class="about__highlight-icon" aria-hidden="true">⏱️</div>
+                <div class="about__highlight-text">
+                  <strong>Missions longues : 3 à 12 mois</strong>
+                  Régie ou forfait, temps plein ou partiel selon vos besoins
+                </div>
+              </div>
+              <div class="about__highlight">
+                <div class="about__highlight-icon" aria-hidden="true">🏅</div>
+                <div class="about__highlight-text">
+                  <strong>Formateur certifié ECP Formation</strong>
+                  Je transmets les bonnes pratiques, je ne crée pas de dépendance
+                </div>
+              </div>
+              <div class="about__highlight">
+                <div class="about__highlight-icon" aria-hidden="true">🏔️</div>
+                <div class="about__highlight-text">
+                  <strong>Endurance et fiabilité</strong>
+                  Finisher UTOI 117 km. La même rigueur dans la durée s'applique aux projets.
+                </div>
+              </div>
+            </div>
+
+            <div class="cta-group">
+              <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+                 class="btn btn--outline"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Voir le profil LinkedIn de Matthieu Viel (nouvel onglet)">
+                LinkedIn →
+              </a>
+              <a href="https://www.malt.com/profile/matthieuviel"
+                 class="btn btn--outline"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Voir le profil Malt de Matthieu Viel (nouvel onglet)">
+                Malt →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="stack" aria-labelledby="stack-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Stack technique</p>
+          <h2 class="section-title" id="stack-title">Maîtrise complète du cycle Symfony/React.</h2>
+          <p class="section-subtitle">
+            Développement, tests, CI/CD : j'interviens sur l'ensemble du cycle de vie d'une application web.
+          </p>
+        </header>
+
+        <div class="stack-cats fade-up">
+          <div class="stack-cat">
+            <p class="stack-cat__label">Backend</p>
+            <div class="stack-cat__badges">
+              <span class="stack-cat__badge">PHP 8</span>
+              <span class="stack-cat__badge">Symfony 6/7</span>
+              <span class="stack-cat__badge">API Platform</span>
+              <span class="stack-cat__badge">Doctrine</span>
+              <span class="stack-cat__badge">PHPUnit</span>
+              <span class="stack-cat__badge">Behat</span>
+              <span class="stack-cat__badge">MySQL</span>
+            </div>
+          </div>
+          <div class="stack-cat">
+            <p class="stack-cat__label">Frontend</p>
+            <div class="stack-cat__badges">
+              <span class="stack-cat__badge">React</span>
+              <span class="stack-cat__badge">TypeScript</span>
+              <span class="stack-cat__badge">React Admin</span>
+              <span class="stack-cat__badge">Material UI</span>
+              <span class="stack-cat__badge">Jest</span>
+            </div>
+          </div>
+          <div class="stack-cat">
+            <p class="stack-cat__label">Tests</p>
+            <div class="stack-cat__badges">
+              <span class="stack-cat__badge">Cypress E2E</span>
+              <span class="stack-cat__badge">Cypress Components</span>
+              <span class="stack-cat__badge">PHPUnit</span>
+              <span class="stack-cat__badge">Jest</span>
+              <span class="stack-cat__badge">Behat</span>
+              <span class="stack-cat__badge">Selenium</span>
+            </div>
+          </div>
+          <div class="stack-cat">
+            <p class="stack-cat__label">DevOps</p>
+            <div class="stack-cat__badges">
+              <span class="stack-cat__badge">Docker</span>
+              <span class="stack-cat__badge">GitHub Actions</span>
+              <span class="stack-cat__badge">Azure DevOps</span>
+              <span class="stack-cat__badge">Gitea</span>
+              <span class="stack-cat__badge">Jenkins</span>
+              <span class="stack-cat__badge">Debian</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="solution__note">
+          Agile/Scrum · Code review · Pair programming · Documentation · Jira · Git
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="experiences" aria-labelledby="experiences-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Expériences clés</p>
+          <h2 class="section-title" id="experiences-title">17 ans sur des projets à fort enjeu.</h2>
+          <p class="section-subtitle">
+            Des missions longues, des résultats mesurables, des équipes formées.
+          </p>
+        </header>
+
+        <div class="portfolio__featured">
+
+          <article class="portfolio-card fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">Citeo · SaaS environnemental · 9 mois · 2024-2025</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">Terminé</span>
+              </div>
+              <h3 class="portfolio-card__title">Automatisation complète des tests E2E sur une plateforme critique</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>Contexte :</strong> Citeo gère les filières de recyclage à l'échelle nationale.
+                La plateforme (API Platform, React) n'avait pas de couverture de tests automatisés.
+                Les déploiements étaient risqués et les régressions fréquentes.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>Intervention :</strong> Conception et écriture de 500+ scénarios Cypress E2E
+                sur les parcours critiques (authentification, formulaires, flux métier RGPD).
+                Formation de 2 ingénieurs QA. Intégration dans le pipeline Azure DevOps.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>70% de couverture de tests atteinte</li>
+                <li>Zéro régression en prod après déploiement</li>
+                <li>2 ingénieurs QA formés à l'automatisation Cypress</li>
+                <li>Pipeline CI/CD Azure DevOps opérationnel</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">Cypress</span>
+                <span class="tag">API Platform</span>
+                <span class="tag">React</span>
+                <span class="tag">Azure DevOps</span>
+                <span class="tag">QA</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">Citeo · SaaS environnemental · 3 ans · 2021-2024</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">Terminé</span>
+              </div>
+              <h3 class="portfolio-card__title">Développement fullstack sur une plateforme Symfony/API Platform/React</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>Contexte :</strong> Rejoindre une équipe Agile Scrum sur un SaaS
+                à fort trafic, avec des cycles de sprints réguliers et des mises en production fréquentes.
+                Mission 100% remote depuis La Réunion.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>Intervention :</strong> Développement de nouvelles fonctionnalités
+                (Symfony 6, API Platform, React/TypeScript). Mise en place des premières
+                suites de tests E2E Cypress. Revues de code et cérémonies Agile.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>3 ans de mission fullstack sur une codebase complexe</li>
+                <li>Premiers tests E2E mis en place en autonomie</li>
+                <li>Collaboration avec une équipe distribuée, full remote</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">Symfony 6</span>
+                <span class="tag">API Platform</span>
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Agile Scrum</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">Sellermania · SaaS e-commerce · 7 ans · 2011-2018</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">Terminé</span>
+              </div>
+              <h3 class="portfolio-card__title">7 ans sur un SaaS de gestion de catalogue e-commerce</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>Contexte :</strong> Sellermania est un SaaS de synchronisation de catalogues
+                pour marketplaces (Amazon, eBay, Cdiscount). Application critique, clients actifs en permanence,
+                zéro tolérance au downtime.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>Intervention :</strong> Développement de fonctionnalités PHP/Symfony.
+                Migration progressive Symfony 2 vers 3 puis 4 sans interruption de service.
+                Mise en place des tests unitaires et fonctionnels (PHPUnit, Behat, Selenium).
+                CI/CD Jenkins.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>7 ans de maintenance et évolution en continu</li>
+                <li>Migration Symfony 2 vers 4 : zéro downtime</li>
+                <li>Base de tests unitaires et fonctionnels construite from scratch</li>
+                <li>CI/CD Jenkins opérationnel</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">PHP</span>
+                <span class="tag">Symfony</span>
+                <span class="tag">PHPUnit</span>
+                <span class="tag">Behat</span>
+                <span class="tag">Jenkins</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">Mission freelance · React/TypeScript · 2026</span>
+                <span class="portfolio-card__status portfolio-card__status--wip">En cours</span>
+              </div>
+              <h3 class="portfolio-card__title">Refonte progressive du frontend React sans tout casser</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>Contexte :</strong> Application React/TypeScript vieillissante, équipe
+                interne réticente à refactoriser. Besoin d'un renfort senior pour moderniser
+                sans interrompre la production ni perdre l'équipe en route.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>Intervention :</strong> Adoption du Strangler Fig Pattern pour une
+                migration progressive. Intégration du toolkit Aurora.
+                Transmission des bonnes pratiques à l'équipe pour une autonomie complète.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>Continuité garantie : zéro refonte totale</li>
+                <li>Équipe rendue autonome sur le nouveau périmètre</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Strangler Fig</span>
+                <span class="tag">Aurora</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="missions" aria-labelledby="missions-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Types de missions</p>
+          <h2 class="section-title" id="missions-title">Dans quelles situations j'interviens.</h2>
+          <p class="section-subtitle section-subtitle--centered">
+            Missions longues ou ponctuelles, régie ou forfait. Le point commun : un besoin de séniorité.
+          </p>
+        </header>
+
+        <div class="missions__grid">
+
+          <article class="mission-card fade-up">
+            <div class="mission-card__icon" aria-hidden="true">🔄</div>
+            <h3 class="mission-card__title">Modernisation legacy PHP/Symfony</h3>
+            <p class="mission-card__text">
+              Votre app Symfony 2/3/4 accumule la dette.
+              Migration progressive vers Symfony 6/7 avec le Strangler Fig Pattern.
+              Zéro downtime, équipe embarquée dès le début.
+              7 ans de migration sans coupure sur Sellermania.
+            </p>
+            <div class="mission-card__tags">
+              <span class="tag">Symfony</span>
+              <span class="tag">Strangler Fig</span>
+              <span class="tag">Legacy</span>
+            </div>
+          </article>
+
+          <article class="mission-card fade-up">
+            <div class="mission-card__icon" aria-hidden="true">🔗</div>
+            <h3 class="mission-card__title">API e-commerce et logistique</h3>
+            <p class="mission-card__text">
+              Connecteurs marketplaces, APIs REST/JSON-LD, intégrations ERP.
+              7 ans sur Sellermania, conception et maintenance de connecteurs
+              Amazon, eBay, Cdiscount.
+              API Platform pour les architectures modernes.
+            </p>
+            <div class="mission-card__tags">
+              <span class="tag">API Platform</span>
+              <span class="tag">REST</span>
+              <span class="tag">E-commerce</span>
+            </div>
+          </article>
+
+          <article class="mission-card fade-up">
+            <div class="mission-card__icon" aria-hidden="true">🧪</div>
+            <h3 class="mission-card__title">QA Cypress et tests E2E</h3>
+            <p class="mission-card__text">
+              Pas de filet de sécurité sur votre prod ?
+              Je mets en place une couverture Cypress E2E sur vos parcours critiques.
+              500+ scénarios écrits pour Citeo.
+              70% de couverture atteinte en 9 mois.
+            </p>
+            <div class="mission-card__tags">
+              <span class="tag">Cypress</span>
+              <span class="tag">E2E</span>
+              <span class="tag">QA</span>
+            </div>
+          </article>
+
+          <article class="mission-card fade-up">
+            <div class="mission-card__icon" aria-hidden="true">🏗️</div>
+            <h3 class="mission-card__title">Architecture et CI/CD</h3>
+            <p class="mission-card__text">
+              Pipeline CI/CD absent ou fragile ?
+              Je mets en place les workflows GitHub Actions, Azure DevOps ou Gitea :
+              build, tests automatisés, déploiements sécurisés.
+              Containerisation Docker.
+            </p>
+            <div class="mission-card__tags">
+              <span class="tag">CI/CD</span>
+              <span class="tag">Docker</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
+          </article>
+
+          <article class="mission-card fade-up">
+            <div class="mission-card__icon" aria-hidden="true">👥</div>
+            <h3 class="mission-card__title">Renfort senior équipe fullstack</h3>
+            <p class="mission-card__text">
+              Votre équipe junior a besoin d'un ancrage technique senior.
+              Je rejoins vos sprints, je structure l'architecture,
+              je fais des revues de code.
+              Lead technique sans recrutement de CTO à plein temps.
+            </p>
+            <div class="mission-card__tags">
+              <span class="tag">Lead technique</span>
+              <span class="tag">Code review</span>
+              <span class="tag">Agile</span>
+            </div>
+          </article>
+
+          <article class="mission-card fade-up">
+            <div class="mission-card__icon" aria-hidden="true">🎓</div>
+            <h3 class="mission-card__title">Formation et montée en compétence</h3>
+            <p class="mission-card__text">
+              Symfony, React, Cypress, TDD, bonnes pratiques DevOps.
+              Formateur certifié ECP Formation.
+              Sessions 1 à 5 jours, adaptées au niveau de votre équipe.
+              Objectif : autonomie totale à l'issue.
+            </p>
+            <div class="mission-card__tags">
+              <span class="tag">Formation</span>
+              <span class="tag">TDD</span>
+              <span class="tag">Cypress</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pourquoi-moi" aria-labelledby="pourquoi-moi-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Pourquoi moi</p>
+          <h2 class="section-title" id="pourquoi-moi-title">Ce que 17 ans de terrain apportent.</h2>
+        </header>
+
+        <div class="steps">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">1</div>
+            <h3 class="step__title">Opérationnel dès la première semaine</h3>
+            <p class="step__text">
+              Je lis une codebase Symfony/React, je comprends le contexte métier,
+              et je livre du code solide sans temps d'échauffement.
+              Pas besoin de baby-sitter.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">2</div>
+            <h3 class="step__title">Vision produit, pas seulement de l'exécution</h3>
+            <p class="step__text">
+              Je ne me contente pas d'appliquer des tickets.
+              Je signale les risques d'architecture, je propose des alternatives
+              et j'anticipe les problèmes avant qu'ils coûtent cher.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">3</div>
+            <h3 class="step__title">Je monte votre équipe en compétence</h3>
+            <p class="step__text">
+              Revues de code commentées, pair programming, transmissions courtes.
+              Formateur certifié ECP Formation.
+              Votre équipe repart autonome.
+            </p>
+          </div>
+        </div>
+
+        <div class="proof__grid proof__grid--3col fade-up">
+          <div class="stat-card">
+            <p class="stat-card__number">70%</p>
+            <p class="stat-card__label">couverture de tests (Citeo)</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-card__number">0</p>
+            <p class="stat-card__label">downtime sur 7 ans de migration</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-card__number">8+</p>
+            <p class="stat-card__label">recommandations LinkedIn vérifiées</p>
+          </div>
+        </div>
+
+        <div class="proof__cert fade-up">
+          <span class="proof__cert-icon" aria-hidden="true">🌐</span>
+          <div>
+            <p class="proof__cert-title">Remote éprouvé depuis 2021</p>
+            <p class="proof__cert-sub">
+              4 ans de mission à 100% remote sur Citeo. Horaires calés sur les heures de bureau métropolitaines. Autonomie totale.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="temoignages" aria-labelledby="temoignages-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Témoignages</p>
+          <h2 class="section-title" id="temoignages-title">Ce que disent mes clients et collègues.</h2>
+          <p class="section-subtitle">8+ recommandations LinkedIn vérifiées.</p>
+        </header>
+
+        <div class="testimonials__grid" role="group" aria-label="Témoignages clients">
+
+          <article class="testimonial fade-up">
+            <span class="testimonial__stars" role="img" aria-label="5 étoiles">★★★★★</span>
+            <p class="testimonial__quote">
+              A permis de sécuriser les mises en production et d'augmenter la vélocité de l'équipe.
+            </p>
+            <div class="testimonial__author">
+              <p class="testimonial__name">Stéphane Bourdon</p>
+              <p class="testimonial__role">Head of IT · Citeo</p>
+            </div>
+          </article>
+
+          <article class="testimonial fade-up">
+            <span class="testimonial__stars" role="img" aria-label="5 étoiles">★★★★★</span>
+            <p class="testimonial__quote">
+              Impact concret sur la plateforme : 70% de couverture de tests atteinte.
+            </p>
+            <div class="testimonial__author">
+              <p class="testimonial__name">Virginie Van Bever</p>
+              <p class="testimonial__role">Responsable Digital Factory · Citeo</p>
+            </div>
+          </article>
+
+          <article class="testimonial fade-up">
+            <span class="testimonial__stars" role="img" aria-label="5 étoiles">★★★★★</span>
+            <p class="testimonial__quote">
+              Calme olympien, fédérateur, volontarisme à toute épreuve.
+            </p>
+            <div class="testimonial__author">
+              <p class="testimonial__name">Laurent Cligny</p>
+              <p class="testimonial__role">Responsable direct · Citeo</p>
+            </div>
+          </article>
+
+          <article class="testimonial fade-up">
+            <span class="testimonial__stars" role="img" aria-label="5 étoiles">★★★★★</span>
+            <p class="testimonial__quote">
+              Sérieux, fiable, fédérateur, n'a pas peur d'aborder de nouveaux challenges.
+            </p>
+            <div class="testimonial__author">
+              <p class="testimonial__name">Stéphane Jauffret</p>
+              <p class="testimonial__role">CEO · Sellermania</p>
+            </div>
+          </article>
+
+          <article class="testimonial fade-up">
+            <span class="testimonial__stars" role="img" aria-label="5 étoiles">★★★★★</span>
+            <p class="testimonial__quote">
+              Tout ce qu'on attend d'un développeur expérimenté : précis, autonome, et pédagogue.
+            </p>
+            <div class="testimonial__author">
+              <p class="testimonial__name">Pierre-Charles Bertineau</p>
+              <p class="testimonial__role">Lead Dev · Néosylva</p>
+            </div>
+          </article>
+
+          <article class="testimonial fade-up">
+            <span class="testimonial__stars" role="img" aria-label="5 étoiles">★★★★★</span>
+            <p class="testimonial__quote">
+              Esprit autodidacte, multidisciplinarité rare, adaptabilité remarquable.
+            </p>
+            <div class="testimonial__author">
+              <p class="testimonial__name">Laurent Mer</p>
+              <p class="testimonial__role">Directeur Général · Neogeo/GEOFIT</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Questions fréquentes</p>
+          <h2 class="section-title" id="faq-title">Ce que vous voulez savoir avant de me contacter.</h2>
+        </header>
+
+        <div class="faq__list prose-narrow">
+
+          <details class="faq__item">
+            <summary class="faq__question">Quelle est ta disponibilité actuelle ?</summary>
+            <div class="faq__answer">
+              <p>
+                Je suis disponible pour des missions longues (3 à 12 mois). Je travaille en full remote
+                depuis La Réunion, avec des horaires calés sur les heures de bureau métropolitaines.
+                Des déplacements ponctuels sur Paris ou en province sont possibles selon les besoins.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">Tu interviens en régie ou en forfait ?</summary>
+            <div class="faq__answer">
+              <p>
+                Les deux. La régie (TJM) est adaptée aux missions longues avec un périmètre évolutif.
+                Le forfait convient aux missions courtes avec un livrable défini : mise en place Cypress,
+                audit technique, formation. Contactez-moi pour discuter du format adapté à votre situation.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">Comment se passe le démarrage d'une mission ?</summary>
+            <div class="faq__answer">
+              <p>
+                Un échange de 30 minutes pour comprendre votre contexte et vos contraintes.
+                Si le fit est bon : accès à la codebase, lecture des tickets en cours, appel avec l'équipe.
+                Je suis généralement opérationnel sous une semaine.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">Tu peux intervenir si notre stack n'est pas 100% Symfony/React ?</summary>
+            <div class="faq__answer">
+              <p>
+                Ma zone de confort est PHP/Symfony et React/TypeScript. Pour des stacks proches
+                (Laravel, Vue.js, Next.js), je peux intervenir avec une montée en charge rapide.
+                Dites-moi votre stack, je vous répondrai franchement si je suis le bon profil.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">Peux-tu former notre équipe tout en codant ?</summary>
+            <div class="faq__answer">
+              <p>
+                Oui, c'est ma façon de travailler. Revues de code commentées, pair programming,
+                transmissions courtes intégrées aux sprints. Formateur certifié ECP Formation :
+                je transmets sans me rendre indispensable. Votre équipe repart autonome.
+              </p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="inner-cta">
+          <p class="eyebrow eyebrow--light">Contact</p>
+          <h2 class="inner-cta__title" id="contact-title">
+            Un besoin de renfort senior Symfony/React ?
+          </h2>
+          <p class="inner-cta__text">
+            Décrivez-moi votre situation en quelques lignes ou réservez directement
+            un appel de 30 minutes. Je réponds sous 24h.
+          </p>
+          <div class="inner-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--primary btn--lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Planifier un échange sur Calendly (ouvre dans un nouvel onglet)">
+              Planifier un échange →
+            </a>
+            <a href="mailto:matthieu.viel.fr@gmail.com"
+               class="btn btn--outline-light btn--lg"
+               aria-label="Envoyer un email à Matthieu Viel">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </div>
+          <div class="links-strip">
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               class="links-strip__item"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Profil LinkedIn de Matthieu Viel (nouvel onglet)">
+              LinkedIn →
+            </a>
+            <a href="https://www.malt.com/profile/matthieuviel"
+               class="links-strip__item"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Profil Malt de Matthieu Viel (nouvel onglet)">
+              Malt →
+            </a>
+            <a href="tel:+262693852812"
+               class="links-strip__item"
+               aria-label="Appeler Matthieu Viel">
+              +262&nbsp;693&nbsp;85&nbsp;28&nbsp;12
+            </a>
+          </div>
+          <p class="cta-location">
+            Saint-Pierre · La Réunion 974 · Remote France entière
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+{% endblock %}

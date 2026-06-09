@@ -1,0 +1,365 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Audit app développée avec l'IA · Matthieu Viel — Réunion{% endblock %}
+{% block meta_description %}Comment vérifier qu'une app construite avec Claude Code, Cursor ou Bolt est prête pour la production ? Audit en 5 points critiques, livrable sous 5 jours. Matthieu Viel, consultant freelance La Réunion.{% endblock %}
+
+{% block og %}
+  <meta property="og:title" content="Comment vérifier qu'une application développée avec l'IA est prête pour la production ?">
+  <meta property="og:description" content="Cinq points critiques à vérifier avant de lancer une app construite avec Claude Code, Cursor ou Bolt. Audit structuré, livrable sous 5 jours.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/application-vibe-coding-production/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/">
+{% endblock %}
+
+{% block schema_ld %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Comment vérifier qu'une application développée avec l'IA est prête pour la production ?",
+    "description": "Audit structuré en 5 étapes pour valider une application construite avec des outils d'IA (Claude Code, Cursor, Bolt) avant son lancement en production.",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "EUR",
+      "value": "À partir de 1 500"
+    },
+    "totalTime": "P5D",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Revue de code et architecture",
+        "text": "Lecture complète du code généré : gestion des erreurs, secrets exposés, dépendances vulnérables, structure des modèles de données."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Audit de l'authentification et des autorisations",
+        "text": "Vérification des mécanismes d'authentification (JWT, sessions), des règles d'autorisation par rôle, et de l'absence de routes non protégées."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Audit de l'exposition des données",
+        "text": "Contrôle des endpoints API : données sensibles exposées, pagination manquante, absence de rate limiting, logs qui fuient des informations."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Tests de charge basiques",
+        "text": "Simulation d'une charge réaliste pour identifier les goulots d'étranglement avant que de vrais utilisateurs ne les trouvent."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Rapport d'audit priorisé",
+        "text": "Livrable écrit avec chaque problème classé par criticité (bloquant / important / mineur), la raison du risque, et la correction recommandée."
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "url": "https://www.matthieu-viel.fr",
+    "jobTitle": "Senior Fullstack Developer & Technical Auditor",
+    "knowsAbout": ["QA automatisée", "CI/CD", "audit technique", "stabilisation SaaS", "Cypress", "dette technique", "vibe coding audit"],
+    "areaServed": ["La Réunion", "France", "Remote"],
+    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
+  }
+  </script>
+{% endblock %}
+
+{% block nav %}
+  <nav class="nav" id="nav" aria-label="Navigation principale">
+    <div class="container nav__inner">
+      <a href="../../index.html" class="nav__logo" aria-label="Matthieu Viel — Accueil">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">Consultant technique web</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../../index.html#problemes">Mes interventions</a></li>
+        <li><a href="../" class="is-active" aria-current="page">Audit</a></li>
+        <li><a href="../../portfolio.html">Portfolio</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <a href="./" class="lang-toggle__btn lang-toggle__btn--active" hreflang="fr" aria-current="true">🇫🇷 FR</a>
+        <a href="{{ lang_en_url }}" class="lang-toggle__btn" hreflang="en">🇬🇧 EN</a>
+      </div>
+
+      <a href="https://calendly.com/matthieu-viel-fr/30min"
+         class="btn btn--primary nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Réserver un appel découverte (ouvre Calendly)">
+        Réserver un appel
+      </a>
+
+      <button type="button"
+              class="nav__burger"
+              id="nav-burger"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+              aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block body %}
+  <main>
+
+    <section class="portfolio-hero" aria-label="Audit application vibe coding">
+      <div class="container">
+        <a href="../" class="page-back" aria-label="Retour aux cas d'audit">← Tous les cas d'audit</a>
+        <p class="eyebrow">Application IA · Vibe coding audit</p>
+        <h1 class="portfolio-hero__title">
+          Comment vérifier qu'une application<br>
+          développée avec l'IA est prête<br>
+          <em>pour la production ?</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          Cinq points critiques à contrôler avant d'exposer une app construite
+          avec Claude Code, Cursor ou Bolt à de vrais utilisateurs. L'audit prend
+          3 à 5 jours ouvrés et se termine par un rapport priorisé,
+          pas une liste de problèmes sans solution.
+        </p>
+        <div class="cta-group">
+          <a href="https://calendly.com/matthieu-viel-fr/30min"
+             class="btn btn--primary btn--lg"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Réserver un appel découverte (ouvre Calendly)">
+            Discuter de mon projet →
+          </a>
+          <a href="../faq/" class="btn btn--outline btn--lg">
+            Questions fréquentes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pourquoi-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Le problème</p>
+          <h2 class="section-title" id="pourquoi-title">Pourquoi les apps IA ont besoin d'un regard externe</h2>
+        </header>
+        <div class="prose-wide">
+          <p class="prose prose--lead prose--mb-lg">
+            Les outils de vibe coding (Claude Code, Cursor, Bolt, v0) génèrent du code qui <em>fonctionne</em>.
+            Ce n'est pas la question. La question est : fonctionne-t-il correctement quand 50 utilisateurs
+            simultanés l'utilisent avec de vraies données personnelles, et qu'un d'entre eux essaie
+            délibérément de casser quelque chose ?
+          </p>
+          <p class="prose prose--mb-lg">
+            Le code généré par l'IA reproduit les patterns qu'il a appris,
+            y compris les mauvaises pratiques. Il n'a pas de contexte métier,
+            pas de vision de l'architecture globale, et ne se soucie pas
+            de ce qui arrive quand une fonction échoue.
+          </p>
+          <p class="prose">
+            Ce n'est pas une critique de ces outils : j'utilise Claude Code moi-même.
+            C'est une réalité : aucun code, humain ou IA, ne devrait être mis en production
+            sans validation externe. L'audit que je propose n'est pas un pentest de sécurité :
+            il se concentre sur les risques réels pour une application
+            de votre stade (données exposées, authentification poreuse, crash sous charge).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="cinq-points-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Ce que j'examine</p>
+          <h2 class="section-title" id="cinq-points-title">Les 5 points critiques</h2>
+          <p class="section-subtitle">
+            Dans cet ordre, parce que chaque étape conditionne la suivante.
+          </p>
+        </header>
+
+        <div class="steps">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">1</div>
+            <h3 class="step__title">Revue de code</h3>
+            <p class="step__text">
+              Gestion des erreurs (que se passe-t-il quand une fonction échoue ?),
+              secrets dans le code source, dépendances vulnérables,
+              structure des modèles de données.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">2</div>
+            <h3 class="step__title">Authentification</h3>
+            <p class="step__text">
+              Mécanismes d'auth (JWT, sessions), règles d'autorisation par rôle,
+              routes non protégées, expiration des tokens,
+              politique de mots de passe.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">3</div>
+            <h3 class="step__title">Exposition des données</h3>
+            <p class="step__text">
+              Endpoints API qui retournent plus que nécessaire,
+              absence de rate limiting, logs qui fuient des informations sensibles,
+              CORS mal configuré.
+            </p>
+          </div>
+        </div>
+
+        <div class="steps mt-3">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">4</div>
+            <h3 class="step__title">Test de charge basique</h3>
+            <p class="step__text">
+              Simulation d'une charge réaliste pour identifier
+              les goulots d'étranglement avant que de vrais utilisateurs
+              ne les trouvent à votre place.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">5</div>
+            <h3 class="step__title">Rapport priorisé</h3>
+            <p class="step__text">
+              Chaque problème classé : bloquant / important / mineur.
+              La raison du risque, la correction recommandée,
+              et l'effort estimé pour chaque point.
+            </p>
+          </div>
+          <div class="step step--hidden" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="diff-pentest-title">
+      <div class="container">
+        <div class="layout-2col layout-2col--md">
+          <div>
+            <p class="eyebrow">Ce que c'est</p>
+            <h2 class="section-title" id="diff-pentest-title">Audit applicatif vs pentest de sécurité</h2>
+            <p class="prose prose--mb">
+              Un pentest est mené par un expert en sécurité offensive qui cherche à exploiter
+              des vulnérabilités connues (injections, XSS, escalade de privilèges).
+              Il suppose une application déjà stable et documentée.
+            </p>
+            <p class="prose prose--mb">
+              Un audit applicatif comme le mien s'adresse aux applications au stade pré-lancement
+              ou juste après le lancement. Je m'intéresse à ce qui va <strong>concrètement planter
+              ou fuiter</strong> avec vos premiers vrais utilisateurs :
+              gestion d'erreur absente, auth mal configurée, données exposées par inadvertance.
+            </p>
+            <p class="prose">
+              Les deux approches sont complémentaires. Pour une app vibe coding au stade MVP,
+              commencer par l'audit applicatif est la bonne séquence.
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow">Ce que vous recevez</p>
+            <h2 class="section-title section-title--2xl">Le livrable</h2>
+            <ul class="checklist mt-1">
+              <li>Rapport écrit structuré (PDF + Notion ou Google Docs selon votre préférence)</li>
+              <li>Chaque problème classé par criticité avec explication du risque concret</li>
+              <li>Recommandations de correction concrètes, pas des conseils généraux</li>
+              <li>Estimation d'effort pour chaque correction</li>
+              <li>Session de restitution de 45 minutes pour répondre à vos questions</li>
+              <li>Accès à mes questions pendant 2 semaines post-livraison</li>
+            </ul>
+            <div class="solution__note mt-2">
+              Délai moyen : 3 à 5 jours ouvrés selon la taille de l'application.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="related-title">
+      <div class="container">
+        <p class="eyebrow">Aller plus loin</p>
+        <h2 class="section-title section-title--2xl section-title--mb" id="related-title">Autres cas d'audit</h2>
+        <div class="related-audits">
+          <a href="../dette-technique-application-saas/">Dette technique SaaS</a>
+          <a href="../tests-automatises-application/">Tests automatisés</a>
+          <a href="../cicd-pipeline-application/">Pipeline CI/CD</a>
+          <a href="../application-solo-founder-clients/">App solo → premiers clients</a>
+          <a href="../faq/">FAQ audit technique</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-label="Contact">
+      <div class="container">
+        <div class="inner-cta">
+          <p class="eyebrow eyebrow--light">Première prise de contact</p>
+          <h2 class="inner-cta__title">Votre app est-elle prête ?</h2>
+          <p class="inner-cta__text">
+            30 minutes d'échange suffisent à évaluer le périmètre et vous donner
+            une première idée des risques. Sans engagement.
+          </p>
+          <div class="inner-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline-light btn--lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Réserver un appel découverte sur Calendly (nouvel onglet)">
+              Réserver un appel découverte →
+            </a>
+            <a href="mailto:matthieu.viel.fr@gmail.com" class="btn btn--outline-light">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+{% endblock %}
+
+{% block footer %}
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__brand">Matthieu Viel</p>
+        <p class="footer__tagline">Consultant technique web · Saint-Pierre, La Réunion</p>
+      </div>
+
+      <nav aria-label="Liens du pied de page">
+        <ul class="footer__links">
+          <li><a href="../../index.html">Accueil</a></li>
+          <li><a href="../">Audit technique</a></li>
+          <li><a href="../../portfolio.html">Portfolio</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+          <li><a href="../../mentions-legales.html">Mentions légales</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Profil LinkedIn de Matthieu Viel (nouvel onglet)">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <p class="footer__copy">© 2026 Matthieu Viel</p>
+    </div>
+  </footer>
+{% endblock %}

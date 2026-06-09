@@ -1,0 +1,354 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tests automatisés sans suite existante · Matthieu Viel 974{% endblock %}
+{% block meta_description %}Comment mettre en place des tests automatisés quand il n'y en a pas ? Cypress, couverture minimale viable, intégration CI/CD. 10 à 15 jours. Matthieu Viel, consultant freelance La Réunion — 500+ scénarios Cypress.{% endblock %}
+
+{% block og %}
+  <meta property="og:title" content="Comment mettre en place des tests automatisés sur une application qui n'en a pas ?">
+  <meta property="og:description" content="Commencer par Cypress E2E sur les parcours critiques, pas par les tests unitaires. Couverture minimale viable en 10-15 jours, intégrée en CI/CD.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/audit/tests-automatises-application/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/audit/tests-automatises-application/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/tests-automatises-application/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/automated-tests-application/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/tests-automatises-application/">
+{% endblock %}
+
+{% block schema_ld %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Comment mettre en place des tests automatisés sur une application qui n'en a pas ?",
+    "description": "Bootstrapper une suite de tests automatisés sur une application web sans couverture existante, avec Cypress et un pipeline CI/CD.",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "EUR",
+      "value": "À partir de 3 000"
+    },
+    "totalTime": "P15D",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Identifier les parcours critiques",
+        "text": "Lister les 5 à 10 actions utilisateur dont le dysfonctionnement coûte le plus cher : inscription, connexion, paiement, génération de rapport, etc. Ce sont les premiers scénarios à couvrir."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Installer et configurer Cypress",
+        "text": "Cypress est le point de départ pragmatique pour les applications web. Il teste l'application comme un vrai utilisateur, sans avoir besoin de modifier le code de l'application."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Écrire les premiers scénarios E2E",
+        "text": "Un scénario par parcours critique. Chaque scénario vérifie le chemin heureux et les cas d'erreur principaux. On vise 10 à 20 scénarios couvrant 80% des risques réels."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Intégrer dans le pipeline CI/CD",
+        "text": "Les tests doivent tourner automatiquement à chaque push ou pull request. Sans cette intégration, la suite de tests mourra rapidement faute d'utilisation régulière."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Former l'équipe pour la continuité",
+        "text": "L'équipe doit pouvoir écrire de nouveaux scénarios sans mon aide. Je transmets les patterns, les conventions, et les bonnes pratiques pour que la suite continue de grandir après ma mission."
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "url": "https://www.matthieu-viel.fr",
+    "jobTitle": "Senior Fullstack Developer & Technical Auditor",
+    "knowsAbout": ["QA automatisée", "CI/CD", "audit technique", "stabilisation SaaS", "Cypress", "dette technique", "vibe coding audit"],
+    "areaServed": ["La Réunion", "France", "Remote"],
+    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
+  }
+  </script>
+{% endblock %}
+
+{% block nav %}
+  <nav class="nav" id="nav" aria-label="Navigation principale">
+    <div class="container nav__inner">
+      <a href="../../index.html" class="nav__logo" aria-label="Matthieu Viel — Accueil">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">Consultant technique web</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../../index.html#problemes">Mes interventions</a></li>
+        <li><a href="../" class="is-active" aria-current="page">Audit</a></li>
+        <li><a href="../../portfolio.html">Portfolio</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <a href="./" class="lang-toggle__btn lang-toggle__btn--active" hreflang="fr" aria-current="true">🇫🇷 FR</a>
+        <a href="{{ lang_en_url }}" class="lang-toggle__btn" hreflang="en">🇬🇧 EN</a>
+      </div>
+
+      <a href="https://calendly.com/matthieu-viel-fr/30min"
+         class="btn btn--primary nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Réserver un appel découverte (ouvre Calendly)">
+        Réserver un appel
+      </a>
+
+      <button type="button"
+              class="nav__burger"
+              id="nav-burger"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+              aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block body %}
+  <main>
+
+    <section class="portfolio-hero" aria-label="Mise en place tests automatisés">
+      <div class="container">
+        <a href="../" class="page-back" aria-label="Retour aux cas d'audit">← Tous les cas d'audit</a>
+        <p class="eyebrow">Tests automatisés · QA</p>
+        <h1 class="portfolio-hero__title">
+          Comment mettre en place des tests<br>
+          automatisés sur une application<br>
+          <em>qui n'en a pas ?</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          On commence par les tests E2E sur les parcours critiques, pas par les tests unitaires.
+          Avec Cypress sur une application web standard, je construis une couverture minimale
+          viable en 10 à 15 jours et l'intègre dans votre pipeline CI/CD.
+          J'ai écrit 500+ scénarios Cypress pour Citeo, avec 70% de couverture atteinte.
+        </p>
+        <div class="cta-group">
+          <a href="https://calendly.com/matthieu-viel-fr/30min"
+             class="btn btn--primary btn--lg"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Réserver un appel découverte (ouvre Calendly)">
+            Discuter de mon projet →
+          </a>
+          <a href="../faq/" class="btn btn--outline btn--lg">
+            Questions fréquentes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="par-ou-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">La bonne séquence</p>
+          <h2 class="section-title" id="par-ou-title">Par où commencer : E2E, unitaire ou intégration ?</h2>
+        </header>
+        <div class="prose-wide">
+          <p class="prose prose--lead prose--mb-lg">
+            La réponse courte : tests E2E en premier. Les tests unitaires sont plus rapides
+            à écrire mais ne couvrent pas ce qui compte le plus : est-ce que le
+            <em>flux complet</em> fonctionne du point de vue de l'utilisateur ?
+          </p>
+          <p class="prose prose--mb-lg">
+            Pour une application sans tests du tout, 10 scénarios Cypress couvrant
+            les parcours critiques (inscription, connexion, action principale, paiement)
+            apportent plus de valeur que 200 tests unitaires sur des fonctions isolées.
+            C'est contre-intuitif mais prouvé en pratique.
+          </p>
+          <p class="prose">
+            Les tests d'intégration et unitaires viennent ensuite, sur les composants
+            qui ont le plus de logique métier. On construit la couverture
+            de l'extérieur vers l'intérieur, pas l'inverse.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="demarche-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">La démarche</p>
+          <h2 class="section-title" id="demarche-title">De zéro à une couverture viable</h2>
+        </header>
+
+        <div class="steps">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">1</div>
+            <h3 class="step__title">Parcours critiques</h3>
+            <p class="step__text">
+              On liste ensemble les 5 à 10 actions utilisateur dont le dysfonctionnement
+              coûte le plus cher. Ce sont les premiers scénarios à couvrir,
+              sans exception.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">2</div>
+            <h3 class="step__title">Setup Cypress</h3>
+            <p class="step__text">
+              Installation, configuration, choix des conventions de nommage,
+              mise en place des fixtures et des commandes réutilisables.
+              Une base propre que l'équipe peut maintenir seule.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">3</div>
+            <h3 class="step__title">Premiers scénarios</h3>
+            <p class="step__text">
+              Chemin heureux + cas d'erreur principaux pour chaque parcours critique.
+              Chaque scénario est documenté pour servir de modèle à l'équipe.
+            </p>
+          </div>
+        </div>
+
+        <div class="steps mt-3">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">4</div>
+            <h3 class="step__title">Intégration CI/CD</h3>
+            <p class="step__text">
+              Les tests tournent automatiquement à chaque push.
+              Sans cette étape, la suite meurt en quelques semaines.
+              J'intègre dans GitHub Actions, GitLab CI ou Azure DevOps selon votre stack.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">5</div>
+            <h3 class="step__title">Formation équipe</h3>
+            <p class="step__text">
+              Je transmets les patterns, les conventions, et les réflexes pour
+              que votre équipe écrive de nouveaux scénarios sans moi.
+              J'ai formé 2 ingénieurs QA chez Citeo : ils maintiennent la suite seuls.
+            </p>
+          </div>
+          <div class="step step--hidden" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="resultats-tests-title">
+      <div class="container">
+        <div class="layout-2col">
+          <div>
+            <p class="eyebrow">Référence concrète</p>
+            <h2 class="section-title section-title--2xl" id="resultats-tests-title">Citeo · 4 ans</h2>
+            <p class="prose prose--mb">
+              J'ai conçu et mis en place 500+ scénarios de tests E2E automatisés avec Cypress
+              sur la plateforme Citeo, une application critique à fort trafic.
+            </p>
+            <p class="prose prose--mb">
+              Les tests sont intégrés dans le pipeline Azure DevOps.
+              Résultat : 70% de couverture atteinte, déploiements sécurisés,
+              vélocité de l'équipe augmentée (Stéphane Bourdon, Head of IT, recommandation LinkedIn vérifiée).
+            </p>
+            <p class="prose">
+              Même approche possible sur votre stack (React, Vue, Angular, applications Symfony/Laravel).
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow">Livrable</p>
+            <h2 class="section-title section-title--2xl">Ce que vous recevez</h2>
+            <ul class="checklist mt-1">
+              <li>Suite de tests Cypress opérationnelle sur vos parcours critiques</li>
+              <li>Intégration dans votre pipeline CI/CD existant ou nouveau</li>
+              <li>Documentation des conventions pour la continuité équipe</li>
+              <li>Session de formation (2 à 4h) pour votre équipe</li>
+              <li>Guide d'écriture des prochains scénarios</li>
+            </ul>
+            <div class="solution__note mt-2">
+              Délai : 10 à 15 jours selon la taille de l'application et le nombre de parcours critiques.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-label="Pages liées">
+      <div class="container">
+        <p class="eyebrow">Aller plus loin</p>
+        <h2 class="section-title section-title--2xl section-title--mb">Autres cas d'audit</h2>
+        <div class="related-audits">
+          <a href="../application-vibe-coding-production/">App développée avec l'IA</a>
+          <a href="../dette-technique-application-saas/">Dette technique SaaS</a>
+          <a href="../cicd-pipeline-application/">Pipeline CI/CD</a>
+          <a href="../application-solo-founder-clients/">App solo → premiers clients</a>
+          <a href="../faq/">FAQ audit technique</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-label="Contact">
+      <div class="container">
+        <div class="inner-cta">
+          <p class="eyebrow eyebrow--light">Première prise de contact</p>
+          <h2 class="inner-cta__title">Zéro tests aujourd'hui ?</h2>
+          <p class="inner-cta__text">
+            On peut changer ça. 30 minutes pour évaluer votre stack
+            et définir les premiers parcours à couvrir.
+          </p>
+          <div class="inner-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline-light btn--lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Réserver un appel découverte sur Calendly (nouvel onglet)">
+              Réserver un appel découverte →
+            </a>
+            <a href="mailto:matthieu.viel.fr@gmail.com" class="btn btn--outline-light">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+{% endblock %}
+
+{% block footer %}
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__brand">Matthieu Viel</p>
+        <p class="footer__tagline">Consultant technique web · Saint-Pierre, La Réunion</p>
+      </div>
+
+      <nav aria-label="Liens du pied de page">
+        <ul class="footer__links">
+          <li><a href="../../index.html">Accueil</a></li>
+          <li><a href="../">Audit technique</a></li>
+          <li><a href="../../portfolio.html">Portfolio</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+          <li><a href="../../mentions-legales.html">Mentions légales</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Profil LinkedIn de Matthieu Viel (nouvel onglet)">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <p class="footer__copy">© 2026 Matthieu Viel</p>
+    </div>
+  </footer>
+{% endblock %}

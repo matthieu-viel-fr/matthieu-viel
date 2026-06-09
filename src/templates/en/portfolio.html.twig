@@ -1,0 +1,332 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio · Matthieu Viel — Web Consultant Réunion Island{% endblock %}
+{% block meta_description %}Matthieu Viel's work: legacy migrations, custom tools, automation. 17 years of fullstack experience serving SMEs.{% endblock %}
+
+{% block og %}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/en/portfolio.html">
+  <meta property="og:title" content="Portfolio · Matthieu Viel — Web Consultant Réunion Island">
+  <meta property="og:description" content="Legacy migrations, custom tools, automation: projects illustrating 17 years of fullstack experience.">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/en/portfolio.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/portfolio.html">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/portfolio.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/portfolio.html">
+{% endblock %}
+
+{% block body %}
+  <main>
+
+    <section class="portfolio-hero" aria-label="Portfolio introduction">
+      <div class="container">
+        <p class="eyebrow">Portfolio</p>
+        <h1 class="portfolio-hero__title">
+          Projects that solve<br>
+          <em>real business problems</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          17 years of fullstack experience: PHP/Symfony, React, legacy migrations,
+          custom tools. Each project below starts with a concrete problem from
+          a business leader or team, and ends with a measurable result.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="patterns" aria-labelledby="patterns-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">What I build</p>
+          <h2 class="section-title" id="patterns-title">Four problems I solve repeatedly</h2>
+          <p class="section-subtitle">
+            These situations come up repeatedly with SMEs. They are not inevitable.
+          </p>
+        </header>
+
+        <div class="patterns__grid">
+
+          <article class="pattern-card fade-up">
+            <div class="pattern-card__icon" aria-hidden="true">🔄</div>
+            <h3 class="pattern-card__title">Automate a manual process that's slowing growth</h3>
+            <p class="pattern-card__text">
+              Syncing tools, managing orders, recurring exports: every hour spent on a repetitive
+              task is an hour wasted. A well-designed connector pays for itself within months.
+            </p>
+          </article>
+
+          <article class="pattern-card fade-up">
+            <div class="pattern-card__icon" aria-hidden="true">🛠️</div>
+            <h3 class="pattern-card__title">Move away from Excel or a generic tool that's too rigid</h3>
+            <p class="pattern-card__text">
+              A custom tool adapts to your unique process, where the generic one forces you
+              to adapt to it. CRM, ERP, dashboards: designed for you, not for everyone.
+            </p>
+          </article>
+
+          <article class="pattern-card fade-up">
+            <div class="pattern-card__icon" aria-hidden="true">📍</div>
+            <h3 class="pattern-card__title">Digitalise a local business with online visibility</h3>
+            <p class="pattern-card__text">
+              High-performance showcase site, community platform, member area: local customers
+              expect to find your business online, easily, without friction.
+            </p>
+          </article>
+
+          <article class="pattern-card fade-up">
+            <div class="pattern-card__icon" aria-hidden="true">⚡</div>
+            <h3 class="pattern-card__title">Migrate costly legacy to a modern stack</h3>
+            <p class="pattern-card__text">
+              PHP 5.6 → 8.3, Drupal → static, Symfony 2 → 7: successful migrations without
+              service interruption or full rewrite. Your business continuity comes first.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title" id="projects-title">Main achievements</h2>
+        </header>
+
+        <div class="portfolio__featured">
+
+          <article class="portfolio-card portfolio-card--featured fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">Sport · Community</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">In production since 2008 · maintained since 2014</span>
+              </div>
+              <h3 class="portfolio-card__title">Tennis-Contact: Community tennis platform</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>The problem:</strong> The flat PHP 5.6 application had become impossible to maintain.
+                Obsolete PHP versions were no longer supported, and direct database access exposed
+                the platform to SQL injection vulnerabilities.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>What I did:</strong> In two stages.
+                First, security: update to PHP 8.3 and replacement of direct queries with PDO
+                prepared statements, eliminating SQL injection risks.
+                Then progressive refactoring via the Strangler Fig Pattern: modern Symfony + React.
+                Working pages remain intact; each new feature is rewritten in the new stack.
+                Service continuity is guaranteed at every step.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>✓ SQL injection vulnerabilities eliminated without service interruption</li>
+                <li>✓ PHP 5.6 → 8.3 on an app active since 2008</li>
+                <li>✓ Progressive refactoring in progress: zero big bang, zero regression</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">PHP 8.3</span>
+                <span class="tag">PDO</span>
+                <span class="tag">Symfony</span>
+                <span class="tag">React</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Strangler Fig</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card portfolio-card--featured fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">E-commerce · Automation</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">Fixed-price mission · 2026</span>
+              </div>
+              <h3 class="portfolio-card__title">Sellermania: Marketplace / logistics connector</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>The problem:</strong> An e-merchant was already managing their sales site and
+                logistics via a specialised SaaS. By opening Sellermania as an additional sales channel,
+                each incoming order required manual entry in the logistics SaaS: repetitive,
+                error-prone, and incompatible with growing volumes.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>What I did:</strong> API connector between Sellermania and the logistics SaaS:
+                each order placed on Sellermania is automatically forwarded without manual intervention.
+                Built-in deduplication to guarantee idempotency of cron flows.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>✓ Zero manual action on Sellermania orders</li>
+                <li>✓ New sales channel operational without operational overhead</li>
+                <li>✓ Scalable volume without additional processing cost</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">API Sellermania</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Cron</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card portfolio-card--featured fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">ERP · Frontend refactoring</span>
+                <span class="portfolio-card__status portfolio-card__status--prod">Fixed-price mission · 2026</span>
+              </div>
+              <h3 class="portfolio-card__title">Freelance mission: React frontend migration without big bang</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>The problem:</strong> A client's custom ERP (contact, contract, and property management)
+                had accumulated critical technical debt: obsolete Create React App, zero TypeScript, zero tests.
+                A full rewrite would have blocked business features for months.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>What I did:</strong> Progressive migration via the Strangler Fig Pattern: new
+                Vite/TypeScript/RTK Query stack coexisting in the same bundle as the legacy code, without touching it.
+                Three technical challenges solved with custom Vite plugins: unified Redux store between both stacks,
+                JSX in legacy <code>.js</code> files, per-page feature flags for instant production toggle.
+                Vitest test infrastructure and architecture documentation delivered to the internal team.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>✓ CRA removed, strict TypeScript activated, without touching legacy code</li>
+                <li>✓ Page-by-page migration reproducible by the internal team</li>
+                <li>✓ Architecture documentation delivered for continuity without dependency</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Vite</span>
+                <span class="tag">RTK Query</span>
+                <span class="tag">Strangler Fig</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Vitest</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card portfolio-card--featured fade-up">
+            <div class="portfolio-card__header">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__sector">Botanical Garden · CMS Migration</span>
+              </div>
+              <h3 class="portfolio-card__title">Herbarius: From heavy Drupal to a performant static site</h3>
+            </div>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__context">
+                <strong>The problem:</strong> A historic garden with a slow, expensive Drupal site:
+                no internal technical team, blocked updates, catastrophic performance.
+              </p>
+              <p class="portfolio-card__solution">
+                <strong>What I did:</strong> Migration to a bilingual Eleventy static site, SEO-optimised,
+                automatically deployed via GitHub Actions. Custom content management module added:
+                event scheduling is entered dynamically and generated as static pages at each deployment.
+              </p>
+              <ul class="portfolio-card__results">
+                <li>✓ Performance ×10 after Drupal → static migration</li>
+                <li>✓ Dynamic content (events) without CMS or server dependency</li>
+                <li>✓ Automated deployment: no technical maintenance for the client</li>
+              </ul>
+            </div>
+            <div class="portfolio-card__footer">
+              <div class="case-card__tags">
+                <span class="tag">Eleventy</span>
+                <span class="tag">Vanilla JS</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Drupal → static</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="other-projects" aria-labelledby="other-projects-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Other work</p>
+          <h2 class="section-title" id="other-projects-title">Prototypes and niche migrations</h2>
+          <p class="section-subtitle">
+            Exploratory or sector-specific projects illustrating other facets of my work.
+          </p>
+        </header>
+
+        <div class="cases__grid">
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">Freelance · Business tool · POC</p>
+            <h3 class="case-card__title">FS-Web-Conseil: Custom CRM and showcase site</h3>
+            <p class="case-card__text">
+              Replace Excel and generic tools (invoicing, client tracking, timekeeping) with a monorepo:
+              Next.js showcase site + custom Symfony CRM with DDD/CQRS patterns. Client management,
+              quotes, time tracking and invoicing in a single tool adapted to the real process.
+            </p>
+            <p class="case-card__result">✓ DDD/CQRS reference architecture · In development</p>
+            <div class="case-card__tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Symfony</span>
+              <span class="tag">React</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">DDD / CQRS</span>
+              <span class="tag">Docker</span>
+            </div>
+          </article>
+
+          <article class="case-card fade-up">
+            <p class="case-card__client">Sport · React prototype</p>
+            <h3 class="case-card__title">SteepFinder: Climb search tool for cyclists</h3>
+            <p class="case-card__text">
+              Cyclists were using Google Maps to find training climbs, a generic tool poorly suited
+              to the task. React app with the Google Elevation API to search for climbs by precise
+              gradient on an interactive map.
+            </p>
+            <p class="case-card__result">✓ Specialised tool vs generic, functional MVP</p>
+            <div class="case-card__tags">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Leaflet</span>
+              <span class="tag">Google Elevation API</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="portfolio-cta">
+          <p class="eyebrow">Your project</p>
+          <h2 class="portfolio-cta__title" id="cta-title">
+            Does your situation resemble<br>one of these cases?
+          </h2>
+          <p class="portfolio-cta__text">
+            A costly legacy, a manual process to automate, a generic tool that no longer fits. Tell me about your problem in a few lines. I reply within 24 hours.
+          </p>
+          <div class="portfolio-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--primary btn--lg"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Book a discovery call on Calendly (new tab)">
+              Book a discovery call
+            </a>
+            <a href="index.html#contact" class="btn btn--outline-light btn--lg">
+              Send a message →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+{% endblock %}
