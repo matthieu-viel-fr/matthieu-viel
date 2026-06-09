@@ -13,70 +13,23 @@ full project analysis.
 - Tone reference: `seed/presentation_matthieu.txt`.
 - Project rules: `CLAUDE.md`.
 
+## Done
+
+### Remove AI-generated em dashes — all pages ✓
+
+All "—" (em dash) symbols removed from the entire site and replaced with contextually appropriate punctuation:
+- `:` where the dash introduced an explanation or clarification
+- `,` where the dash connected two clauses or expressed contrast
+- `.` where the dash separated two independent sentences
+- `·` for visual list bullets (FAQ pricing/timeline lists)
+
+Affected files: `index.html`, `en/index.html`, `site-web-14-jours.html`, `en/website-14-days.html`, `portfolio.html`, `en/portfolio.html`, `quiz.html`, all `audit/` and `en/audit/` pages.
+
+### Remove `<em>` tags from hero titles ✓
+
+`<em>` tags in `site-web-14-jours.html` and `en/website-14-days.html` replaced with `<span class="hero__title-highlight">`. CSS rule updated from `.hero__title em` to `.hero__title-highlight`.
+
 ## Priority 0 — Safety And Production Hygiene
-
-### 1. Add legal notice and privacy pages — done
-
-Current issue:
-- Footer still links to `href="#"` for legal notice in `index.html` and `en/index.html`.
-- A French professional website should not keep this as a placeholder.
-
-Files likely involved:
-- `index.html`
-- `en/index.html`
-- Possibly all footer copies across audit and portfolio pages
-- New page, likely `mentions-legales.html`
-- Optional English equivalent, likely `en/legal-notice.html`
-
-Acceptance checks:
-- No footer legal link uses `href="#"`.
-- Legal page has title, meta description, canonical, one H1.
-- Footer links are consistent across FR and EN pages.
-- `tests/links.test.js` catches future placeholder legal links.
-
-Completed on 2026-05-21:
-- Added `mentions-legales.html` and `en/legal-notice.html`.
-- Wired legal footer links across FR/EN home, portfolio, tech and audit pages.
-- Added sitemap entries for both legal pages.
-- Added test checks for legal pages, footer legal links and legal placeholders.
-
-Remaining review:
-- Confirm exact hosting/legal entity details and update the legal pages if needed.
-
-### 2. Update stale copyright year — done
-
-Current issue:
-- Several footers say `© 2025 Matthieu Viel`.
-- Current date is 2026.
-
-Acceptance checks:
-- All footer copyright years are updated or made timeless/dynamic.
-- Search for `© 2025` returns no results.
-
-Completed on 2026-05-21:
-- Updated HTML footers to `© 2026 Matthieu Viel`.
-- Added a test failure for stale `© 2025 Matthieu Viel`.
-
-### 3. Review Web3Forms exposure in `quiz.html` — done
-
-Current issue:
-- `quiz.html` embeds a Web3Forms access key directly in client-side JS.
-- This may be acceptable for Web3Forms, but it should be consciously reviewed.
-
-Files likely involved:
-- `quiz.html`
-
-Acceptance checks:
-- Confirm whether the current key is intended to be public.
-- If not intended, replace with a safer endpoint or regenerate the key.
-- Add visible privacy/consent language near the quiz form.
-- Ensure failed network submission gives useful feedback instead of silently continuing.
-
-Completed on 2026-05-21:
-- Confirmed from Web3Forms documentation that access keys are intended to be public client-side identifiers, not secret API keys.
-- Kept the current key in `quiz.html` and documented that choice in code.
-- Added visible privacy and consent language before submission.
-- Reworked quiz submission so Web3Forms failures show an inline error and do not silently continue to the result screen.
 
 ### 4. Remove or justify all remaining `href="#"`
 
@@ -268,7 +221,7 @@ Acceptance checks:
 
 Current issue:
 - `tech.html` is a noindex placeholder.
-- It is linked from the home footer as “Version tech”.
+- It is linked from the home footer as "Version tech".
 
 Files likely involved:
 - `tech.html`
@@ -315,12 +268,12 @@ Acceptance checks:
 ### 18. Improve CTAs by intent
 
 Current issue:
-- CTAs are mostly Calendly, quiz, or “Voir le cas”.
+- CTAs are mostly Calendly, quiz, or "Voir le cas".
 - The site could guide visitors better depending on their maturity.
 
 Potential improvements:
-- Home: “Testez votre site” for exploratory visitors, Calendly for ready visitors.
-- Audit pages: “Discuter de mon projet” plus a lower-friction email option.
+- Home: "Testez votre site" for exploratory visitors, Calendly for ready visitors.
+- Audit pages: "Discuter de mon projet" plus a lower-friction email option.
 - Quiz result: tailored CTA by result type.
 
 Acceptance checks:
@@ -330,18 +283,45 @@ Acceptance checks:
 
 ## Priority 5 — SEO/GEO Refinement
 
-### 19. Reconcile strict SEO rules with real page metadata
+### 19. Full SEO/GEO audit of the site
 
-Current issue:
-- Existing descriptions are often longer than `CLAUDE.md` allows.
-- Some title lengths may be outside the documented 55-60 chars.
+Audit every public page against the rules in `CLAUDE.md` and GEO best practices for AI-generated answers.
+
+**SEO checklist per page:**
+- `<title>`: 55–60 chars, primary keyword + location
+- `<meta description>`: 150–160 chars, benefit statement, no padding
+- Single `<h1>`, strict `h1 > h2 > h3` hierarchy, no skipped levels
+- `canonical` tag present and pointing to the correct URL
+- All `<img>` have descriptive `alt` (subject + context + location if relevant)
+- `hreflang` pairs accurate and symmetrical between FR/EN equivalents
+
+**JSON-LD checklist:**
+- Home: `Person` + `LocalBusiness` up to date (name, address, URL, sameAs)
+- Audit pages: `FAQPage` blocks contain real answers, not padded prose
+- All `application/ld+json` blocks are valid JSON (parseable)
+
+**GEO checklist (visibility in AI-generated answers):**
+- Quantified facts present on each page: 17 years, 500+ Cypress scenarios, 70% coverage, Saint-Pierre 974, UTOI 117 km
+- Each client case: named client + duration + measurable result
+- FAQ sections answer directly in the first sentence — no preamble
+- Paragraphs ≤ 4 lines, no filler sentences
+- Verify `site-web-14-jours.html` and `en/website-14-days.html` have adequate GEO signals (these pages are new and may be thin)
+
+**Files to audit:**
+- `index.html` + `en/index.html`
+- `site-web-14-jours.html` + `en/website-14-days.html`
+- `portfolio.html` + `en/portfolio.html`
+- `quiz.html`
+- All `audit/` and `en/audit/` pages (index + 6 sub-pages each)
 
 Acceptance checks:
-- Decide whether to update metadata or loosen the documented rule.
-- Avoid keyword stuffing.
-- Keep primary keyword + location where natural.
+- No page has a title outside 50–65 chars or a description outside 140–165 chars.
+- No page has more than one `<h1>` or a skipped heading level.
+- Every `<img>` has a non-empty `alt`.
+- Every FR page links to its EN equivalent and vice versa via `hreflang`.
+- JSON-LD on every FAQ page parses without error.
 
-### 20. Add structured data consistency checks
+### 21. Add structured data consistency checks
 
 Current issue:
 - Home has `Person` and `LocalBusiness`.
@@ -353,7 +333,7 @@ Acceptance checks:
 - Invalid JSON-LD fails CI.
 - Home keeps `Person` and `LocalBusiness`.
 
-### 21. Review English route completeness
+### 22. Review English route completeness
 
 Current issue:
 - English pages exist, but language links may not be complete or symmetrical everywhere.
@@ -370,11 +350,3 @@ Acceptance checks:
 - `node` and `npm` were not available in the shell during analysis, so tests could not be executed locally.
 - `rg` was not available; file searches used `find` and `grep`.
 - Before implementing changes, install/use Node locally or rely on CI to run `npm test`.
-
-## Suggested First Session Plan
-
-1. Fix legal notice links and copyright year.
-2. Expand `tests/links.test.js` to recursively check all HTML files.
-3. Update CI to run the same test command as local development.
-4. Run tests.
-5. Only then move to image/performance and visual enhancements.
