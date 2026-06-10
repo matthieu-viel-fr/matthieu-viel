@@ -1,25 +1,21 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set up automated tests from scratch · Matthieu Viel — Réunion</title>
+  <meta name="description" content="How to set up automated tests on an application that has none? Start with Cypress E2E, not unit tests. Minimal viable coverage in 10-15 days, integrated in CI/CD. 500+ Cypress scenarios at Citeo.">
 
-{% block title %}Set up automated tests from scratch · Matthieu Viel — Réunion{% endblock %}
-{% block meta_description %}How to set up automated tests on an application that has none? Start with Cypress E2E, not unit tests. Minimal viable coverage in 10-15 days, integrated in CI/CD. 500+ Cypress scenarios at Citeo.{% endblock %}
-
-{% block og %}
   <meta property="og:title" content="How to set up automated tests on an application that has none?">
   <meta property="og:description" content="Start with Cypress E2E on critical user flows, not unit tests. Minimal viable coverage in 10-15 days, integrated in CI/CD.">
   <meta property="og:url" content="https://www.matthieu-viel.fr/en/audit/automated-tests-application/">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
   <meta name="twitter:card" content="summary_large_image">
-{% endblock %}
-
-{% block canonical %}
   <link rel="canonical" href="https://www.matthieu-viel.fr/en/audit/automated-tests-application/">
   <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/tests-automatises-application/">
   <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/automated-tests-application/">
   <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/tests-automatises-application/">
-{% endblock %}
-
-{% block schema_ld %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -79,9 +75,47 @@
     "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
   }
   </script>
-{% endblock %}
 
-{% block body %}
+  <link rel="icon" type="image/svg+xml" href="../../../assets/images/favicon.svg">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <script defer data-domain="matthieu-viel.fr" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+    <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../../index.html" class="nav__logo" aria-label="Matthieu Viel — Home">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">Senior web tech consultant</span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+                <li><a href="../../website-14-days.html">Website in 14 days</a></li>
+        <li><a href="../../index.html#services">My Services</a></li>
+        <li><a href="../../audit/" class="is-active" aria-current="page">Audit</a></li>
+        <li><a href="../../index.html#about">About</a></li>
+        <li><a href="../../portfolio.html">Portfolio</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+              </ul>
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <a href="../../../audit/tests-automatises-application/" class="lang-toggle__btn" hreflang="fr">🇫🇷 FR</a>
+        <a href="" class="lang-toggle__btn lang-toggle__btn--active" hreflang="en" aria-current="true">🇬🇧 EN</a>
+      </div>
+      <a href="https://calendly.com/matthieu-viel-fr/30min"
+         class="btn btn--primary nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Book a discovery call (opens Calendly)">
+        Book a call
+      </a>
+      <button type="button" class="nav__burger" id="nav-burger"
+              aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
   <main>
 
     <section class="portfolio-hero" aria-label="Setting up automated tests">
@@ -274,4 +308,43 @@
     </section>
 
   </main>
-{% endblock %}
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__brand">Matthieu Viel</p>
+        <p class="footer__tagline">Senior web tech consultant · Saint-Pierre, Réunion Island</p>
+      </div>
+      <nav aria-label="Footer links">
+        <ul class="footer__links">
+                    <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../website-14-days.html">Website in 14 days</a></li>
+          <li><a href="../../index.html#about">About</a></li>
+          <li><a href="../../portfolio.html">Portfolio</a></li>
+          <li><a href="../../audit/" aria-current="page">Audit</a></li>
+          <li><a href="../../legal-notice.html">Legal notice</a></li>
+                    <li>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Matthieu Viel&#039;s LinkedIn profile (new tab)">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://www.malt.com/profile/matthieuviel"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Matthieu Viel&#039;s Malt profile (new tab)">
+              Malt
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <p class="footer__copy">© 2026 Matthieu Viel</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/main.js" defer></script>
+</body>
+</html>
