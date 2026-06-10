@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Legal notice · Matthieu Viel — Web consultant Réunion{% endblock %}
+{% block meta_description %}Legal notice for matthieu-viel.fr: publisher, contact, intellectual property, hosting and personal data information.{% endblock %}
+
+{% block og %}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/en/legal-notice.html">
+  <meta property="og:title" content="Legal notice · Matthieu Viel">
+  <meta property="og:description" content="Legal information for matthieu-viel.fr.">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/en/legal-notice.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/mentions-legales.html">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/legal-notice.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/mentions-legales.html">
+{% endblock %}
+
+{% block body %}
+  <main>
+    <section class="portfolio-hero" aria-label="Legal notice">
+      <div class="container">
+        <p class="eyebrow">Legal information</p>
+        <h1 class="portfolio-hero__title">Legal notice</h1>
+        <p class="portfolio-hero__subtitle">
+          Information about the publisher, hosting and use of matthieu-viel.fr.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="publisher-title">
+      <div class="container prose-wide legal-content">
+        <h2 class="section-title section-title--2xl" id="publisher-title">Website publisher</h2>
+        <p class="prose prose--mb">
+          Name: Matthieu Viel<br>
+          Address: Rue des bons enfants, 97410 Saint-Pierre, Réunion Island<br>
+          SIRET: 84190210900039<br>
+          Email: <a href="mailto:contact@matthieu-viel.fr">contact@matthieu-viel.fr</a>
+        </p>
+        <p class="prose prose--mb-lg">
+          Publication director: Matthieu Viel.
+        </p>
+
+        <h2 class="section-title section-title--2xl">Hosting</h2>
+        <p class="prose prose--mb-lg">
+          Name: Groupe CELESTE – Nuxit<br>
+          Address: 20 rue Albert Einstein, 77420 Champs-sur-Marne, France<br>
+          Website: <a href="https://www.nuxit.com/" target="_blank" rel="noopener noreferrer">https://www.nuxit.com/</a>
+        </p>
+
+        <h2 class="section-title section-title--2xl">Intellectual property</h2>
+        <p class="prose prose--mb-lg">
+          Rights holder: Matthieu Viel<br>
+          Year of creation: 2026
+        </p>
+
+        <h2 class="section-title section-title--2xl">Personal data</h2>
+        <p class="prose prose--mb-lg">
+          This website does not collect any personal data.
+        </p>
+
+        <h2 class="section-title section-title--2xl">Cookies and analytics</h2>
+        <p class="prose prose--mb-lg">
+          This website does not use any third-party cookies.
+        </p>
+
+        <h2 class="section-title section-title--2xl">Applicable law</h2>
+        <p class="prose">
+          Applicable law: French law<br>
+          Jurisdiction: Judicial Court of Saint-Denis, Réunion Island
+        </p>
+      </div>
+    </section>
+  </main>
+{% endblock %}

@@ -1,0 +1,21 @@
+nav:
+  site_14: "Website in 14 days"
+  offers: "Services"
+  audit: "Audit"
+  senior: "Senior missions"
+  about: "About"
+  portfolio: "Portfolio"
+  contact: "Contact"
+  services: "My Services"
+footer:
+  tagline: "Senior web tech consultant · Saint-Pierre, Réunion Island"
+  home: "Home"
+  about: "About"
+  legal: "Legal notice"
+  copy: "© 2026 Matthieu Viel"
+  nav_label: "Footer links"
+  linkedin_label: "Matthieu Viel's LinkedIn profile (new tab)"
+  malt_label: "Matthieu Viel's Malt profile (new tab)"
+lang:
+  fr: "🇫🇷 FR"
+  en: "🇬🇧 EN"

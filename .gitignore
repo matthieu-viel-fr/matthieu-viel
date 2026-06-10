@@ -2,6 +2,7 @@
 Thumbs.db
 *.log
 node_modules/
+src/vendor/
 .env
 .env.local
 seed/

@@ -20,8 +20,19 @@ jobs:
         with:
           node-version: '24'
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --working-dir=src
+
+      - name: Export static HTML
+        run: php src/export.php
+
       - name: Validation HTML (html-validate)
-        run: npx --yes html-validate *.html
+        run: npx --yes html-validate 'dist/*.html' 'dist/en/*.html'
 
       - name: Tests liens et balises critiques
         run: node tests/links.test.js
@@ -36,17 +47,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --working-dir=src
+
+      - name: Export static HTML
+        run: php src/export.php
+
       - name: Déploiement via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server:   ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          server:     ${{ secrets.FTP_SERVER }}
+          username:   ${{ secrets.FTP_USERNAME }}
+          password:   ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_PATH }}
+          local-dir:  ./dist/
           exclude: |
             **/.git*
             **/.git*/**
-            **/seed/**
-            **/tests/**
-            **/node_modules/**
-            README.md

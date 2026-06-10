@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{% endblock %}">
+
+{% block og %}{% endblock %}
+{% block canonical %}{% endblock %}
+{% block schema_ld %}{% endblock %}
+{% block extra_styles %}{% endblock %}
+
+  <link rel="icon" type="image/svg+xml" href="{{ asset_base }}assets/images/favicon.svg">
+  <link rel="stylesheet" href="{{ asset_base }}assets/css/main.css">
+  <link rel="stylesheet" href="{{ asset_base }}assets/css/components.css">
+  <link rel="stylesheet" href="{{ asset_base }}assets/css/responsive.css">
+  <script defer data-domain="matthieu-viel.fr" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+  {% block nav %}
+  <nav class="nav" id="nav" aria-label="{{ locale == 'en' ? 'Main navigation' : 'Navigation principale' }}">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Matthieu Viel — {{ locale == 'en' ? 'Home' : 'Accueil' }}">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">{{ locale == 'en' ? 'Senior web tech consultant' : 'Consultant technique web' }}</span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+        {% if locale == 'en' %}
+        <li><a href="website-14-days.html"{% if current_page == 'site14' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.site_14'|trans }}</a></li>
+        <li><a href="index.html#services">{{ 'nav.services'|trans }}</a></li>
+        <li><a href="audit/">{{ 'nav.audit'|trans }}</a></li>
+        <li><a href="index.html#about">{{ 'nav.about'|trans }}</a></li>
+        <li><a href="portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
+        <li><a href="index.html#contact">{{ 'nav.contact'|trans }}</a></li>
+        {% else %}
+        <li><a href="site-web-14-jours.html"{% if current_page == 'site14' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.site_14'|trans }}</a></li>
+        <li><a href="index.html#problemes">{{ 'nav.offers'|trans }}</a></li>
+        <li><a href="audit/">{{ 'nav.audit'|trans }}</a></li>
+        <li><a href="senior-tech.html"{% if current_page == 'senior' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.senior'|trans }}</a></li>
+        <li><a href="index.html#a-propos">{{ 'nav.about'|trans }}</a></li>
+        <li><a href="portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
+        <li><a href="index.html#contact">{{ 'nav.contact'|trans }}</a></li>
+        {% endif %}
+      </ul>
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <a href="{{ lang_fr_url }}" class="lang-toggle__btn{{ locale == 'fr' ? ' lang-toggle__btn--active' }}" hreflang="fr"{{ locale == 'fr' ? ' aria-current="true"' }}>{{ 'lang.fr'|trans }}</a>
+        <a href="{{ lang_en_url }}" class="lang-toggle__btn{{ locale == 'en' ? ' lang-toggle__btn--active' }}" hreflang="en"{{ locale == 'en' ? ' aria-current="true"' }}>{{ 'lang.en'|trans }}</a>
+      </div>
+      <a href="https://calendly.com/matthieu-viel-fr/30min"
+         class="btn btn--primary nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="{{ locale == 'en' ? 'Book a discovery call (opens Calendly)' : 'Réserver un appel découverte (ouvre Calendly)' }}">
+        {{ locale == 'en' ? 'Book a call' : 'Réserver un appel' }}
+      </a>
+      <button type="button" class="nav__burger" id="nav-burger"
+              aria-label="{{ locale == 'en' ? 'Open menu' : 'Ouvrir le menu' }}" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block footer %}
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__brand">Matthieu Viel</p>
+        <p class="footer__tagline">{{ 'footer.tagline'|trans }}</p>
+      </div>
+      <nav aria-label="{{ 'footer.nav_label'|trans }}">
+        <ul class="footer__links">
+          {% if locale == 'en' %}
+          <li><a href="index.html">{{ 'footer.home'|trans }}</a></li>
+          <li><a href="website-14-days.html">{{ 'nav.site_14'|trans }}</a></li>
+          <li><a href="index.html#about">{{ 'footer.about'|trans }}</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="legal-notice.html"{% if current_page == 'legal' %} aria-current="page"{% endif %}>{{ 'footer.legal'|trans }}</a></li>
+          {% else %}
+          <li><a href="index.html">{{ 'footer.home'|trans }}</a></li>
+          <li><a href="site-web-14-jours.html">{{ 'nav.site_14'|trans }}</a></li>
+          <li><a href="index.html#a-propos">{{ 'footer.about'|trans }}</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="senior-tech.html">{{ 'nav.senior'|trans }}</a></li>
+          <li><a href="mentions-legales.html"{% if current_page == 'legal' %} aria-current="page"{% endif %}>{{ 'footer.legal'|trans }}</a></li>
+          {% endif %}
+          <li>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="{{ 'footer.linkedin_label'|trans }}">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://www.malt.com/profile/matthieuviel"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="{{ 'footer.malt_label'|trans }}">
+              Malt
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <p class="footer__copy">{{ 'footer.copy'|trans }}</p>
+    </div>
+  </footer>
+{% endblock %}
+
+{% block before_scripts %}{% endblock %}
+  <script src="{{ asset_base }}assets/js/main.js" defer></script>
+</body>
+</html>

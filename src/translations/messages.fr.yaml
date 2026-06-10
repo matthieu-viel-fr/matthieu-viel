@@ -1,0 +1,21 @@
+nav:
+  site_14: "Site en 14 jours"
+  offers: "Offres"
+  audit: "Audit"
+  senior: "Missions Senior"
+  about: "À propos"
+  portfolio: "Portfolio"
+  contact: "Contact"
+  services: "Mes interventions"
+footer:
+  tagline: "Site vitrine & consultant technique · Saint-Pierre, La Réunion"
+  home: "Accueil"
+  about: "À propos"
+  legal: "Mentions légales"
+  copy: "© 2026 Matthieu Viel"
+  nav_label: "Liens du pied de page"
+  linkedin_label: "Profil LinkedIn de Matthieu Viel (nouvel onglet)"
+  malt_label: "Profil Malt de Matthieu Viel (nouvel onglet)"
+lang:
+  fr: "🇫🇷 FR"
+  en: "🇬🇧 EN"

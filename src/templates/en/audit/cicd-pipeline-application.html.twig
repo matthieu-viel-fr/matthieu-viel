@@ -1,0 +1,331 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CI/CD pipeline to deploy without stress · Matthieu Viel — Réunion{% endblock %}
+{% block meta_description %}How to set up a CI/CD pipeline and stop deploying by hand? GitHub Actions, lint, tests, automated deploy. 3 to 5 days. Matthieu Viel, freelance consultant Réunion Island.{% endblock %}
+
+{% block og %}
+  <meta property="og:title" content="How to set up a CI/CD pipeline to deploy my application without stress?">
+  <meta property="og:description" content="GitHub Actions, lint → tests → automated deployment. Stop manual FTP in 3 to 5 days. No over-engineering for teams under 5 developers.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/en/audit/cicd-pipeline-application/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/en/audit/cicd-pipeline-application/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/cicd-pipeline-application/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/cicd-pipeline-application/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/cicd-pipeline-application/">
+{% endblock %}
+
+{% block schema_ld %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to set up a CI/CD pipeline to deploy my application without stress?",
+    "description": "Set up a CI/CD pipeline with GitHub Actions to automate lint, tests and deployment of a web application.",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "EUR",
+      "value": "From 1,500"
+    },
+    "totalTime": "P5D",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Audit current deployment process",
+        "text": "Understand how you deploy today: FTP, manual SSH, shell script, specific hosting provider. This step determines what CI/CD target is realistic."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Set up the base pipeline (lint + tests)",
+        "text": "Create the GitHub Actions file: code verification (lint, typing), test execution. This pipeline runs on every pull request."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Automate deployment",
+        "text": "Automatic deployment to production (or staging) on every merge to the main branch. No more manual deployment."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Preview environments (optional)",
+        "text": "If your stack allows it, each pull request gets a temporary environment to test changes before merge. Useful for code reviews and demos."
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "url": "https://www.matthieu-viel.fr",
+    "jobTitle": "Senior Fullstack Developer & Technical Auditor",
+    "knowsAbout": ["automated QA", "CI/CD", "technical audit", "SaaS stabilisation", "Cypress", "technical debt", "vibe coding audit"],
+    "areaServed": ["Réunion Island", "France", "Remote"],
+    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
+  }
+  </script>
+{% endblock %}
+
+{% block nav %}
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../../index.html" class="nav__logo" aria-label="Matthieu Viel — Home">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">Senior web tech consultant</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../../index.html#services">My Services</a></li>
+        <li><a href="../" class="is-active" aria-current="page">Audit</a></li>
+        <li><a href="../../portfolio.html">Portfolio</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <a href="{{ lang_fr_url }}" class="lang-toggle__btn" hreflang="fr">🇫🇷 FR</a>
+        <a href="./" class="lang-toggle__btn lang-toggle__btn--active" hreflang="en" aria-current="true">🇬🇧 EN</a>
+      </div>
+
+      <a href="https://calendly.com/matthieu-viel-fr/30min"
+         class="btn btn--primary nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Book a discovery call (opens Calendly)">
+        Book a call
+      </a>
+
+      <button type="button"
+              class="nav__burger"
+              id="nav-burger"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block body %}
+  <main>
+
+    <section class="portfolio-hero" aria-label="CI/CD pipeline">
+      <div class="container">
+        <a href="../" class="page-back" aria-label="Back to audit cases">← All audit cases</a>
+        <p class="eyebrow">CI/CD · Automated deployment</p>
+        <h1 class="portfolio-hero__title">
+          How to set up a CI/CD pipeline<br>
+          to deploy my application<br>
+          <em>without stress?</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          A CI/CD pipeline replaces manual deployment with an automated chain:
+          lint → tests → deploy. With GitHub Actions, I set up a minimal pipeline
+          in 3 to 5 days, no over-engineering, with preview environments
+          if your stack supports them.
+        </p>
+        <div class="cta-group">
+          <a href="https://calendly.com/matthieu-viel-fr/30min"
+             class="btn btn--primary btn--lg"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Book a discovery call (opens Calendly)">
+            Discuss my project →
+          </a>
+          <a href="../faq/" class="btn btn--outline btn--lg">
+            Frequently asked questions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cost-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">The problem</p>
+          <h2 class="section-title" id="cost-title">What manual deployment really costs</h2>
+        </header>
+        <div class="prose-wide">
+          <p class="prose prose--lead prose--mb-lg">
+            Deploying by hand (FTP, SSH, homemade script) creates three constant risks:
+            human error, inconsistency between environments,
+            and dependency on the person who "knows how it works".
+          </p>
+          <p class="prose prose--mb-lg">
+            Every manual deployment is an anxiety-inducing ceremony.
+            There's no safety net: if something breaks in production,
+            you find out when a customer tells you.
+          </p>
+          <p class="prose">
+            A CI/CD pipeline isn't a luxury reserved for large teams.
+            I set them up for teams of 2 developers.
+            The setup time (3 to 5 days) pays for itself with the first
+            production bug avoided.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="pipeline-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">The setup</p>
+          <h2 class="section-title" id="pipeline-title">A minimal pipeline, in order</h2>
+          <p class="section-subtitle">
+            Each step has independent value. We add them in order,
+            not all at once.
+          </p>
+        </header>
+
+        <div class="steps">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">1</div>
+            <h3 class="step__title">Audit current process</h3>
+            <p class="step__text">
+              How you deploy today, on which hosting provider,
+              which environments exist (staging, production).
+              This step determines the realistic target.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">2</div>
+            <h3 class="step__title">Lint + automated tests</h3>
+            <p class="step__text">
+              On every pull request: code verification (ESLint, PHP CS Fixer, Prettier),
+              typing (TypeScript), and execution of existing tests.
+              Immediate first value.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">3</div>
+            <h3 class="step__title">Automated deployment</h3>
+            <p class="step__text">
+              On every merge to main: build and automatic deployment
+              to staging, then production after validation.
+              No more manual deployment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="avoid-title">
+      <div class="container">
+        <div class="layout-2col">
+          <div>
+            <p class="eyebrow">What we avoid</p>
+            <h2 class="section-title section-title--2xl" id="avoid-title">No over-engineering</h2>
+            <p class="prose prose--mb">
+              For a team of fewer than 5 developers at MVP stage,
+              a complex pipeline (matrix builds, canary deployments, feature flags)
+              is a distraction, not added value.
+            </p>
+            <p class="prose prose--mb">
+              I set up what you need now, not what you might need in 3 years.
+              The pipeline can evolve as the team grows.
+            </p>
+            <p class="prose">
+              GitHub Actions is the pragmatic entry point: free for public repos,
+              2,000 minutes/month for private repos on the free plan.
+              No additional tool to pay for.
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow">Deliverable</p>
+            <h2 class="section-title section-title--2xl">What you receive</h2>
+            <ul class="checklist mt-1">
+              <li>Operational GitHub Actions pipeline (lint + tests + deploy)</li>
+              <li>Pipeline documentation for your team</li>
+              <li>Environment variables and secrets configured properly</li>
+              <li>Preview environment per pull request (if your stack supports it)</li>
+              <li>Team training on pipeline maintenance (2h)</li>
+            </ul>
+            <div class="solution__note mt-2">
+              Timeline: 3 to 5 days depending on your stack complexity and hosting provider.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-label="Related pages">
+      <div class="container">
+        <p class="eyebrow">Go further</p>
+        <h2 class="section-title section-title--2xl section-title--mb">Other audit cases</h2>
+        <div class="related-audits">
+          <a href="../automated-tests-application/">Automated tests</a>
+          <a href="../application-vibe-coding-production/">AI-built application</a>
+          <a href="../technical-debt-saas-application/">SaaS technical debt</a>
+          <a href="../application-solo-founder-clients/">Solo app → first clients</a>
+          <a href="../faq/">Technical audit FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-label="Contact">
+      <div class="container">
+        <div class="inner-cta">
+          <p class="eyebrow eyebrow--light">First contact</p>
+          <h2 class="inner-cta__title">Still on FTP?</h2>
+          <p class="inner-cta__text">
+            We can automate that. 30 minutes to assess your stack
+            and define the right pipeline.
+          </p>
+          <div class="inner-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline-light btn--lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Book a discovery call on Calendly (new tab)">
+              Book a discovery call →
+            </a>
+            <a href="mailto:matthieu.viel.fr@gmail.com" class="btn btn--outline-light">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+{% endblock %}
+
+{% block footer %}
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__brand">Matthieu Viel</p>
+        <p class="footer__tagline">Senior web tech consultant · Saint-Pierre, Réunion Island</p>
+      </div>
+      <nav aria-label="Footer links">
+        <ul class="footer__links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../">Technical Audit</a></li>
+          <li><a href="../../portfolio.html">Portfolio</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+          <li><a href="../../legal-notice.html">Legal notice</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Matthieu Viel's LinkedIn profile (new tab)">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <p class="footer__copy">© 2026 Matthieu Viel</p>
+    </div>
+  </footer>
+{% endblock %}
