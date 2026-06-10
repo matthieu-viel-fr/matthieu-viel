@@ -2,7 +2,7 @@
     "name": "matthieu-viel/website",
     "type": "project",
     "require": {
-        "php": ">=8.5",
+        "php": ">=8.3",
         "symfony/translation": "^7.0",
         "symfony/twig-bridge": "^7.0",
         "symfony/yaml": "^7.0",
