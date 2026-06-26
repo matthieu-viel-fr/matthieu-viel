@@ -91,6 +91,16 @@
   </url>
 
   <url>
+    <loc>https://www.matthieu-viel.fr/audit/integration-wetransform-saas/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/"/>
+  </url>
+
+  <url>
     <loc>https://www.matthieu-viel.fr/audit/dette-technique-application-saas/</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
@@ -169,6 +179,16 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/application-vibe-coding-production/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/application-vibe-coding-production/"/>
+  </url>
+
+  <url>
+    <loc>https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/"/>
   </url>
 
   <url>
