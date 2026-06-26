@@ -1216,7 +1216,6 @@ details[open] > .faq__question::after { content: '−'; }
   flex-wrap: wrap;
   margin-top: 1.75rem;
 }
-.cta-group--center { justify-content: center; }
 
 /* Prose text */
 .prose {
@@ -1310,21 +1309,6 @@ details[open] > .faq__question::after { content: '−'; }
   text-align: center;
 }
 
-/* CTA centered wrapper — 14-days page dark section */
-.cta-centered {
-  max-width: 640px;
-  margin-inline: auto;
-  text-align: center;
-}
-
-/* Hint text below CTA buttons (e.g. "30 min · gratuit") */
-.cta-hint {
-  font-size: var(--fs-xs);
-  color: rgba(255,255,255,.45);
-  text-align: center;
-  max-width: 140px;
-}
-
 /* Related audit links (end of each use-case page) */
 .related-audits {
   display: flex;
@@ -1391,21 +1375,6 @@ details[open] > .faq__question::after { content: '−'; }
   align-items: center;
 }
 
-.offer-card__badge {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(30,122,184,.2);
-  border: 1px solid rgba(30,122,184,.35);
-  color: #7dc4e8;
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  padding: .3rem .875rem;
-  border-radius: var(--radius-full);
-  margin-bottom: .875rem;
-}
-
 .offer-card__title {
   font-size: clamp(1.375rem, 2.2vw, 1.875rem);
   font-weight: var(--fw-extrabold);
@@ -1442,20 +1411,6 @@ details[open] > .faq__question::after { content: '−'; }
   gap: .75rem;
   border-left: 1px solid rgba(255,255,255,.1);
   padding-left: 3rem;
-}
-
-.offer-card__price {
-  font-size: var(--fs-5xl);
-  font-weight: var(--fw-extrabold);
-  color: var(--clr-white);
-  line-height: 1;
-}
-
-.offer-card__deadline {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-semibold);
-  color: #7dc4e8;
-  margin-top: -.5rem;
 }
 
 /* ============================================================
@@ -1574,54 +1529,6 @@ details[open] > .faq__question::after { content: '−'; }
   font-size: var(--fs-sm);
   color: var(--clr-slate);
   line-height: 1.65;
-}
-
-/* ============================================================
-   SUB-OFFER CARD (vibe coding section)
-   ============================================================ */
-.suboffer-card {
-  background: var(--clr-bg-dark);
-  border-radius: var(--radius-lg);
-  padding: 3rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 3rem;
-  align-items: center;
-}
-
-.suboffer-card__eyebrow {
-  display: block;
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: #7dc4e8;
-  margin-bottom: .625rem;
-}
-
-.suboffer-card__title {
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
-  font-weight: var(--fw-extrabold);
-  color: var(--clr-white);
-  line-height: 1.3;
-  margin-bottom: .875rem;
-}
-
-.suboffer-card__text {
-  font-size: var(--fs-base);
-  color: #a8c2d4;
-  line-height: 1.75;
-}
-
-.suboffer-card__cta {
-  text-align: center;
-  min-width: 160px;
-  border-left: 1px solid rgba(255,255,255,.1);
-  padding-left: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .75rem;
 }
 
 /* ============================================================

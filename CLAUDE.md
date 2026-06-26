@@ -1,7 +1,7 @@
 # CLAUDE.md — matthieu-viel.fr
 
 Static showcase site (HTML/CSS/JS). No framework, no build system.
-Every change must comply with the four permanent rules below.
+Every change must comply with the five permanent rules below.
 
 ---
 
@@ -55,6 +55,14 @@ Principles derived from these sources:
 - Visible focus on all interactive elements
 - `aria-label` on any link whose label alone is ambiguous ("see more", "here"…)
 - Semantic structure: `<header>`, `<main>`, `<section>`, `<footer>` used correctly
+
+## 5. FR/EN parity — non-negotiable
+
+One piece of information, two languages, always in sync.
+Any content, link, CTA, or structural change made to a French page must be
+mirrored on its English counterpart in the same task — never deferred,
+never asked about again. Find the EN template via `src/routes.php`
+(`$auditSlugs` maps FR slugs to EN slugs; `en/` mirrors the FR tree).
 
 ---
 

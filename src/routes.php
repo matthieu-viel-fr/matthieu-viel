@@ -22,7 +22,6 @@ function getPages(): array
 
     $pages = [
         ['index.html',             'index.html.twig',             'fr', 'home',      'index.html',             'en/index.html'],
-        ['site-web-14-jours.html', 'site-web-14-jours.html.twig', 'fr', 'site_14',   'site-web-14-jours.html', 'en/website-14-days.html'],
         ['portfolio.html',         'portfolio.html.twig',         'fr', 'portfolio', 'portfolio.html',         'en/portfolio.html'],
         ['senior-tech.html',       'senior-tech.html.twig',       'fr', 'senior',    'senior-tech.html',       'en/index.html'],
         ['tech.html',              'tech.html.twig',              'fr', '',          'tech.html',              'en/index.html'],
@@ -31,7 +30,6 @@ function getPages(): array
         ['audit/index.html',       'audit/index.html.twig',       'fr', 'audit',     'audit/',                 'en/audit/'],
 
         ['en/index.html',           'en/index.html.twig',           'en', 'home',      'index.html',            'en/index.html'],
-        ['en/website-14-days.html', 'en/website-14-days.html.twig', 'en', 'site_14',   'site-web-14-jours.html', 'en/website-14-days.html'],
         ['en/portfolio.html',       'en/portfolio.html.twig',       'en', 'portfolio', 'portfolio.html',         'en/portfolio.html'],
         ['en/legal-notice.html',    'en/legal-notice.html.twig',    'en', 'legal',     'mentions-legales.html',  'en/legal-notice.html'],
         ['en/audit/index.html',     'en/audit/index.html.twig',     'en', 'audit',     'audit/',                 'en/audit/'],

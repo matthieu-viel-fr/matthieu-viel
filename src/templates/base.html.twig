@@ -28,14 +28,12 @@
       </a>
       <ul class="nav__links" id="nav-links">
         {% if locale == 'en' %}
-        <li><a href="{{ nav_base }}website-14-days.html"{% if current_page == 'site14' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.site_14'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#services">{{ 'nav.services'|trans }}</a></li>
         <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#about">{{ 'nav.about'|trans }}</a></li>
         <li><a href="{{ nav_base }}portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#contact">{{ 'nav.contact'|trans }}</a></li>
         {% else %}
-        <li><a href="{{ nav_base }}site-web-14-jours.html"{% if current_page == 'site14' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.site_14'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#problemes">{{ 'nav.offers'|trans }}</a></li>
         <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
         <li><a href="{{ nav_base }}senior-tech.html"{% if current_page == 'senior' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.senior'|trans }}</a></li>
@@ -76,14 +74,12 @@
         <ul class="footer__links">
           {% if locale == 'en' %}
           <li><a href="{{ nav_base }}index.html">{{ 'footer.home'|trans }}</a></li>
-          <li><a href="{{ nav_base }}website-14-days.html">{{ 'nav.site_14'|trans }}</a></li>
           <li><a href="{{ nav_base }}index.html#about">{{ 'footer.about'|trans }}</a></li>
           <li><a href="{{ nav_base }}portfolio.html">Portfolio</a></li>
           <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
           <li><a href="{{ nav_base }}legal-notice.html"{% if current_page == 'legal' %} aria-current="page"{% endif %}>{{ 'footer.legal'|trans }}</a></li>
           {% else %}
           <li><a href="{{ nav_base }}index.html">{{ 'footer.home'|trans }}</a></li>
-          <li><a href="{{ nav_base }}site-web-14-jours.html">{{ 'nav.site_14'|trans }}</a></li>
           <li><a href="{{ nav_base }}index.html#a-propos">{{ 'footer.about'|trans }}</a></li>
           <li><a href="{{ nav_base }}portfolio.html">Portfolio</a></li>
           <li><a href="{{ nav_base }}senior-tech.html">{{ 'nav.senior'|trans }}</a></li>

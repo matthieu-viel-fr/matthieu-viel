@@ -1078,14 +1078,14 @@ var RESULTS = {
     tier: 'ta',
     h: 'Votre application est sous pression, et votre équipe aussi.',
     btn: 'Réservez un appel de 30 minutes →',
-    mention: 'Sans engagement · Démarrage possible sous 10–15 jours'
+    mention: 'Sans engagement · Démarrage adapté à votre urgence'
   },
   B: {
     badge: '🔴 Outil legacy à risque',
     tier: 'tb',
     h: 'Votre outil tient debout, mais il repose sur du sable.',
     btn: 'Réservez un appel de 30 minutes →',
-    mention: 'Sans engagement · Démarrage possible sous 10–15 jours'
+    mention: 'Sans engagement · Démarrage adapté à votre urgence'
   },
   C: {
     badge: '🟡 Situation stable',
@@ -1147,7 +1147,7 @@ function getInsights(tier) {
     if (q7 === 'C') {
       ins.push({ ic:'🧠', title:'Le savoir dans la tête, c\'est une bombe à retardement', text:'Quand la documentation est absente, chaque modification repose sur la mémoire d\'une seule personne. Un départ ou un arrêt maladie peut paralyser l\'activité en 48h.' });
     } else if (q7 === 'D') {
-      ins.push({ ic:'❓', title:'Ne pas savoir = risque non mesurable', text:'Le "je ne sais pas" sur la gouvernance est aussi dangereux que le "non". Un audit de 1 jour suffit à établir l\'état réel du code et les risques prioritaires.' });
+      ins.push({ ic:'❓', title:'Ne pas savoir = risque non mesurable', text:'Le "je ne sais pas" sur la gouvernance est aussi dangereux que le "non". Un audit, calibré sur votre situation, suffit à établir l\'état réel du code et les risques prioritaires.' });
     } else {
       ins.push({ ic:'🔗', title:'Le bus factor : combien de personnes peut-on perdre ?', text:'Sur les apps legacy, le bus factor est souvent de 1 à 2. C\'est le nombre de départs qui suffit à rendre l\'app incontrôlable. Savez-vous quel est le vôtre ?' });
     }
@@ -1157,7 +1157,7 @@ function getInsights(tier) {
     } else if (q8 === 'D') {
       ins.push({ ic:'🛑', title:'Un projet abandonné laisse des traces', text:'Un chantier arrêté à mi-chemin crée souvent une dette supplémentaire : code à moitié migré, deux systèmes en parallèle, documentation incohérente. C\'est récupérable, mais ça se diagnostique.' });
     } else {
-      ins.push({ ic:'💡', title:'Pas d\'audit = pas de décision éclairée', text:'Sans cartographie technique préalable, toute décision d\'évolution repose sur des intuitions. Un audit de 2 jours transforme l\'incertitude en plan d\'action chiffré.' });
+      ins.push({ ic:'💡', title:'Pas d\'audit = pas de décision éclairée', text:'Sans cartographie technique préalable, toute décision d\'évolution repose sur des intuitions. Un audit, adapté à votre périmètre, transforme l\'incertitude en plan d\'action chiffré.' });
     }
   }
 

@@ -74,23 +74,31 @@
           "itemOffered": {
             "@type": "Service",
             "name": "Technical audit of web applications",
-            "description": "Full audit: architecture, security, technical debt, tests. Deliverable within 5 days."
+            "description": "Full audit: architecture, security, technical debt, tests. Timeline adapted to your project."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "CTO as a Service, Réunion Island",
-            "description": "Senior technical oversight without hiring a full-time CTO."
+            "name": "Custom professional website development, Réunion Island",
+            "description": "Tailored Symfony/React professional website for freelancers, solopreneurs, and business leaders. Price agreed before the project starts."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "AI solopreneur support",
-            "description": "Stabilising and shipping to production applications built with AI tools."
+            "name": "Stuck AI project shipped to production",
+            "description": "Taking over a project started with Cursor, Bolt, or Claude Code. Deployment, security hardening, production release."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Senior technical consulting, Réunion Island",
+            "description": "Senior technical perspective for freelancers, solopreneurs, and SMEs. Honest audit, concrete recommendations."
           }
         }
       ]
@@ -173,38 +181,28 @@
       </div>
     </section>
 
-    <section class="section--offer-feature" aria-labelledby="offer-feature-title">
+    <section class="section--offer-feature" id="vibe-coding" aria-labelledby="offer-feature-title">
       <div class="container">
         <div class="offer-card">
           <div>
-            <span class="offer-card__badge">New offer · Fixed price · Guaranteed deadline</span>
             <h2 class="offer-card__title" id="offer-feature-title">
-              Your website in 14 days for €4,000.
+              Built it with an AI tool and stuck at deployment?
             </h2>
             <p class="offer-card__text">
-              A real Symfony/React website, live, with your source code.
-              Fixed price. Contractual deadline. No surprises.
+              The code runs locally. But the hosting is unknown. Security is zero.
+              The database won't scale. The domain isn't configured.
+              You have a shell, not a product.
             </p>
             <ul class="offer-card__items">
-              <li class="offer-card__item">✔ Complete site · domain · SSL · hosting</li>
-              <li class="offer-card__item">✔ Clean, maintainable code: you own it</li>
-              <li class="offer-card__item">✔ Delivery guaranteed in 14 calendar days</li>
+              <li class="offer-card__item">✔ I take over where the AI left off</li>
+              <li class="offer-card__item">✔ Code consolidated, fixed, and deployed</li>
             </ul>
           </div>
           <div class="offer-card__aside">
-            <p class="offer-card__price">€4,000</p>
-            <p class="offer-card__deadline">in 14 days</p>
-            <a href="website-14-days.html"
+            <a href="audit/application-vibe-coding-production/"
                class="btn btn--primary btn--lg"
-               aria-label="Discover the website in 14 days offer">
-              Discover the offer →
-            </a>
-            <a href="https://calendly.com/matthieu-viel-fr/30min"
-               class="btn btn--outline-light"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Book a free diagnostic call (opens Calendly)">
-              Book a call
+               aria-label="See the full case of unblocking an AI-coded project">
+              See the full case →
             </a>
           </div>
         </div>
@@ -216,7 +214,7 @@
         <header class="section-header">
           <p class="eyebrow">Do you recognise yourself?</p>
           <h2 class="section-title" id="services-title">
-            Two situations where I step in
+            Situations where I step in
           </h2>
           <p class="section-subtitle">
             These situations are common. They are not inevitable.
@@ -251,22 +249,27 @@
             </p>
           </article>
 
-          <article class="problem-card fade-up">
+          <article class="problem-card fade-up" id="site-vitrine">
             <div class="problem-card__icon" aria-hidden="true">🖥️</div>
             <h3 class="problem-card__title">
               You need a professional website, fast
             </h3>
             <p class="problem-card__text">
               Your business deserves better than a generic template.
-              I deliver a professional Symfony/React website in 14 days
-              for €4,000. Fixed price, contractual deadline, source code included.
+              I design and build a professional Symfony/React website,
+              tailored to your project, priced before work starts.
+              For freelancers, solopreneurs, and business leaders, no compromise on quality.
             </p>
-            <a href="website-14-days.html" class="btn btn--outline mt-1" aria-label="See the website in 14 days offer">
-              See the offer →
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline mt-1"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Book a call to discuss your website">
+              Book a call →
             </a>
           </article>
 
-          <article class="problem-card fade-up">
+          <article class="problem-card fade-up" id="site-ia-bloque">
             <div class="problem-card__icon" aria-hidden="true">🤖</div>
             <h3 class="problem-card__title">
               Built something with an AI tool and stuck?
@@ -275,9 +278,8 @@
               You built something with Cursor, Bolt or Claude Code. It runs locally,
               but not in production. I take over where the AI left off:
               fixes, deployment, security, go-live.
-              Same format: fixed price, defined deadline.
             </p>
-            <a href="website-14-days.html#vibe-coding" class="btn btn--outline mt-1" aria-label="See the stuck AI project offer">
+            <a href="#vibe-coding" class="btn btn--outline mt-1" aria-label="See the stuck AI project offer">
               See the offer →
             </a>
           </article>
@@ -500,13 +502,13 @@
 
           <article class="case-card fade-up">
             <p class="case-card__client">AI-built application</p>
-            <h3 class="case-card__title">Vibe-coded app → production</h3>
+            <h3 class="case-card__title">Stuck AI project: I finish it and ship it</h3>
             <p class="case-card__text">
-              Your app was built with Claude Code, Cursor, or Bolt.
-              I check authentication, exposed data, and load capacity
-              before your first customers arrive.
+              Your project runs locally but not in production. I take over where
+              the AI left off: fixes, deployment, access security.
+              Timeline adapted to how urgently you need to go live.
             </p>
-            <a href="audit/application-vibe-coding-production/" class="btn btn--outline mt-1" aria-label="Vibe coding audit — see the full case">
+            <a href="audit/application-vibe-coding-production/" class="btn btn--outline mt-1" aria-label="Stuck AI project, see the full case">
               See the case →
             </a>
           </article>
@@ -515,8 +517,8 @@
             <p class="case-card__client">Application with no tests</p>
             <h3 class="case-card__title">Setting up automated tests</h3>
             <p class="case-card__text">
-              No safety net? I build minimal viable coverage with Cypress
-              in 10 to 15 days. 500+ scenarios written for Citeo,
+              No safety net? I build minimal viable coverage with Cypress,
+              scaled to your application. 500+ scenarios written for Citeo,
               70% coverage achieved.
             </p>
             <a href="audit/automated-tests-application/" class="btn btn--outline mt-1" aria-label="Automated tests audit — see the full case">
@@ -741,44 +743,4 @@
     </section>
 
   </main>
-{% endblock %}
-
-{% block footer %}
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>
-        <p class="footer__brand">Matthieu Viel</p>
-        <p class="footer__tagline">Senior web tech consultant · Saint-Pierre, Réunion Island</p>
-      </div>
-
-      <nav aria-label="Footer links">
-        <ul class="footer__links">
-          <li><a href="index.html"{% if current_page == 'home' %} aria-current="page"{% endif %}>Home</a></li>
-          <li><a href="website-14-days.html">Website in 14 days</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="{{ asset_base }}tech.html">Tech version</a></li>
-          <li><a href="legal-notice.html">Legal notice</a></li>
-          <li>
-            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Matthieu Viel's LinkedIn profile (new tab)">
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <a href="https://www.malt.com/profile/matthieuviel"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Matthieu Viel's Malt profile (new tab)">
-              Malt
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <p class="footer__copy">© 2026 Matthieu Viel</p>
-    </div>
-  </footer>
 {% endblock %}

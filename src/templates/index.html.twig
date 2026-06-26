@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Matthieu Viel | Site vitrine &amp; consultant technique · La Réunion{% endblock %}
-{% block meta_description %}Consultant technique web à La Réunion. Ton site web en 14 jours pour 4 000 €. Projet IA bloqué remis en ligne. Audit honnête, 17 ans d'expérience.{% endblock %}
+{% block meta_description %}Consultant technique web à La Réunion. Audit honnête, projet IA bloqué remis en ligne, accompagnement technique senior. 17 ans d'expérience, sans jargon.{% endblock %}
 
 {% block og %}
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.matthieu-viel.fr/">
   <meta property="og:title" content="Matthieu Viel | Site vitrine &amp; consultant technique · La Réunion">
-  <meta property="og:description" content="Ton site web en 14 jours pour 4 000 €. Projet IA bloqué remis en ligne. Conseil technique senior à La Réunion, sans jargon.">
+  <meta property="og:description" content="Audit honnête, projet IA bloqué remis en ligne, conseil technique senior à La Réunion, sans jargon.">
   <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
   <meta name="twitter:card" content="summary_large_image">
 {% endblock %}
@@ -45,7 +45,7 @@
     "name": "Matthieu Viel, Consultant technique web",
     "url": "https://www.matthieu-viel.fr",
     "image": "https://www.matthieu-viel.fr/assets/images/portrait.webp",
-    "description": "Consultant technique web à La Réunion. Ton site web en 14 jours pour 4 000 €. Projet IA bloqué remis en ligne. Audit honnête, 17 ans d'expérience.",
+    "description": "Consultant technique web à La Réunion. Audit honnête, projet IA bloqué remis en ligne, accompagnement technique senior. 17 ans d'expérience.",
     "telephone": "+262693852812",
     "email": "matthieu.viel.fr@gmail.com",
     "priceRange": "€€",
@@ -74,15 +74,15 @@
           "itemOffered": {
             "@type": "Service",
             "name": "Audit technique d'application web",
-            "description": "Audit complet : architecture, sécurité, dette technique, tests. Livrable sous 5 jours."
+            "description": "Audit complet : architecture, sécurité, dette technique, tests. Délai adapté à votre projet."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Ton site web en 14 jours pour 4 000 €, La Réunion",
-            "description": "Site web professionnel Symfony/React livré en 14 jours calendaires pour 4 000 €. Prix fixe garanti, code source complet livré, mise en ligne complète incluse."
+            "name": "Développement de site web professionnel, La Réunion",
+            "description": "Site web professionnel Symfony/React sur mesure pour indépendants, solopreneurs et dirigeants. Prix défini avant le démarrage du projet."
           }
         },
         {
@@ -129,7 +129,7 @@
 
             <p class="hero__subtitle">
               J'accompagne indépendants, solopreneurs et chefs d'entreprise qui ont besoin
-              d'un regard technique senior. Ton site web en 14 jours pour 4 000 € ou projet IA
+              d'un regard technique senior, que ce soit pour un audit ou un projet IA
               remis en ligne. Basé à La Réunion, disponible partout en France.
             </p>
 
@@ -181,38 +181,28 @@
       </div>
     </section>
 
-    <section class="section--offer-feature" aria-labelledby="offer-feature-title">
+    <section class="section--offer-feature" id="vibe-coding" aria-labelledby="offer-feature-title">
       <div class="container">
         <div class="offer-card">
           <div>
-            <span class="offer-card__badge">Nouvelle offre · Prix fixe · Délai garanti</span>
             <h2 class="offer-card__title" id="offer-feature-title">
-              Ton site web en 14 jours pour 4 000 €.
+              Tu as codé avec une IA et tu es bloqué à la mise en prod ?
             </h2>
             <p class="offer-card__text">
-              Un vrai site Symfony/React, mis en ligne, avec le code source.
-              Prix fixe. Délai contractuel. Pas de surprise.
+              Le code tourne en local. Mais l'hébergement est inconnu. La sécurité inexistante.
+              La base de données ne scale pas. Le nom de domaine n'est pas configuré.
+              Tu as une coquille, pas un produit.
             </p>
             <ul class="offer-card__items">
-              <li class="offer-card__item">✔ Site complet · domaine · SSL · hébergement</li>
-              <li class="offer-card__item">✔ Code propre, maintenable : tu es propriétaire</li>
-              <li class="offer-card__item">✔ Livraison garantie en 14 jours calendaires</li>
+              <li class="offer-card__item">✔ Je prends le relais là où l'IA t'a laissé</li>
+              <li class="offer-card__item">✔ Code consolidé, corrigé, déployé</li>
             </ul>
           </div>
           <div class="offer-card__aside">
-            <p class="offer-card__price">4 000 €</p>
-            <p class="offer-card__deadline">en 14 jours</p>
-            <a href="site-web-14-jours.html"
+            <a href="audit/application-vibe-coding-production/"
                class="btn btn--primary btn--lg"
-               aria-label="Découvrir l'offre site web 14 jours">
-              Découvrir l'offre →
-            </a>
-            <a href="https://calendly.com/matthieu-viel-fr/30min"
-               class="btn btn--outline-light"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Réserver un appel diagnostic gratuit (ouvre Calendly)">
-              Réserver un appel
+               aria-label="Voir le cas de déblocage d'un projet codé avec une IA">
+              Voir le cas complet →
             </a>
           </div>
         </div>
@@ -265,13 +255,17 @@
               Vous n'avez pas encore de site, ou il ne vous ressemble plus
             </h3>
             <p class="problem-card__text">
-              Votre activité mérite mieux qu'un site générique ou honteux.
-              Je livre un site web professionnel Symfony/React en 14 jours
-              pour 4 000 €, prix fixe garanti. Indépendants, solopreneurs,
-              dirigeants, sans compromis sur la qualité.
+              Votre activité mérite mieux qu'un site générique.
+              Je conçois et développe un site web professionnel Symfony/React,
+              sur mesure, prix défini ensemble avant de démarrer. Indépendants,
+              solopreneurs, dirigeants, sans compromis sur la qualité.
             </p>
-            <a href="site-web-14-jours.html" class="btn btn--outline mt-1" aria-label="Voir l'offre site web 14 jours">
-              Voir l'offre →
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline mt-1"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Réserver un appel pour parler de votre site web">
+              Réserver un appel →
             </a>
           </article>
 
@@ -284,9 +278,8 @@
               Vous avez construit quelque chose avec Cursor, Bolt ou Claude Code,
               ça tourne en local mais pas en prod. Je prends le relais là où l'IA
               vous a laissé : corrections, déploiement, sécurisation, mise en ligne.
-              Même format : prix fixe, délai défini.
             </p>
-            <a href="site-web-14-jours.html#vibe-coding" class="btn btn--outline mt-1" aria-label="Voir l'offre déblocage projet IA">
+            <a href="#vibe-coding" class="btn btn--outline mt-1" aria-label="Voir l'offre déblocage projet IA">
               Voir l'offre →
             </a>
           </article>
@@ -491,22 +484,6 @@
             </div>
           </article>
 
-          <article class="case-card fade-up">
-            <p class="case-card__client">Déblocage vibe coding · En cours · livraison juillet 2026</p>
-            <h3 class="case-card__title">Projet IA remis en production</h3>
-            <p class="case-card__text">
-              Mission en cours. Prise en charge d'un projet développé avec Cursor,
-              bloqué au stade local. Déploiement, sécurisation des accès, mise en ligne
-              et transfert de compétence.
-            </p>
-            <p class="case-card__result">À venir : juillet 2026</p>
-            <div class="case-card__tags">
-              <span class="tag">Vibe coding</span>
-              <span class="tag">Déploiement</span>
-              <span class="tag">Production</span>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
@@ -529,7 +506,7 @@
             <p class="case-card__text">
               Votre projet tourne en local mais pas en prod. Je prends en main là où l'IA
               vous a laissé : corrections, déploiement, sécurisation des accès.
-              Votre outil en ligne en quelques jours.
+              Délai adapté à l'urgence de votre mise en ligne.
             </p>
             <a href="audit/application-vibe-coding-production/" class="btn btn--outline" aria-label="Déblocage projet IA, voir le cas complet">
               Voir le cas →
@@ -541,7 +518,7 @@
             <h3 class="case-card__title">Mettre en place des tests automatisés</h3>
             <p class="case-card__text">
               Pas de filet de sécurité ? Je mets en place une couverture minimale viable
-              avec Cypress en 10 à 15 jours. 500+ scénarios écrits pour Citeo,
+              avec Cypress, calibrée sur votre application. 500+ scénarios écrits pour Citeo,
               70 % de couverture atteinte.
             </p>
             <a href="audit/tests-automatises-application/" class="btn btn--outline" aria-label="Audit tests automatisés, voir le cas complet">
@@ -588,7 +565,7 @@
         <div class="clients__track">
           <div class="clients__set">
             <img src="{{ asset_base }}assets/images/logos/logo-citeo.webp"
-                 alt="" width="371" height="105" loading="lazy" class="clients__logo--xl">
+                 alt="" width="158" height="96" loading="lazy" class="clients__logo--xl">
             <img src="{{ asset_base }}assets/images/logos/logo-sellermania.webp"
                  alt="" width="371" height="96" loading="lazy" class="clients__logo--lg">
             <img src="{{ asset_base }}assets/images/logos/logo-neosylva.webp"
@@ -602,7 +579,7 @@
           </div>
           <div class="clients__set">
             <img src="{{ asset_base }}assets/images/logos/logo-citeo.webp"
-                 alt="" width="371" height="110" loading="lazy" class="clients__logo--xl">
+                 alt="" width="158" height="96" loading="lazy" class="clients__logo--xl">
             <img src="{{ asset_base }}assets/images/logos/logo-sellermania.webp"
                  alt="" width="371" height="96" loading="lazy" class="clients__logo--lg">
             <img src="{{ asset_base }}assets/images/logos/logo-neosylva.webp"
