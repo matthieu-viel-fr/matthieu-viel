@@ -1,0 +1,252 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Intégrer WeTransform dans une application SaaS — Réunion{% endblock %}
+{% block meta_description %}Intégrer WeTransform dans votre SaaS B2B : embed, règles de validation, Power Functions, raccordement ERP. Matthieu Viel, freelance technique La Réunion.{% endblock %}
+
+{% block og %}
+  <meta property="og:title" content="Comment intégrer WeTransform dans une application SaaS B2B ?">
+  <meta property="og:description" content="Embed du SDK ou de l'iframe, configuration du format cible, Power Functions sur mesure, raccordement amont et aval. Intégration complète en jours plutôt qu'en semaines.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
+{% endblock %}
+
+{% block schema_ld %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Comment intégrer WeTransform dans une application SaaS B2B ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'intégration repose sur l'embed du SDK @wetransform/core ou d'une iframe avec domaine custom dans votre interface produit. En amont, je configure le format cible (colonnes, types, contraintes) et les règles de validation, et je connecte vos sources : FTP, SFTP, URL polling, ou boîte mail dédiée. En aval, je branche la sortie sur votre ERP ou backend via API ou webhook. Le code d'embed prend quatre lignes ; la valeur vient du paramétrage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que sont les Power Functions de WeTransform ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les Power Functions sont des fonctions personnalisées exécutées pendant la transformation du fichier pour déclencher une vérification métier en temps réel : contrôle de SIRET, validation d'adresse, lookup CRM, contrôle de plaque d'immatriculation, ou tout autre appel API spécifique à votre activité. Elles sont écrites sur mesure selon vos contraintes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de temps prend l'intégration de WeTransform dans un SaaS existant ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'embed technique prend quelques heures. Le paramétrage complet (format cible, règles de validation, Power Functions, connexions amont et aval) prend généralement quelques jours plutôt que des semaines, selon la complexité de votre format cible et de vos systèmes existants."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "url": "https://www.matthieu-viel.fr",
+    "jobTitle": "Senior Fullstack Developer & Technical Auditor",
+    "knowsAbout": ["QA automatisée", "CI/CD", "audit technique", "stabilisation SaaS", "Cypress", "dette technique", "vibe coding audit"],
+    "areaServed": ["La Réunion", "France", "Remote"],
+    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
+  }
+  </script>
+{% endblock %}
+
+{% block body %}
+  <main>
+
+    <section class="portfolio-hero" aria-label="Intégration WeTransform">
+      <div class="container">
+        <a href="../" class="page-back" aria-label="Retour aux cas d'audit">← Tous les cas d'audit</a>
+        <p class="eyebrow">SaaS B2B · Import de fichiers</p>
+        <a href="https://www.wetransform.com" target="_blank" rel="noopener noreferrer"
+           class="partner-logo" aria-label="Site officiel WeTransform (nouvel onglet)">
+          <img src="{{ asset_base }}assets/images/logos/logo-wetransform.webp"
+               alt="Logo WeTransform" width="384" height="40" loading="lazy">
+        </a>
+        <h1 class="portfolio-hero__title">
+          Comment intégrer WeTransform<br>
+          dans une <em>application SaaS B2B ?</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          Vos clients envoient des fichiers dans tous les formats (CSV, Excel, PDF, XML, JSON),
+          votre système attend une donnée propre et structurée. WeTransform automatise le mapping,
+          la normalisation et la validation par IA. Je prends en charge l'intégration complète :
+          embed, configuration des règles, Power Functions sur mesure et raccordement à vos systèmes.
+        </p>
+        <div class="cta-group">
+          <a href="https://calendly.com/matthieu-viel-fr/30min"
+             class="btn btn--primary btn--lg"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Réserver un appel découverte (ouvre Calendly)">
+            Discuter de mon projet →
+          </a>
+          <a href="../faq/" class="btn btn--outline btn--lg">
+            Questions fréquentes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="probleme-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Le problème concret</p>
+          <h2 class="section-title" id="probleme-title">Pourquoi coder son propre parser de fichiers est rarement la bonne idée</h2>
+        </header>
+        <div class="prose-wide">
+          <p class="prose prose--lead prose--mb-lg">
+            CSV, Excel, PDF, XML, JSON : chaque client envoie son format, ses colonnes,
+            ses approximations. Coder un parser maison qui couvre tous les cas réels prend
+            des semaines, et chaque nouveau client remet le travail en question.
+          </p>
+          <p class="prose prose--mb-lg">
+            J'ai passé 7 ans chez Sellermania à connecter des flux fournisseurs hétérogènes
+            (CSV, XML, API) à un système e-commerce. Je connais les pièges classiques des
+            imports clients : encodages, colonnes optionnelles, doublons, erreurs silencieuses.
+          </p>
+          <p class="prose">
+            WeTransform résout le problème générique de mapping et de validation grâce à l'IA.
+            Mon rôle : configurer correctement la cible, écrire les règles métier spécifiques
+            à votre produit, et connecter le tout à vos systèmes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="comment-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">Mon approche</p>
+          <h2 class="section-title" id="comment-title">Comment je prends en charge l'intégration</h2>
+        </header>
+
+        <div class="steps">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">1</div>
+            <h3 class="step__title">Connexion amont</h3>
+            <p class="step__text">
+              Je connecte vos systèmes source : FTP, SFTP, URL polling, ou boîte mail
+              dédiée si vos partenaires envoient encore leurs fichiers par email.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">2</div>
+            <h3 class="step__title">Configuration &amp; règles métier</h3>
+            <p class="step__text">
+              Je définis votre format cible (colonnes, types, contraintes) et j'écris vos
+              Power Functions sur mesure : vérification SIRET, validation d'adresses,
+              lookups CRM, contrôle de plaques d'immatriculation, ou tout autre appel API métier.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">3</div>
+            <h3 class="step__title">Raccordement aval</h3>
+            <p class="step__text">
+              Je branche la sortie WeTransform sur votre ERP ou votre backend via API
+              ou webhook, en respectant votre schéma interne de données.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="embed-title">
+      <div class="container">
+        <div class="layout-2col">
+          <div>
+            <p class="eyebrow">Méthode</p>
+            <h2 class="section-title section-title--2xl" id="embed-title">Embed vs développement maison</h2>
+            <p class="prose prose--mb">
+              L'embed du SDK (<code>@wetransform/core</code>) ou de l'iframe avec domaine custom
+              prend quatre lignes de code. La valeur n'est pas dans l'intégration technique,
+              elle est dans le paramétrage correct dès le départ.
+            </p>
+            <p class="prose prose--mb">
+              Développer son propre parser a un coût caché : chaque nouveau client,
+              chaque nouveau format remet le travail en question. WeTransform mutualise
+              cette charge via l'IA, mais encore faut-il le configurer avec quelqu'un
+              qui connaît à la fois votre produit et l'outil.
+            </p>
+            <p class="prose">
+              Je m'occupe de tout, de A à Z, en jours plutôt qu'en semaines.
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow">Résultats concrets</p>
+            <h2 class="section-title section-title--2xl">Ce que vous recevez</h2>
+            <ul class="checklist mt-1">
+              <li>Embed du SDK ou de l'iframe configuré dans votre produit</li>
+              <li>Format cible défini : colonnes, types, contraintes, règles de validation</li>
+              <li>Power Functions sur mesure pour vos vérifications métier</li>
+              <li>Connexions amont configurées (FTP, SFTP, polling, email)</li>
+              <li>Raccordement aval à votre ERP ou backend via API ou webhook</li>
+              <li>Documentation de la configuration pour votre équipe</li>
+            </ul>
+            <div class="solution__note mt-2">
+              Délai : adapté à la complexité de votre format cible, défini ensemble dès le premier échange.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="related-title">
+      <div class="container">
+        <p class="eyebrow">Aller plus loin</p>
+        <h2 class="section-title section-title--2xl section-title--mb" id="related-title">Autres cas d'audit</h2>
+        <div class="related-audits">
+          <a href="../application-vibe-coding-production/">App développée avec l'IA</a>
+          <a href="../dette-technique-application-saas/">Dette technique SaaS</a>
+          <a href="../tests-automatises-application/">Tests automatisés</a>
+          <a href="../cicd-pipeline-application/">Pipeline CI/CD</a>
+          <a href="../freelance-audit-technique-startup/">Freelance vs cabinet</a>
+          <a href="../application-solo-founder-clients/">App solo → premiers clients</a>
+          <a href="../faq/">FAQ audit technique</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-label="Contact">
+      <div class="container">
+        <div class="inner-cta">
+          <p class="eyebrow eyebrow--light">Première prise de contact</p>
+          <h2 class="inner-cta__title">Un import client à embarquer dans votre SaaS ?</h2>
+          <p class="inner-cta__text">
+            Décrivez-moi votre format cible et vos contraintes en quelques lignes.
+            Je réponds sous 24h avec une première lecture.
+          </p>
+          <div class="inner-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline-light btn--lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Réserver un appel découverte sur Calendly (nouvel onglet)">
+              Réserver un appel découverte →
+            </a>
+            <a href="mailto:matthieu.viel.fr@gmail.com" class="btn btn--outline-light">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+{% endblock %}

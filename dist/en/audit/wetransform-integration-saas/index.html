@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Identify and reduce SaaS technical debt · Matthieu Viel — Réunion</title>
-  <meta name="description" content="How to identify and reduce technical debt in an existing SaaS application? Audit scaled to your codebase, prioritised remediation plan, Strangler Fig pattern. Matthieu Viel, freelance consultant Réunion Island, 17 years experience.">
+  <title>Integrate WeTransform into a B2B SaaS application — Réunion</title>
+  <meta name="description" content="Integrate WeTransform into your B2B SaaS: embed, validation rules, Power Functions, ERP handoff. Matthieu Viel, freelance technical consultant, Réunion Island.">
 
-  <meta property="og:title" content="How to identify and reduce technical debt in an existing SaaS application?">
-  <meta property="og:description" content="Audit scaled to your codebase, prioritised remediation plan, Strangler Fig approach. What's actually blocking vs what can wait.">
-  <meta property="og:url" content="https://www.matthieu-viel.fr/en/audit/technical-debt-saas-application/">
+  <meta property="og:title" content="How to integrate WeTransform into a B2B SaaS application?">
+  <meta property="og:description" content="SDK or iframe embed, target format configuration, custom Power Functions, upstream and downstream connections. Full integration in days, not weeks.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://www.matthieu-viel.fr/en/audit/technical-debt-saas-application/">
-  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/">
-  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/technical-debt-saas-application/">
-  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/">
+  <link rel="canonical" href="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -23,26 +23,26 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How to identify and reduce technical debt in an existing SaaS application?",
+        "name": "How to integrate WeTransform into a B2B SaaS application?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Technical debt in a SaaS is identified through an audit whose length scales to your codebase: architecture review, tight couplings, absence of tests, and the areas the team avoids touching. Reduction happens through a prioritised plan that distinguishes what blocks evolution (fix first) from what is uncomfortable but non-blocking (schedule long-term). The Strangler Fig pattern allows progressive refactoring without interrupting production."
+          "text": "Integration relies on embedding the @wetransform/core SDK or an iframe with a custom domain inside your product interface. Upstream, I configure the target format (columns, types, constraints) and the validation rules, and connect your sources: FTP, SFTP, URL polling, or a dedicated mailbox. Downstream, I wire the output to your ERP or backend via API or webhook. The embed code itself is four lines; the value comes from the setup."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the difference between refactoring and rewriting an application?",
+        "name": "What are WeTransform Power Functions?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Refactoring means improving the structure of existing code without changing its behaviour, progressively and without downtime. Rewriting means starting from scratch: riskier, more expensive, and usually unnecessary. In 80% of cases, targeted refactoring with the Strangler Fig pattern produces better results than a full rewrite, at lower risk."
+          "text": "Power Functions are custom functions that run during file transformation to trigger a real-time business check: SIRET verification, address validation, CRM lookups, licence plate checks, or any other API call specific to your business. They are written to measure for your constraints."
         }
       },
       {
         "@type": "Question",
-        "name": "How do you prioritise what to refactor first?",
+        "name": "How long does it take to integrate WeTransform into an existing SaaS?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Priority is determined by three criteria: frequency of change (what changes often must be clean first), impact on stability (what causes production bugs), and human cost (what wastes hours of developer time per intervention). Areas that nobody dares touch but remain stable can wait."
+          "text": "The technical embed takes a few hours. The full setup (target format, validation rules, Power Functions, upstream and downstream connections) generally takes a few days rather than weeks, depending on the complexity of your target format and existing systems."
         }
       }
     ]
@@ -84,7 +84,7 @@
         <li><a href="../../index.html#contact">Contact</a></li>
               </ul>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
-        <a href="../../../audit/dette-technique-application-saas/" class="lang-toggle__btn" hreflang="fr">🇫🇷 FR</a>
+        <a href="../../../audit/integration-wetransform-saas/" class="lang-toggle__btn" hreflang="fr">🇫🇷 FR</a>
         <a href="" class="lang-toggle__btn lang-toggle__btn--active" hreflang="en" aria-current="true">🇬🇧 EN</a>
       </div>
       <a href="https://calendly.com/matthieu-viel-fr/30min"
@@ -103,20 +103,24 @@
 
   <main>
 
-    <section class="portfolio-hero" aria-label="SaaS technical debt audit">
+    <section class="portfolio-hero" aria-label="WeTransform integration">
       <div class="container">
         <a href="../" class="page-back" aria-label="Back to audit cases">← All audit cases</a>
-        <p class="eyebrow">Existing SaaS · Technical debt</p>
+        <p class="eyebrow">B2B SaaS · File import</p>
+        <a href="https://www.wetransform.com" target="_blank" rel="noopener noreferrer"
+           class="partner-logo" aria-label="WeTransform official website (new tab)">
+          <img src="../../../assets/images/logos/logo-wetransform.webp"
+               alt="WeTransform logo" width="384" height="40" loading="lazy">
+        </a>
         <h1 class="portfolio-hero__title">
-          How to identify and reduce<br>
-          technical debt in an existing<br>
-          <em>SaaS application?</em>
+          How to integrate WeTransform<br>
+          into a <em>B2B SaaS application?</em>
         </h1>
         <p class="portfolio-hero__subtitle">
-          Technical debt is the gap between what was coded fast and what should have been done properly.
-          A codebase audit, scaled to its size, identifies it.
-          Reducing it requires a prioritised plan that distinguishes what's truly blocking
-          from what can wait, without rewriting everything.
+          Your customers send files in every format (CSV, Excel, PDF, XML, JSON),
+          your system expects clean, structured data. WeTransform automates mapping,
+          normalisation and validation with AI. I take care of the full integration:
+          embed, rule configuration, custom Power Functions and connections to your systems.
         </p>
         <div class="cta-group">
           <a href="https://calendly.com/matthieu-viel-fr/30min"
@@ -133,27 +137,27 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="reality-title">
+    <section class="section" aria-labelledby="problem-title">
       <div class="container">
         <header class="section-header">
           <p class="eyebrow">The concrete problem</p>
-          <h2 class="section-title" id="reality-title">What technical debt means in practice</h2>
+          <h2 class="section-title" id="problem-title">Why building your own file parser is rarely the right call</h2>
         </header>
         <div class="prose-wide">
           <p class="prose prose--lead prose--mb-lg">
-            No theory needed. Technical debt is when adding a feature takes three times longer
-            than it should, when every change creates a bug somewhere else,
-            or when nobody on the team dares touch certain files.
+            CSV, Excel, PDF, XML, JSON: every customer sends their own format, their own
+            columns, their own approximations. Building a parser that covers every real
+            case takes weeks, and every new customer reopens the work.
           </p>
           <p class="prose prose--mb-lg">
-            I worked 7 years on Sellermania, a SaaS with an ageing codebase.
-            I know how to recognise genuine risk zones vs simply inelegant code.
-            That distinction is what separates a useful plan from an unworkable audit.
+            I spent 7 years at Sellermania connecting heterogeneous supplier feeds
+            (CSV, XML, API) to an e-commerce system. I know the classic pitfalls of
+            customer imports: encodings, optional columns, duplicates, silent errors.
           </p>
           <p class="prose">
-            The bad news: every application accumulates technical debt.
-            The good news: any technical debt can be reduced progressively,
-            without a full rewrite, without interrupting production.
+            WeTransform solves the generic mapping and validation problem with AI.
+            My role: configure the target correctly, write the business rules specific
+            to your product, and connect everything to your systems.
           </p>
         </div>
       </div>
@@ -163,77 +167,72 @@
       <div class="container">
         <header class="section-header section-header--center">
           <p class="eyebrow">My approach</p>
-          <h2 class="section-title" id="approach-title">How I identify the debt</h2>
+          <h2 class="section-title" id="approach-title">How I handle the integration</h2>
         </header>
 
         <div class="steps">
           <div class="step fade-up">
             <div class="step__number" aria-hidden="true">1</div>
-            <h3 class="step__title">Mapping</h3>
+            <h3 class="step__title">Upstream connection</h3>
             <p class="step__text">
-              I read the code, look at frequently touched areas in the git log,
-              and ask the team: "which parts of the code do you most try to avoid?"
-              The answers reveal more than any metric.
+              I connect your source systems: FTP, SFTP, URL polling, or a dedicated
+              mailbox if your partners still send files by email.
             </p>
           </div>
           <div class="step fade-up">
             <div class="step__number" aria-hidden="true">2</div>
-            <h3 class="step__title">Prioritisation</h3>
+            <h3 class="step__title">Configuration &amp; business rules</h3>
             <p class="step__text">
-              Three criteria: frequency of change, impact on stability,
-              human cost. What's modified often and poorly structured comes first.
-              What's stable and rarely touched can wait.
+              I define your target format (columns, types, constraints) and write
+              your custom Power Functions: SIRET verification, address validation,
+              CRM lookups, licence plate checks, or any other business API call.
             </p>
           </div>
           <div class="step fade-up">
             <div class="step__number" aria-hidden="true">3</div>
-            <h3 class="step__title">Remediation plan</h3>
+            <h3 class="step__title">Downstream handoff</h3>
             <p class="step__text">
-              Written deliverable: each problem area, the concrete risk,
-              recommended refactoring, effort estimate in person-days.
-              Applicable by your existing team, not only by me.
+              I wire the WeTransform output to your ERP or backend via API
+              or webhook, matching your internal data schema.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="strangler-title">
+    <section class="section" aria-labelledby="embed-title">
       <div class="container">
         <div class="layout-2col">
           <div>
             <p class="eyebrow">Method</p>
-            <h2 class="section-title section-title--2xl" id="strangler-title">Refactor vs rewrite</h2>
+            <h2 class="section-title section-title--2xl" id="embed-title">Embed vs building it yourself</h2>
             <p class="prose prose--mb">
-              A full rewrite is rarely the right answer. It takes 3 to 4 times longer
-              than planned, accumulates its own debt, and creates a risky transition period.
+              Embedding the SDK (<code>@wetransform/core</code>) or an iframe with a custom
+              domain takes four lines of code. The value isn't in the technical integration,
+              it's in getting the setup right from the start.
             </p>
             <p class="prose prose--mb">
-              The <strong>Strangler Fig pattern</strong> progressively replaces problematic
-              components with new ones while keeping the application in production.
-              I applied this approach to the Symfony 2 → 3 → 4 migration at Sellermania:
-              zero downtime over 7 years.
+              Building your own parser has a hidden cost: every new customer, every new
+              format reopens the work. WeTransform pools that cost via AI, but it still
+              needs to be configured by someone who knows both your product and the tool.
             </p>
             <p class="prose">
-              When rewriting makes sense: when the fundamental architecture is broken,
-              when couplings prevent any decomposition, or when the maintenance cost
-              exceeds the cost of a targeted module rewrite.
-              It's never the whole application at once.
+              I handle everything end to end, in days rather than weeks.
             </p>
           </div>
           <div>
             <p class="eyebrow">Deliverable</p>
             <h2 class="section-title section-title--2xl">What you receive</h2>
             <ul class="checklist mt-1">
-              <li>Written audit report (PDF + collaborative format)</li>
-              <li>Risk zone map, by criticality</li>
-              <li>Prioritised remediation plan across 3 horizons (short / medium / long term)</li>
-              <li>Recommendations applicable by your existing team</li>
-              <li>Effort estimate for each action</li>
-              <li>45-minute debrief session</li>
+              <li>SDK or iframe embed configured in your product</li>
+              <li>Target format defined: columns, types, constraints, validation rules</li>
+              <li>Custom Power Functions for your business checks</li>
+              <li>Upstream connections configured (FTP, SFTP, polling, email)</li>
+              <li>Downstream handoff to your ERP or backend via API or webhook</li>
+              <li>Configuration documentation for your team</li>
             </ul>
             <div class="solution__note mt-2">
-              Timeline: scaled to your codebase, defined together from the first call.
+              Timeline: scaled to the complexity of your target format, defined together from the first call.
             </div>
           </div>
         </div>
@@ -246,10 +245,11 @@
         <h2 class="section-title section-title--2xl section-title--mb">Other audit cases</h2>
         <div class="related-audits">
           <a href="../application-vibe-coding-production/">AI-built application</a>
+          <a href="../technical-debt-saas-application/">SaaS technical debt</a>
           <a href="../automated-tests-application/">Automated tests</a>
           <a href="../cicd-pipeline-application/">CI/CD pipeline</a>
           <a href="../freelance-technical-audit-startup/">Freelance vs firm</a>
-          <a href="../wetransform-integration-saas/">WeTransform integration</a>
+          <a href="../application-solo-founder-clients/">Solo app → first clients</a>
           <a href="../faq/">Technical audit FAQ</a>
         </div>
       </div>
@@ -259,9 +259,9 @@
       <div class="container">
         <div class="inner-cta">
           <p class="eyebrow eyebrow--light">First contact</p>
-          <h2 class="inner-cta__title">Worried about your codebase?</h2>
+          <h2 class="inner-cta__title">A customer import to embed in your SaaS?</h2>
           <p class="inner-cta__text">
-            Tell me about the situation in a few lines.
+            Tell me about your target format and constraints in a few lines.
             I reply within 24 hours with an initial assessment.
           </p>
           <div class="inner-cta__actions">

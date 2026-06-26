@@ -1,0 +1,251 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Integrate WeTransform into a B2B SaaS application — Réunion{% endblock %}
+{% block meta_description %}Integrate WeTransform into your B2B SaaS: embed, validation rules, Power Functions, ERP handoff. Matthieu Viel, freelance technical consultant, Réunion Island.{% endblock %}
+
+{% block og %}
+  <meta property="og:title" content="How to integrate WeTransform into a B2B SaaS application?">
+  <meta property="og:description" content="SDK or iframe embed, target format configuration, custom Power Functions, upstream and downstream connections. Full integration in days, not weeks.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
+{% endblock %}
+
+{% block schema_ld %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How to integrate WeTransform into a B2B SaaS application?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Integration relies on embedding the @wetransform/core SDK or an iframe with a custom domain inside your product interface. Upstream, I configure the target format (columns, types, constraints) and the validation rules, and connect your sources: FTP, SFTP, URL polling, or a dedicated mailbox. Downstream, I wire the output to your ERP or backend via API or webhook. The embed code itself is four lines; the value comes from the setup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are WeTransform Power Functions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Power Functions are custom functions that run during file transformation to trigger a real-time business check: SIRET verification, address validation, CRM lookups, licence plate checks, or any other API call specific to your business. They are written to measure for your constraints."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to integrate WeTransform into an existing SaaS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The technical embed takes a few hours. The full setup (target format, validation rules, Power Functions, upstream and downstream connections) generally takes a few days rather than weeks, depending on the complexity of your target format and existing systems."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "url": "https://www.matthieu-viel.fr",
+    "jobTitle": "Senior Fullstack Developer & Technical Auditor",
+    "knowsAbout": ["automated QA", "CI/CD", "technical audit", "SaaS stabilisation", "Cypress", "technical debt", "vibe coding audit"],
+    "areaServed": ["Réunion Island", "France", "Remote"],
+    "sameAs": ["https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"]
+  }
+  </script>
+{% endblock %}
+
+{% block body %}
+  <main>
+
+    <section class="portfolio-hero" aria-label="WeTransform integration">
+      <div class="container">
+        <a href="../" class="page-back" aria-label="Back to audit cases">← All audit cases</a>
+        <p class="eyebrow">B2B SaaS · File import</p>
+        <a href="https://www.wetransform.com" target="_blank" rel="noopener noreferrer"
+           class="partner-logo" aria-label="WeTransform official website (new tab)">
+          <img src="{{ asset_base }}assets/images/logos/logo-wetransform.webp"
+               alt="WeTransform logo" width="384" height="40" loading="lazy">
+        </a>
+        <h1 class="portfolio-hero__title">
+          How to integrate WeTransform<br>
+          into a <em>B2B SaaS application?</em>
+        </h1>
+        <p class="portfolio-hero__subtitle">
+          Your customers send files in every format (CSV, Excel, PDF, XML, JSON),
+          your system expects clean, structured data. WeTransform automates mapping,
+          normalisation and validation with AI. I take care of the full integration:
+          embed, rule configuration, custom Power Functions and connections to your systems.
+        </p>
+        <div class="cta-group">
+          <a href="https://calendly.com/matthieu-viel-fr/30min"
+             class="btn btn--primary btn--lg"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Book a discovery call (opens Calendly)">
+            Discuss my project →
+          </a>
+          <a href="../faq/" class="btn btn--outline btn--lg">
+            Frequently asked questions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="problem-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">The concrete problem</p>
+          <h2 class="section-title" id="problem-title">Why building your own file parser is rarely the right call</h2>
+        </header>
+        <div class="prose-wide">
+          <p class="prose prose--lead prose--mb-lg">
+            CSV, Excel, PDF, XML, JSON: every customer sends their own format, their own
+            columns, their own approximations. Building a parser that covers every real
+            case takes weeks, and every new customer reopens the work.
+          </p>
+          <p class="prose prose--mb-lg">
+            I spent 7 years at Sellermania connecting heterogeneous supplier feeds
+            (CSV, XML, API) to an e-commerce system. I know the classic pitfalls of
+            customer imports: encodings, optional columns, duplicates, silent errors.
+          </p>
+          <p class="prose">
+            WeTransform solves the generic mapping and validation problem with AI.
+            My role: configure the target correctly, write the business rules specific
+            to your product, and connect everything to your systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="approach-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <p class="eyebrow">My approach</p>
+          <h2 class="section-title" id="approach-title">How I handle the integration</h2>
+        </header>
+
+        <div class="steps">
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">1</div>
+            <h3 class="step__title">Upstream connection</h3>
+            <p class="step__text">
+              I connect your source systems: FTP, SFTP, URL polling, or a dedicated
+              mailbox if your partners still send files by email.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">2</div>
+            <h3 class="step__title">Configuration &amp; business rules</h3>
+            <p class="step__text">
+              I define your target format (columns, types, constraints) and write
+              your custom Power Functions: SIRET verification, address validation,
+              CRM lookups, licence plate checks, or any other business API call.
+            </p>
+          </div>
+          <div class="step fade-up">
+            <div class="step__number" aria-hidden="true">3</div>
+            <h3 class="step__title">Downstream handoff</h3>
+            <p class="step__text">
+              I wire the WeTransform output to your ERP or backend via API
+              or webhook, matching your internal data schema.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="embed-title">
+      <div class="container">
+        <div class="layout-2col">
+          <div>
+            <p class="eyebrow">Method</p>
+            <h2 class="section-title section-title--2xl" id="embed-title">Embed vs building it yourself</h2>
+            <p class="prose prose--mb">
+              Embedding the SDK (<code>@wetransform/core</code>) or an iframe with a custom
+              domain takes four lines of code. The value isn't in the technical integration,
+              it's in getting the setup right from the start.
+            </p>
+            <p class="prose prose--mb">
+              Building your own parser has a hidden cost: every new customer, every new
+              format reopens the work. WeTransform pools that cost via AI, but it still
+              needs to be configured by someone who knows both your product and the tool.
+            </p>
+            <p class="prose">
+              I handle everything end to end, in days rather than weeks.
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow">Deliverable</p>
+            <h2 class="section-title section-title--2xl">What you receive</h2>
+            <ul class="checklist mt-1">
+              <li>SDK or iframe embed configured in your product</li>
+              <li>Target format defined: columns, types, constraints, validation rules</li>
+              <li>Custom Power Functions for your business checks</li>
+              <li>Upstream connections configured (FTP, SFTP, polling, email)</li>
+              <li>Downstream handoff to your ERP or backend via API or webhook</li>
+              <li>Configuration documentation for your team</li>
+            </ul>
+            <div class="solution__note mt-2">
+              Timeline: scaled to the complexity of your target format, defined together from the first call.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-label="Related pages">
+      <div class="container">
+        <p class="eyebrow">Go further</p>
+        <h2 class="section-title section-title--2xl section-title--mb">Other audit cases</h2>
+        <div class="related-audits">
+          <a href="../application-vibe-coding-production/">AI-built application</a>
+          <a href="../technical-debt-saas-application/">SaaS technical debt</a>
+          <a href="../automated-tests-application/">Automated tests</a>
+          <a href="../cicd-pipeline-application/">CI/CD pipeline</a>
+          <a href="../freelance-technical-audit-startup/">Freelance vs firm</a>
+          <a href="../application-solo-founder-clients/">Solo app → first clients</a>
+          <a href="../faq/">Technical audit FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-label="Contact">
+      <div class="container">
+        <div class="inner-cta">
+          <p class="eyebrow eyebrow--light">First contact</p>
+          <h2 class="inner-cta__title">A customer import to embed in your SaaS?</h2>
+          <p class="inner-cta__text">
+            Tell me about your target format and constraints in a few lines.
+            I reply within 24 hours with an initial assessment.
+          </p>
+          <div class="inner-cta__actions">
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline-light btn--lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Book a discovery call on Calendly (new tab)">
+              Book a discovery call →
+            </a>
+            <a href="mailto:matthieu.viel.fr@gmail.com" class="btn btn--outline-light">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+{% endblock %}

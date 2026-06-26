@@ -17,6 +17,7 @@ function getPages(): array
         'cicd-pipeline-application'          => 'cicd-pipeline-application',
         'freelance-audit-technique-startup'  => 'freelance-technical-audit-startup',
         'application-solo-founder-clients'   => 'application-solo-founder-clients',
+        'integration-wetransform-saas'       => 'wetransform-integration-saas',
         'faq'                                 => 'faq',
     ];
 

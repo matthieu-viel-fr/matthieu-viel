@@ -493,6 +493,10 @@
   gap: 1.5rem;
 }
 
+.cases__grid--quad {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .case-card {
   background: var(--clr-white);
   border: 1px solid var(--clr-border);
@@ -1038,6 +1042,27 @@
   transition: color var(--transition);
 }
 .page-back:hover { color: var(--clr-navy); }
+
+/* Partner logo (use-case pages featuring a third-party tool) */
+.portfolio-hero .container { position: relative; }
+
+.partner-logo {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: .5rem .9rem;
+  background: var(--clr-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.partner-logo img {
+  display: block;
+  width: 120px;
+  height: auto;
+}
 
 /* Audit use-case card grid (2-col) */
 .audit-grid {

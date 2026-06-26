@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Identifier et réduire la dette technique SaaS — Réunion 974</title>
-  <meta name="description" content="Comment identifier et réduire la dette technique d'un SaaS existant ? Audit calibré sur votre contexte, plan priorisé, pattern Strangler Fig. Matthieu Viel, consultant freelance La Réunion, 17 ans d'expérience.">
+  <title>Intégrer WeTransform dans une application SaaS — Réunion</title>
+  <meta name="description" content="Intégrer WeTransform dans votre SaaS B2B : embed, règles de validation, Power Functions, raccordement ERP. Matthieu Viel, freelance technique La Réunion.">
 
-  <meta property="og:title" content="Comment identifier et réduire la dette technique d'une application SaaS existante ?">
-  <meta property="og:description" content="Audit calibré sur votre contexte, plan de remédiation priorisé, approche Strangler Fig. Ce qui bloque vraiment vs ce qui peut attendre.">
-  <meta property="og:url" content="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/">
+  <meta property="og:title" content="Comment intégrer WeTransform dans une application SaaS B2B ?">
+  <meta property="og:description" content="Embed du SDK ou de l'iframe, configuration du format cible, Power Functions sur mesure, raccordement amont et aval. Intégration complète en jours plutôt qu'en semaines.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/">
-  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/">
-  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/technical-debt-saas-application/">
-  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/dette-technique-application-saas/">
+  <link rel="canonical" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/audit/wetransform-integration-saas/">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/integration-wetransform-saas/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -23,26 +23,26 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Comment identifier et réduire la dette technique d'une application SaaS existante ?",
+        "name": "Comment intégrer WeTransform dans une application SaaS B2B ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "La dette technique d'un SaaS s'identifie par un audit dont la durée s'adapte à la taille de votre codebase : revue de l'architecture, des couplages forts, de l'absence de tests, et des zones que l'équipe évite de toucher. La réduction se fait par un plan priorisé qui distingue ce qui bloque les évolutions (à traiter en premier) de ce qui est inconfortable mais non bloquant (à planifier sur le long terme). Le pattern Strangler Fig permet de réfactorer progressivement sans interrompre la production."
+          "text": "L'intégration repose sur l'embed du SDK @wetransform/core ou d'une iframe avec domaine custom dans votre interface produit. En amont, je configure le format cible (colonnes, types, contraintes) et les règles de validation, et je connecte vos sources : FTP, SFTP, URL polling, ou boîte mail dédiée. En aval, je branche la sortie sur votre ERP ou backend via API ou webhook. Le code d'embed prend quatre lignes ; la valeur vient du paramétrage."
         }
       },
       {
         "@type": "Question",
-        "name": "Quelle est la différence entre refactorer et réécrire une application ?",
+        "name": "Que sont les Power Functions de WeTransform ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Refactorer, c'est améliorer la structure du code existant sans changer son comportement, progressivement et sans interruption de service. Réécrire, c'est repartir de zéro avec une nouvelle base : plus risqué, plus coûteux, et souvent inutile. Dans 80% des cas, une refactorisation ciblée avec le pattern Strangler Fig produit de meilleurs résultats qu'une réécriture complète, à moindre risque."
+          "text": "Les Power Functions sont des fonctions personnalisées exécutées pendant la transformation du fichier pour déclencher une vérification métier en temps réel : contrôle de SIRET, validation d'adresse, lookup CRM, contrôle de plaque d'immatriculation, ou tout autre appel API spécifique à votre activité. Elles sont écrites sur mesure selon vos contraintes."
         }
       },
       {
         "@type": "Question",
-        "name": "Comment prioriser ce qui doit être refactorisé en premier ?",
+        "name": "Combien de temps prend l'intégration de WeTransform dans un SaaS existant ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "La priorité se détermine par trois critères : la fréquence de modification (ce qui change souvent doit être propre en premier), l'impact sur la stabilité (ce qui provoque des bugs en production), et le coût humain (ce qui fait perdre des heures à l'équipe à chaque intervention). Les zones que personne n'ose toucher et qui restent stables peuvent attendre."
+          "text": "L'embed technique prend quelques heures. Le paramétrage complet (format cible, règles de validation, Power Functions, connexions amont et aval) prend généralement quelques jours plutôt que des semaines, selon la complexité de votre format cible et de vos systèmes existants."
         }
       }
     ]
@@ -86,7 +86,7 @@
               </ul>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
         <a href="" class="lang-toggle__btn lang-toggle__btn--active" hreflang="fr" aria-current="true">🇫🇷 FR</a>
-        <a href="../../en/audit/technical-debt-saas-application/" class="lang-toggle__btn" hreflang="en">🇬🇧 EN</a>
+        <a href="../../en/audit/wetransform-integration-saas/" class="lang-toggle__btn" hreflang="en">🇬🇧 EN</a>
       </div>
       <a href="https://calendly.com/matthieu-viel-fr/30min"
          class="btn btn--primary nav__cta"
@@ -104,20 +104,24 @@
 
   <main>
 
-    <section class="portfolio-hero" aria-label="Audit dette technique SaaS">
+    <section class="portfolio-hero" aria-label="Intégration WeTransform">
       <div class="container">
         <a href="../" class="page-back" aria-label="Retour aux cas d'audit">← Tous les cas d'audit</a>
-        <p class="eyebrow">SaaS existant · Dette technique</p>
+        <p class="eyebrow">SaaS B2B · Import de fichiers</p>
+        <a href="https://www.wetransform.com" target="_blank" rel="noopener noreferrer"
+           class="partner-logo" aria-label="Site officiel WeTransform (nouvel onglet)">
+          <img src="../../assets/images/logos/logo-wetransform.webp"
+               alt="Logo WeTransform" width="384" height="40" loading="lazy">
+        </a>
         <h1 class="portfolio-hero__title">
-          Comment identifier et réduire<br>
-          la dette technique d'une<br>
-          <em>application SaaS existante ?</em>
+          Comment intégrer WeTransform<br>
+          dans une <em>application SaaS B2B ?</em>
         </h1>
         <p class="portfolio-hero__subtitle">
-          La dette technique, c'est l'écart entre ce qui a été codé vite et ce qui aurait
-          dû être fait correctement. Un audit sur votre codebase, calibré sur sa taille,
-          permet de l'identifier. La réduire demande un plan priorisé qui distingue
-          ce qui bloque vraiment de ce qui peut attendre, sans tout réécrire.
+          Vos clients envoient des fichiers dans tous les formats (CSV, Excel, PDF, XML, JSON),
+          votre système attend une donnée propre et structurée. WeTransform automatise le mapping,
+          la normalisation et la validation par IA. Je prends en charge l'intégration complète :
+          embed, configuration des règles, Power Functions sur mesure et raccordement à vos systèmes.
         </p>
         <div class="cta-group">
           <a href="https://calendly.com/matthieu-viel-fr/30min"
@@ -134,28 +138,27 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="realite-title">
+    <section class="section" aria-labelledby="probleme-title">
       <div class="container">
         <header class="section-header">
           <p class="eyebrow">Le problème concret</p>
-          <h2 class="section-title" id="realite-title">Ce que la dette technique signifie en pratique</h2>
+          <h2 class="section-title" id="probleme-title">Pourquoi coder son propre parser de fichiers est rarement la bonne idée</h2>
         </header>
         <div class="prose-wide">
           <p class="prose prose--lead prose--mb-lg">
-            Pas besoin de théorie. La dette technique, c'est quand ajouter une fonctionnalité
-            prend trois fois plus de temps qu'elle ne devrait, quand chaque modification
-            crée un bug ailleurs, ou quand plus personne n'ose toucher à certains fichiers.
+            CSV, Excel, PDF, XML, JSON : chaque client envoie son format, ses colonnes,
+            ses approximations. Coder un parser maison qui couvre tous les cas réels prend
+            des semaines, et chaque nouveau client remet le travail en question.
           </p>
           <p class="prose prose--mb-lg">
-            J'ai travaillé 7 ans sur Sellermania, un SaaS e-commerce avec une codebase
-            vieillissante. Je sais reconnaître les zones de risque réel vs les zones
-            simplement inélégantes. Cette distinction est ce qui sépare un plan utile
-            d'un audit inapplicable.
+            J'ai passé 7 ans chez Sellermania à connecter des flux fournisseurs hétérogènes
+            (CSV, XML, API) à un système e-commerce. Je connais les pièges classiques des
+            imports clients : encodages, colonnes optionnelles, doublons, erreurs silencieuses.
           </p>
           <p class="prose">
-            La mauvaise nouvelle : toute application accumulée de la dette technique.
-            La bonne : toute dette technique peut être réduite progressivement,
-            sans réécriture complète, sans interrompre la production.
+            WeTransform résout le problème générique de mapping et de validation grâce à l'IA.
+            Mon rôle : configurer correctement la cible, écrire les règles métier spécifiques
+            à votre produit, et connecter le tout à vos systèmes.
           </p>
         </div>
       </div>
@@ -165,94 +168,90 @@
       <div class="container">
         <header class="section-header section-header--center">
           <p class="eyebrow">Mon approche</p>
-          <h2 class="section-title" id="comment-title">Comment j'identifie la dette</h2>
+          <h2 class="section-title" id="comment-title">Comment je prends en charge l'intégration</h2>
         </header>
 
         <div class="steps">
           <div class="step fade-up">
             <div class="step__number" aria-hidden="true">1</div>
-            <h3 class="step__title">Cartographie</h3>
+            <h3 class="step__title">Connexion amont</h3>
             <p class="step__text">
-              Je lis le code, je regarde les zones touchées fréquemment dans le git log,
-              et je demande à l'équipe : "quelles parties du code faites-vous le plus pour
-              éviter ?" Les réponses sont plus révélatrices que les métriques.
+              Je connecte vos systèmes source : FTP, SFTP, URL polling, ou boîte mail
+              dédiée si vos partenaires envoient encore leurs fichiers par email.
             </p>
           </div>
           <div class="step fade-up">
             <div class="step__number" aria-hidden="true">2</div>
-            <h3 class="step__title">Priorisation</h3>
+            <h3 class="step__title">Configuration &amp; règles métier</h3>
             <p class="step__text">
-              Trois critères : fréquence de modification, impact sur la stabilité,
-              coût humain. Ce qui est modifié souvent et mal structuré passe en premier.
-              Ce qui est stable et rarement touché peut attendre.
+              Je définis votre format cible (colonnes, types, contraintes) et j'écris vos
+              Power Functions sur mesure : vérification SIRET, validation d'adresses,
+              lookups CRM, contrôle de plaques d'immatriculation, ou tout autre appel API métier.
             </p>
           </div>
           <div class="step fade-up">
             <div class="step__number" aria-hidden="true">3</div>
-            <h3 class="step__title">Plan de remédiation</h3>
+            <h3 class="step__title">Raccordement aval</h3>
             <p class="step__text">
-              Livrable écrit : chaque zone problématique, le risque concret,
-              la refactorisation recommandée, l'effort estimé en jours/homme.
-              Applicable par votre équipe, pas par moi seul.
+              Je branche la sortie WeTransform sur votre ERP ou votre backend via API
+              ou webhook, en respectant votre schéma interne de données.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="strangler-title">
+    <section class="section" aria-labelledby="embed-title">
       <div class="container">
         <div class="layout-2col">
           <div>
             <p class="eyebrow">Méthode</p>
-            <h2 class="section-title section-title--2xl" id="strangler-title">Refactorer vs réécrire</h2>
+            <h2 class="section-title section-title--2xl" id="embed-title">Embed vs développement maison</h2>
             <p class="prose prose--mb">
-              La réécriture complète est rarement la bonne réponse.
-              Elle prend 3 à 4 fois plus longtemps que prévu, accumule elle-même de la dette,
-              et crée une période de transition risquée.
+              L'embed du SDK (<code>@wetransform/core</code>) ou de l'iframe avec domaine custom
+              prend quatre lignes de code. La valeur n'est pas dans l'intégration technique,
+              elle est dans le paramétrage correct dès le départ.
             </p>
             <p class="prose prose--mb">
-              Le <strong>pattern Strangler Fig</strong> consiste à remplacer progressivement
-              les composants problématiques par de nouveaux, tout en maintenant l'application
-              en production. J'ai appliqué cette approche sur la migration Symfony 2 → 3 → 4
-              chez Sellermania : zéro downtime sur 7 ans.
+              Développer son propre parser a un coût caché : chaque nouveau client,
+              chaque nouveau format remet le travail en question. WeTransform mutualise
+              cette charge via l'IA, mais encore faut-il le configurer avec quelqu'un
+              qui connaît à la fois votre produit et l'outil.
             </p>
             <p class="prose">
-              Quand réécrire s'impose quand même ? Quand l'architecture fondamentale est cassée,
-              quand les couplages empêchent tout découpage, ou quand le coût de la maintenance
-              dépasse le coût d'une réécriture ciblée d'un module précis.
-              Ce n'est jamais toute l'application d'un coup.
+              Je m'occupe de tout, de A à Z, en jours plutôt qu'en semaines.
             </p>
           </div>
           <div>
             <p class="eyebrow">Résultats concrets</p>
             <h2 class="section-title section-title--2xl">Ce que vous recevez</h2>
             <ul class="checklist mt-1">
-              <li>Rapport d'audit écrit (PDF + format collaboratif)</li>
-              <li>Cartographie des zones de risque, par criticité</li>
-              <li>Plan de remédiation priorisé sur 3 horizons (court / moyen / long terme)</li>
-              <li>Recommandations applicables par votre équipe existante</li>
-              <li>Estimation d'effort pour chaque action</li>
-              <li>Session de restitution de 45 minutes</li>
+              <li>Embed du SDK ou de l'iframe configuré dans votre produit</li>
+              <li>Format cible défini : colonnes, types, contraintes, règles de validation</li>
+              <li>Power Functions sur mesure pour vos vérifications métier</li>
+              <li>Connexions amont configurées (FTP, SFTP, polling, email)</li>
+              <li>Raccordement aval à votre ERP ou backend via API ou webhook</li>
+              <li>Documentation de la configuration pour votre équipe</li>
             </ul>
             <div class="solution__note mt-2">
-              Délai : adapté à la taille de votre codebase, défini ensemble dès le premier échange.
+              Délai : adapté à la complexité de votre format cible, défini ensemble dès le premier échange.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" aria-labelledby="related2-title">
+    <section class="section section--alt" aria-labelledby="related-title">
       <div class="container">
         <p class="eyebrow">Aller plus loin</p>
-        <h2 class="section-title section-title--2xl section-title--mb" id="related2-title">Autres cas d'audit</h2>
+        <h2 class="section-title section-title--2xl section-title--mb" id="related-title">Autres cas d'audit</h2>
         <div class="related-audits">
           <a href="../application-vibe-coding-production/">App développée avec l'IA</a>
+          <a href="../dette-technique-application-saas/">Dette technique SaaS</a>
           <a href="../tests-automatises-application/">Tests automatisés</a>
           <a href="../cicd-pipeline-application/">Pipeline CI/CD</a>
           <a href="../freelance-audit-technique-startup/">Freelance vs cabinet</a>
-          <a href="../integration-wetransform-saas/">Intégration WeTransform</a>
+          <a href="../application-solo-founder-clients/">App solo → premiers clients</a>
           <a href="../faq/">FAQ audit technique</a>
         </div>
       </div>
@@ -262,9 +261,9 @@
       <div class="container">
         <div class="inner-cta">
           <p class="eyebrow eyebrow--light">Première prise de contact</p>
-          <h2 class="inner-cta__title">Votre codebase vous inquiète ?</h2>
+          <h2 class="inner-cta__title">Un import client à embarquer dans votre SaaS ?</h2>
           <p class="inner-cta__text">
-            Décrivez-moi la situation en quelques lignes.
+            Décrivez-moi votre format cible et vos contraintes en quelques lignes.
             Je réponds sous 24h avec une première lecture.
           </p>
           <div class="inner-cta__actions">
