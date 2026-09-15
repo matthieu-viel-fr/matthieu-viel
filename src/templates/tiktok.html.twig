@@ -1,0 +1,254 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matthieu Viel · Dev Web Senior · Saint-Pierre, La Réunion{% endblock %}
+{% block meta_description %}Développeur fullstack indépendant à La Réunion, 17 ans d'expérience. Audit honnête, sécurité, dépannage rapide. LinkedIn, contact et portfolio en un lien.{% endblock %}
+
+{% block og %}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/tiktok.html">
+  <meta property="og:title" content="Matthieu Viel · Développeur Web Senior · La Réunion">
+  <meta property="og:description" content="App en panne, piratée ou bloquée ? Développeur fullstack indépendant, 17 ans d'expérience. LinkedIn, contact et portfolio en un lien.">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/tiktok.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/tiktok.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/tiktok.html">
+{% endblock %}
+
+{% block schema_ld %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "jobTitle": "Développeur Fullstack Senior",
+    "url": "https://www.matthieu-viel.fr/tiktok.html",
+    "image": "https://www.matthieu-viel.fr/assets/images/portrait.webp",
+    "description": "Développeur fullstack indépendant à La Réunion, 17 ans d'expérience. Audits sécurité et qualité, dépannage d'applications web.",
+    "sameAs": [
+      "https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/",
+      "https://www.malt.com/profile/matthieuviel"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-Pierre",
+      "addressRegion": "La Réunion",
+      "postalCode": "97410",
+      "addressCountry": "FR"
+    }
+  }
+  </script>
+{% endblock %}
+
+{% block extra_styles %}
+  <style>
+    /* ---- Minimal header (logo only, no nav links) ---- */
+    .linkbio-nav .nav__inner { justify-content: center; }
+    .linkbio-nav .nav__logo { margin-inline-end: 0; align-items: center; text-align: center; }
+
+    /* ---- Link-in-bio layout ---- */
+    .linkbio {
+      min-height: 100dvh;
+      padding: calc(var(--nav-height) + 2.5rem) 1.25rem 3rem;
+      background: linear-gradient(145deg, #f2f7fb 0%, #e4eef7 100%);
+      display: flex;
+      justify-content: center;
+    }
+
+    .linkbio__card {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .linkbio__avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      box-shadow: var(--shadow-md);
+      border: 3px solid var(--clr-white);
+      margin: 0 auto .875rem;
+    }
+
+    .linkbio__name {
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-extrabold);
+      color: var(--clr-navy);
+    }
+
+    .linkbio__location {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
+      color: var(--clr-muted);
+      margin-top: .3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .linkbio__headline {
+      font-size: clamp(1.375rem, 6vw, 1.75rem);
+      font-weight: var(--fw-extrabold);
+      line-height: 1.3;
+      color: var(--clr-navy);
+      margin-bottom: .875rem;
+    }
+
+    .linkbio__bio {
+      font-size: var(--fs-base);
+      color: var(--clr-slate);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .linkbio__ctas {
+      display: flex;
+      flex-direction: column;
+      gap: .875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .linkbio__cta {
+      width: 100%;
+      min-height: 56px;
+      justify-content: center;
+      padding: .9rem 1.5rem;
+      font-size: var(--fs-base);
+      text-align: left;
+    }
+
+    .linkbio__cta-label { display: block; }
+    .linkbio__cta-sub {
+      display: block;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
+      opacity: .8;
+      margin-top: .1rem;
+    }
+
+    .linkbio__footer {
+      text-align: center;
+      font-size: var(--fs-xs);
+      color: var(--clr-muted);
+      background: #e4eef7;
+      padding-block: 0 2rem;
+    }
+
+    .linkbio__footer a {
+      color: var(--clr-muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    @media (max-width: 480px) {
+      .linkbio { padding-inline: 1rem; }
+    }
+  </style>
+{% endblock %}
+
+{% block nav %}
+  <nav class="nav linkbio-nav" id="nav" aria-label="Navigation">
+    <div class="container nav__inner">
+      <a href="{{ asset_base }}index.html" class="nav__logo" aria-label="Matthieu Viel — Accueil">
+        <span class="nav__logo-name">Matthieu Viel</span>
+        <span class="nav__logo-tagline">Consultant technique web</span>
+      </a>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block body %}
+  <main class="linkbio">
+    <div class="linkbio__card">
+      <img src="{{ asset_base }}assets/images/portrait.webp"
+           alt="Matthieu Viel, développeur web freelance à Saint-Pierre, La Réunion"
+           class="linkbio__avatar"
+           width="96" height="96">
+
+      <p class="linkbio__name">Matthieu Viel</p>
+      <p class="linkbio__location">📍 Saint-Pierre · La Réunion 974</p>
+
+      <h1 class="linkbio__headline">App en panne, piratée ou bloquée&nbsp;?<br>Je remets ça d'aplomb.</h1>
+
+      <p class="linkbio__bio">
+        Développeur fullstack indépendant, 17 ans d'expérience. Audits sécurité et
+        qualité, dépannage rapide, sans jargon.
+      </p>
+
+      <div class="linkbio__ctas">
+        <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/?utm_source=tiktok&amp;utm_medium=social&amp;utm_campaign=linkinbio&amp;utm_content=linkedin"
+           class="btn btn--outline linkbio__cta"
+           target="_blank"
+           rel="noopener noreferrer"
+           data-cta="linkedin"
+           aria-label="Voir le profil LinkedIn de Matthieu Viel (nouvel onglet)">
+          <span>
+            <span class="linkbio__cta-label">🔗 Voir mon profil LinkedIn</span>
+            <span class="linkbio__cta-sub">17 ans de parcours, recommandations</span>
+          </span>
+        </a>
+
+        <a href="https://calendly.com/matthieu-viel-fr/30min?utm_source=tiktok&amp;utm_medium=social&amp;utm_campaign=linkinbio&amp;utm_content=contact"
+           class="btn btn--primary linkbio__cta"
+           target="_blank"
+           rel="noopener noreferrer"
+           data-cta="contact"
+           aria-label="Réserver un échange gratuit sur Calendly (nouvel onglet)">
+          <span>
+            <span class="linkbio__cta-label">📅 Réserver un échange gratuit</span>
+            <span class="linkbio__cta-sub">Calendly · 30 minutes, sans engagement</span>
+          </span>
+        </a>
+
+        <a href="{{ asset_base }}index.html?utm_source=tiktok&amp;utm_medium=social&amp;utm_campaign=linkinbio&amp;utm_content=site"
+           class="btn btn--outline linkbio__cta"
+           data-cta="site"
+           aria-label="Découvrir le site complet de Matthieu Viel">
+          <span>
+            <span class="linkbio__cta-label">🧭 Découvrir le site complet</span>
+            <span class="linkbio__cta-sub">Offres, portfolio, avis clients</span>
+          </span>
+        </a>
+
+        <a href="https://www.malt.com/profile/matthieuviel?utm_source=tiktok&amp;utm_medium=social&amp;utm_campaign=linkinbio&amp;utm_content=malt"
+           class="btn btn--outline linkbio__cta"
+           target="_blank"
+           rel="noopener noreferrer"
+           data-cta="malt"
+           aria-label="Voir le profil Malt de Matthieu Viel (nouvel onglet)">
+          <span>
+            <span class="linkbio__cta-label">💼 Profil Malt</span>
+            <span class="linkbio__cta-sub">Avis vérifiés, missions freelance</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block footer %}
+  <footer class="linkbio__footer">
+    <p>© 2026 Matthieu Viel · <a href="{{ asset_base }}mentions-legales.html">Mentions légales</a></p>
+  </footer>
+{% endblock %}
+
+{% block before_scripts %}
+  <script>
+    (function () {
+      window.plausible = window.plausible || function () {
+        (window.plausible.q = window.plausible.q || []).push(arguments);
+      };
+      document.querySelectorAll('[data-cta]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          window.plausible('CTA Click', { props: { link: el.dataset.cta } });
+        });
+      });
+    })();
+  </script>
+{% endblock %}

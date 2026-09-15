@@ -7,30 +7,33 @@ window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
 /* ---- Menu burger (mobile) ---- */
+/* Absent sur les pages avec nav minimale (ex. tiktok.html) : on ignore ce bloc dans ce cas */
 const burger = document.getElementById('nav-burger');
 const navLinks = document.getElementById('nav-links');
 
-burger.addEventListener('click', () => {
-  const expanded = burger.getAttribute('aria-expanded') === 'true';
-  burger.setAttribute('aria-expanded', String(!expanded));
-  navLinks.classList.toggle('is-open', !expanded);
-});
-
-/* Ferme le menu si on clique sur un lien */
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    burger.setAttribute('aria-expanded', 'false');
-    navLinks.classList.remove('is-open');
+if (burger && navLinks) {
+  burger.addEventListener('click', () => {
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!expanded));
+    navLinks.classList.toggle('is-open', !expanded);
   });
-});
 
-/* Ferme le menu si on clique en dehors */
-document.addEventListener('click', (e) => {
-  if (!nav.contains(e.target)) {
-    burger.setAttribute('aria-expanded', 'false');
-    navLinks.classList.remove('is-open');
-  }
-});
+  /* Ferme le menu si on clique sur un lien */
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('is-open');
+    });
+  });
+
+  /* Ferme le menu si on clique en dehors */
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) {
+      burger.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('is-open');
+    }
+  });
+}
 
 /* ---- Active nav link on scroll ---- */
 const sections = document.querySelectorAll('section[id]');

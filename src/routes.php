@@ -28,6 +28,7 @@ function getPages(): array
         ['tech.html',              'tech.html.twig',              'fr', '',          'tech.html',              'en/index.html'],
         ['mentions-legales.html',  'mentions-legales.html.twig',  'fr', 'legal',     'mentions-legales.html',  'en/legal-notice.html'],
         ['quiz.html',              'quiz.html.twig',              'fr', 'quiz',      'quiz.html',              'en/index.html'],
+        ['tiktok.html',            'tiktok.html.twig',            'fr', 'tiktok',    'tiktok.html',            'en/index.html'],
         ['audit/index.html',       'audit/index.html.twig',       'fr', 'audit',     'audit/',                 'en/audit/'],
 
         ['en/index.html',           'en/index.html.twig',           'en', 'home',      'index.html',            'en/index.html'],

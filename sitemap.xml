@@ -69,6 +69,13 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.matthieu-viel.fr/tiktok.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
   <!-- Audit pages — FR -->
   <url>
     <loc>https://www.matthieu-viel.fr/audit/</loc>
