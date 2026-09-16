@@ -25,7 +25,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Matthieu Viel",
-    "jobTitle": "Senior web technology consultant",
+    "jobTitle": "Independent web developer",
     "url": "https://www.matthieu-viel.fr/en/",
     "image": "https://www.matthieu-viel.fr/assets/images/portrait.webp",
     "sameAs": [
@@ -260,13 +260,16 @@
 
     <section class="section--doors" id="doors" aria-labelledby="doors-title">
       <div class="container">
-        <h2 class="doors__title" id="doors-title">You are in the right place if...</h2>
+        <header class="section-header doors__header">
+          <p class="eyebrow">Where to start</p>
+          <h2 class="section-title" id="doors-title">You are in the right place if...</h2>
+        </header>
 
         <div class="doors__grid">
 
           <a class="door-card" href="#help">
             <span class="door-card__icon" aria-hidden="true">🙋</span>
-            <span class="door-card__title">I am not a technical person</span>
+            <span class="door-card__title">You are not a technical person</span>
             <span class="door-card__text">
               You run a business, not an IT department. You need someone reliable
               when things break, who answers and who explains.
@@ -276,7 +279,7 @@
 
           <a class="door-card" href="#tech">
             <span class="door-card__icon" aria-hidden="true">⚙️</span>
-            <span class="door-card__title">I have a technical team</span>
+            <span class="door-card__title">You have a technical team</span>
             <span class="door-card__text">
               You have a product, an application, developers. You need a senior
               outside view on what is blocking you.
@@ -291,13 +294,12 @@
     <section class="section" id="help" aria-labelledby="help-title">
       <div class="container">
         <header class="section-header">
-          <p class="eyebrow">No technical background needed</p>
+          <p class="eyebrow">You are not a technical person</p>
           <h2 class="section-title" id="help-title">
             What I actually do
           </h2>
-          <p class="section-subtitle">
-            You do not need to know how to name the problem. If you recognise yourself
-            in one of these situations, I can help.
+          <p class="section-subtitle section-subtitle--full">
+            You do not need to name the problem. If you recognise yourself here, I can help.
           </p>
         </header>
 
@@ -549,7 +551,7 @@
           <h2 class="section-title" id="tech-title">
             My work on products and applications
           </h2>
-          <p class="section-subtitle">
+          <p class="section-subtitle section-subtitle--full">
             From here on the vocabulary gets technical. If that is not your subject,
             <a href="#help">go back to the previous section</a>.
           </p>
@@ -728,7 +730,7 @@
         <header class="section-header">
           <p class="eyebrow">Technical audit</p>
           <h2 class="section-title" id="audit-title">Common use cases</h2>
-          <p class="section-subtitle">
+          <p class="section-subtitle section-subtitle--full">
             From diagnosis to implementation: a senior view, with no middleman.
           </p>
         </header>
@@ -803,7 +805,7 @@
 
           <div class="about__photo-wrap" aria-hidden="true">
             <img src="{{ asset_base }}assets/images/portrait.webp"
-                 alt="Matthieu Viel, senior web technology consultant based in Réunion Island"
+                 alt="Matthieu Viel, independent web developer based in Réunion Island"
                  class="about__photo"
                  width="360"
                  height="450"

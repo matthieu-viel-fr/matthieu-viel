@@ -1278,6 +1278,9 @@ details[open] > .faq__question::after { content: '−'; }
 .section-title--2xl { font-size: var(--fs-2xl); }
 .section-title--mb  { margin-bottom: 1.25rem; }
 
+/* Subtitle that should run the full container width, on one line */
+.section-subtitle--full { max-width: none; }
+
 /* Eyebrow on dark background */
 .eyebrow--light { color: #7dc4e8; }
 
@@ -1593,16 +1596,12 @@ details[open] > .faq__question::after { content: '−'; }
    ============================================================ */
 .section--doors {
   background: var(--clr-bg-alt);
-  padding-block: 3rem;
+  padding-block: 3.5rem;
   border-bottom: 1px solid var(--clr-border);
 }
 
-.doors__title {
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-semibold);
-  color: var(--clr-slate);
-  text-align: center;
-  margin-bottom: 1.75rem;
+.doors__header {
+  margin-bottom: 2rem;
 }
 
 .doors__grid {
