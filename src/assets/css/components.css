@@ -1,5 +1,5 @@
 /* ============================================================
-   CLIENTS MARQUEE — Ils m'ont fait confiance
+   CLIENTS MARQUEE : Ils m'ont fait confiance
    ============================================================ */
 
 /* Screen-reader only utility */
@@ -93,7 +93,7 @@
   animation-play-state: paused;
 }
 
-/* Respect user motion preference — show as static centered row */
+/* Respect user motion preference: show as static centered row */
 @media (prefers-reduced-motion: reduce) {
   .clients__track {
     animation: none;
@@ -146,7 +146,7 @@
   box-shadow: 0 1px 3px rgba(12,28,44,.1);
 }
 
-/* Quiz variant — overlaid on dark slide background */
+/* Quiz variant: overlaid on dark slide background */
 .lang-toggle--quiz {
   position: absolute;
   top: max(16px, calc(env(safe-area-inset-top, 0px) + 12px));
@@ -778,7 +778,7 @@
 }
 
 /* ============================================================
-   PORTFOLIO — Hero
+   PORTFOLIO : Hero
    ============================================================ */
 .portfolio-hero {
   padding-block: calc(var(--nav-height) + 4.5rem) 4rem;
@@ -834,7 +834,7 @@
 }
 
 /* ============================================================
-   PORTFOLIO — Pattern cards
+   PORTFOLIO : Pattern cards
    ============================================================ */
 .patterns__grid {
   display: grid;
@@ -884,7 +884,7 @@
 }
 
 /* ============================================================
-   PORTFOLIO — Featured cards
+   PORTFOLIO : Featured cards
    ============================================================ */
 .portfolio__featured {
   display: flex;
@@ -995,7 +995,7 @@
 }
 
 /* ============================================================
-   PORTFOLIO — CTA final
+   PORTFOLIO : CTA final
    ============================================================ */
 .portfolio-cta {
   max-width: 620px;
@@ -1027,7 +1027,7 @@
 }
 
 /* ============================================================
-   AUDIT PAGES — Shared inner-page styles
+   AUDIT PAGES : Shared inner-page styles
    ============================================================ */
 
 /* Back / breadcrumb link */
@@ -1231,7 +1231,7 @@ details[open] > .faq__question::after { content: '−'; }
 }
 
 /* ============================================================
-   AUDIT — Layout & utility classes
+   AUDIT : Layout & utility classes
    ============================================================ */
 
 /* CTA button group */
@@ -1292,16 +1292,16 @@ details[open] > .faq__question::after { content: '−'; }
 /* Step spacer (aria-hidden placeholder in steps grid) */
 .step--hidden { visibility: hidden; }
 
-/* Related audits — centered layout */
+/* Related audits: centered layout */
 .related-audits--center { justify-content: center; }
 
-/* Proof grid — 3-column override */
+/* Proof grid: 3-column override */
 .proof__grid--3col {
   margin-top: 3rem;
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* Section subtitle — auto-centered */
+/* Section subtitle: auto-centered */
 .section-subtitle--centered {
   margin-inline: auto;
   margin-bottom: 2rem;
@@ -1439,7 +1439,7 @@ details[open] > .faq__question::after { content: '−'; }
 }
 
 /* ============================================================
-   SALES PAGE — Hero centered variant
+   SALES PAGE : Hero centered variant
    ============================================================ */
 .hero--centered .hero__grid {
   grid-template-columns: 1fr;

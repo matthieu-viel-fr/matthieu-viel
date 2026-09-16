@@ -1,5 +1,5 @@
 /* ============================================================
-   RESPONSIVE — Mobile first breakpoints
+   RESPONSIVE : Mobile first breakpoints
    1024px → tablet landscape
     768px → tablet portrait / large mobile
     480px → small mobile
@@ -236,7 +236,7 @@
 }
 
 /* ============================================================
-   HOMEPAGE — audience doors & plain-language help cards
+   HOMEPAGE : audience doors & plain-language help cards
    ============================================================ */
 @media (max-width: 900px) {
   .help__grid { grid-template-columns: repeat(2, 1fr); }

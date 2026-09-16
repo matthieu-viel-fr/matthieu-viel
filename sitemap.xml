@@ -89,7 +89,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/contact.html"/>
   </url>
 
-  <!-- Audit pages — FR -->
+  <!-- Audit pages : FR -->
   <url>
     <loc>https://www.matthieu-viel.fr/audit/</loc>
     <lastmod>2026-05-13</lastmod>
@@ -180,7 +180,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/audit/faq/"/>
   </url>
 
-  <!-- Audit pages — EN -->
+  <!-- Audit pages : EN -->
   <url>
     <loc>https://www.matthieu-viel.fr/en/audit/</loc>
     <lastmod>2026-05-13</lastmod>
