@@ -6,6 +6,7 @@ nav:
   portfolio: "Portfolio"
   contact: "Contact"
   services: "My Services"
+  social: "Follow me"
 footer:
   tagline: "Senior web tech consultant · Saint-Pierre, Réunion Island"
   home: "Home"
@@ -13,8 +14,7 @@ footer:
   legal: "Legal notice"
   copy: "© 2026 Matthieu Viel"
   nav_label: "Footer links"
-  linkedin_label: "Matthieu Viel's LinkedIn profile (new tab)"
-  malt_label: "Matthieu Viel's Malt profile (new tab)"
+  social_label: "Find Matthieu Viel on LinkedIn, Instagram, TikTok and Malt"
 lang:
   fr: "🇫🇷 FR"
   en: "🇬🇧 EN"

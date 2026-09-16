@@ -32,6 +32,7 @@
         <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#about">{{ 'nav.about'|trans }}</a></li>
         <li><a href="{{ nav_base }}portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
+        <li><a href="{{ nav_base }}follow-me.html"{% if current_page == 'social' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.social'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#contact">{{ 'nav.contact'|trans }}</a></li>
         {% else %}
         <li><a href="{{ nav_base }}index.html#problemes">{{ 'nav.offers'|trans }}</a></li>
@@ -39,6 +40,7 @@
         <li><a href="{{ nav_base }}senior-tech.html"{% if current_page == 'senior' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.senior'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#a-propos">{{ 'nav.about'|trans }}</a></li>
         <li><a href="{{ nav_base }}portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
+        <li><a href="{{ nav_base }}me-suivre.html"{% if current_page == 'social' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.social'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#contact">{{ 'nav.contact'|trans }}</a></li>
         {% endif %}
       </ul>
@@ -87,19 +89,9 @@
           <li><a href="{{ nav_base }}mentions-legales.html"{% if current_page == 'legal' %} aria-current="page"{% endif %}>{{ 'footer.legal'|trans }}</a></li>
           {% endif %}
           <li>
-            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="{{ 'footer.linkedin_label'|trans }}">
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <a href="https://www.malt.com/profile/matthieuviel"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="{{ 'footer.malt_label'|trans }}">
-              Malt
+            <a href="{{ nav_base }}{{ locale == 'en' ? 'follow-me.html' : 'me-suivre.html' }}"{% if current_page == 'social' %} aria-current="page"{% endif %}
+               aria-label="{{ 'footer.social_label'|trans }}">
+              {{ 'nav.social'|trans }}
             </a>
           </li>
         </ul>

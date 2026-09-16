@@ -43,4 +43,13 @@ foreach ($iterator as $item) {
 }
 
 echo "✓ assets/\n";
+
+// Copy root-level server files (.htaccess, robots.txt, sitemap.xml) into
+// dist/ so they are picked up by the FTP deploy step, which only uploads dist/.
+$rootDir = dirname(__DIR__);
+foreach (['.htaccess', 'robots.txt', 'sitemap.xml'] as $file) {
+    copy($rootDir . '/' . $file, $distDir . '/' . $file);
+    echo "✓ {$file}\n";
+}
+
 echo "\nExport complete. Files written to dist/\n";
