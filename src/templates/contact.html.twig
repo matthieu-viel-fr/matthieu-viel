@@ -1,0 +1,298 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matthieu Viel · Contact : email, téléphone · Réunion 974{% endblock %}
+{% block meta_description %}Contactez Matthieu Viel par email, téléphone ou Calendly à Saint-Pierre 974, La Réunion. Suivez-le sur LinkedIn, Instagram, TikTok et Malt : sans jargon.{% endblock %}
+
+{% block og %}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/contact.html">
+  <meta property="og:title" content="Matthieu Viel · Contact : email, téléphone">
+  <meta property="og:description" content="Email, téléphone, Calendly, LinkedIn, Instagram, TikTok, Malt : tous les moyens de me contacter et de me suivre.">
+  <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/contact.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/contact.html">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/contact.html">
+{% endblock %}
+
+{% block schema_ld %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthieu Viel",
+    "jobTitle": "Développeur Fullstack Senior",
+    "url": "https://www.matthieu-viel.fr/contact.html",
+    "image": "https://www.matthieu-viel.fr/assets/images/portrait.webp",
+    "description": "Développeur fullstack indépendant à La Réunion, 17 ans d'expérience. Conseils informatiques sans jargon pour entrepreneurs et dirigeants de petite structure.",
+    "telephone": "+262693852812",
+    "email": "matthieu.viel.fr@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/",
+      "https://www.instagram.com/matthieuviel",
+      "https://www.tiktok.com/@matthieu.viel6",
+      "https://www.malt.com/profile/matthieuviel"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-Pierre",
+      "addressRegion": "La Réunion",
+      "postalCode": "97410",
+      "addressCountry": "FR"
+    }
+  }
+  </script>
+{% endblock %}
+
+{% block extra_styles %}
+  <style>
+    /* ---- Link-in-bio layout ---- */
+    .linkbio {
+      min-height: 100dvh;
+      padding: calc(var(--nav-height) + 2.5rem) 1.25rem 3rem;
+      background: linear-gradient(145deg, #f2f7fb 0%, #e4eef7 100%);
+      display: flex;
+      justify-content: center;
+    }
+
+    .linkbio__card {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .linkbio__avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      box-shadow: var(--shadow-md);
+      border: 3px solid var(--clr-white);
+      margin: 0 auto .875rem;
+    }
+
+    .linkbio__name {
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-extrabold);
+      color: var(--clr-navy);
+    }
+
+    .linkbio__location {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
+      color: var(--clr-muted);
+      margin-top: .3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .linkbio__headline {
+      font-size: clamp(1.375rem, 6vw, 1.75rem);
+      font-weight: var(--fw-extrabold);
+      line-height: 1.3;
+      color: var(--clr-navy);
+      margin-bottom: .875rem;
+    }
+
+    .linkbio__eyebrow { margin-bottom: .5rem; }
+
+    .linkbio__subheadline {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-extrabold);
+      line-height: 1.3;
+      color: var(--clr-navy);
+      margin-bottom: .875rem;
+    }
+
+    .linkbio__bio {
+      font-size: var(--fs-base);
+      color: var(--clr-slate);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .linkbio__section--secondary {
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--clr-border);
+    }
+
+    .linkbio__ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .linkbio__cta {
+      width: 100%;
+      min-height: 60px;
+      justify-content: center;
+      padding: 1rem 1.5rem;
+      font-size: var(--fs-base);
+      text-align: left;
+    }
+
+    .linkbio__cta-label {
+      display: block;
+      line-height: 1.35;
+      white-space: normal;
+    }
+    .linkbio__cta-sub {
+      display: block;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-regular);
+      line-height: 1.5;
+      margin-top: .2rem;
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+
+    /* Full opacity kept on the primary (filled) button: translucent text
+       there drops below WCAG AA contrast against the blue fill. */
+    .btn--outline .linkbio__cta-sub { opacity: .75; }
+
+    @media (max-width: 480px) {
+      .linkbio { padding-inline: 1rem; }
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <main class="linkbio">
+    <div class="linkbio__card">
+      <img src="{{ asset_base }}assets/images/portrait.webp"
+           alt="Matthieu Viel, développeur web freelance à Saint-Pierre, La Réunion"
+           class="linkbio__avatar"
+           width="96" height="96">
+
+      <p class="linkbio__name">Matthieu Viel</p>
+      <p class="linkbio__location">📍 Saint-Pierre · La Réunion 974 · Remote France entière</p>
+
+      <h1 class="linkbio__headline">Contactez-moi</h1>
+
+      <p class="linkbio__bio">
+        Décrivez-moi votre besoin en quelques lignes : un audit technique, un bug bloquant,
+        un projet à cadrer. Je réponds sous 24h.
+      </p>
+
+      <div class="linkbio__ctas" id="contact">
+        <a href="mailto:matthieu.viel.fr@gmail.com"
+           class="btn btn--primary linkbio__cta"
+           data-cta="email"
+           aria-label="Envoyer un email à Matthieu Viel">
+          <span>
+            <span class="linkbio__cta-label">✉️ M'écrire un email</span>
+            <span class="linkbio__cta-sub">matthieu.viel.fr@gmail.com · réponse sous 24h</span>
+          </span>
+        </a>
+
+        <a href="tel:+262693852812"
+           class="btn btn--outline linkbio__cta"
+           data-cta="phone"
+           aria-label="Appeler Matthieu Viel">
+          <span>
+            <span class="linkbio__cta-label">📞&nbsp;M'appeler</span>
+            <span class="linkbio__cta-sub">+262&nbsp;693&nbsp;85&nbsp;28&nbsp;12</span>
+          </span>
+        </a>
+
+        <a href="https://calendly.com/matthieu-viel-fr/30min"
+           class="btn btn--outline linkbio__cta"
+           target="_blank"
+           rel="noopener noreferrer"
+           data-cta="calendly"
+           aria-label="Réserver un échange gratuit sur Calendly (nouvel onglet)">
+          <span>
+            <span class="linkbio__cta-label">📅 Réserver un échange gratuit</span>
+            <span class="linkbio__cta-sub">Calendly · 30 minutes, sans engagement</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="linkbio__section--secondary" id="social">
+        <p class="eyebrow linkbio__eyebrow">Réseaux</p>
+        <h2 class="linkbio__subheadline">Suivez-moi pour des conseils informatiques sans jargon</h2>
+
+        <p class="linkbio__bio">
+          Sur LinkedIn, je partage des réflexes de sécurité informatique accessibles à tout
+          entrepreneur ou dirigeant de petite structure, pas seulement aux professionnels IT.
+          Sur Instagram et TikTok, une série de 9 vidéos tournée avec Marc Ah-Thione couvre
+          la sécurité et la qualité d'une application.
+        </p>
+
+        <div class="linkbio__ctas">
+          <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="linkedin"
+             aria-label="Voir le profil LinkedIn de Matthieu Viel (nouvel onglet)">
+            <span>
+              <span class="linkbio__cta-label">🔗 Suivez-moi sur LinkedIn</span>
+              <span class="linkbio__cta-sub">Conseils sécurité et informatique pour dirigeants</span>
+            </span>
+          </a>
+
+          <a href="https://www.instagram.com/matthieuviel"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="instagram"
+             aria-label="Voir le profil Instagram de Matthieu Viel (nouvel onglet)">
+            <span>
+              <span class="linkbio__cta-label">📸 Suivez-moi sur Instagram</span>
+              <span class="linkbio__cta-sub">La série avec Marc Ah-Thione, en coulisses</span>
+            </span>
+          </a>
+
+          <a href="https://www.tiktok.com/@matthieu.viel6"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="tiktok"
+             aria-label="Voir le profil TikTok de Matthieu Viel (nouvel onglet)">
+            <span>
+              <span class="linkbio__cta-label">🎬 Suivez-moi sur TikTok</span>
+              <span class="linkbio__cta-sub">Conseils informatiques en vidéos courtes</span>
+            </span>
+          </a>
+
+          <a href="https://www.malt.com/profile/matthieuviel"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="malt"
+             aria-label="Voir le profil Malt de Matthieu Viel (nouvel onglet)">
+            <span>
+              <span class="linkbio__cta-label">💼 Profil Malt</span>
+              <span class="linkbio__cta-sub">Avis vérifiés, missions freelance</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block before_scripts %}
+  <script>
+    (function () {
+      window.plausible = window.plausible || function () {
+        (window.plausible.q = window.plausible.q || []).push(arguments);
+      };
+      document.querySelectorAll('[data-cta]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          window.plausible('CTA Click', { props: { link: el.dataset.cta } });
+        });
+      });
+    })();
+  </script>
+{% endblock %}

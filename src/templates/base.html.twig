@@ -32,16 +32,14 @@
         <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#about">{{ 'nav.about'|trans }}</a></li>
         <li><a href="{{ nav_base }}portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
-        <li><a href="{{ nav_base }}follow-me.html"{% if current_page == 'social' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.social'|trans }}</a></li>
-        <li><a href="{{ nav_base }}index.html#contact">{{ 'nav.contact'|trans }}</a></li>
+        <li><a href="{{ nav_base }}contact.html#contact"{% if current_page == 'contact' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.contact'|trans }}</a></li>
         {% else %}
         <li><a href="{{ nav_base }}index.html#problemes">{{ 'nav.offers'|trans }}</a></li>
         <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
         <li><a href="{{ nav_base }}senior-tech.html"{% if current_page == 'senior' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.senior'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#a-propos">{{ 'nav.about'|trans }}</a></li>
         <li><a href="{{ nav_base }}portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
-        <li><a href="{{ nav_base }}me-suivre.html"{% if current_page == 'social' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.social'|trans }}</a></li>
-        <li><a href="{{ nav_base }}index.html#contact">{{ 'nav.contact'|trans }}</a></li>
+        <li><a href="{{ nav_base }}contact.html#contact"{% if current_page == 'contact' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.contact'|trans }}</a></li>
         {% endif %}
       </ul>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
@@ -89,7 +87,7 @@
           <li><a href="{{ nav_base }}mentions-legales.html"{% if current_page == 'legal' %} aria-current="page"{% endif %}>{{ 'footer.legal'|trans }}</a></li>
           {% endif %}
           <li>
-            <a href="{{ nav_base }}{{ locale == 'en' ? 'follow-me.html' : 'me-suivre.html' }}"{% if current_page == 'social' %} aria-current="page"{% endif %}
+            <a href="{{ nav_base }}contact.html#social"{% if current_page == 'contact' %} aria-current="page"{% endif %}
                aria-label="{{ 'footer.social_label'|trans }}">
               {{ 'nav.social'|trans }}
             </a>

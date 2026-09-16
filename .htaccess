@@ -10,5 +10,9 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 RewriteCond %{HTTP_HOST} ^matthieu-viel\.fr$ [NC]
 RewriteRule ^(.*)$ https://www.matthieu-viel.fr/$1 [R=301,L]
 
-# Retired TikTok-specific bio page → generic social hub
-RewriteRule ^tiktok\.html$ /me-suivre.html [R=301,L]
+# Retired TikTok-specific bio page → generic contact/social hub
+RewriteRule ^tiktok\.html$ /contact.html [R=301,L]
+
+# me-suivre.html renamed to contact.html (contact info now leads the page)
+RewriteRule ^me-suivre\.html$ /contact.html [R=301,L]
+RewriteRule ^en/follow-me\.html$ /en/contact.html [R=301,L]

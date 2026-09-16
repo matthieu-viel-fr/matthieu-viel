@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matthieu Viel · Me suivre sur les réseaux · Saint-Pierre 974</title>
-  <meta name="description" content="Retrouvez Matthieu Viel sur LinkedIn, Instagram, TikTok et Malt : conseils informatiques sans jargon pour entrepreneurs, série vidéo avec Marc Ah-Thione.">
+  <title>Matthieu Viel · Contact : email, téléphone · Réunion 974</title>
+  <meta name="description" content="Contactez Matthieu Viel par email, téléphone ou Calendly à Saint-Pierre 974, La Réunion. Suivez-le sur LinkedIn, Instagram, TikTok et Malt : sans jargon.">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.matthieu-viel.fr/me-suivre.html">
-  <meta property="og:title" content="Matthieu Viel · Me suivre sur les réseaux">
-  <meta property="og:description" content="LinkedIn, Instagram, TikTok, Malt : conseils informatiques sans jargon pour entrepreneurs et dirigeants de petite structure.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/contact.html">
+  <meta property="og:title" content="Matthieu Viel · Contact : email, téléphone">
+  <meta property="og:description" content="Email, téléphone, Calendly, LinkedIn, Instagram, TikTok, Malt : tous les moyens de me contacter et de me suivre.">
   <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://www.matthieu-viel.fr/me-suivre.html">
-  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/me-suivre.html">
-  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/follow-me.html">
-  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/me-suivre.html">
+  <link rel="canonical" href="https://www.matthieu-viel.fr/contact.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/contact.html">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/contact.html">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Matthieu Viel",
     "jobTitle": "Développeur Fullstack Senior",
-    "url": "https://www.matthieu-viel.fr/me-suivre.html",
+    "url": "https://www.matthieu-viel.fr/contact.html",
     "image": "https://www.matthieu-viel.fr/assets/images/portrait.webp",
     "description": "Développeur fullstack indépendant à La Réunion, 17 ans d'expérience. Conseils informatiques sans jargon pour entrepreneurs et dirigeants de petite structure.",
+    "telephone": "+262693852812",
+    "email": "matthieu.viel.fr@gmail.com",
     "sameAs": [
       "https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/",
       "https://www.instagram.com/matthieuviel",
@@ -92,6 +94,16 @@
       margin-bottom: .875rem;
     }
 
+    .linkbio__eyebrow { margin-bottom: .5rem; }
+
+    .linkbio__subheadline {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-extrabold);
+      line-height: 1.3;
+      color: var(--clr-navy);
+      margin-bottom: .875rem;
+    }
+
     .linkbio__bio {
       font-size: var(--fs-base);
       color: var(--clr-slate);
@@ -99,30 +111,46 @@
       margin-bottom: 2rem;
     }
 
+    .linkbio__section--secondary {
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--clr-border);
+    }
+
     .linkbio__ctas {
       display: flex;
       flex-direction: column;
-      gap: .875rem;
+      gap: 1rem;
       margin-bottom: 1.5rem;
     }
 
     .linkbio__cta {
       width: 100%;
-      min-height: 56px;
+      min-height: 60px;
       justify-content: center;
-      padding: .9rem 1.5rem;
+      padding: 1rem 1.5rem;
       font-size: var(--fs-base);
       text-align: left;
     }
 
-    .linkbio__cta-label { display: block; }
+    .linkbio__cta-label {
+      display: block;
+      line-height: 1.35;
+      white-space: normal;
+    }
     .linkbio__cta-sub {
       display: block;
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-medium);
-      opacity: .8;
-      margin-top: .1rem;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-regular);
+      line-height: 1.5;
+      margin-top: .2rem;
+      white-space: normal;
+      overflow-wrap: break-word;
     }
+
+    /* Full opacity kept on the primary (filled) button: translucent text
+       there drops below WCAG AA contrast against the blue fill. */
+    .btn--outline .linkbio__cta-sub { opacity: .75; }
 
     @media (max-width: 480px) {
       .linkbio { padding-inline: 1rem; }
@@ -149,12 +177,11 @@
         <li><a href="senior-tech.html">Missions Senior</a></li>
         <li><a href="index.html#a-propos">À propos</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="me-suivre.html" class="is-active" aria-current="page">Me suivre</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="contact.html#contact" class="is-active" aria-current="page">Contact</a></li>
               </ul>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
         <a href="" class="lang-toggle__btn lang-toggle__btn--active" hreflang="fr" aria-current="true">🇫🇷 FR</a>
-        <a href="en/follow-me.html" class="lang-toggle__btn" hreflang="en">🇬🇧 EN</a>
+        <a href="en/contact.html" class="lang-toggle__btn" hreflang="en">🇬🇧 EN</a>
       </div>
       <a href="https://calendly.com/matthieu-viel-fr/30min"
          class="btn btn--primary nav__cta"
@@ -178,77 +205,109 @@
            width="96" height="96">
 
       <p class="linkbio__name">Matthieu Viel</p>
-      <p class="linkbio__location">📍 Saint-Pierre · La Réunion 974</p>
+      <p class="linkbio__location">📍 Saint-Pierre · La Réunion 974 · Remote France entière</p>
 
-      <h1 class="linkbio__headline">Suivez-moi pour des conseils informatiques sans jargon</h1>
+      <h1 class="linkbio__headline">Contactez-moi</h1>
 
       <p class="linkbio__bio">
-        Développeur fullstack indépendant, 17 ans d'expérience. Sur LinkedIn, je partage des
-        réflexes de sécurité informatique accessibles à tout entrepreneur ou dirigeant de petite
-        structure, pas seulement aux professionnels IT. Sur Instagram et TikTok, une série de
-        9 vidéos tournée avec Marc Ah-Thione couvre la sécurité et la qualité d'une application.
+        Décrivez-moi votre besoin en quelques lignes : un audit technique, un bug bloquant,
+        un projet à cadrer. Je réponds sous 24h.
       </p>
 
-      <div class="linkbio__ctas">
-        <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
-           class="btn btn--outline linkbio__cta"
-           target="_blank"
-           rel="noopener noreferrer"
-           data-cta="linkedin"
-           aria-label="Voir le profil LinkedIn de Matthieu Viel (nouvel onglet)">
+      <div class="linkbio__ctas" id="contact">
+        <a href="mailto:matthieu.viel.fr@gmail.com"
+           class="btn btn--primary linkbio__cta"
+           data-cta="email"
+           aria-label="Envoyer un email à Matthieu Viel">
           <span>
-            <span class="linkbio__cta-label">🔗 Suivez-moi sur LinkedIn</span>
-            <span class="linkbio__cta-sub">Conseils sécurité et informatique pour dirigeants</span>
+            <span class="linkbio__cta-label">✉️ M'écrire un email</span>
+            <span class="linkbio__cta-sub">matthieu.viel.fr@gmail.com · réponse sous 24h</span>
           </span>
         </a>
 
-        <a href="https://www.instagram.com/matthieuviel"
+        <a href="tel:+262693852812"
            class="btn btn--outline linkbio__cta"
-           target="_blank"
-           rel="noopener noreferrer"
-           data-cta="instagram"
-           aria-label="Voir le profil Instagram de Matthieu Viel (nouvel onglet)">
+           data-cta="phone"
+           aria-label="Appeler Matthieu Viel">
           <span>
-            <span class="linkbio__cta-label">📸 Suivez-moi sur Instagram</span>
-            <span class="linkbio__cta-sub">La série avec Marc Ah-Thione, en coulisses</span>
-          </span>
-        </a>
-
-        <a href="https://www.tiktok.com/@matthieu.viel6"
-           class="btn btn--outline linkbio__cta"
-           target="_blank"
-           rel="noopener noreferrer"
-           data-cta="tiktok"
-           aria-label="Voir le profil TikTok de Matthieu Viel (nouvel onglet)">
-          <span>
-            <span class="linkbio__cta-label">🎬 Suivez-moi sur TikTok</span>
-            <span class="linkbio__cta-sub">Conseils informatiques en vidéos courtes</span>
-          </span>
-        </a>
-
-        <a href="https://www.malt.com/profile/matthieuviel"
-           class="btn btn--outline linkbio__cta"
-           target="_blank"
-           rel="noopener noreferrer"
-           data-cta="malt"
-           aria-label="Voir le profil Malt de Matthieu Viel (nouvel onglet)">
-          <span>
-            <span class="linkbio__cta-label">💼 Profil Malt</span>
-            <span class="linkbio__cta-sub">Avis vérifiés, missions freelance</span>
+            <span class="linkbio__cta-label">📞&nbsp;M'appeler</span>
+            <span class="linkbio__cta-sub">+262&nbsp;693&nbsp;85&nbsp;28&nbsp;12</span>
           </span>
         </a>
 
         <a href="https://calendly.com/matthieu-viel-fr/30min"
-           class="btn btn--primary linkbio__cta"
+           class="btn btn--outline linkbio__cta"
            target="_blank"
            rel="noopener noreferrer"
-           data-cta="contact"
+           data-cta="calendly"
            aria-label="Réserver un échange gratuit sur Calendly (nouvel onglet)">
           <span>
             <span class="linkbio__cta-label">📅 Réserver un échange gratuit</span>
             <span class="linkbio__cta-sub">Calendly · 30 minutes, sans engagement</span>
           </span>
         </a>
+      </div>
+
+      <div class="linkbio__section--secondary" id="social">
+        <p class="eyebrow linkbio__eyebrow">Réseaux</p>
+        <h2 class="linkbio__subheadline">Suivez-moi pour des conseils informatiques sans jargon</h2>
+
+        <p class="linkbio__bio">
+          Sur LinkedIn, je partage des réflexes de sécurité informatique accessibles à tout
+          entrepreneur ou dirigeant de petite structure, pas seulement aux professionnels IT.
+          Sur Instagram et TikTok, une série de 9 vidéos tournée avec Marc Ah-Thione couvre
+          la sécurité et la qualité d'une application.
+        </p>
+
+        <div class="linkbio__ctas">
+          <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="linkedin"
+             aria-label="Voir le profil LinkedIn de Matthieu Viel (nouvel onglet)">
+            <span>
+              <span class="linkbio__cta-label">🔗 Suivez-moi sur LinkedIn</span>
+              <span class="linkbio__cta-sub">Conseils sécurité et informatique pour dirigeants</span>
+            </span>
+          </a>
+
+          <a href="https://www.instagram.com/matthieuviel"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="instagram"
+             aria-label="Voir le profil Instagram de Matthieu Viel (nouvel onglet)">
+            <span>
+              <span class="linkbio__cta-label">📸 Suivez-moi sur Instagram</span>
+              <span class="linkbio__cta-sub">La série avec Marc Ah-Thione, en coulisses</span>
+            </span>
+          </a>
+
+          <a href="https://www.tiktok.com/@matthieu.viel6"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="tiktok"
+             aria-label="Voir le profil TikTok de Matthieu Viel (nouvel onglet)">
+            <span>
+              <span class="linkbio__cta-label">🎬 Suivez-moi sur TikTok</span>
+              <span class="linkbio__cta-sub">Conseils informatiques en vidéos courtes</span>
+            </span>
+          </a>
+
+          <a href="https://www.malt.com/profile/matthieuviel"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="malt"
+             aria-label="Voir le profil Malt de Matthieu Viel (nouvel onglet)">
+            <span>
+              <span class="linkbio__cta-label">💼 Profil Malt</span>
+              <span class="linkbio__cta-sub">Avis vérifiés, missions freelance</span>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   </main>
@@ -268,7 +327,7 @@
           <li><a href="audit/">Audit</a></li>
           <li><a href="mentions-legales.html">Mentions légales</a></li>
                     <li>
-            <a href="me-suivre.html" aria-current="page"               aria-label="Retrouver Matthieu Viel sur LinkedIn, Instagram, TikTok et Malt">
+            <a href="contact.html#social" aria-current="page"               aria-label="Retrouver Matthieu Viel sur LinkedIn, Instagram, TikTok et Malt">
               Me suivre
             </a>
           </li>

@@ -70,23 +70,23 @@
   </url>
 
   <url>
-    <loc>https://www.matthieu-viel.fr/me-suivre.html</loc>
+    <loc>https://www.matthieu-viel.fr/contact.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/me-suivre.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/follow-me.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/me-suivre.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/contact.html"/>
   </url>
 
   <url>
-    <loc>https://www.matthieu-viel.fr/en/follow-me.html</loc>
+    <loc>https://www.matthieu-viel.fr/en/contact.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/me-suivre.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/follow-me.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/me-suivre.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/contact.html"/>
   </url>
 
   <!-- Audit pages — FR -->

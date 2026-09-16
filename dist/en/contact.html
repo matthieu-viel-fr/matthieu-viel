@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matthieu Viel · Follow me on social media · Saint-Pierre</title>
-  <meta name="description" content="Find Matthieu Viel on LinkedIn, Instagram, TikTok and Malt: jargon-free IT advice for entrepreneurs and small business owners, video series with Marc Ah-Thione.">
+  <title>Matthieu Viel · Contact: Email &amp; Phone · Réunion Island</title>
+  <meta name="description" content="Contact Matthieu Viel in Réunion Island by email, phone or Calendly. Also follow him on LinkedIn, Instagram, TikTok and Malt for jargon-free IT advice.">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.matthieu-viel.fr/en/follow-me.html">
-  <meta property="og:title" content="Matthieu Viel · Follow me on social media">
-  <meta property="og:description" content="LinkedIn, Instagram, TikTok, Malt: jargon-free IT advice for entrepreneurs and small business owners.">
+  <meta property="og:url" content="https://www.matthieu-viel.fr/en/contact.html">
+  <meta property="og:title" content="Matthieu Viel · Contact: Email &amp; Phone">
+  <meta property="og:description" content="Email, phone, Calendly, LinkedIn, Instagram, TikTok, Malt: every way to reach or follow Matthieu Viel.">
   <meta property="og:image" content="https://www.matthieu-viel.fr/assets/images/portrait.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://www.matthieu-viel.fr/en/follow-me.html">
-  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/me-suivre.html">
-  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/follow-me.html">
-  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/me-suivre.html">
+  <link rel="canonical" href="https://www.matthieu-viel.fr/en/contact.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/contact.html">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/contact.html">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Matthieu Viel",
     "jobTitle": "Senior Fullstack Developer",
-    "url": "https://www.matthieu-viel.fr/en/follow-me.html",
+    "url": "https://www.matthieu-viel.fr/en/contact.html",
     "image": "https://www.matthieu-viel.fr/assets/images/portrait.webp",
     "description": "Independent fullstack developer in Réunion Island, 17 years of experience. Jargon-free IT advice for entrepreneurs and small business owners.",
+    "telephone": "+262693852812",
+    "email": "matthieu.viel.fr@gmail.com",
     "sameAs": [
       "https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/",
       "https://www.instagram.com/matthieuviel",
@@ -92,6 +94,16 @@
       margin-bottom: .875rem;
     }
 
+    .linkbio__eyebrow { margin-bottom: .5rem; }
+
+    .linkbio__subheadline {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-extrabold);
+      line-height: 1.3;
+      color: var(--clr-navy);
+      margin-bottom: .875rem;
+    }
+
     .linkbio__bio {
       font-size: var(--fs-base);
       color: var(--clr-slate);
@@ -99,30 +111,46 @@
       margin-bottom: 2rem;
     }
 
+    .linkbio__section--secondary {
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--clr-border);
+    }
+
     .linkbio__ctas {
       display: flex;
       flex-direction: column;
-      gap: .875rem;
+      gap: 1rem;
       margin-bottom: 1.5rem;
     }
 
     .linkbio__cta {
       width: 100%;
-      min-height: 56px;
+      min-height: 60px;
       justify-content: center;
-      padding: .9rem 1.5rem;
+      padding: 1rem 1.5rem;
       font-size: var(--fs-base);
       text-align: left;
     }
 
-    .linkbio__cta-label { display: block; }
+    .linkbio__cta-label {
+      display: block;
+      line-height: 1.35;
+      white-space: normal;
+    }
     .linkbio__cta-sub {
       display: block;
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-medium);
-      opacity: .8;
-      margin-top: .1rem;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-regular);
+      line-height: 1.5;
+      margin-top: .2rem;
+      white-space: normal;
+      overflow-wrap: break-word;
     }
+
+    /* Full opacity kept on the primary (filled) button: translucent text
+       there drops below WCAG AA contrast against the blue fill. */
+    .btn--outline .linkbio__cta-sub { opacity: .75; }
 
     @media (max-width: 480px) {
       .linkbio { padding-inline: 1rem; }
@@ -148,11 +176,10 @@
         <li><a href="audit/">Audit</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="follow-me.html" class="is-active" aria-current="page">Follow me</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="contact.html#contact" class="is-active" aria-current="page">Contact</a></li>
               </ul>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
-        <a href="../me-suivre.html" class="lang-toggle__btn" hreflang="fr">🇫🇷 FR</a>
+        <a href="../contact.html" class="lang-toggle__btn" hreflang="fr">🇫🇷 FR</a>
         <a href="" class="lang-toggle__btn lang-toggle__btn--active" hreflang="en" aria-current="true">🇬🇧 EN</a>
       </div>
       <a href="https://calendly.com/matthieu-viel-fr/30min"
@@ -177,77 +204,108 @@
            width="96" height="96">
 
       <p class="linkbio__name">Matthieu Viel</p>
-      <p class="linkbio__location">📍 Saint-Pierre · Réunion Island</p>
+      <p class="linkbio__location">📍 Saint-Pierre · Réunion Island · Remote across France</p>
 
-      <h1 class="linkbio__headline">Follow me for jargon-free IT advice</h1>
+      <h1 class="linkbio__headline">Contact me</h1>
 
       <p class="linkbio__bio">
-        Independent fullstack developer, 17 years of experience. On LinkedIn, I share IT
-        security habits that any entrepreneur or small business owner can use, not just IT
-        professionals. On Instagram and TikTok, a 9-video series filmed with Marc Ah-Thione
-        covers app security and code quality.
+        Describe what you need in a few lines: a technical audit, a blocking bug, a project
+        to scope. I reply within 24h.
       </p>
 
-      <div class="linkbio__ctas">
-        <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
-           class="btn btn--outline linkbio__cta"
-           target="_blank"
-           rel="noopener noreferrer"
-           data-cta="linkedin"
-           aria-label="View Matthieu Viel's LinkedIn profile (opens in a new tab)">
+      <div class="linkbio__ctas" id="contact">
+        <a href="mailto:matthieu.viel.fr@gmail.com"
+           class="btn btn--primary linkbio__cta"
+           data-cta="email"
+           aria-label="Send Matthieu Viel an email">
           <span>
-            <span class="linkbio__cta-label">🔗 Follow me on LinkedIn</span>
-            <span class="linkbio__cta-sub">Security and IT tips for business owners</span>
+            <span class="linkbio__cta-label">✉️ Send me an email</span>
+            <span class="linkbio__cta-sub">matthieu.viel.fr@gmail.com · reply within 24h</span>
           </span>
         </a>
 
-        <a href="https://www.instagram.com/matthieuviel"
+        <a href="tel:+262693852812"
            class="btn btn--outline linkbio__cta"
-           target="_blank"
-           rel="noopener noreferrer"
-           data-cta="instagram"
-           aria-label="View Matthieu Viel's Instagram profile (opens in a new tab)">
+           data-cta="phone"
+           aria-label="Call Matthieu Viel">
           <span>
-            <span class="linkbio__cta-label">📸 Follow me on Instagram</span>
-            <span class="linkbio__cta-sub">The series with Marc Ah-Thione, behind the scenes</span>
-          </span>
-        </a>
-
-        <a href="https://www.tiktok.com/@matthieu.viel6"
-           class="btn btn--outline linkbio__cta"
-           target="_blank"
-           rel="noopener noreferrer"
-           data-cta="tiktok"
-           aria-label="View Matthieu Viel's TikTok profile (opens in a new tab)">
-          <span>
-            <span class="linkbio__cta-label">🎬 Follow me on TikTok</span>
-            <span class="linkbio__cta-sub">Quick IT tips in short videos</span>
-          </span>
-        </a>
-
-        <a href="https://www.malt.com/profile/matthieuviel"
-           class="btn btn--outline linkbio__cta"
-           target="_blank"
-           rel="noopener noreferrer"
-           data-cta="malt"
-           aria-label="View Matthieu Viel's Malt profile (opens in a new tab)">
-          <span>
-            <span class="linkbio__cta-label">💼 Malt profile</span>
-            <span class="linkbio__cta-sub">Verified reviews, freelance missions</span>
+            <span class="linkbio__cta-label">📞&nbsp;Call&nbsp;me</span>
+            <span class="linkbio__cta-sub">+262&nbsp;693&nbsp;85&nbsp;28&nbsp;12</span>
           </span>
         </a>
 
         <a href="https://calendly.com/matthieu-viel-fr/30min"
-           class="btn btn--primary linkbio__cta"
+           class="btn btn--outline linkbio__cta"
            target="_blank"
            rel="noopener noreferrer"
-           data-cta="contact"
+           data-cta="calendly"
            aria-label="Book a free call on Calendly (opens in a new tab)">
           <span>
             <span class="linkbio__cta-label">📅 Book a free call</span>
             <span class="linkbio__cta-sub">Calendly · 30 minutes, no commitment</span>
           </span>
         </a>
+      </div>
+
+      <div class="linkbio__section--secondary" id="social">
+        <p class="eyebrow linkbio__eyebrow">Social</p>
+        <h2 class="linkbio__subheadline">Follow me for jargon-free IT advice</h2>
+
+        <p class="linkbio__bio">
+          On LinkedIn, I share IT security habits that any entrepreneur or small business
+          owner can use, not just IT professionals. On Instagram and TikTok, a 9-video series
+          filmed with Marc Ah-Thione covers app security and code quality.
+        </p>
+
+        <div class="linkbio__ctas">
+          <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="linkedin"
+             aria-label="View Matthieu Viel's LinkedIn profile (opens in a new tab)">
+            <span>
+              <span class="linkbio__cta-label">🔗 Follow me on LinkedIn</span>
+              <span class="linkbio__cta-sub">Security and IT tips for business owners</span>
+            </span>
+          </a>
+
+          <a href="https://www.instagram.com/matthieuviel"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="instagram"
+             aria-label="View Matthieu Viel's Instagram profile (opens in a new tab)">
+            <span>
+              <span class="linkbio__cta-label">📸 Follow me on Instagram</span>
+              <span class="linkbio__cta-sub">The series with Marc Ah-Thione, behind the scenes</span>
+            </span>
+          </a>
+
+          <a href="https://www.tiktok.com/@matthieu.viel6"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="tiktok"
+             aria-label="View Matthieu Viel's TikTok profile (opens in a new tab)">
+            <span>
+              <span class="linkbio__cta-label">🎬 Follow me on TikTok</span>
+              <span class="linkbio__cta-sub">Quick IT tips in short videos</span>
+            </span>
+          </a>
+
+          <a href="https://www.malt.com/profile/matthieuviel"
+             class="btn btn--outline linkbio__cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-cta="malt"
+             aria-label="View Matthieu Viel's Malt profile (opens in a new tab)">
+            <span>
+              <span class="linkbio__cta-label">💼 Malt profile</span>
+              <span class="linkbio__cta-sub">Verified reviews, freelance missions</span>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   </main>
@@ -266,7 +324,7 @@
           <li><a href="audit/">Audit</a></li>
           <li><a href="legal-notice.html">Legal notice</a></li>
                     <li>
-            <a href="follow-me.html" aria-current="page"               aria-label="Find Matthieu Viel on LinkedIn, Instagram, TikTok and Malt">
+            <a href="contact.html#social" aria-current="page"               aria-label="Find Matthieu Viel on LinkedIn, Instagram, TikTok and Malt">
               Follow me
             </a>
           </li>

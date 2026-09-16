@@ -28,13 +28,13 @@ function getPages(): array
         ['tech.html',              'tech.html.twig',              'fr', '',          'tech.html',              'en/index.html'],
         ['mentions-legales.html',  'mentions-legales.html.twig',  'fr', 'legal',     'mentions-legales.html',  'en/legal-notice.html'],
         ['quiz.html',              'quiz.html.twig',              'fr', 'quiz',      'quiz.html',              'en/index.html'],
-        ['me-suivre.html',         'me-suivre.html.twig',         'fr', 'social',    'me-suivre.html',         'en/follow-me.html'],
+        ['contact.html',           'contact.html.twig',           'fr', 'contact',   'contact.html',           'en/contact.html'],
         ['audit/index.html',       'audit/index.html.twig',       'fr', 'audit',     'audit/',                 'en/audit/'],
 
         ['en/index.html',           'en/index.html.twig',           'en', 'home',      'index.html',            'en/index.html'],
         ['en/portfolio.html',       'en/portfolio.html.twig',       'en', 'portfolio', 'portfolio.html',         'en/portfolio.html'],
         ['en/legal-notice.html',    'en/legal-notice.html.twig',    'en', 'legal',     'mentions-legales.html',  'en/legal-notice.html'],
-        ['en/follow-me.html',      'en/follow-me.html.twig',       'en', 'social',    'me-suivre.html',         'en/follow-me.html'],
+        ['en/contact.html',        'en/contact.html.twig',         'en', 'contact',   'contact.html',           'en/contact.html'],
         ['en/audit/index.html',     'en/audit/index.html.twig',     'en', 'audit',     'audit/',                 'en/audit/'],
     ];
 
