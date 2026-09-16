@@ -43,117 +43,93 @@
   }
   </script>
   <style>
-    /* ---- Link-in-bio layout ---- */
-    .linkbio {
-      min-height: 100dvh;
-      padding: calc(var(--nav-height) + 2.5rem) 1.25rem 3rem;
+    /* ---- Contact page : bandeau clair + bandeau blanc ---- */
+    .contact-band {
+      padding-block: calc(var(--nav-height) + 4rem) var(--section-v-pad);
       background: linear-gradient(145deg, #f2f7fb 0%, #e4eef7 100%);
+    }
+
+    .contact-band__header { margin-bottom: 3rem; }
+
+    .contact-identity {
       display: flex;
-      justify-content: center;
+      align-items: center;
+      gap: .875rem;
+      margin-bottom: 1.75rem;
     }
 
-    .linkbio__card {
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
-    }
-
-    .linkbio__avatar {
-      width: 96px;
-      height: 96px;
+    .contact-identity__avatar {
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
-      box-shadow: var(--shadow-md);
       border: 3px solid var(--clr-white);
-      margin: 0 auto .875rem;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
     }
 
-    .linkbio__name {
-      font-size: var(--fs-lg);
-      font-weight: var(--fw-extrabold);
+    .contact-identity__name {
+      font-size: var(--fs-base);
+      font-weight: var(--fw-bold);
       color: var(--clr-navy);
     }
 
-    .linkbio__location {
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
+    .contact-identity__location {
       font-size: var(--fs-xs);
       font-weight: var(--fw-medium);
-      color: var(--clr-muted);
-      margin-top: .3rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .linkbio__headline {
-      font-size: clamp(1.375rem, 6vw, 1.75rem);
-      font-weight: var(--fw-extrabold);
-      line-height: 1.3;
-      color: var(--clr-navy);
-      margin-bottom: .875rem;
-    }
-
-    .linkbio__eyebrow { margin-bottom: .5rem; }
-
-    .linkbio__subheadline {
-      font-size: var(--fs-xl);
-      font-weight: var(--fw-extrabold);
-      line-height: 1.3;
-      color: var(--clr-navy);
-      margin-bottom: .875rem;
-    }
-
-    .linkbio__bio {
-      font-size: var(--fs-base);
       color: var(--clr-slate);
-      line-height: 1.6;
-      margin-bottom: 2rem;
+      margin-top: .15rem;
     }
 
-    .linkbio__section--secondary {
-      margin-top: 2.5rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--clr-border);
+    .contact-band__title {
+      font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+      font-weight: var(--fw-extrabold);
+      line-height: 1.15;
+      color: var(--clr-navy);
+      margin-bottom: 1rem;
     }
 
-    .linkbio__ctas {
+    .contact-band__title em {
+      font-style: normal;
+      color: var(--clr-blue);
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .contact-cards--social { grid-template-columns: repeat(4, 1fr); }
+
+    .contact-card__icon {
+      width: 48px;
+      height: 48px;
+      background: var(--clr-blue-light);
+      border-radius: var(--radius-sm);
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .linkbio__cta {
-      width: 100%;
-      min-height: 60px;
+      align-items: center;
       justify-content: center;
-      padding: 1rem 1.5rem;
-      font-size: var(--fs-base);
-      text-align: left;
+      font-size: 1.4rem;
     }
 
-    .linkbio__cta-label {
-      display: block;
-      line-height: 1.35;
+    /* Les libellés de contact (email, numéro) sont longs : on autorise
+       le retour à la ligne, que .btn interdit par défaut. */
+    .contact-card .btn {
       white-space: normal;
-    }
-    .linkbio__cta-sub {
-      display: block;
-      font-size: var(--fs-sm);
-      font-weight: var(--fw-regular);
-      line-height: 1.5;
-      margin-top: .2rem;
-      white-space: normal;
-      overflow-wrap: break-word;
+      text-align: center;
+      justify-content: center;
     }
 
-    /* Full opacity kept on the primary (filled) button: translucent text
-       there drops below WCAG AA contrast against the blue fill. */
-    .btn--outline .linkbio__cta-sub { opacity: .75; }
+    @media (max-width: 1024px) {
+      .contact-cards--social { grid-template-columns: repeat(2, 1fr); }
+    }
 
-    @media (max-width: 480px) {
-      .linkbio { padding-inline: 1rem; }
+    @media (max-width: 768px) {
+      .contact-band { padding-block: calc(var(--nav-height) + 2.5rem) var(--section-v-pad); }
+      .contact-cards,
+      .contact-cards--social { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -177,7 +153,7 @@
         <li><a href="senior-tech.html">Missions Senior</a></li>
         <li><a href="index.html#a-propos">À propos</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html#contact" class="is-active" aria-current="page">Contact</a></li>
+        <li><a href="contact.html" class="is-active" aria-current="page">Contact</a></li>
               </ul>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
         <a href="" class="lang-toggle__btn lang-toggle__btn--active" hreflang="fr" aria-current="true">🇫🇷 FR</a>
@@ -197,119 +173,171 @@
     </div>
   </nav>
 
-  <main class="linkbio">
-    <div class="linkbio__card">
-      <img src="assets/images/portrait.webp"
-           alt="Matthieu Viel, développeur web freelance à Saint-Pierre, La Réunion"
-           class="linkbio__avatar"
-           width="96" height="96">
+  <main>
 
-      <p class="linkbio__name">Matthieu Viel</p>
-      <p class="linkbio__location">📍 Saint-Pierre · La Réunion 974 · Remote France entière</p>
+    <section class="contact-band" id="contact" aria-labelledby="contact-title">
+      <div class="container">
 
-      <h1 class="linkbio__headline">Contactez-moi</h1>
+        <header class="contact-band__header">
+          <div class="contact-identity">
+            <img src="assets/images/portrait.webp"
+                 alt="Matthieu Viel, développeur web freelance à Saint-Pierre, La Réunion"
+                 class="contact-identity__avatar"
+                 width="64" height="64">
+            <div>
+              <p class="contact-identity__name">Matthieu Viel</p>
+              <p class="contact-identity__location">📍 Saint-Pierre · La Réunion 974 · Remote France entière</p>
+            </div>
+          </div>
 
-      <p class="linkbio__bio">
-        Décrivez-moi votre besoin en quelques lignes : un audit technique, un bug bloquant,
-        un projet à cadrer. Je réponds sous 24h.
-      </p>
+          <p class="eyebrow">Contact</p>
+          <h1 class="contact-band__title" id="contact-title">
+            Contactez-moi<br>
+            <em>directement, sans intermédiaire</em>
+          </h1>
+          <p class="section-subtitle">
+            Un audit technique, un bug bloquant, un projet à cadrer : décrivez-moi votre
+            besoin en quelques lignes. Je réponds sous 24h.
+          </p>
+        </header>
 
-      <div class="linkbio__ctas" id="contact">
-        <a href="mailto:matthieu.viel.fr@gmail.com"
-           class="btn btn--primary linkbio__cta"
-           data-cta="email"
-           aria-label="Envoyer un email à Matthieu Viel">
-          <span>
-            <span class="linkbio__cta-label">✉️ M'écrire un email</span>
-            <span class="linkbio__cta-sub">matthieu.viel.fr@gmail.com · réponse sous 24h</span>
-          </span>
-        </a>
+        <div class="contact-cards">
 
-        <a href="tel:+262693852812"
-           class="btn btn--outline linkbio__cta"
-           data-cta="phone"
-           aria-label="Appeler Matthieu Viel">
-          <span>
-            <span class="linkbio__cta-label">📞&nbsp;M'appeler</span>
-            <span class="linkbio__cta-sub">+262&nbsp;693&nbsp;85&nbsp;28&nbsp;12</span>
-          </span>
-        </a>
+          <article class="case-card contact-card fade-up">
+            <div class="contact-card__icon" aria-hidden="true">✉️</div>
+            <h2 class="case-card__title">Email</h2>
+            <p class="case-card__text">
+              Le moyen le plus direct. Décrivez votre situation en quelques lignes,
+              je réponds sous 24h.
+            </p>
+            <a href="mailto:matthieu.viel.fr@gmail.com"
+               class="btn btn--primary"
+               data-cta="email"
+               aria-label="Envoyer un email à Matthieu Viel">
+              matthieu.viel.fr@gmail.com
+            </a>
+          </article>
 
-        <a href="https://calendly.com/matthieu-viel-fr/30min"
-           class="btn btn--outline linkbio__cta"
-           target="_blank"
-           rel="noopener noreferrer"
-           data-cta="calendly"
-           aria-label="Réserver un échange gratuit sur Calendly (nouvel onglet)">
-          <span>
-            <span class="linkbio__cta-label">📅 Réserver un échange gratuit</span>
-            <span class="linkbio__cta-sub">Calendly · 30 minutes, sans engagement</span>
-          </span>
-        </a>
-      </div>
+          <article class="case-card contact-card fade-up">
+            <div class="contact-card__icon" aria-hidden="true">📞</div>
+            <h2 class="case-card__title">Téléphone</h2>
+            <p class="case-card__text">
+              Pour une question rapide ou une mise en ligne urgente.
+              Heure de La Réunion, du lundi au vendredi.
+            </p>
+            <a href="tel:+262693852812"
+               class="btn btn--outline"
+               data-cta="phone"
+               aria-label="Appeler Matthieu Viel">
+              +262&nbsp;693&nbsp;85&nbsp;28&nbsp;12
+            </a>
+          </article>
 
-      <div class="linkbio__section--secondary" id="social">
-        <p class="eyebrow linkbio__eyebrow">Réseaux</p>
-        <h2 class="linkbio__subheadline">Suivez-moi pour des conseils informatiques sans jargon</h2>
+          <article class="case-card contact-card fade-up">
+            <div class="contact-card__icon" aria-hidden="true">📅</div>
+            <h2 class="case-card__title">Échange gratuit</h2>
+            <p class="case-card__text">
+              30 minutes d'échange suffisent à poser le diagnostic de départ.
+              Sans engagement.
+            </p>
+            <a href="https://calendly.com/matthieu-viel-fr/30min"
+               class="btn btn--outline"
+               target="_blank"
+               rel="noopener noreferrer"
+               data-cta="calendly"
+               aria-label="Réserver un échange gratuit de 30 minutes sur Calendly (nouvel onglet)">
+              Réserver un créneau →
+            </a>
+          </article>
 
-        <p class="linkbio__bio">
-          Sur LinkedIn, je partage des réflexes de sécurité informatique accessibles à tout
-          entrepreneur ou dirigeant de petite structure, pas seulement aux professionnels IT.
-          Sur Instagram et TikTok, une série de 9 vidéos tournée avec Marc Ah-Thione couvre
-          la sécurité et la qualité d'une application.
-        </p>
-
-        <div class="linkbio__ctas">
-          <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
-             class="btn btn--outline linkbio__cta"
-             target="_blank"
-             rel="noopener noreferrer"
-             data-cta="linkedin"
-             aria-label="Voir le profil LinkedIn de Matthieu Viel (nouvel onglet)">
-            <span>
-              <span class="linkbio__cta-label">🔗 Suivez-moi sur LinkedIn</span>
-              <span class="linkbio__cta-sub">Conseils sécurité et informatique pour dirigeants</span>
-            </span>
-          </a>
-
-          <a href="https://www.instagram.com/matthieuviel"
-             class="btn btn--outline linkbio__cta"
-             target="_blank"
-             rel="noopener noreferrer"
-             data-cta="instagram"
-             aria-label="Voir le profil Instagram de Matthieu Viel (nouvel onglet)">
-            <span>
-              <span class="linkbio__cta-label">📸 Suivez-moi sur Instagram</span>
-              <span class="linkbio__cta-sub">La série avec Marc Ah-Thione, en coulisses</span>
-            </span>
-          </a>
-
-          <a href="https://www.tiktok.com/@matthieu.viel6"
-             class="btn btn--outline linkbio__cta"
-             target="_blank"
-             rel="noopener noreferrer"
-             data-cta="tiktok"
-             aria-label="Voir le profil TikTok de Matthieu Viel (nouvel onglet)">
-            <span>
-              <span class="linkbio__cta-label">🎬 Suivez-moi sur TikTok</span>
-              <span class="linkbio__cta-sub">Conseils informatiques en vidéos courtes</span>
-            </span>
-          </a>
-
-          <a href="https://www.malt.com/profile/matthieuviel"
-             class="btn btn--outline linkbio__cta"
-             target="_blank"
-             rel="noopener noreferrer"
-             data-cta="malt"
-             aria-label="Voir le profil Malt de Matthieu Viel (nouvel onglet)">
-            <span>
-              <span class="linkbio__cta-label">💼 Profil Malt</span>
-              <span class="linkbio__cta-sub">Avis vérifiés, missions freelance</span>
-            </span>
-          </a>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="section" id="social" aria-labelledby="social-title">
+      <div class="container">
+
+        <header class="section-header">
+          <p class="eyebrow">Réseaux</p>
+          <h2 class="section-title" id="social-title">Suivez-moi pour des conseils informatiques sans jargon</h2>
+          <p class="section-subtitle">
+            Sur LinkedIn, des réflexes de sécurité accessibles à tout dirigeant de petite
+            structure. Sur Instagram et TikTok, une série de 9 vidéos tournée avec
+            Marc Ah-Thione sur la sécurité et la qualité d'une application.
+          </p>
+        </header>
+
+        <div class="contact-cards contact-cards--social">
+
+          <article class="case-card contact-card fade-up">
+            <div class="contact-card__icon" aria-hidden="true">🔗</div>
+            <h3 class="case-card__title">LinkedIn</h3>
+            <p class="case-card__text">
+              Des réflexes de sécurité informatique accessibles à tout entrepreneur,
+              pas seulement aux professionnels IT.
+            </p>
+            <a href="https://www.linkedin.com/in/matthieu-viel-consultant-web-reunion/"
+               class="btn btn--outline"
+               target="_blank"
+               rel="noopener noreferrer"
+               data-cta="linkedin"
+               aria-label="Voir le profil LinkedIn de Matthieu Viel (nouvel onglet)">
+              Voir le profil →
+            </a>
+          </article>
+
+          <article class="case-card contact-card fade-up">
+            <div class="contact-card__icon" aria-hidden="true">📸</div>
+            <h3 class="case-card__title">Instagram</h3>
+            <p class="case-card__text">
+              La série tournée avec Marc Ah-Thione, et les coulisses des tournages.
+            </p>
+            <a href="https://www.instagram.com/matthieuviel"
+               class="btn btn--outline"
+               target="_blank"
+               rel="noopener noreferrer"
+               data-cta="instagram"
+               aria-label="Voir le profil Instagram de Matthieu Viel (nouvel onglet)">
+              Voir le profil →
+            </a>
+          </article>
+
+          <article class="case-card contact-card fade-up">
+            <div class="contact-card__icon" aria-hidden="true">🎬</div>
+            <h3 class="case-card__title">TikTok</h3>
+            <p class="case-card__text">
+              Les mêmes conseils informatiques, en vidéos courtes.
+            </p>
+            <a href="https://www.tiktok.com/@matthieu.viel6"
+               class="btn btn--outline"
+               target="_blank"
+               rel="noopener noreferrer"
+               data-cta="tiktok"
+               aria-label="Voir le profil TikTok de Matthieu Viel (nouvel onglet)">
+              Voir le profil →
+            </a>
+          </article>
+
+          <article class="case-card contact-card fade-up">
+            <div class="contact-card__icon" aria-hidden="true">💼</div>
+            <h3 class="case-card__title">Malt</h3>
+            <p class="case-card__text">
+              Profil freelance, avis vérifiés et missions passées.
+            </p>
+            <a href="https://www.malt.com/profile/matthieuviel"
+               class="btn btn--outline"
+               target="_blank"
+               rel="noopener noreferrer"
+               data-cta="malt"
+               aria-label="Voir le profil Malt de Matthieu Viel (nouvel onglet)">
+              Voir le profil →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
