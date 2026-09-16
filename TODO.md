@@ -7,27 +7,199 @@ full project analysis.
 ## Context
 
 - Static personal website for Matthieu Viel, senior web technical consultant in La Reunion.
-- No framework and no build system today: hand-authored HTML/CSS/JS.
-- Main positioning: help SME leaders whose digital tools are starting to show limits.
-- Strong proof points to preserve: 17 years experience, Citeo, Sellermania, 500+ Cypress scenarios, 70% test coverage, Saint-Pierre 974, ECP Formation, UTOI 117 km.
+- No framework. Twig templates under `src/templates/` are the source, exported
+  to the static `dist/` tree by `php src/export.php`. Never edit `dist/` by hand,
+  it is regenerated. The rest of this backlog is not yet updated for that layout,
+  see item A6.
+- Main positioning since 2026-09-16: help non-technical business owners whose site
+  or tools have broken, been hacked, or been abandoned by their provider. Senior
+  technical consulting is still on the site, behind a labelled second door, and
+  still carries the recruiter and CTO signal. Source of truth for positioning:
+  `visibilite/actions/positionnement.md`.
+- Strong proof points to preserve: 18 years experience (started September 2008), Citeo, Sellermania, 500+ Cypress scenarios, 70% test coverage, Saint-Pierre 974, ECP Formation, UTOI 117 km.
 - Tone reference: `seed/presentation_matthieu.txt`.
 - Project rules: `CLAUDE.md`.
 
 ## Done
 
-### Remove AI-generated em dashes — all pages ✓
+### Remove AI-generated em dashes, every served file (finished 2026-09-16, `88fbc53`)
 
-All "—" (em dash) symbols removed from the entire site and replaced with contextually appropriate punctuation:
+The first pass cleaned body copy only. Titles, og:titles, meta descriptions, CSS
+comments, HTML comments and `sitemap.xml` comments still carried em dashes until
+2026-09-16. Replacement is by role, not blind:
 - `:` where the dash introduced an explanation or clarification
 - `,` where the dash connected two clauses or expressed contrast
 - `.` where the dash separated two independent sentences
-- `·` for visual list bullets (FAQ pricing/timeline lists)
+- `·` where the dash separated title segments, which is the separator the site
+  already uses and keeps the character count identical
 
-Affected files: `index.html`, `en/index.html`, `site-web-14-jours.html`, `en/website-14-days.html`, `portfolio.html`, `en/portfolio.html`, `quiz.html`, all `audit/` and `en/audit/` pages.
+Verified: zero em dashes across all 29 pages in `dist/`, the CSS, the JS and the
+sitemap. Internal files that are never served still carry them, see item A8.
 
 ### Remove `<em>` tags from hero titles ✓
 
 `<em>` tags in `site-web-14-jours.html` and `en/website-14-days.html` replaced with `<span class="hero__title-highlight">`. CSS rule updated from `.hero__title em` to `.hero__title-highlight`.
+
+## Raised 2026-09-16, Homepage Repositioning Session
+
+The homepage was restructured to lead with plain-language help for non-technical
+business owners, keeping the technical content behind a labelled second door
+(commits `753ec6b` and `88fbc53`). The points below were found during that work
+and deliberately left untouched. Ranked most important first.
+
+### A1. `--clr-muted` fails WCAG AA on white
+
+Current issue:
+- `--clr-muted` (`#718ea4`) on `--clr-bg` gives a contrast ratio of 3.16:1.
+- `CLAUDE.md` rule 4 requires at least 4.5:1 on all text, so this is a live
+  violation of a non-negotiable rule, not a nice-to-have.
+- Five selectors use it, all small text, all shipping on every page:
+  `.nav__logo-tagline`, `.hero__stat-label`, `.testimonial__role`,
+  `.portfolio-hero__stat-label`, `.offer-price-sep`.
+- The homepage components added on 2026-09-16 avoid the token on purpose and use
+  `--clr-slate` (8.1:1) instead, so the fix is a token change, not a rewrite.
+
+Files likely involved:
+- `src/assets/css/main.css` (token definition, `.nav__logo-tagline`, `.hero__stat-label`)
+- `src/assets/css/components.css`
+
+Acceptance checks:
+- The token reaches at least 4.5:1 on both `--clr-bg` (`#ffffff`) and
+  `--clr-bg-alt` (`#f2f7fb`). `#5a7386` measures 4.96:1 and 4.60:1 and is a
+  reasonable starting point, but verify rather than trust it.
+- Visual check on home, portfolio and one audit page: the muted text must stay
+  visibly secondary to `--clr-slate`, otherwise the hierarchy flattens.
+- Consider a separate darker token if one call site genuinely needs the lighter
+  grey on a dark background.
+
+### A2. Meta descriptions are far too long on the audit pages
+
+Current issue:
+- Measured on 2026-09-16 across the 29 exported pages: 20 descriptions and 9
+  titles fall outside the ranges required by `CLAUDE.md`.
+- Descriptions run from 113 to 231 characters against a 150-160 target. The worst
+  are `en/audit/technical-debt-saas-application` (231),
+  `audit/tests-automatises-application` (226) and
+  `en/audit/automated-tests-application` (215). Anything past roughly 160 is
+  truncated in search results, so the benefit statement is cut mid-sentence.
+- Too short at the other end: `en/portfolio` (113), `en/legal-notice` (116),
+  `mentions-legales` (124).
+- Titles past 60: the six EN audit pages (61 to 65) and `portfolio.html` (66).
+  Titles under 55: `en/legal-notice` (53) and `quiz.html` (53).
+- This predates the repositioning work. The em dash pass moved only three pages
+  by one or two characters, all of them closer to the target.
+
+Files likely involved:
+- All templates under `src/templates/audit/` and `src/templates/en/audit/`
+- `src/templates/portfolio.html.twig`, `src/templates/en/portfolio.html.twig`
+- `src/templates/quiz.html.twig`, `src/templates/en/legal-notice.html.twig`
+
+Acceptance checks:
+- Every page lands inside 55-60 for the title and 150-160 for the description,
+  or the rule in `CLAUDE.md` is consciously relaxed and the file updated to say so.
+- Rewrites keep the primary keyword and the location, and stay a benefit
+  statement rather than a truncated list of features.
+- Pairs with items 7 and 19, which add the automated check. Do the measurement
+  test first so the rewrite has a pass/fail signal.
+
+### A3. No testimonial speaks to the non-technical audience
+
+Current issue:
+- The homepage now leads with business owners who have no IT background, but the
+  three testimonials are signed Head of IT (Citeo), CEO (Sellermania) and Lead
+  Dev (Néosylva).
+- They work perfectly for the second door and for recruiters. They say nothing to
+  someone whose site is down and who wants to know they will be treated kindly.
+- The whole point of the first door is that the visitor recognises themselves.
+  The social proof currently contradicts that.
+
+Acceptance checks:
+- At least one testimonial from a non-technical client, placed first in the
+  `#preuves` section, mentioning plain speech or reassurance rather than velocity
+  or code quality.
+- FR and EN in sync as always.
+- Wait for a real quote. Do not write a plausible one.
+
+### A4. Decide the offer model for the non-technical segment
+
+Current issue:
+- No price, no package and no retainer appear anywhere on the site. That is a
+  deliberate decision taken on 2026-09-16: not enough client feedback yet, and
+  Matthieu prefers being underpaid to not being paid at all while he learns the
+  segment.
+- The open question, still undecided in `visibilite/actions/positionnement.md`,
+  is whether to split reactive break/fix billed per incident from proactive
+  monthly support.
+- Reactive work fills a calendar without building an asset. If volume arrives,
+  the retainer stops being a bonus and becomes the thing that makes the segment
+  viable at the 4000 euro per month target.
+
+Acceptance checks:
+- Revisit once there is real volume, not before.
+- If a retainer is adopted, the CTA in the `#aide` section and step 2 of
+  `#deroulement` both change, and `hasOfferCatalog` in the homepage JSON-LD gains
+  an entry.
+- Keep `visibilite/actions/positionnement.md` as the source of truth for the
+  decision and mirror it here, not the other way round.
+
+### A5. `quiz.html` is intentionally orphaned
+
+Current issue:
+- The quiz is no longer linked from anywhere on the site. The CTA was removed
+  from the homepage on 2026-09-16 because it no longer fits the positioning.
+- The page is still built, still routed in `src/routes.php` and still listed in
+  `sitemap.xml`, on purpose: LinkedIn posts still point at it and those links
+  must keep working.
+- Without this note a future session will read the orphan either as a bug to fix
+  by re-adding a link, or as dead code to delete. Both would be wrong.
+
+Acceptance checks:
+- Keep the page reachable at its current URL until the LinkedIn links are retired.
+- Do not re-link it from the homepage without revisiting the positioning.
+- Revisit the whole page if and when it is genuinely retired, see item 14.
+
+### A6. This backlog still describes the pre-Twig layout
+
+Current issue:
+- Items 4 to 22 reference root-level files such as `index.html`, `assets/images/`
+  and `tests/links.test.js` as if the site were still hand-authored HTML. The
+  site is now Twig templates under `src/templates/`, exported to `dist/`.
+- `site-web-14-jours.html` and `en/website-14-days.html` are referenced in three
+  places and no longer exist.
+- Item 9 asks to convert JPG assets to WebP. All 11 images are already WebP, so
+  the item is done and should be closed.
+- A session that trusts these paths wastes time or edits `dist/`, which is
+  regenerated and would silently lose the work.
+
+Acceptance checks:
+- Every file path in this backlog points at something that exists.
+- Items that are already done are moved to the Done section with a date.
+- The Context section states clearly that `src/templates/` is the source and
+  `dist/` is generated by `php src/export.php`.
+
+### A7. Nav wraps at 1024px
+
+Current issue:
+- Between roughly 900px and 1100px the nav puts "À propos" on two lines.
+- This predates the repositioning. It used to be worse: two items wrapped before
+  `nav.senior` was shortened from "Missions Senior" to "Missions" on 2026-09-16.
+- Reviewed on 2026-09-16 and judged not a problem. Recorded for completeness only.
+
+Acceptance checks:
+- Only act on this if it starts bothering someone. Reducing the nav gap or moving
+  the burger breakpoint up would both work.
+
+### A8. Em dashes remain in files that are never served
+
+Current issue:
+- `README.md` (7), `TODO.md` (10), `CLAUDE.md` (7) and `tests/links.test.js` (1)
+  still contain em dashes.
+- None of them reach a visitor, so the rule does not strictly apply. Noted so the
+  next grep does not read as a regression.
+
+Acceptance checks:
+- Purely cosmetic. Clean them only as a side effect of editing those files for
+  another reason.
 
 ## Priority 0 — Safety And Production Hygiene
 
