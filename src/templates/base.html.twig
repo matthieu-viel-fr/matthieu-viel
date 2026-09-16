@@ -22,19 +22,19 @@
   {% block nav %}
   <nav class="nav" id="nav" aria-label="{{ locale == 'en' ? 'Main navigation' : 'Navigation principale' }}">
     <div class="container nav__inner">
-      <a href="{{ nav_base }}index.html" class="nav__logo" aria-label="Matthieu Viel — {{ locale == 'en' ? 'Home' : 'Accueil' }}">
+      <a href="{{ nav_base }}index.html" class="nav__logo" aria-label="Matthieu Viel · {{ locale == 'en' ? 'Home' : 'Accueil' }}">
         <span class="nav__logo-name">Matthieu Viel</span>
         <span class="nav__logo-tagline">{{ locale == 'en' ? 'Senior web tech consultant' : 'Consultant technique web' }}</span>
       </a>
       <ul class="nav__links" id="nav-links">
         {% if locale == 'en' %}
-        <li><a href="{{ nav_base }}index.html#services">{{ 'nav.services'|trans }}</a></li>
+        <li><a href="{{ nav_base }}index.html#help">{{ 'nav.services'|trans }}</a></li>
         <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#about">{{ 'nav.about'|trans }}</a></li>
         <li><a href="{{ nav_base }}portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
         <li><a href="{{ nav_base }}contact.html"{% if current_page == 'contact' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.contact'|trans }}</a></li>
         {% else %}
-        <li><a href="{{ nav_base }}index.html#problemes">{{ 'nav.offers'|trans }}</a></li>
+        <li><a href="{{ nav_base }}index.html#aide">{{ 'nav.offers'|trans }}</a></li>
         <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
         <li><a href="{{ nav_base }}senior-tech.html"{% if current_page == 'senior' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.senior'|trans }}</a></li>
         <li><a href="{{ nav_base }}index.html#a-propos">{{ 'nav.about'|trans }}</a></li>

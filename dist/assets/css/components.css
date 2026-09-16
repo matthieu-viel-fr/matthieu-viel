@@ -1587,3 +1587,137 @@ details[open] > .faq__question::after { content: '−'; }
   color: var(--clr-slate);
   line-height: 1.75;
 }
+
+/* ============================================================
+   AUDIENCE DOORS (homepage router, right under the hero)
+   ============================================================ */
+.section--doors {
+  background: var(--clr-bg-alt);
+  padding-block: 3rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.doors__title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-slate);
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.doors__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.door-card {
+  display: block;
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  text-decoration: none;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.door-card:hover,
+.door-card:focus-visible {
+  border-color: var(--clr-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.door-card__icon {
+  display: block;
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: .875rem;
+}
+
+.door-card__title {
+  display: block;
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--clr-navy);
+  line-height: 1.25;
+  margin-bottom: .5rem;
+}
+
+.door-card__text {
+  display: block;
+  font-size: var(--fs-sm);
+  color: var(--clr-slate);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.door-card__link {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-blue-dark);
+}
+
+/* ============================================================
+   PLAIN-LANGUAGE HELP CARDS (non-technical audience)
+   ============================================================ */
+.help__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.help-card {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.625rem;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.help-card:hover {
+  border-color: var(--clr-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.help-card__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: .875rem;
+}
+
+.help-card__title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--clr-navy);
+  line-height: 1.3;
+  margin-bottom: .5rem;
+}
+
+.help-card__text {
+  font-size: var(--fs-sm);
+  color: var(--clr-slate);
+  line-height: 1.7;
+}
+
+.help__cta {
+  text-align: center;
+  margin-top: 2.75rem;
+}
+
+.help__cta-note {
+  font-size: var(--fs-sm);
+  color: var(--clr-slate);
+  margin-top: .875rem;
+}
+
+/* Inline link inside a section subtitle (door 2 back-reference) */
+.section-subtitle a {
+  color: var(--clr-blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section-subtitle a:hover { color: var(--clr-navy); }

@@ -104,6 +104,8 @@ ul, ol { list-style: none; }
   padding-inline: 1.5rem;
 }
 
+.container--narrow { max-width: 780px; }
+
 .section {
   padding-block: var(--section-v-pad);
 }
