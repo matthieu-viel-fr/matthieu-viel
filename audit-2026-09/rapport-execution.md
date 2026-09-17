@@ -197,3 +197,58 @@ servent son objectif ; ils sont signalés ici pour relecture.
 absents, zéro `priority` ou `changefreq`, `dist/sitemap.xml` synchronisé.
 `robots.txt` inchangé et cohérent : il autorise le crawl, ce qui est nécessaire pour
 que la balise `noindex` du quiz soit effectivement lue. `npm test` au vert.
+
+## QW07 · Redimensionner les images et créer une vraie `og:image`
+
+**Statut :** fait. Commit à suivre. Visuel validé par Matthieu.
+
+**Redimensionnements.**
+
+| Fichier | Avant | Après |
+|---|---|---|
+| `portrait.webp` | 1600 × 1600, 57 ko | 800 × 800, 20 ko |
+| `hero-banner.webp` | 1600 × 400, 40 ko | 1200 × 300, 22 ko |
+| `site-mockup.webp` | 1600 × 836, 58 ko | 1200 × 627, 33 ko |
+| `cta-quiz.webp` | 1600 × 836, 48 ko | 1200 × 627, 29 ko |
+
+Le portrait est l'image chargée en `eager` dans le hero : le navigateur décodait
+2,56 millions de pixels pour en afficher 160 000. Le coût se payait en mémoire et en
+temps de décodage sur mobile, pas seulement en octets. L'original 1600 × 1600 est
+archivé dans `seed/`, qui est hors dépôt, pour toute régénération future.
+
+**Image de partage.** `og-cover.jpg` et `og-cover-en.jpg` en 1200 × 630, composées
+sur le fond navy de la charte, portrait recadré depuis l'original, typographie Inter
+instanciée depuis le woff2 auto-hébergé en QW06, donc aucune fausse graisse.
+Deux versions parce que le visuel porte le métier, « Développeur web indépendant »
+d'un côté et « Independent web developer » de l'autre. Les balises `og:image:width`,
+`og:image:height`, `og:image:alt` et `twitter:image` accompagnent désormais chaque
+`og:image` sur les 28 templates concernés, dans les deux langues.
+
+**Déviation assumée à la règle 3, à signaler.** CLAUDE.md impose le WebP uniquement.
+L'image de partage est en JPEG, sur décision de Matthieu. Raison : certains
+agrégateurs sociaux lisent mal le WebP, et un aperçu vide serait pire que le
+recadrage imprévisible que cette fiche corrige. Le surcoût est nul, cette image
+n'est jamais chargée par un visiteur du site, uniquement par les crawlers, donc les
+55 ko ne pèsent sur aucune page. Les variantes WebP ont été retirées du dépôt et de
+`dist/` plutôt que laissées inutilisées.
+
+**Double usage du portrait, point 3 de la fiche.** Vérifié, aucun correctif
+nécessaire. La CSS applique déjà `object-fit: cover` et `object-position: center top`
+aux deux usages. Dans le hero, source carrée dans un cadre carré, donc aucun
+recadrage. Dans la section à propos, le cadre 4:5 rogne 45 px de chaque côté à
+l'horizontale et rien à la verticale : le visage reste entier et centré. Le cadrage
+est donc intentionnel et correct, ni second fichier ni modification de CSS.
+
+**Découverte non prévue par la fiche.** `hero-banner.webp`, `site-mockup.webp` et
+`cta-quiz.webp` ne sont référencés nulle part, ni dans les templates, ni dans la CSS,
+ni dans le JS. La fiche les décrivait comme « affichés en taille variable », ils ne
+sont en réalité pas affichés du tout. Ils ont été redimensionnés quand même, sans
+risque, mais leur sort reste à trancher : restes d'une ancienne maquette à supprimer,
+ou assets en attente d'un usage. Environ 85 ko déployés pour rien en attendant.
+
+**Vérifications :** zéro `<img>` sans `width`, zéro sans `alt`, les 14 images de
+l'accueil conservent leurs `width`, `height` et `loading`. `npm test` : 142 au vert.
+
+**Reste à faire après déploiement :** vérifier l'aperçu réel avec le Post Inspector
+de LinkedIn, qui force aussi le rafraîchissement du cache, et par un partage WhatsApp
+avec soi-même.
