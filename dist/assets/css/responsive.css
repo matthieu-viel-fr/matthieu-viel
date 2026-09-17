@@ -5,33 +5,23 @@
     480px → small mobile
    ============================================================ */
 
+/* ---- 1025-1200px : full bar, tightened ----
+   The bar still shows every link here, but the FR one (six links plus the
+   CTA) needs more room than the container offers, so the spacing tightens
+   rather than letting labels wrap. */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .nav__inner { gap: 1.25rem; }
+  .nav__links { gap: 1rem; }
+  .nav__cta { padding-inline: 1.125rem; }
+}
+
 /* ---- 1024px ---- */
 @media (max-width: 1024px) {
   :root { --section-v-pad: 4rem; }
 
-  .hero__grid {
-    grid-template-columns: 1fr 340px;
-    gap: 3rem;
-  }
-
-  .proof__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about__grid {
-    grid-template-columns: 280px 1fr;
-    gap: 2.5rem;
-  }
-}
-
-/* ---- 768px ---- */
-@media (max-width: 768px) {
-  :root {
-    --section-v-pad: 3.5rem;
-    --nav-height: 64px;
-  }
-
-  /* Nav */
+  /* Nav: below this width the full bar no longer fits, so it collapses
+     into the burger panel. Same breakpoint in FR and EN, even though the
+     FR bar is the wider of the two, so both languages behave alike. */
   .nav__links {
     display: none;
     position: fixed;
@@ -57,8 +47,43 @@
 
   .nav__links li:last-child a { border-bottom: none; }
 
+  /* The bar CTA gives way to its copy inside the panel, which keeps the
+     booking link reachable at every width. */
   .nav__cta { display: none; }
+  .nav__links-cta { display: block; padding: 1rem 1.5rem 0; }
+  /* li + class, so it outranks the .nav__links li a panel rule above. */
+  .nav__links li.nav__links-cta a {
+    display: flex;
+    justify-content: center;
+    padding: .875rem 1.5rem;
+    font-size: var(--fs-base);
+    border-bottom: none;
+  }
+
   .nav__burger { display: flex; }
+
+  .hero__grid {
+    grid-template-columns: 1fr 340px;
+    gap: 3rem;
+  }
+
+  .proof__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about__grid {
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* ---- 768px ---- */
+@media (max-width: 768px) {
+  :root {
+    --section-v-pad: 3.5rem;
+    --nav-height: 64px;
+  }
+
   .lang-toggle { gap: 1px; }
   .lang-toggle__btn { padding: .2rem .5rem; }
 

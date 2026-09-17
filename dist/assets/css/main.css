@@ -197,12 +197,14 @@ ul, ol { list-style: none; }
   font-size: var(--fs-base);
   font-weight: var(--fw-bold);
   color: var(--clr-navy);
+  white-space: nowrap;
 }
 
 .nav__logo-tagline {
   font-size: var(--fs-xs);
   color: var(--clr-muted);
   font-weight: var(--fw-medium);
+  white-space: nowrap;
 }
 
 .nav__links {
@@ -211,16 +213,25 @@ ul, ol { list-style: none; }
   gap: 1.75rem;
 }
 
+/* The bar must never wrap a label or squeeze the CTA: it collapses into
+   the burger instead (see responsive.css), so nothing here may shrink. */
+.nav__links li,
+.nav__cta { flex-shrink: 0; }
+
 .nav__links a {
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
   color: var(--clr-slate);
   text-decoration: none;
   transition: color var(--transition);
+  white-space: nowrap;
 }
 
 .nav__links a:hover,
 .nav__links a.is-active { color: var(--clr-navy); }
+
+/* Duplicate of nav__cta, only shown inside the collapsed burger panel. */
+.nav__links-cta { display: none; }
 
 .nav__burger {
   display: none;

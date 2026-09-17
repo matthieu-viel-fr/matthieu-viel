@@ -22,6 +22,7 @@
 <body>
 
   {% block nav %}
+  {% set home_href = current_page == 'home' ? '' : nav_base ~ 'index.html' %}
   <nav class="nav" id="nav" aria-label="{{ locale == 'en' ? 'Main navigation' : 'Navigation principale' }}">
     <div class="container nav__inner">
       <a href="{{ nav_base }}index.html" class="nav__logo" aria-label="Matthieu Viel · {{ locale == 'en' ? 'Home' : 'Accueil' }}">
@@ -30,19 +31,30 @@
       </a>
       <ul class="nav__links" id="nav-links">
         {% if locale == 'en' %}
-        <li><a href="{{ nav_base }}index.html#help">{{ 'nav.services'|trans }}</a></li>
+        <li><a href="{{ home_href }}#help">{{ 'nav.services'|trans }}</a></li>
         <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
-        <li><a href="{{ nav_base }}index.html#about">{{ 'nav.about'|trans }}</a></li>
+        <li><a href="{{ home_href }}#about">{{ 'nav.about'|trans }}</a></li>
         <li><a href="{{ nav_base }}portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
         <li><a href="{{ nav_base }}contact.html"{% if current_page == 'contact' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.contact'|trans }}</a></li>
         {% else %}
-        <li><a href="{{ nav_base }}index.html#aide">{{ 'nav.offers'|trans }}</a></li>
+        <li><a href="{{ home_href }}#aide">{{ 'nav.offers'|trans }}</a></li>
         <li><a href="{{ nav_base }}audit/"{% if current_page == 'audit' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.audit'|trans }}</a></li>
         <li><a href="{{ nav_base }}senior-tech.html"{% if current_page == 'senior' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.senior'|trans }}</a></li>
-        <li><a href="{{ nav_base }}index.html#a-propos">{{ 'nav.about'|trans }}</a></li>
+        <li><a href="{{ home_href }}#a-propos">{{ 'nav.about'|trans }}</a></li>
         <li><a href="{{ nav_base }}portfolio.html"{% if current_page == 'portfolio' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.portfolio'|trans }}</a></li>
         <li><a href="{{ nav_base }}contact.html"{% if current_page == 'contact' %} class="is-active" aria-current="page"{% endif %}>{{ 'nav.contact'|trans }}</a></li>
         {% endif %}
+        {# Same call-to-action as nav__cta, shown only once the bar collapses
+           into the burger panel, where nav__cta is hidden. #}
+        <li class="nav__links-cta">
+          <a href="https://calendly.com/matthieu-viel-fr/30min"
+             class="btn btn--primary"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="{{ locale == 'en' ? 'Book a discovery call (opens Calendly)' : 'Réserver un appel découverte (ouvre Calendly)' }}">
+            {{ locale == 'en' ? 'Book a call' : 'Réserver un appel' }}
+          </a>
+        </li>
       </ul>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
         <a href="{{ lang_fr_url }}" class="lang-toggle__btn{{ locale == 'fr' ? ' lang-toggle__btn--active' }}" hreflang="fr"{{ locale == 'fr' ? ' aria-current="true"' }}>{{ 'lang.fr'|trans }}</a>
