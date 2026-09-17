@@ -67,4 +67,9 @@ foreach (['.htaccess', 'robots.txt', 'sitemap.xml'] as $file) {
     echo "✓ {$file}\n";
 }
 
+// dist/en/ needs its own ErrorDocument: Apache only allows one per
+// directory, and the root .htaccess above already claims it for French.
+orFail(copy($rootDir . '/en/.htaccess', $distDir . '/en/.htaccess'), "cannot copy en/.htaccess into dist/en/");
+echo "✓ en/.htaccess\n";
+
 echo "\nExport complete. Files written to dist/\n";

@@ -49,3 +49,49 @@ demande d'assombrir `--clr-slate` plutôt que d'éclaircir `--clr-muted`.
 aucun template, cohérent avec le choix de ne pas afficher de prix pour l'instant.
 
 ---
+
+## QW05 · En-têtes de cache et page 404
+
+**Statut :** fait. Commit à suivre.
+
+**Cache.** `.htaccess` à la racine, copié dans `dist/` par `src/export.php` :
+`Cache-Control: public, max-age=604800` sur css, js, webp, svg et woff2,
+`max-age=600, must-revalidate` sur le HTML, avec les `ExpiresByType` alignés
+sur les mêmes durées. L'arbitrage de la fiche est tranché sur l'option prudente :
+une semaine et non un an, parce que les noms d'assets ne portent pas de hash.
+Un cache d'un an empêcherait un correctif CSS d'atteindre les visiteurs déjà venus.
+
+**Page 404.** `src/templates/404.html.twig` et son miroir `en/404.html.twig`,
+ajoutés à `getPages()` dans `src/routes.php`. Nav et footer du site, trois portes de
+sortie (accueil, contact, audit technique), un lien `tel:` pour les cas urgents,
+et `noindex, follow`. Titres de 58 et 56 caractères, descriptions de 159 et 152.
+Absente du sitemap, comme demandé.
+
+**Découverte non prévue par la fiche.** Apache sert la page d'erreur à l'URL cassée
+réellement demandée, pas à `/404.html`. Les chemins relatifs calculés par profondeur
+auraient donc cherché le CSS dans `/audit/assets/css/main.css` sur une URL cassée en
+profondeur, et servi une page sans style ni navigation. `pageContext()` force des
+chemins absolus pour ces deux pages seulement.
+
+**ErrorDocument du répertoire /en/.** La solution propre a suffi : un fichier
+`en/.htaccess` à la racine du dépôt, copié dans `dist/en/` par l'export. Apache
+fusionne les `.htaccess` par répertoire, donc une URL EN cassée reçoit la 404 EN.
+Le repli accepté par la fiche (404 FR pour tout le site) n'a pas été nécessaire.
+
+**Test ajusté.** `tests/links.test.js` vérifiait le lien vers les mentions légales
+dans le footer sous sa seule forme relative. L'assertion accepte désormais aussi la
+forme absolue. Le test est élargi, pas affaibli : il continue d'exiger le lien.
+
+**Vérifications :** `.htaccess` et `dist/.htaccess` identiques, `ErrorDocument` et
+règles de cache présents des deux côtés, nav et footer présents dans les deux pages
+404, tous leurs liens et assets en chemin absolu, aucun tiret cadratin.
+`npm test` : 84 tests au vert, contre 82 avant.
+
+**Reste à vérifier après déploiement,** ces contrôles exigent le serveur :
+les en-têtes `Cache-Control` renvoyés par Nuxit sur les assets et sur le HTML,
+le maintien de `content-encoding: gzip`, et le rendu réel de `/page-qui-nexiste-pas`.
+Nuxit doit autoriser `mod_expires` et `mod_headers` : les blocs `IfModule` font que
+leur absence dégrade sans casser, mais le gain serait alors nul.
+
+**Observation hors périmètre :** le bouton de langue actif porte `href=""` sur toutes
+les pages du site, pas seulement sur la 404. Pré-existant, non corrigé ici.

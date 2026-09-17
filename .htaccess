@@ -16,3 +16,29 @@ RewriteRule ^tiktok\.html$ /contact.html [R=301,L]
 # me-suivre.html renamed to contact.html (contact info now leads the page)
 RewriteRule ^me-suivre\.html$ /contact.html [R=301,L]
 RewriteRule ^en/follow-me\.html$ /en/contact.html [R=301,L]
+
+# Custom 404 page (dist/en/.htaccess overrides this for /en/* with the English version)
+ErrorDocument 404 /404.html
+
+# Static asset caching. Asset names carry no hash (main.css, not
+# main.a3f9c1.css), so a week is the cautious ceiling: a year would keep a
+# fix from reaching returning visitors until their cache expired.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css               "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/javascript        "access plus 1 week"
+  ExpiresByType image/webp             "access plus 1 week"
+  ExpiresByType image/svg+xml          "access plus 1 week"
+  ExpiresByType font/woff2             "access plus 1 week"
+  ExpiresByType text/html              "access plus 10 minutes"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|webp|svg|woff2)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=600, must-revalidate"
+  </FilesMatch>
+</IfModule>

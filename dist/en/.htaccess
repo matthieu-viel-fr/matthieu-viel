@@ -1,0 +1,4 @@
+# Apache allows only one ErrorDocument per directory: this overrides the
+# root .htaccess for everything under /en/, so broken English URLs get the
+# English 404 page instead of the French one.
+ErrorDocument 404 /en/404.html

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable · Matthieu Viel · Développeur web Réunion{% endblock %}
+{% block meta_description %}Cette page n'existe pas ou plus sur le site de Matthieu Viel, développeur web à Saint-Pierre, La Réunion. Retrouvez l'accueil, le contact ou l'audit technique.{% endblock %}
+
+{% block robots %}
+  <meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/404.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/404.html">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/404.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/404.html">
+{% endblock %}
+
+{% block body %}
+  <main>
+    <section class="portfolio-hero" aria-label="Page introuvable">
+      <div class="container">
+        <p class="eyebrow">Erreur 404</p>
+        <h1 class="portfolio-hero__title">Cette page n'existe pas (ou plus).</h1>
+        <p class="portfolio-hero__subtitle">
+          Le lien que vous avez suivi ne mène nulle part. Ce n'est pas votre faute,
+          et ce n'est pas grave. Voici par où reprendre.
+        </p>
+
+        <div class="cta-group">
+          <a href="{{ nav_base }}index.html" class="btn btn--primary btn--lg" aria-label="Retourner à l'accueil du site">
+            Accueil
+          </a>
+          <a href="{{ nav_base }}contact.html" class="btn btn--outline btn--lg" aria-label="Décrire votre problème sur la page contact">
+            Expliquez-moi votre problème →
+          </a>
+          <a href="{{ nav_base }}audit/" class="btn btn--outline btn--lg" aria-label="Voir l'audit technique">
+            Audit technique
+          </a>
+        </div>
+
+        <p class="prose prose--mb">
+          Si c'est urgent, appelez le
+          <a href="tel:+262693852812">+262&nbsp;693&nbsp;85&nbsp;28&nbsp;12</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+{% endblock %}

@@ -30,12 +30,14 @@ function getPages(): array
         ['quiz.html',              'quiz.html.twig',              'fr', 'quiz',      'quiz.html',              'en/index.html'],
         ['contact.html',           'contact.html.twig',           'fr', 'contact',   'contact.html',           'en/contact.html'],
         ['audit/index.html',       'audit/index.html.twig',       'fr', 'audit',     'audit/',                 'en/audit/'],
+        ['404.html',               '404.html.twig',               'fr', '',          '404.html',               'en/404.html'],
 
         ['en/index.html',           'en/index.html.twig',           'en', 'home',      'index.html',            'en/index.html'],
         ['en/portfolio.html',       'en/portfolio.html.twig',       'en', 'portfolio', 'portfolio.html',         'en/portfolio.html'],
         ['en/legal-notice.html',    'en/legal-notice.html.twig',    'en', 'legal',     'mentions-legales.html',  'en/legal-notice.html'],
         ['en/contact.html',        'en/contact.html.twig',         'en', 'contact',   'contact.html',           'en/contact.html'],
         ['en/audit/index.html',     'en/audit/index.html.twig',     'en', 'audit',     'audit/',                 'en/audit/'],
+        ['en/404.html',              'en/404.html.twig',            'en', '',          '404.html',               'en/404.html'],
     ];
 
     foreach ($auditSlugs as $fr => $en) {
@@ -58,6 +60,15 @@ function pageContext(array $page): array
     $depth = substr_count($output, '/');
     $asset_base = str_repeat('../', $depth);
     $nav_base = $locale === 'en' ? str_repeat('../', max(0, $depth - 1)) : $asset_base;
+
+    // The 404 page is served by Apache's ErrorDocument for whatever broken
+    // URL the visitor requested, at any depth, so relative paths would
+    // resolve against that URL instead of against /404.html. Force
+    // absolute paths so assets and nav links always work.
+    if (str_ends_with($output, '404.html')) {
+        $asset_base = '/';
+        $nav_base = $locale === 'en' ? '/en/' : '/';
+    }
 
     return [
         'output'       => $output,

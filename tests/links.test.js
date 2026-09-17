@@ -97,9 +97,13 @@ htmlByFile.forEach((content, file) => {
   const hasFooter = /<footer\b/i.test(content);
   const isFrench = /^en\//.test(file) === false;
   const legalHref = isFrench ? /href="(?:\.\.\/)*mentions-legales\.html"/ : /href="(?:\.\.\/)*legal-notice\.html"/;
+  /* The 404 pages use absolute paths on purpose: Apache's ErrorDocument
+     serves them for whatever broken URL was requested, at any depth, so
+     relative paths would resolve against that URL instead of /404.html. */
+  const legalHrefAbsolute = isFrench ? /href="\/mentions-legales\.html"/ : /href="\/en\/legal-notice\.html"/;
 
   if (hasFooter) {
-    legalHref.test(content)
+    (legalHref.test(content) || legalHrefAbsolute.test(content))
       ? pass(`[${file}] lien légal présent dans le footer`)
       : fail(`[${file}] lien légal manquant dans le footer`);
   }

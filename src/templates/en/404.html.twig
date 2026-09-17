@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Not found · Matthieu Viel · Web developer Réunion Island{% endblock %}
+{% block meta_description %}This page does not exist or has moved on the site of Matthieu Viel, web developer in Saint-Pierre, Réunion Island. Find the home page, contact or audit.{% endblock %}
+
+{% block robots %}
+  <meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block canonical %}
+  <link rel="canonical" href="https://www.matthieu-viel.fr/en/404.html">
+  <link rel="alternate" hreflang="fr" href="https://www.matthieu-viel.fr/404.html">
+  <link rel="alternate" hreflang="en" href="https://www.matthieu-viel.fr/en/404.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.matthieu-viel.fr/404.html">
+{% endblock %}
+
+{% block body %}
+  <main>
+    <section class="portfolio-hero" aria-label="Page not found">
+      <div class="container">
+        <p class="eyebrow">Error 404</p>
+        <h1 class="portfolio-hero__title">This page doesn't exist (anymore).</h1>
+        <p class="portfolio-hero__subtitle">
+          The link you followed doesn't lead anywhere. That's not your fault,
+          and it's not a big deal. Here's where to go instead.
+        </p>
+
+        <div class="cta-group">
+          <a href="{{ nav_base }}index.html" class="btn btn--primary btn--lg" aria-label="Back to the site's home page">
+            Home
+          </a>
+          <a href="{{ nav_base }}contact.html" class="btn btn--outline btn--lg" aria-label="Describe your problem on the contact page">
+            Tell me your problem →
+          </a>
+          <a href="{{ nav_base }}audit/" class="btn btn--outline btn--lg" aria-label="See the technical audit">
+            Technical audit
+          </a>
+        </div>
+
+        <p class="prose prose--mb">
+          If it's urgent, call
+          <a href="tel:+262693852812">+262&nbsp;693&nbsp;85&nbsp;28&nbsp;12</a> directly.
+        </p>
+      </div>
+    </section>
+  </main>
+{% endblock %}
