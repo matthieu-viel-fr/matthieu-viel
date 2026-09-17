@@ -396,3 +396,42 @@ signale elle-même comme un sujet distinct.
 `aria-label` explicite, zone tactile de 44 px garantie par `min-height`, focus clavier
 déjà couvert globalement. `npm test` : 142 au vert. À noter, `html-validate` impose des
 espaces insécables sur l'intégralité du texte d'un lien `tel:`, préfixe compris.
+
+## QW10 · Reformuler la phrase anti-dépendance
+
+**Statut :** fait. Une suppression de contenu à valider par Matthieu, voir plus bas.
+
+La promesse de non-dépendance est conservée, elle désarme une objection réelle, la peur
+d'être pris en otage par son prestataire. Ce sont ses formulations qui changent : elles
+portaient sur la relation, elles portent désormais sur le savoir transmis. Le client ne
+doit pas dépendre de Matthieu pour comprendre ce qui se passe chez lui, mais il peut
+parfaitement choisir de le garder. Les quatre textes de la fiche ont été repris tels
+quels, sans réécriture.
+
+L'étape 3 du process est la plus significative : « Mon objectif n'est pas que vous
+m'appeliez toutes les semaines » devient « pour que vous sachiez quoi faire seul. Et
+quand quelque chose dépasse, vous savez qui appeler. » La phrase ouvre la porte au lieu
+de la fermer, ce qui lève la contradiction avec l'offre de suivi récurrent prévue.
+
+**Suppression à valider.** Le critère d'acceptation demandait de passer de quatre
+occurrences à deux ou trois. Le paragraphe « Formateur certifié ECP Formation : je
+transmets, je ne me rends pas indispensable », placé sous la grille des trois étapes,
+a été supprimé dans les deux langues. C'est un paragraphe isolé, pas un élément de
+grille : sa suppression ne laisse aucun trou de mise en page. La certification reste
+mentionnée deux fois par langue, dans le badge de preuve et dans l'encart de la section
+à propos, donc rien n'est perdu côté crédibilité. L'encart de la section à propos, lui,
+appartient à un ensemble de quatre cartes biographiques : il a été reformulé, pas
+supprimé, parce que le retirer aurait relevé d'un choix éditorial sur les faits à mettre
+en avant, pas d'une simple déduplication.
+
+**Occurrence laissée intacte, signalée.** Le sous-titre de la section process dit
+encore « Pas de jargon, pas de devis opaque, pas de dépendance créée exprès. » La fiche
+ne l'identifiait pas parmi les quatre passages et ne fournit pas de reformulation
+validée. Elle ne dit pas « ne me rappelez pas » et ne contredit donc pas un suivi
+récurrent : elle a été laissée telle quelle plutôt qu'improvisée.
+
+**Vérifications :** aucun terme interdit introduit, ni « partenaire », ni
+« accompagnement », ni « à vos côtés », qui ne sont pas encore validés par `seed/`.
+Aucun tiret cadratin. Relecture d'ensemble des deux accueils : la promesse reste
+perçue à trois endroits, et aucune formulation ne décourage plus le rappel.
+`npm test` : 142 au vert.
