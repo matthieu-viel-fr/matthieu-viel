@@ -435,3 +435,81 @@ récurrent : elle a été laissée telle quelle plutôt qu'improvisée.
 Aucun tiret cadratin. Relecture d'ensemble des deux accueils : la promesse reste
 perçue à trois endroits, et aucune formulation ne décourage plus le rappel.
 `npm test` : 142 au vert.
+
+---
+
+# Synthèse
+
+Les dix quick wins sont traités et commités un par un, dans l'ordre recommandé par le
+dossier. Le hook de pré-commit a lancé la suite de tests à chaque fois : aucun commit
+n'est passé au rouge.
+
+**Vérification globale finale, celle prévue par `quick-wins.md` :**
+
+| Contrôle | Attendu | Obtenu |
+|---|---|---|
+| Pages hors cible titre et description | 0 | 0 |
+| Adresses Gmail restantes | 0 | 0 |
+| Tirets cadratins dans `dist/` | 0 | 0 |
+| Suite de tests | verte | 142 sur 142 |
+
+La suite est passée de 82 à 142 contrôles. Trois garde-fous ont été ajoutés en chemin,
+chacun éprouvé en le faisant délibérément échouer avant de le déclarer bon : cohérence
+du sitemap avec la table de routage, fraîcheur du fichier `sitemap.xml` commité, et
+longueurs de `title` et de `meta description` mesurées sur le rendu.
+
+## Ce qui ne peut être vérifié qu'après déploiement
+
+- Les en-têtes `Cache-Control` réellement renvoyés par Nuxit, et le maintien de
+  `content-encoding: gzip`. Les blocs `IfModule` font que l'absence de `mod_expires` ou
+  de `mod_headers` dégraderait sans rien casser, mais le gain serait alors nul.
+- Le rendu de `/page-qui-nexiste-pas` et d'une URL EN cassée, qui doivent servir les
+  deux pages 404 distinctes.
+- L'aperçu de partage, avec le Post Inspector de LinkedIn, qui force aussi le
+  rafraîchissement du cache, et par un partage WhatsApp avec soi-même.
+- La disparition complète des appels à `fonts.gstatic.com`, sauf sur le quiz.
+
+## Ce qui reste à décider ou à faire, par ordre d'importance
+
+1. **Aligner les profils externes** sur `contact@matthieu-viel.fr` : signature LinkedIn,
+   profil Malt, bios Instagram et TikTok. La cohérence NAP se joue autant hors site que
+   sur le site, et QW01 n'a traité que le dépôt.
+2. **Valider la suppression** du paragraphe « Formateur certifié ECP Formation : je
+   transmets, je ne me rends pas indispensable » sous la grille du process, décidée en
+   QW10. La certification reste affichée deux fois par langue.
+3. **Le hero mobile de l'accueil déborde du premier écran**, et le débordement précède
+   les quick wins. Le bouton d'appel ajouté en QW09 reste donc sous la ligne de
+   flottaison. Y remédier suppose de retoucher la densité verticale du hero, la photo
+   notamment : c'est une décision de mise en page, pas un quick win.
+4. **`quiz.html` charge encore Montserrat depuis Google Fonts** par un lien qui lui est
+   propre. C'est le dernier appel à Google du site, sur la seule page désormais en
+   `noindex`. À traiter quand le sort de cette page sera tranché.
+5. **Trois images ne sont référencées nulle part** : `hero-banner.webp`,
+   `site-mockup.webp` et `cta-quiz.webp`, environ 85 ko déployés pour rien. Restes d'une
+   maquette à supprimer, ou assets en attente.
+6. **`/portfolio.html` n'offre aucun moyen de contact direct.** QW09 s'est abstenu
+   faute de structure de CTA dans son hero, l'ajout aurait été structurel.
+7. **Vérifier l'accord d'affichage des six logos clients**, maintenant qu'ils sont
+   nommés explicitement dans les `alt`.
+8. **Surveiller le titre de l'accueil FR** dans les résultats de recherche : à 60
+   caractères il est à la limite haute, et la troncature s'y joue en pixels.
+
+## Écarts assumés par rapport aux règles du projet
+
+- **Règle 3, WebP uniquement.** L'image de partage est en JPEG, sur décision de
+  Matthieu : certains agrégateurs sociaux lisent mal le WebP, et cette image n'est
+  jamais chargée par un visiteur, donc son poids ne coûte rien à aucune page.
+- **Cohérence d'affichage du téléphone.** Le bouton FR affiche le format local
+  `0693 85 28 12` quand le reste du site affiche l'international, sur décision de
+  Matthieu : c'est le format que lit spontanément un Réunionnais.
+
+## Corrections apportées à des constats inexacts du dossier
+
+- **QW08** affirmait qu'un lecteur d'écran n'annonçait rien après « Ils m'ont fait
+  confiance ». Le bandeau portait déjà `aria-hidden` et une liste `sr-only` des six
+  noms, depuis la migration vers Twig. Le gain réel de cette fiche est SEO, pas
+  accessibilité.
+- **QW07** décrivait trois visuels comme affichés en taille variable : ils ne sont
+  affichés nulle part.
+- **QW09** visait un bouton visible dans le premier écran mobile, ce que la mise en page
+  actuelle du hero ne permet pas, indépendamment de l'ajout.
