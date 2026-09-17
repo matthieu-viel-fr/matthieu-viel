@@ -252,3 +252,38 @@ l'accueil conservent leurs `width`, `height` et `loading`. `npm test` : 142 au v
 **Reste à faire après déploiement :** vérifier l'aperçu réel avec le Post Inspector
 de LinkedIn, qui force aussi le rafraîchissement du cache, et par un partage WhatsApp
 avec soi-même.
+
+## QW08 · Nommer les logos clients dans les `alt`
+
+**Statut :** fait. Commit à suivre.
+
+Les six logos de la première série portent désormais le nom de la marque : Citeo,
+Sellermania, Néosylva, Akeneo, Geofit, Tennis Contact. La copie de défilement garde
+`alt=""`. Les `alt` se limitent au nom, sans description du dessin ni ajout marketing,
+comme l'exige la règle « pas de contenu artificiel ».
+
+**Le constat de la fiche était partiellement inexact, à retenir.** Elle affirmait
+qu'un lecteur d'écran annonçait « Ils m'ont fait confiance » suivi de rien du tout.
+En réalité le bandeau portait déjà `aria-hidden="true"` sur `.clients__marquee`, qui
+englobe les deux séries, doublé d'une liste `sr-only` énumérant les six noms en texte.
+Ce dispositif date de la migration vers Twig, il est antérieur à l'audit.
+L'accessibilité était donc déjà correcte, et les six noms étaient déjà annoncés une
+seule fois.
+
+Le gain réel de cette fiche est donc SEO et GEO, pas accessibilité : les crawlers
+lisent les `alt` indépendamment de `aria-hidden`, qui ne s'adresse qu'aux technologies
+d'assistance. Gain modeste, puisque les marques figurent déjà dans le texte de la page,
+mais gratuit. Ni la structure DOM, ni la CSS d'animation, ni le dispositif
+d'accessibilité existant n'ont été touchés.
+
+**Vérifications :** 6 `alt` nommés et 6 `alt=""` sur chaque accueil, FR et EN,
+zéro image sans `alt` sur tout le site, `width`, `height`, `loading` et classes
+inchangés. `npm test` : 142 au vert. Le diff se limite à douze lignes par template.
+
+**Hors périmètre technique, à traiter par Matthieu :** la fiche demande de vérifier
+que l'accord d'affichage est acquis pour chacun des six logos. Nommer explicitement
+les marques dans les `alt` rend cette question un peu plus sensible qu'avec un
+`alt` vide.
+
+**Note :** `logo-wetransform.webp`, sur la page de cas client, a déjà un `alt` correct
+dans les deux langues. Non concerné, non touché.
