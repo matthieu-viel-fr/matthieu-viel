@@ -159,6 +159,55 @@ imgTags.forEach(([tag]) => {
 });
 
 /* ------------------------------------------------------------------ */
+section('7. Cohérence dist/sitemap.xml vs. pages réellement rendues');
+
+/* Recoupement indépendant de tests/sitemap-consistency.test.php (PHP,
+   basé sur getPages()) : ici on repart du HTML réellement produit dans
+   dist/, sans supposer quoi que ce soit sur routes.php, pour détecter le
+   cas où un template et sa déclaration de routage se contrediraient. */
+const sitemapPath = path.join(DIST, 'sitemap.xml');
+
+if (!fs.existsSync(sitemapPath)) {
+  fail('dist/sitemap.xml MANQUANT (lancer php src/export.php)');
+} else {
+  const sitemapXml = fs.readFileSync(sitemapPath, 'utf8');
+  const declaredLocs = new Set(
+    [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, loc]) => loc)
+  );
+
+  function fileToUrlPath(file) {
+    if (file === 'index.html') return '/';
+    if (file.endsWith('/index.html')) return '/' + file.slice(0, -'index.html'.length);
+    return '/' + file;
+  }
+
+  htmlByFile.forEach((content, file) => {
+    const isNoindex = /<meta\s+name="robots"\s+content="noindex/i.test(content);
+    const isRedirect = /<meta\s+http-equiv="refresh"/i.test(content);
+    const url = 'https://www.matthieu-viel.fr' + fileToUrlPath(file);
+    const isDeclared = declaredLocs.has(url);
+
+    if (isNoindex || isRedirect) {
+      isDeclared
+        ? fail(`[${file}] noindex/redirect mais présent dans sitemap.xml (${url})`)
+        : pass(`[${file}] noindex/redirect, absent du sitemap comme attendu`);
+    } else {
+      isDeclared
+        ? pass(`[${file}] déclaré dans sitemap.xml (${url})`)
+        : fail(`[${file}] indexable mais ABSENT de sitemap.xml (${url})`);
+    }
+  });
+
+  declaredLocs.forEach(loc => {
+    const urlPath = loc.replace('https://www.matthieu-viel.fr', '');
+    const file = urlPath === '/' ? 'index.html' : urlPath.replace(/^\//, '') + (urlPath.endsWith('/') ? 'index.html' : '');
+    htmlByFile.has(file)
+      ? pass(`[sitemap.xml] ${loc} pointe vers une page existante`)
+      : fail(`[sitemap.xml] ${loc} pointe vers dist/${file} INTROUVABLE`);
+  });
+}
+
+/* ------------------------------------------------------------------ */
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`Résultat : ${passes} ✓ passés · ${failures} ✗ échoués`);
 console.log('─'.repeat(50));

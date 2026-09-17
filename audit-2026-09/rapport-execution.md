@@ -143,3 +143,57 @@ de toute façon. L'appel à Google y persiste donc pour l'instant.
 
 **Reste à vérifier après déploiement :** dans l'onglet réseau, que `fonts.gstatic.com`
 n'est plus appelé du tout sur les pages autres que le quiz.
+
+## QW03 · Corriger le `sitemap.xml`
+
+**Statut :** fait. Commit à suivre.
+
+**Arbitrages tranchés par Matthieu :** quiz.html en option B, et sitemap généré depuis
+`routes.php` plutôt que maintenu à la main.
+
+**Contenu corrigé.** `senior-tech.html` est déclarée, elle était absente alors que la
+nav et le footer de toutes les pages pointent vers elle sous le libellé « Missions ».
+Elle n'a pas d'équivalent EN, donc seuls `hreflang="fr"` et `x-default` la déclarent,
+tous deux vers elle-même : inventer un `hreflang="en"` vers l'accueil EN aurait été une
+déclaration fausse. `tech.html` reste absente, c'est une redirection par méta-refresh,
+et les deux pages 404 sont exclues. `priority` et `changefreq` sont retirés, Google les
+ignore. 27 URL déclarées.
+
+**quiz.html.** Retirée du sitemap et passée en `noindex, follow`. L'URL continue de
+résoudre, les liens LinkedIn existants fonctionnent toujours, mais la page n'est plus
+proposée à l'indexation. Elle n'est reliée à aucune page, son orphelinat reste
+délibéré. À noter : ce template n'étend pas `base.html.twig`, c'est un document
+autonome, donc le block `robots` ajouté en QW05 ne s'y applique pas ; sa balise
+existante a été corrigée directement.
+
+**Génération.** `src/sitemap.php` construit le XML depuis `getPages()`,
+`src/generate-sitemap.php` régénère le fichier versionné à la racine, que l'export
+copie ensuite dans `dist/`. Le sitemap reste donc lisible en diff lors des revues.
+
+**Lastmod, le point sensible.** Aucune date existante n'a bougé. Elles sont portées
+dans une table explicite, recopiées telles quelles depuis l'ancien fichier, et non
+dérivées du git log ni du mtime : les commits du jour ont touché presque tous les
+templates pour une simple adresse email, les dater d'aujourd'hui aurait été un faux
+signal. `senior-tech.html`, nouvelle entrée, prend le 2026-09-16, date du dernier
+commit ayant modifié son contenu réel.
+
+**Garde-fou, point 8 du backlog.** `tests/sitemap-consistency.test.php` vérifie que
+toute page de `getPages()` est soit exclue explicitement, soit déclarée. Le test a été
+éprouvé dans les deux sens : il échoue bien quand on ajoute une page fantôme.
+
+Une faille subsistait dans sa première version : il comparait `routes.php` au XML
+généré en mémoire, jamais au fichier réellement présent sur le disque. Une modification
+de routage sans régénération serait passée au vert. Un quatrième contrôle a donc été
+ajouté, lui aussi éprouvé sur un sitemap volontairement périmé.
+
+**Dépassement de périmètre à signaler.** Le sous-agent a également modifié
+`package.json` et `.github/workflows/deploy.yml` pour brancher ce test sur `npm test`
+et sur la CI, et a corrigé `TODO.md` dont une phrase devenait littéralement fausse.
+L'étape CI a été vérifiée : le job `validate` installe déjà PHP 8.3, elle ne cassera
+pas le déploiement. Ces changements sortent du périmètre strict de la fiche mais
+servent son objectif ; ils sont signalés ici pour relecture.
+
+**Vérifications :** XML valide, 27 URL, `senior-tech` présente, `tech.html` et `quiz`
+absents, zéro `priority` ou `changefreq`, `dist/sitemap.xml` synchronisé.
+`robots.txt` inchangé et cohérent : il autorise le crawl, ce qui est nécessaire pour
+que la balise `noindex` du quiz soit effectivement lue. `npm test` au vert.

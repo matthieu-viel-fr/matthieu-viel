@@ -147,15 +147,20 @@ Acceptance checks:
 Current issue:
 - The quiz is no longer linked from anywhere on the site. The CTA was removed
   from the homepage on 2026-09-16 because it no longer fits the positioning.
-- The page is still built, still routed in `src/routes.php` and still listed in
-  `sitemap.xml`, on purpose: LinkedIn posts still point at it and those links
-  must keep working.
+- The page is still built and still routed in `src/routes.php`, on purpose:
+  LinkedIn posts still point at it and those links must keep working.
+- Since QW03 (2026-09-17) it is deliberately removed from `sitemap.xml` and
+  carries `<meta name="robots" content="noindex, follow">`: the URL still
+  resolves for existing links, but it is no longer offered for indexing.
+  See `getSitemapExclusions()` in `src/routes.php`.
 - Without this note a future session will read the orphan either as a bug to fix
   by re-adding a link, or as dead code to delete. Both would be wrong.
 
 Acceptance checks:
 - Keep the page reachable at its current URL until the LinkedIn links are retired.
 - Do not re-link it from the homepage without revisiting the positioning.
+- Keep it excluded from `sitemap.xml` and `noindex` unless the decision to make
+  it an acquisition page again is revisited.
 - Revisit the whole page if and when it is genuinely retired, see item 14.
 
 ### A6. This backlog still describes the pre-Twig layout
@@ -276,7 +281,16 @@ Acceptance checks:
 
 ### 8. Add sitemap consistency test
 
-Current issue:
+Status: implemented in QW03 (2026-09-17), not yet committed at time of writing.
+`sitemap.xml` is now generated from `getPages()` (`src/generate-sitemap.php` +
+`src/sitemap.php`), instead of being hand-maintained, which removes the class of
+drift this item was written against. `tests/sitemap-consistency.test.php` (wired
+into `npm test` and CI) fails if a `getPages()` entry is neither excluded
+(`getSitemapExclusions()`) nor given a `lastmod` (`getSitemapLastmod()`);
+`tests/links.test.js` section 7 cross-checks the same thing from the rendered
+`dist/` output independently. Move this to Done once committed.
+
+Current issue (pre-QW03, kept for context):
 - Many pages exist, and `sitemap.xml` must stay aligned manually.
 
 Files likely involved:
@@ -284,9 +298,9 @@ Files likely involved:
 - `tests/links.test.js`
 
 Acceptance checks:
-- Every public HTML page appears in `sitemap.xml`.
-- No sitemap URL points to a missing local page.
-- `noindex` pages such as `tech.html` are intentionally excluded or clearly documented.
+- Every public HTML page appears in `sitemap.xml`. ✓
+- No sitemap URL points to a missing local page. ✓
+- `noindex` pages such as `tech.html` are intentionally excluded or clearly documented. ✓
 
 ## Priority 2 — Performance And Asset Cleanup
 

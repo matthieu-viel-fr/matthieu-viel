@@ -107,3 +107,91 @@ function getRoutes(): array
 
     return $routes;
 }
+
+/**
+ * Pages from getPages() that must never appear in sitemap.xml, keyed by
+ * output path (the tuple's first element), with the reason documented.
+ *
+ * - tech.html is a meta-refresh redirect to senior-tech.html: redirects
+ *   are never sitemap entries.
+ * - quiz.html is deliberately orphaned (see TODO.md, item A5): it must
+ *   keep working for existing LinkedIn links but is not offered for
+ *   indexing, hence <meta name="robots" content="noindex, follow"> on
+ *   its template and its removal here.
+ * - 404.html / en/404.html are error documents served via Apache's
+ *   ErrorDocument directive, not content pages; both already carry a
+ *   noindex meta tag (see 404.html.twig / en/404.html.twig).
+ */
+function getSitemapExclusions(): array
+{
+    return [
+        'tech.html'   => 'meta-refresh redirect to senior-tech.html',
+        'quiz.html'   => 'deliberately orphaned/noindex, see TODO.md item A5',
+        '404.html'    => 'error document (ErrorDocument), not a content page',
+        'en/404.html' => 'error document (ErrorDocument), not a content page',
+    ];
+}
+
+/**
+ * Output paths that intentionally have no translated equivalent. For
+ * these, the sitemap must declare hreflang="fr" and x-default only, both
+ * pointing at the page itself. senior-tech.html's language toggle points
+ * at en/index.html for navigation purposes only (there is no EN page
+ * with the same content), so declaring hreflang="en" -> en/index.html in
+ * the sitemap would be a false equivalence. See MT18 for the plan to
+ * resolve this by creating a real EN page.
+ */
+function getSitemapPagesWithoutTranslation(): array
+{
+    return ['senior-tech.html'];
+}
+
+/**
+ * Explicit lastmod per sitemap URL, keyed by output path. Seeded from the
+ * exact dates already published in sitemap.xml as of the QW03 audit
+ * (2026-09-17); update an entry by hand only when that page's main
+ * content actually changes.
+ *
+ * Deliberately NOT derived from git log or filesystem mtime: both are
+ * skewed by repo-wide mechanical edits that touch many templates without
+ * changing their substance (e.g. the 2026-09-17 email address
+ * unification across the whole site), which would misdate every page.
+ */
+function getSitemapLastmod(): array
+{
+    return [
+        'index.html'                                              => '2026-05-10',
+        'en/index.html'                                           => '2026-05-10',
+        'portfolio.html'                                          => '2026-05-10',
+        'en/portfolio.html'                                       => '2026-05-10',
+        // New to the sitemap (QW03), not new to the site: routes.php has
+        // always routed and rendered it, it was just missing here. Dated
+        // to commit 753ec6b (2026-09-16), the last change to this page's
+        // actual content (17 -> 18 years of experience), not to the
+        // unrelated 2026-09-17 email-address commit that also touched
+        // this template's markup.
+        'senior-tech.html'                                        => '2026-09-16',
+        'mentions-legales.html'                                   => '2026-05-21',
+        'en/legal-notice.html'                                    => '2026-05-21',
+        'contact.html'                                             => '2026-09-16',
+        'en/contact.html'                                          => '2026-09-16',
+        'audit/index.html'                                        => '2026-05-13',
+        'audit/application-vibe-coding-production/index.html'     => '2026-05-13',
+        'audit/integration-wetransform-saas/index.html'           => '2026-06-26',
+        'audit/dette-technique-application-saas/index.html'       => '2026-05-13',
+        'audit/tests-automatises-application/index.html'          => '2026-05-13',
+        'audit/cicd-pipeline-application/index.html'               => '2026-05-13',
+        'audit/freelance-audit-technique-startup/index.html'      => '2026-05-13',
+        'audit/application-solo-founder-clients/index.html'       => '2026-05-13',
+        'audit/faq/index.html'                                     => '2026-05-13',
+        'en/audit/index.html'                                      => '2026-05-13',
+        'en/audit/application-vibe-coding-production/index.html' => '2026-05-13',
+        'en/audit/wetransform-integration-saas/index.html'         => '2026-06-26',
+        'en/audit/technical-debt-saas-application/index.html'     => '2026-05-13',
+        'en/audit/automated-tests-application/index.html'          => '2026-05-13',
+        'en/audit/cicd-pipeline-application/index.html'             => '2026-05-13',
+        'en/audit/freelance-technical-audit-startup/index.html'    => '2026-05-13',
+        'en/audit/application-solo-founder-clients/index.html'      => '2026-05-13',
+        'en/audit/faq/index.html'                                   => '2026-05-13',
+    ];
+}

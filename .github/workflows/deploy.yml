@@ -37,6 +37,9 @@ jobs:
       - name: Tests liens et balises critiques
         run: node tests/links.test.js
 
+      - name: Test de cohérence du sitemap
+        run: php tests/sitemap-consistency.test.php
+
   deploy:
     name: Déploiement FTP (Nuxit)
     runs-on: ubuntu-latest
