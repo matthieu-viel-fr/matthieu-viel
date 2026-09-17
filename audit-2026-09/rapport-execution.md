@@ -345,3 +345,54 @@ de la page en cause, et il repasse au vert une fois la page restaurée.
 **Vérification indépendante de l'orchestrateur :** en excluant explicitement les
 redirections et les pages `noindex`, le script de la fiche affiche zéro page hors cible
 sur l'ensemble du site, et aucun tiret cadratin.
+
+## QW09 · Ajouter un CTA téléphone dans le hero mobile
+
+**Statut :** fait, avec une réserve importante sur le critère d'acceptation principal.
+
+Un troisième bouton `tel:` a été ajouté dans le hero de l'accueil FR et EN, et dans
+le groupe de CTA existant de `/audit/` FR et EN. Le bouton primaire « Expliquez-moi
+votre problème » n'est pas déclassé : le téléphone est visuellement un recours, avec
+une nouvelle variante `.btn--ghost`, et il reste affiché sur desktop, où un dirigeant
+notera le numéro.
+
+**Le critère « visible dans le premier écran mobile » n'est pas atteint, et ce n'est
+pas dû à cet ajout.** Mesuré au navigateur en 375 × 667 et 390 × 844, le hero de
+l'accueil fait environ 1030 px de haut : la photo, le bandeau, le titre, l'accroche et
+les deux boutons existants débordaient déjà du premier écran avant toute modification.
+Le second CTA, « Réserver un appel », n'était lui-même quasiment pas visible sans
+défiler. Le gain réel est donc que le `tel:` n'est plus enterré après une trentaine de
+titres dans la FAQ, mais il reste sous la ligne de flottaison. Atteindre le zéro
+défilement demanderait de retoucher la densité verticale du hero mobile, réduire ou
+déplacer la photo, ce qui est une refonte structurelle et exige un accord préalable.
+Sur `/audit/`, dont le hero n'a pas de photo, le bouton est bien visible sans défiler
+en 390 × 844.
+
+**Régression d'accessibilité détectée et corrigée à la relecture.** La variante
+`.btn--ghost` utilisait `--clr-blue` sur fond transparent, donc sur le dégradé du hero :
+4,3:1 et 3,94:1 selon l'endroit du dégradé, sous le seuil AA de 4,5:1. C'était
+exactement la violation corrigée en QW02, réintroduite ailleurs. Le bouton utilise
+désormais `--clr-blue-dark`, qui tient 5,91:1 au pire cas et 6,95:1 sur blanc.
+
+**Mesure.** Le mécanisme Plausible existant a été réutilisé, pas dupliqué : attribut
+`data-cta` et événement « CTA Click ». La valeur retenue est `phone-hero`, distincte
+du `phone` de la page contact, ce qui permettra de séparer un appel passé d'emblée
+depuis le hero d'un appel passé après avoir lu la page contact. C'est précisément la
+distinction que la fiche cherche à mesurer.
+
+**Format du numéro, décision de Matthieu.** Le bouton FR affiche `0693 85 28 12`,
+format local, comme le demande la fiche, alors que les neuf autres occurrences du site
+affichent `+262 693 85 28 12`, y compris en français. L'incohérence est assumée : le
+format local est celui que lit spontanément un Réunionnais. Le `href` reste
+`tel:+262693852812` dans les deux langues, et la version EN affiche l'international.
+À harmoniser un jour, ou non.
+
+**Abstention volontaire sur `/portfolio.html`.** Son hero n'a aucun groupe de CTA :
+y ajouter un bouton aurait demandé de créer une structure nouvelle, pas de compléter
+l'existante. Cette page reste sans aucun moyen de contact direct, ce que la fiche
+signale elle-même comme un sujet distinct.
+
+**Vérifications :** deux liens `tel:` sur chaque accueil, un sur `/audit/`,
+`aria-label` explicite, zone tactile de 44 px garantie par `min-height`, focus clavier
+déjà couvert globalement. `npm test` : 142 au vert. À noter, `html-validate` impose des
+espaces insécables sur l'intégralité du texte d'un lien `tel:`, préfixe compris.

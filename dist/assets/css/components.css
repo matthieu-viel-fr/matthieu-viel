@@ -227,6 +227,22 @@
   color: var(--clr-white);
 }
 
+/* Secondary recourse action (e.g. a phone number next to the main CTAs):
+   visually lighter than .btn--outline, still a real 44px+ tap target.
+   Uses --clr-blue-dark, not --clr-blue: on a transparent background the
+   button sits on the hero gradient, where --clr-blue only reaches 3.94:1. */
+.btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-blue-dark);
+  min-height: 44px;
+}
+
+.btn--ghost:hover {
+  background: var(--clr-blue-light);
+  color: var(--clr-blue-dark);
+}
+
 .btn--lg {
   padding: .95rem 2rem;
   font-size: var(--fs-base);

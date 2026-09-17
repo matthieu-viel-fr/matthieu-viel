@@ -65,6 +65,12 @@
           <a href="faq/" class="btn btn--outline btn--lg">
             Frequently asked questions
           </a>
+          <a href="tel:+262693852812"
+             class="btn btn--ghost hero__cta-phone"
+             data-cta="phone-hero"
+             aria-label="Call Matthieu Viel on +262 693 85 28 12">
+            Urgent:&nbsp;+262&nbsp;693&nbsp;85&nbsp;28&nbsp;12
+          </a>
         </div>
         <div class="portfolio-hero__stats">
           <div class="portfolio-hero__stat">
@@ -217,4 +223,19 @@
     </section>
 
   </main>
+{% endblock %}
+
+{% block before_scripts %}
+  <script>
+    (function () {
+      window.plausible = window.plausible || function () {
+        (window.plausible.q = window.plausible.q || []).push(arguments);
+      };
+      document.querySelectorAll('[data-cta]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          window.plausible('CTA Click', { props: { link: el.dataset.cta } });
+        });
+      });
+    })();
+  </script>
 {% endblock %}
