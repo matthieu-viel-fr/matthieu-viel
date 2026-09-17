@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* Inter, self-hosted (SIL Open Font License 1.1, see src/assets/fonts/OFL.txt).
+   Google now ships Inter's latin subset as a single variable-weight woff2
+   (axis wght 100-900); this is that exact file, so rendering is unchanged.
+   font-weight is declared as a range covering only the weights this
+   stylesheet actually uses: --fw-regular (400) through --fw-extrabold (800). */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/inter-var-latin.woff2') format('woff2');
+}
 
 /* ============================================================
    RESET & BASE

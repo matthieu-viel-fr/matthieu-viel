@@ -95,3 +95,51 @@ leur absence dégrade sans casser, mais le gain serait alors nul.
 
 **Observation hors périmètre :** le bouton de langue actif porte `href=""` sur toutes
 les pages du site, pas seulement sur la 404. Pré-existant, non corrigé ici.
+
+## QW06 · Sortir Google Fonts du `@import` CSS
+
+**Statut :** fait, option B. Commit à suivre.
+
+**Arbitrage tranché par Matthieu :** auto-hébergement, pas le simple `preconnect`.
+La raison qui a emporté la décision : les mentions légales affirment que le site
+n'utilise aucun cookie tiers et ne collecte aucune donnée personnelle, alors qu'un
+appel à `fonts.gstatic.com` transmet l'adresse IP du visiteur à Google.
+L'auto-hébergement rend cette promesse vraie. Il supprime aussi les deux domaines
+tiers du chemin de rendu, donc deux points de défaillance.
+
+**Découverte qui a simplifié l'implémentation.** Google ne sert plus Inter en
+fichiers statiques : les cinq graisses demandées pointaient toutes vers le même
+woff2, une police variable à axe `wght`. Un seul fichier auto-hébergé de 47 ko couvre
+donc les cinq graisses, avec un unique `@font-face` déclarant `font-weight: 400 800`.
+C'est le fichier exact que Google servait, le rendu est inchangé par construction.
+
+**Graisses.** Les cinq (400, 500, 600, 700, 800) sont réellement utilisées, aucune
+n'a été écartée. Le `grep` sur les `font-weight` numériques proposé par la fiche ne
+renvoyait rien : le code n'utilise que des tokens `--fw-*`, dont l'usage a été
+retracé un par un. Aucun italique n'est utilisé pour Inter.
+
+**Sous-ensemble latin seul,** suffisant : son `unicode-range` couvre tous les
+accents français employés sur le site, y compris le œ vérifié dans l'accueil et la FAQ.
+
+**Fichiers ajoutés :** `src/assets/fonts/inter-var-latin.woff2` (47 ko) et `OFL.txt`,
+la licence SIL Open Font License que le fichier de police doit obligatoirement
+accompagner. Aucune modification de `src/export.php` n'a été nécessaire, la copie
+récursive de `src/assets/` existait déjà, et la règle de cache `woff2` du `.htaccess`
+posée en QW05 les couvre.
+
+**Vérifications :** plus aucun `@import` dans le CSS, `font-display: swap` conservé,
+pile de repli système déjà correcte dans `--ff` et laissée telle quelle.
+Le `preload` se résout correctement à chaque profondeur, y compris en chemin absolu
+sur les deux pages 404. `npm test` : 84 au vert. Le woff2 est un fichier valide,
+vérifié par sa signature.
+
+**Mentions légales :** relues dans les deux langues, elles ne nomment ni Google ni
+aucun service de police. Leurs formulations génériques restent vraies. Rien changé.
+
+**Observation hors périmètre, à traiter :** `quiz.html.twig` charge encore Montserrat
+par un `<link>` Google Fonts qui lui est propre. La fiche ne le couvre pas, et rien
+n'a été touché. Cette page fait l'objet de QW03, où la question de son sort se pose
+de toute façon. L'appel à Google y persiste donc pour l'instant.
+
+**Reste à vérifier après déploiement :** dans l'onglet réseau, que `fonts.gstatic.com`
+n'est plus appelé du tout sur les pages autres que le quiz.
