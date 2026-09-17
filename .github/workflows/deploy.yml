@@ -40,6 +40,9 @@ jobs:
       - name: Test de cohérence du sitemap
         run: php tests/sitemap-consistency.test.php
 
+      - name: Test des longueurs de title et meta description
+        run: php tests/meta-lengths.test.php
+
   deploy:
     name: Déploiement FTP (Nuxit)
     runs-on: ubuntu-latest

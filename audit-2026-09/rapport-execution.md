@@ -287,3 +287,61 @@ les marques dans les `alt` rend cette question un peu plus sensible qu'avec un
 
 **Note :** `logo-wetransform.webp`, sur la page de cas client, a déjà un `alt` correct
 dans les deux langues. Non concerné, non touché.
+
+---
+
+## QW04 · Réécrire 20 méta-descriptions et 6 titres
+
+**Statut :** fait. Commit à suivre.
+
+20 méta-descriptions (10 FR, 10 EN) et 6 titres EN réécrits avec les textes déjà
+validés par la fiche, longueurs vérifiées sur `dist/` régénéré. `og:title` mis à jour
+sur les 6 pages EN concernées ; `og:description` laissé tel quel partout (divergence
+volontaire déjà présente), cohérence relue page par page après réécriture.
+
+Hors périmètre strict de la fiche, sur décision explicite de Matthieu et traité dans
+la même passe pour la parité FR/EN : le titre et la description de l'accueil FR
+changent (titre : le poste plutôt que « Dépannage informatique » ; description : la
+variante qui introduit la joignabilité et le délai de réponse). L'accueil EN est
+réécrit en miroir : titre avec « Independent web developer », description reprenant
+le même message (réparation, joignabilité, 18 ans de métier, réponse sous 24 h),
+jamais « consultant ».
+
+**Vérifications :** script de la fiche → `1 page(s) hors cible` (`quiz.html`
+uniquement, desc=0, attendu : elle est noindex depuis QW03 et le script ne filtre que
+les redirections meta-refresh, pas les pages noindex). `tech.html` correctement
+ignoré. 0 tiret cadratin sur tout `dist/`. `npm test` : 142 ✓ existants + le nouveau
+test toujours au vert.
+
+**Point 7 du backlog traité :** `tests/meta-lengths.test.php`, sur le modèle de
+`tests/sitemap-consistency.test.php` (lecture de `getPages()`, mesure sur `dist/`,
+compteur d'échecs, `exit(1)`). Branché dans `package.json` (`npm test`) et dans
+`.github/workflows/deploy.yml`, juste après le test de sitemap. Il exclut `tech.html`
+(redirection) et `quiz.html` (noindex) via une liste dédiée documentée dans le fichier,
+volontairement différente de `getSitemapExclusions()` : celle-ci exclut aussi les deux
+pages 404 en tant que documents d'erreur, alors que la présente tâche demande de les
+garder dans le périmètre vérifié puisqu'elles sont déjà conformes. Mesure en points de
+code Unicode via PCRE (`/./us`) plutôt que `mb_strlen`, l'extension `mbstring` n'étant
+pas installée dans cet environnement.
+
+**Textes retenus pour l'accueil, pour mémoire.**
+
+- Titre FR, 60 caractères : `Matthieu Viel · Développeur web indépendant Saint-Pierre 974`
+- Titre EN, 56 caractères : `Matthieu Viel · Independent web developer Réunion Island`
+- Description FR, 151 : `Site en panne, piraté, ou plus personne pour s'en occuper ? Je répare, puis je reste joignable. 18 ans de métier à Saint-Pierre 974. Réponse sous 24 h.`
+- Description EN, 156 : `Website down, hacked, or no one left to look after it? I fix it, then stay reachable. 18 years in the trade, based in Réunion Island. Reply within 24 hours.`
+
+Le titre FR abandonne « Dépannage informatique » pour le titre de poste retenu le
+2026-09-16. La formulation exacte demandée par Matthieu faisait 43 caractères, sous la
+cible : elle a été complétée par « Saint-Pierre 974 », que portait déjà l'ancien titre,
+pour atteindre 60 tout en gardant le marqueur local. À 60 caractères il est à la limite
+haute de la cible, donc à surveiller dans la SERP, où la troncature se joue en pixels
+et non en caractères.
+
+**Contrôle du garde-fou.** Le test a été éprouvé et non seulement exécuté : une
+description volontairement raccourcie à 11 caractères le fait bien échouer avec le nom
+de la page en cause, et il repasse au vert une fois la page restaurée.
+
+**Vérification indépendante de l'orchestrateur :** en excluant explicitement les
+redirections et les pages `noindex`, le script de la fiche affiche zéro page hors cible
+sur l'ensemble du site, et aucun tiret cadratin.

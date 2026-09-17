@@ -2,7 +2,7 @@
   "name": "matthieu-viel",
   "private": true,
   "scripts": {
-    "test": "html-validate 'dist/**/*.html' && node tests/links.test.js && php tests/sitemap-consistency.test.php"
+    "test": "html-validate 'dist/**/*.html' && node tests/links.test.js && php tests/sitemap-consistency.test.php && php tests/meta-lengths.test.php"
   },
   "devDependencies": {
     "html-validate": "^9"
